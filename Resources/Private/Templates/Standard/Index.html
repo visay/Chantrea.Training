@@ -1,0 +1,11 @@
+<f:layout name="MainTemplate" />
+
+<f:section name="MainContent">
+	<f:form method="post">
+		<label for="username">Username</label>
+		<f:form.textfield name="TYPO3\FLOW3\Security\Authentication\Token\UsernamePassword::username" tabindex="1" value="{username}" />
+		<label for="password" >Password</label>
+		<f:form.password name="TYPO3\FLOW3\Security\Authentication\Token\UsernamePassword::password" tabindex="2" value="{password}" />
+		<f:form.submit value="Login" />
+	</f:form>
+</f:section>
