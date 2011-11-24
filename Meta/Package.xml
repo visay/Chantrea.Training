@@ -4,4 +4,13 @@
 	<title>Chantrea Training</title>
 	<description>Training listing, suggesting and voting.</description>
 	<version>1.0.0-dev</version>
+	<parties>
+		<person role="LeadDeveloper">
+			<name>Karsten Dambekalns</name>
+			<email>karsten@typo3.org</email>
+			<website></website>
+			<organisation>TYPO3 Association</organisation>
+			<repositoryUserName></repositoryUserName>
+		</person>
+	</parties>
 </package>
