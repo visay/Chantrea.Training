@@ -6,11 +6,19 @@
 	<version>1.0.0-dev</version>
 	<parties>
 		<person role="LeadDeveloper">
-			<name>Karsten Dambekalns</name>
-			<email>karsten@typo3.org</email>
-			<website></website>
-			<organisation>TYPO3 Association</organisation>
-			<repositoryUserName></repositoryUserName>
+			<name>Rayuth You</name>
+			<email>rayuth@typo3cambodia.org</email>
+			<website>www.typo3cambodia.org</website>
+			<organisation>TYPO3 Cambodia</organisation>
+			<repositoryUserName>yuthnara</repositoryUserName>
 		</person>
 	</parties>
+	<constraints>
+		<depends>
+			<package minVersion="1.0.0-dev">FLOW3</package>
+			<package>TYPO3CR</package>
+		</depends>
+		<conflicts/>
+		<suggests/>
+	</constraints>
 </package>
