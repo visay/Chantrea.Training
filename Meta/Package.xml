@@ -12,11 +12,17 @@
 			<organisation>TYPO3 Cambodia</organisation>
 			<repositoryUserName>yuthnara</repositoryUserName>
 		</person>
+		<person role="Developer">
+			<name>Visay Keo</name>
+			<email>visay@typo3cambodia.org</email>
+			<website>www.typo3cambodia.org</website>
+			<organisation>TYPO3 Cambodia</organisation>
+			<repositoryUserName>visay</repositoryUserName>
+		</person>
 	</parties>
 	<constraints>
 		<depends>
-			<package minVersion="1.0.0-dev">FLOW3</package>
-			<package>TYPO3CR</package>
+			<package minVersion="1.0.0">FLOW3</package>
 		</depends>
 		<conflicts/>
 		<suggests/>
