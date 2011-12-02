@@ -1,0 +1,18 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Show user "{user.name}"</f:section>
+
+<f:section name="Content">
+	<table>
+		<tr>
+			<th>Username</th>
+			<td>{user.username}</td>
+		</tr>
+	
+		<tr>
+			<th>Password</th>
+			<td>{user.password}</td>
+		</tr>
+	</table>
+	<f:link.action action="index">Back</f:link.action>
+</f:section>

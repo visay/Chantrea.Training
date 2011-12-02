@@ -1,0 +1,28 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Edit training "{training.name}"</f:section>
+
+<f:section name="Content">
+	<f:form action="update" object="{training}" name="training">
+		<ol>
+			<li>
+				<label for="title">Title</label>
+				<f:form.textfield property="title" id="title" />
+			</li>
+		
+			<li>
+				<label for="description">Description</label>
+				<f:form.textfield property="description" id="description" />
+			</li>
+		
+			<li>
+				<label for="createdDate">Created date</label>
+				<f:form.textfield type="datetime" value="{training.createdDate -> f:format.date(format: 'Y-m-d\TH:i:sP')}" property="createdDate" id="createdDate" />
+			</li>
+		
+			<li>
+				<f:form.submit value="Update"/>
+			</li>
+		</ol>
+	</f:form>
+</f:section>

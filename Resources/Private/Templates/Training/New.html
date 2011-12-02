@@ -1,0 +1,30 @@
+<f:layout name="Default" />
+
+<f:section name="Title">New training</f:section>
+
+<f:section name="Content">
+	<p>Just fill out the following form to create a new training:</p>
+
+	<f:form action="create" name="newTraining">
+		<ol>
+			<li>
+				<label for="title">Title</label>
+				<f:form.textfield property="title" id="title" />
+			</li>
+		
+			<li>
+				<label for="description">Description</label>
+				<f:form.textfield property="description" id="description" />
+			</li>
+		
+			<li>
+				<label for="createdDate">Created date</label>
+				<f:form.textfield type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d\TH:i:sP')}" property="createdDate" id="createdDate" />
+			</li>
+		
+			<li>
+				<f:form.submit value="Create" />
+			</li>
+		</ol>
+	</f:form>
+</f:section>
