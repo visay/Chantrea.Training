@@ -21,4 +21,7 @@
 		</f:else>
 	</f:if>
 	<p><f:link.action action="new">Create a new training</f:link.action></p>
+	<f:security.ifAuthenticated>
+		<f:link.action action="logout" controller="Standard">Logout</f:link.action>
+	</f:security.ifAuthenticated>
 </f:section>
