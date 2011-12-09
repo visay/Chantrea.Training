@@ -40,6 +40,13 @@ class Training {
 	 * @var integer
 	 */
 	protected $vote;
+	
+	/**
+	 * The user
+	 * @var Chantrea\Training\Domain\Model\User
+	 * @ORM\ManyToOne
+	 */
+	protected $user;
 
 
 	/**
@@ -102,7 +109,7 @@ class Training {
 	/**
 	 * Get the Training's vote
 	 *
-	 * @return DateTime The Training's vote
+	 * @return integer The Training's vote
 	 */
 	public function getVote() {
 		return $this->vote;
@@ -111,11 +118,30 @@ class Training {
 	/**
 	 * Sets this Training's vote
 	 *
-	 * @param DateTime $createdDate The Training's vote
+	 * @param integer $vote The Training's vote
 	 * @return void
 	 */
 	public function setVote($vote) {
 		$this->vote = $vote;
+	}
+	
+	/**
+	 * Get the Training's user
+	 *
+	 * @return Chantrea\Training\Domain\Model\User The Training's user
+	 */
+	public function getUser() {
+		return $this->user;
+	}
+
+	/**
+	 * Sets this Training's user
+	 *
+	 * @param Chantrea\Training\Domain\Model\User The Training's user
+	 * @return void
+	 */
+	public function setUser($user) {
+		$this->user = $user;
 	}
 
 }

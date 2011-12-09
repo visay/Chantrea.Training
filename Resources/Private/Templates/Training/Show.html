@@ -3,26 +3,31 @@
 <f:section name="Title">Show training "{training.title}"</f:section>
 
 <f:section name="Content">
-	<table>
-		<tr>
-			<th>Title</th>
-			<td>{training.title}</td>
-		</tr>
+	<ol>
+		<li>
+			<label for="title">Title</label>
+			{training.title}
+		</li>
 	
-		<tr>
-			<th>Description</th>
-			<td>{training.description}</td>
-		</tr>
+		<li>
+			<label for="description">Description</label>
+			{training.description}
+		</li>
 	
-		<tr>
-			<th>Created date</th>
-			<td>{training.createdDate -> f:format.date(format: 'Y-m-d H:i')}</td>
-		</tr>
+		<li>
+			<label for="createdDate">Created date</label>
+			{training.createdDate -> f:format.date(format: 'Y-m-d H:i')}
+		</li>
 	
-		<tr>
-			<th>Vote</th>
-			<td>{training.vote}</td>
-		</tr>
-	</table>
+		<li>
+			<label for="vote">Vote</label>
+			{training.vote}
+		</li>
+		
+		<li>
+			<label for="user">User</label>
+			{training.user.username}
+		</li>
+	</ol>
 	<f:link.action action="index">Back</f:link.action>
 </f:section>

@@ -16,6 +16,16 @@ use TYPO3\FLOW3\Annotations as FLOW3;
 class TrainingRepository extends \TYPO3\FLOW3\Persistence\Repository {
 
 	// add customized methods here
+	public function findAll() {
+		$query = $this->createQuery();
+
+		return $query->setOrderings(
+			array(
+				'vote' => \TYPO3\FLOW3\Persistence\QueryInterface::ORDER_DESCENDING
+			)
+		)
+		->execute();
+	}
 
 }
 ?>

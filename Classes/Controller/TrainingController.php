@@ -65,9 +65,10 @@ class TrainingController extends ActionController {
 	 * @return void
 	 */
 	public function createAction(\Chantrea\Training\Domain\Model\Training $newTraining) {
+		$newTraining->setVote(0);
 		$this->trainingRepository->add($newTraining);
 		$this->addFlashMessage('Created a new training.');
-		// $this->redirect('index');
+		$this->redirect('index');
 	}
 
 	/**
@@ -101,6 +102,19 @@ class TrainingController extends ActionController {
 	public function deleteAction(Training $training) {
 		$this->trainingRepository->remove($training);
 		$this->addFlashMessage('Deleted a training.');
+		$this->redirect('index');
+	}
+	
+	/**
+	 * Voted the given training object
+	 *
+	 * @param \Chantrea\Training\Domain\Model\Training $training The training to update
+	 * @return void
+	 */
+	public function voteAction(Training $training) {
+		$training->setVote($training->getVote() + 1);
+		$this->trainingRepository->update($training);
+		$this->addFlashMessage('Voted the training.');
 		$this->redirect('index');
 	}
 

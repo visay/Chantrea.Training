@@ -1,18 +1,18 @@
 <f:layout name="Default" />
 
-<f:section name="Title">Show user "{user.name}"</f:section>
+<f:section name="Title">Show user "{user.username}"</f:section>
 
 <f:section name="Content">
-	<table>
-		<tr>
-			<th>Username</th>
-			<td>{user.username}</td>
-		</tr>
+	<ol>
+		<li>
+			<label for="username">Username</label>
+			<f:form.textfield property="username" id="username" value="{user.username}" readonly="readonly" />
+		</li>
 	
-		<tr>
-			<th>Password</th>
-			<td>{user.password}</td>
-		</tr>
-	</table>
+		<li>
+			<label for="password">Password</label>
+			<f:form.password property="password" id="password" value="{user.password}" readonly="readonly" />
+		</li>
+	</ol>
 	<f:link.action action="index">Back</f:link.action>
 </f:section>

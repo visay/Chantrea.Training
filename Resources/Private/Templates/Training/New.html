@@ -19,7 +19,12 @@
 		
 			<li>
 				<label for="createdDate">Created date</label>
-				<f:form.textfield type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d\TH:i:sP')}" property="createdDate" id="createdDate" />
+				<f:form.textfield type="datetime" value="{f:format.date(date: 'now', format: 'Y-m-d\TH:i:sP')}" property="createdDate" id="createdDate" readonly="readonly" />
+			</li>
+		
+			<li>
+				<label for="user">User</label>
+				<f:form.select name="user" property="user" id="user" options="{users}" optionValueField="id" optionLabelField="username" />
 			</li>
 		
 			<li>

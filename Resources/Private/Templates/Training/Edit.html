@@ -1,6 +1,6 @@
 <f:layout name="Default" />
 
-<f:section name="Title">Edit training "{training.name}"</f:section>
+<f:section name="Title">Edit training "{training.title}"</f:section>
 
 <f:section name="Content">
 	<f:form action="update" object="{training}" name="training">
@@ -17,7 +17,7 @@
 		
 			<li>
 				<label for="createdDate">Created date</label>
-				<f:form.textfield type="datetime" value="{training.createdDate -> f:format.date(format: 'Y-m-d\TH:i:sP')}" property="createdDate" id="createdDate" />
+				<f:form.textfield type="datetime" value="{training.createdDate -> f:format.date(format: 'Y-m-d\TH:i:sP')}" property="createdDate" id="createdDate" readonly="readonly" />
 			</li>
 		
 			<li>
