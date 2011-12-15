@@ -98,6 +98,13 @@ class StandardController extends \TYPO3\FLOW3\MVC\Controller\ActionController {
 		$this->addFlashMessage('Account created! Username: "visay", Password: "12345"!');
 		$this->redirect('index');
 	}
+	
+	/**
+	 * Enter description here ...
+	 */
+	public function signupAction() {
+		
+	}
 
 }
 

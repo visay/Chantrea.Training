@@ -7,7 +7,7 @@
 			<f:link.action action="logout" controller="Standard">Logout</f:link.action>
 		</f:then>
 		<f:else>
-			<form action="chantrea.training/standard/authenticate" method="post" name="loginform">
+			<form action="chantrea.training/standard/createAccount" method="post" name="signupform">
 				<input type="text" id="username"
 					name="__authentication[TYPO3][FLOW3][Security][Authentication][Token][UsernamePassword][username]"
 					value="" tabindex="1" />
@@ -16,8 +16,6 @@
 					value="" tabindex="2" />
 				<input type="submit" value="Login" tabindex="3" />
 			</form>
-			<f:link.action action="generateDefaultAccount" controller="Standard">Generate Default Account</f:link.action>
-			<f:link.action action="signup" controller="Standard">Signup</f:link.action>
 		</f:else>
 	</f:security.ifAuthenticated>
 </f:section>
