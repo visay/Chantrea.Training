@@ -34,12 +34,6 @@ class StandardController extends \TYPO3\FLOW3\MVC\Controller\ActionController {
 	protected $authenticationManager;
 	
 	/**
-	 * @var \TYPO3\FLOW3\Security\Context
-	 * @FLOW3\Inject
-	 */
-	protected $securityContext;
-	
-	/**
 	 * Index action
 	 *
 	 * @return void
@@ -70,14 +64,8 @@ class StandardController extends \TYPO3\FLOW3\MVC\Controller\ActionController {
 	 */
 	public function logoutAction() {
 		$this->authenticationManager->logout();
-		$activeTokens = $this->securityContext->getAuthenticationTokens();
-		foreach ($activeTokens as $token) {
-			if ($token->isAuthenticated()) {
-				$token->setAuthenticationStatus($token::NO_CREDENTIALS_GIVEN);
-			}
-		}
 		$this->addFlashMessage('Successfully logged out.');
-		$this->redirect('generateDefaultAccount');
+		$this->redirect('index');
 	}
 	
 	/**
