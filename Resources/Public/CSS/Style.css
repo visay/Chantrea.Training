@@ -1,3 +1,21 @@
-ol li {
-	display: none;
+/**
+ * Login form
+ */
+#login-form label {
+	float: left;
+	width: 150px;
+}
+
+#login-form #button {
+	margin: 0 0 0 150px;
+	width: 100px;
+}
+
+/**
+ * Flash messages
+ */
+.flashmessages {
+	color: #FF0000;
+	list-style: none;
+	padding: 0;
 }

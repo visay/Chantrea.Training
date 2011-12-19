@@ -1,0 +1,13 @@
+#                                                                        #
+# Settings Configuration for the Training package                        #
+#                                                                        #
+
+TYPO3:
+  FLOW3:
+    security:
+      authentication:
+        providers:
+          DefaultProvider:
+            entryPoint:
+              WebRedirect:
+                uri: login
