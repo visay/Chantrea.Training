@@ -8,7 +8,7 @@ namespace Chantrea\Training\Controller;
 
 use TYPO3\FLOW3\Annotations as FLOW3;
 
-use TYPO3\FLOW3\MVC\Controller\ActionController;
+use TYPO3\FLOW3\Mvc\Controller\ActionController;
 use \Chantrea\Training\Domain\Model\User;
 
 /**
