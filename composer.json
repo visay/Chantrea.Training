@@ -1,0 +1,14 @@
+{
+    "name": "chantrea/training",
+    "type": "typo3-flow-package",
+    "description": "Training listing, suggesting and voting.",
+    "version": "1.0.0-dev",
+    "require": {
+        "typo3/flow": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Chantrea\\Training": "Classes"
+        }
+    }
+}
