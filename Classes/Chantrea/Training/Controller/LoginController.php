@@ -6,24 +6,24 @@ namespace Chantrea\Training\Controller;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * Login controller for the Chantrea.Training package 
  *
- * @FLOW3\Scope("singleton")
+ * @Flow\Scope("singleton")
  */
-class LoginController extends \TYPO3\FLOW3\Mvc\Controller\ActionController {
+class LoginController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	
 	/**
-	 * @FLOW3\Inject
-	 * @var \TYPO3\FLOW3\Security\Authentication\AuthenticationManagerInterface
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Security\Authentication\AuthenticationManagerInterface
 	 */
 	protected $authenticationManager;
 	
 	/**
-	 * @FLOW3\Inject
-	 * @var TYPO3\FLOW3\Security\Context
+	 * @Flow\Inject
+	 * @var TYPO3\Flow\Security\Context
 	 */
 	protected $securityContext;
 	
@@ -48,7 +48,7 @@ class LoginController extends \TYPO3\FLOW3\Mvc\Controller\ActionController {
 		try {
 			$this->authenticationManager->authenticate();
 			$this->redirect('index', 'Training');
-		} catch (\TYPO3\FLOW3\Security\Exception\AuthenticationRequiredException $exception) {
+		} catch (\TYPO3\Flow\Security\Exception\AuthenticationRequiredException $exception) {
 			$this->addFlashMessage('ឈ្មោះអ្នកប្រើប្រាស់ ឬក៏ លេខសម្ងាត់ ពុំត្រឹមត្រូវ។');
 			throw $exception;
 		}

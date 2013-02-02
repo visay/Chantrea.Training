@@ -6,14 +6,14 @@ namespace Chantrea\Training\Domain\Repository;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * A repository for Trainings
  *
- * @FLOW3\Scope("singleton")
+ * @Flow\Scope("singleton")
  */
-class TrainingRepository extends \TYPO3\FLOW3\Persistence\Repository {
+class TrainingRepository extends \TYPO3\Flow\Persistence\Repository {
 
 	// add customized methods here
 	public function findAll() {
@@ -21,7 +21,7 @@ class TrainingRepository extends \TYPO3\FLOW3\Persistence\Repository {
 
 		return $query->setOrderings(
 			array(
-				'vote' => \TYPO3\FLOW3\Persistence\QueryInterface::ORDER_DESCENDING
+				'vote' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_DESCENDING
 			)
 		)
 		->execute();

@@ -6,26 +6,26 @@ namespace Chantrea\Training\Controller;
  *                                                                        *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
-use TYPO3\FLOW3\Mvc\Controller\ActionController;
+use TYPO3\Flow\Mvc\Controller\ActionController;
 use \Chantrea\Training\Domain\Model\Training;
 
 /**
  * Training controller for the Chantrea.Training package 
  *
- * @FLOW3\Scope("singleton")
+ * @Flow\Scope("singleton")
  */
 class TrainingController extends ActionController {
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Chantrea\Training\Domain\Repository\TrainingRepository
 	 */
 	protected $trainingRepository;
 	
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Chantrea\Training\Domain\Repository\UserRepository
 	 */
 	protected $userRepository;
