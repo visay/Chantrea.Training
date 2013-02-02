@@ -1,23 +1,15 @@
-<f:layout name="MainTemplate" />
+<f:layout name="Default" />
 
-<f:section name="MainContent">
-	<f:flashMessages class="flashmessages" />
-	<f:security.ifAuthenticated>
-		<f:then>
-			<f:link.action action="logout" controller="Standard">Logout</f:link.action>
-		</f:then>
-		<f:else>
-			<form action="chantrea.training/standard/authenticate" method="post" name="loginform">
-				<input type="text" id="username"
-					name="__authentication[TYPO3][FLOW3][Security][Authentication][Token][UsernamePassword][username]"
-					value="" tabindex="1" />
-				<input type="password" id="password"
-					name="__authentication[TYPO3][FLOW3][Security][Authentication][Token][UsernamePassword][password]"
-					value="" tabindex="2" />
-				<input type="submit" value="Login" tabindex="3" />
-			</form>
-			<f:link.action action="generateDefaultAccount" controller="Standard">Generate Default Account</f:link.action>
-			<f:link.action action="signup" controller="Standard">Signup</f:link.action>
-		</f:else>
-	</f:security.ifAuthenticated>
+<f:section name="Title">Index view of Standard controller</f:section>
+
+<f:section name="Content">
+	<h1>A freshly created Fluid template!</h1>
+	<p>Some data set by the controller:</p>
+	<ul>
+		
+		<f:for each="{foos}" as="foo">
+			<li>{foo}</li>
+		</f:for>
+		
+	</ul>
 </f:section>

@@ -1,8 +1,7 @@
 {
     "name": "chantrea/training",
     "type": "typo3-flow-package",
-    "description": "Training listing, suggesting and voting.",
-    "version": "1.0.0-dev",
+    "description": "",
     "require": {
         "typo3/flow": "*"
     },
