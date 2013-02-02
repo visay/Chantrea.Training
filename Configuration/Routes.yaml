@@ -1,0 +1,21 @@
+#                                                                        #
+# Default routes configuration for the Chantrea.Training package         #
+#                                                                        #
+
+-
+  name: 'Topic list'
+  uriPattern: 'chantrea/training'
+  defaults:
+    '@package':    'Chantrea.Training'
+    '@controller': 'Standard'
+    '@action':     'index'
+    '@format':     'html'
+
+-
+  name: 'Redirect to Topic list'
+  uriPattern: ''
+  defaults:
+    '@package':    'Chantrea.Training'
+    '@controller': 'Standard'
+    '@action':     'redirect'
+    '@format':     'html'
