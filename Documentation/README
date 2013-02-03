@@ -1,0 +1,10 @@
+How to install Chantrea Training application
+============================================
+
++ Clone the distribution repository
+
+1. git clone git://github.com/visay/Chantrea.Distribution.git
+2. cd Chantrea.Distribution
+3. composer install
+
+(3) You need to make sure that you have composer install globally in your system
