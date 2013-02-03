@@ -1,7 +1,15 @@
 {
     "name": "chantrea/training",
     "type": "typo3-flow-package",
-    "description": "",
+    "description": "TYPO3 Flow application to suggest topic, vote and plan a training.",
+    "homepage": "http://www.visay.info",
+    "license": ["LGPL-3.0+"],
+    "authors": [
+        {
+            "name": "Visay Keo",
+            "email": "keo@visay.info"
+        }
+    ],
     "require": {
         "typo3/flow": "*"
     },
