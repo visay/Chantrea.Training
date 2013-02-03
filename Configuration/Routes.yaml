@@ -4,7 +4,7 @@
 
 -
   name: 'Topic list'
-  uriPattern: 'chantrea/training'
+  uriPattern: 'training'
   defaults:
     '@package':    'Chantrea.Training'
     '@controller': 'Standard'

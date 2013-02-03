@@ -9,7 +9,7 @@ namespace Chantrea\Training\Controller;
 use TYPO3\Flow\Annotations as Flow;
 
 /**
- * Standard controller for the Chantrea.Training package 
+ * Standard controller for the Chantrea.Training package
  *
  * @Flow\Scope("singleton")
  */
@@ -26,6 +26,14 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 		));
 	}
 
+	/**
+	 * Redirect action
+	 *
+	 * @return void
+	 */
+	public function redirectAction() {
+		$this->redirect('index');
+	}
 }
 
 ?>
