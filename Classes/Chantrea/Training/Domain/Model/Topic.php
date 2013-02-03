@@ -19,12 +19,19 @@ class Topic {
 	/**
 	 * The title
 	 * @var string
+	 * @Flow\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="Text")
+	 * @Flow\Validate(type="StringLength", options={"minimum"=5, "maximum"=50})
 	 */
 	protected $title;
 
 	/**
 	 * The short description
 	 * @var string
+	 * @Flow\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="Text")
+	 * @Flow\Validate(type="StringLength", options={"minimum"=50, "maximum"=255})
+	 * @ORM\Column(type="text")
 	 */
 	protected $shortDescription;
 

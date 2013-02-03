@@ -6,6 +6,8 @@ namespace Chantrea\Training\Tests\Unit\Domain\Model;
  *                                                                        *
  *                                                                        */
 
+use Chantrea\Training\Domain\Model\Topic;
+
 /**
  * Testcase for Topic
  */
@@ -14,12 +16,19 @@ class TopicTest extends \TYPO3\Flow\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function makeSureThatSomethingHolds() {
-		$this->markTestIncomplete('Automatically generated test case; you need to adjust this!');
+	public function setTitle() {
+		$topic = new Topic();
+		$topic->setTitle('Chantrea Training');
+		$this->assertSame('Chantrea Training', $topic->getTitle());
+	}
 
-		$expected = 'Foo';
-		$actual = 'Foo'; // This should be the result of some function call
-		$this->assertSame($expected, $actual);
+	/**
+	 * @test
+	 */
+	public function setShortDescription() {
+		$topic = new Topic();
+		$topic->setShortDescription('Training description ...');
+		$this->assertSame('Training description ...', $topic->getShortDescription());
 	}
 }
 ?>

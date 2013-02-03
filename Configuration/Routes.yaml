@@ -3,19 +3,22 @@
 #                                                                        #
 
 -
-  name: 'Topic list'
+  name: 'Starting point screen'
   uriPattern: 'training'
   defaults:
-    '@package':    'Chantrea.Training'
     '@controller': 'Standard'
     '@action':     'index'
-    '@format':     'html'
 
 -
-  name: 'Redirect to Topic list'
+  name: 'Topic actions'
+  uriPattern: 'topic(/{@action})'
+  defaults:
+    '@controller': 'Topic'
+    '@action':     'index'
+
+-
+  name: 'Redirect to starting point'
   uriPattern: ''
   defaults:
-    '@package':    'Chantrea.Training'
     '@controller': 'Standard'
     '@action':     'redirect'
-    '@format':     'html'
