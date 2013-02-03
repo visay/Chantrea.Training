@@ -1,0 +1,24 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Show account "{account.party.name}"</f:section>
+<f:section name="Header">Show account "{account.party.name}"</f:section>
+
+<f:section name="Content">
+	<table>
+		<tr>
+			<th>Account</th>
+			<td>{account.accountIdentifier}</td>
+		</tr>
+
+		<tr>
+			<th>First name</th>
+			<td>{account.party.name.firstName}</td>
+		</tr>
+
+		<tr>
+			<th>Last name</th>
+			<td>{account.party.name.lastName}</td>
+		</tr>
+	</table>
+	<f:link.action controller="Topic" action="index">Back</f:link.action>
+</f:section>

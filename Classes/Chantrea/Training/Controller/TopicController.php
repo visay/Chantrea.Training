@@ -9,7 +9,7 @@ namespace Chantrea\Training\Controller;
 use TYPO3\Flow\Annotations as Flow;
 
 use TYPO3\Flow\Mvc\Controller\ActionController;
-use \Chantrea\Training\Domain\Model\Topic;
+use Chantrea\Training\Domain\Model\Topic;
 
 /**
  * Topic controller for the Chantrea.Training package
@@ -17,6 +17,12 @@ use \Chantrea\Training\Domain\Model\Topic;
  * @Flow\Scope("singleton")
  */
 class TopicController extends ActionController {
+
+	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Security\Context
+	 */
+	protected $securityContext;
 
 	/**
 	 * @Flow\Inject
@@ -28,6 +34,7 @@ class TopicController extends ActionController {
 	 * Shows a list of topics
 	 *
 	 * @return void
+	 * @Flow\SkipCsrfProtection
 	 */
 	public function indexAction() {
 		$this->view->assign('topics', $this->topicRepository->findAll());
@@ -38,6 +45,7 @@ class TopicController extends ActionController {
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to show
 	 * @return void
+	 * @Flow\SkipCsrfProtection
 	 */
 	public function showAction(Topic $topic) {
 		$this->view->assign('topic', $topic);
@@ -47,8 +55,10 @@ class TopicController extends ActionController {
 	 * Shows a form for creating a new topic object
 	 *
 	 * @return void
+	 * @Flow\SkipCsrfProtection
 	 */
 	public function newAction() {
+		$this->view->assign('account', $this->securityContext->getAccount());
 	}
 
 	/**
@@ -58,6 +68,7 @@ class TopicController extends ActionController {
 	 * @return void
 	 */
 	public function createAction(Topic $newTopic) {
+		$newTopic->setAccount($this->securityContext->getAccount());
 		$this->topicRepository->add($newTopic);
 		$this->addFlashMessage('Created a new topic.');
 		$this->redirect('index');
@@ -68,6 +79,7 @@ class TopicController extends ActionController {
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to edit
 	 * @return void
+	 * @Flow\SkipCsrfProtection
 	 */
 	public function editAction(Topic $topic) {
 		$this->view->assign('topic', $topic);
@@ -94,6 +106,15 @@ class TopicController extends ActionController {
 	public function deleteAction(Topic $topic) {
 		$this->topicRepository->remove($topic);
 		$this->addFlashMessage('Deleted a topic.');
+		$this->redirect('index');
+	}
+
+	/**
+	 * Redirect action
+	 *
+	 * @return void
+	 */
+	public function redirectAction() {
 		$this->redirect('index');
 	}
 }

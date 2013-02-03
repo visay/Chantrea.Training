@@ -1,14 +1,16 @@
 <f:layout name="Default" />
 
 <f:section name="Title">A list of topics</f:section>
+<f:section name="Header">A list of topics</f:section>
+
 <f:section name="Content">
-	<f:flashMessages class="flashmessages" />
 	<f:if condition="{topics}">
 		<f:then>
 			<ul>
 				<f:for each="{topics}" as="topic">
 					<li>
 						<f:link.action action="show" arguments="{topic: topic}">{topic.title}</f:link.action>
+						<f:link.action controller="Standard" action="showAccount" arguments="{account: topic.account}">{topic.account.party.name}</f:link.action>
 						<f:link.action action="edit" arguments="{topic: topic}">Edit</f:link.action>
 						<f:link.action action="delete" arguments="{topic: topic}">Delete</f:link.action>
 					</li>

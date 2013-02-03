@@ -9,6 +9,8 @@ namespace Chantrea\Training\Domain\Model;
 use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
+use TYPO3\Flow\Security\Account;
+
 /**
  * A Topic
  *
@@ -35,6 +37,13 @@ class Topic {
 	 */
 	protected $shortDescription;
 
+	/**
+	 * The account
+	 * @var \TYPO3\Flow\Security\Account
+	 * @ORM\OneToOne
+	 * @Flow\Validate(type="NotEmpty")
+	 */
+	protected $account;
 
 	/**
 	 * Get the Topic's title
@@ -74,5 +83,23 @@ class Topic {
 		$this->shortDescription = $shortDescription;
 	}
 
+	/**
+	 * Get the Topic's account
+	 *
+	 * @return \TYPO3\Flow\Security\Account The Topic's owner
+	 */
+	public function getAccount() {
+		return $this->account;
+	}
+
+	/**
+	 * Sets this Topic's account
+	 *
+	 * @param \TYPO3\Flow\Security\Account $account The Topic's owner
+	 * @return void
+	 */
+	public function setAccount(Account $account) {
+		$this->account = $account;
+	}
 }
 ?>

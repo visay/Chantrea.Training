@@ -6,12 +6,14 @@ namespace Chantrea\Training\Tests\Unit\Domain\Model;
  *                                                                        *
  *                                                                        */
 
+use TYPO3\Flow\Tests\UnitTestCase;
 use Chantrea\Training\Domain\Model\Topic;
+use TYPO3\Flow\Security\Account;
 
 /**
  * Testcase for Topic
  */
-class TopicTest extends \TYPO3\Flow\Tests\UnitTestCase {
+class TopicTest extends UnitTestCase {
 
 	/**
 	 * @test
@@ -29,6 +31,17 @@ class TopicTest extends \TYPO3\Flow\Tests\UnitTestCase {
 		$topic = new Topic();
 		$topic->setShortDescription('Training description ...');
 		$this->assertSame('Training description ...', $topic->getShortDescription());
+	}
+
+	/**
+	 * @test
+	 */
+	public function setAccount() {
+		$account = new Account();
+		$account->setAccountIdentifier('visay');
+		$topic = new Topic();
+		$topic->setAccount($account);
+		$this->assertSame('visay', $topic->getAccount()->getAccountIdentifier());
 	}
 }
 ?>

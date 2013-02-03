@@ -1,0 +1,15 @@
+#                                                                #
+# Settings Configuration for the Chantrea.Training package       #
+#                                                                #
+
+TYPO3:
+  Flow:
+    security:
+      authentication:
+        authenticationStrategy: oneToken
+        providers:
+          DefaultProvider:
+            provider: 'PersistedUsernamePasswordProvider'
+            entryPoint: 'WebRedirect'
+            entryPointOptions:
+              uri: 'login'

@@ -3,22 +3,76 @@
 #                                                                        #
 
 -
-  name: 'Starting point screen'
-  uriPattern: 'training'
+  name: 'Standard action'
+  uriPattern: 'login'
   defaults:
     '@controller': 'Standard'
     '@action':     'index'
 
 -
-  name: 'Topic actions'
-  uriPattern: 'topic(/{@action})'
+  name: 'Authenticate action'
+  uriPattern: 'authenticate'
+  defaults:
+    '@controller': 'Standard'
+    '@action':     'authenticate'
+
+-
+  name: 'Logout action'
+  uriPattern: 'logout'
+  defaults:
+    '@controller': 'Standard'
+    '@action':     'logout'
+
+-
+  name: 'Show account action'
+  uriPattern: '{account}'
+  defaults:
+    '@controller': 'Standard'
+    '@action':     'showAccount'
+  routeParts:
+    account:
+      objectType: TYPO3\Flow\Security\Account
+      uriPattern: '{party.name.firstName}.{party.name.lastName}'
+
+-
+  name: 'Redirect action'
+  uriPattern: ''
+  defaults:
+    '@controller': 'Standard'
+    '@action':     'redirect'
+
+-
+  name: 'Topic list action'
+  uriPattern: 'topics'
   defaults:
     '@controller': 'Topic'
     '@action':     'index'
 
 -
-  name: 'Redirect to starting point'
-  uriPattern: ''
+  name: 'Topic list action'
+  uriPattern: 'topic(/{@action})'
   defaults:
-    '@controller': 'Standard'
+    '@controller': 'Topic'
     '@action':     'redirect'
+
+-
+  name: 'Topic actions'
+  uriPattern: 'topic/{topic}'
+  defaults:
+    '@controller': 'Topic'
+    '@action':     'show'
+  routeParts:
+    topic:
+      objectType: Chantrea\Training\Domain\Model\Topic
+      uriPattern: '{title}'
+
+-
+  name: 'Topic actions'
+  uriPattern: 'topic/{topic}/{@action}'
+  defaults:
+    '@controller': 'Topic'
+    '@action':     'show'
+  routeParts:
+    topic:
+      objectType: Chantrea\Training\Domain\Model\Topic
+      uriPattern: '{title}'

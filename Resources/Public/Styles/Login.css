@@ -1,0 +1,34 @@
+/*!
+ * Chantrea.Training v0.0.1
+ *
+ * Copyright 2013 Keo Visay
+ * Licensed under the LGPL-3.0+
+ */
+
+body {
+	padding-bottom: 40px;
+	padding-top: 40px;
+}
+
+.form-signin {
+	background-color: #FFFFFF;
+	border: 1px solid #E5E5E5;
+	border-radius: 5px 5px 5px 5px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	margin: 0 auto 20px;
+	max-width: 300px;
+	padding: 19px 29px 29px;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+	margin-bottom: 10px;
+}
+
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+	font-size: 16px;
+	height: auto;
+	margin-bottom: 15px;
+	padding: 7px 9px;
+}
