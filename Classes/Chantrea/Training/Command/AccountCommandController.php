@@ -56,7 +56,7 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 		$electronicAddress->setIdentifier($identifier);
 		$person->setPrimaryElectronicAddress($electronicAddress);
 
-		$account = $this->accountFactory->createAccountWithPassword($identifier, $password, array('Administrator'));
+		$account = $this->accountFactory->createAccountWithPassword($identifier, $password, array('Chantrea.Training:Administrator'));
 		$this->accountRepository->add($account);
 		$person->addAccount($account);
 		$this->partyRepository->add($person);

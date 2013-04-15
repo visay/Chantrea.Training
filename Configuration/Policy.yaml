@@ -1,12 +1,16 @@
+#                                                                        #
+# Security policy for the Chantrea Training Application                  #
+#                                                                        #
 
 resources:
   entities:
     Chantrea\Training\Domain\Model\Topic:
       Chantrea_Training_My_Topic: 'current.securityContext.account != this.account'
+
 roles:
-  Developer: {  }
-  Administrator:
-    - Developer
+  Developer: []
+  Administrator: [Developer]
+
 acls:
   Administrator:
     entities:
