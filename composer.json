@@ -7,11 +7,18 @@
     "authors": [
         {
             "name": "Visay Keo",
-            "email": "keo@visay.info"
+            "email": "keo@visay.info",
+            "role": "Product Owner"
         },
         {
-            "name": "Chanthorn Ngeth"
-            "email": "chanthorn.ngeth@gmail.com"
+            "name": "Rayuth You",
+            "email": "rayuth.you@gmail.com",
+            "role": "Lead Developer"
+        },
+        {
+            "name": "Chanthorn Ngeth",
+            "email": "chanthorn.ngeth@gmail.com",
+            "role": "Developer"
         }
     ],
     "require": {
