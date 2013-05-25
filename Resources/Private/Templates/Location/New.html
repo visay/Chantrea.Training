@@ -1,0 +1,21 @@
+<f:layout name="Default" />
+
+<f:section name="Title">New location</f:section>
+<f:section name="Header">New location</f:section>
+
+<f:section name="Content">
+	<p>Just fill out the following form to create a new location:</p>
+
+	<f:form action="create" name="newLocation">
+		<ol>
+			<li>
+				<label for="room">Room</label>
+				<f:form.textfield property="room" id="room" />
+			</li>
+		
+			<li>
+				<f:form.submit value="Create" />
+			</li>
+		</ol>
+	</f:form>
+</f:section>

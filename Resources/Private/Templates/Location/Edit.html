@@ -1,0 +1,20 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Edit location "{location.name}"</f:section>
+<f:section name="Header">Edit location "{location.name}"</f:section>
+
+
+<f:section name="Content">
+	<f:form action="update" object="{location}" name="location">
+		<ol>
+			<li>
+				<label for="room">Room</label>
+				<f:form.textfield property="room" id="room" />
+			</li>
+		
+			<li>
+				<f:form.submit value="Update"/>
+			</li>
+		</ol>
+	</f:form>
+</f:section>
