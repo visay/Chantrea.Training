@@ -46,6 +46,14 @@ class Topic {
 	protected $account;
 
 	/**
+	 * If the topic is accepted
+	 *
+	 * @var boolean
+	 */
+	protected $isAccepted = FALSE;
+
+
+	/**
 	 * Get the Topic's title
 	 *
 	 * @return string The Topic's title
@@ -101,5 +109,26 @@ class Topic {
 	public function setAccount(Account $account) {
 		$this->account = $account;
 	}
+
+	/**
+	 * Sets this Topic's isAccepted
+	 *
+	 * @param boolean $isAccepted The Topic's isAccepted
+	 *
+	 * @return void
+	 */
+	public function setIsAccepted($isAccepted) {
+		$this->isAccepted = $isAccepted;
+	}
+
+	/**
+	 * Gets the Topic's isAccepted
+	 *
+	 * @return boolean The Topic's isAccepted
+	 */
+	public function getIsAccepted() {
+		return $this->isAccepted;
+	}
+
 }
 ?>
