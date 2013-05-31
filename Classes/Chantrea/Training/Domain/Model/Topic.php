@@ -9,63 +9,70 @@ namespace Chantrea\Training\Domain\Model;
 use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
-use TYPO3\Flow\Security\Account;
-
 /**
- * A Topic
- *
  * @Flow\Entity
  */
 class Topic {
 
 	/**
-	 * The title
 	 * @var string
-	 * @Flow\Validate(type="NotEmpty")
-	 * @Flow\Validate(type="Text")
-	 * @Flow\Validate(type="StringLength", options={"minimum"=5, "maximum"=50})
 	 */
 	protected $title;
 
 	/**
-	 * The short description
 	 * @var string
-	 * @Flow\Validate(type="NotEmpty")
-	 * @Flow\Validate(type="Text")
-	 * @Flow\Validate(type="StringLength", options={"minimum"=50, "maximum"=255})
-	 * @ORM\Column(type="text")
 	 */
-	protected $shortDescription;
+	protected $description;
 
 	/**
-	 * The account
-	 * @var \TYPO3\Flow\Security\Account
-	 * @ORM\OneToOne
-	 * @Flow\Validate(type="NotEmpty")
+	 * @var \DateTime
 	 */
-	protected $account;
+	protected $creationDate;
 
 	/**
-	 * If the topic is accepted
-	 *
+	 * @var \DateTime
+	 */
+	protected $trainingDate;
+
+	/**
 	 * @var boolean
 	 */
-	protected $isAccepted = FALSE;
+	protected $isAccepted;
+
+	/**
+	 * @var \Chantrea\Training\Domain\Model\Category
+	 * @ORM\ManyToOne
+	 */
+	protected $category;
+
+	/**
+	 * @var \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\Trainer>
+	 * @ORM\ManyToMany(inversedBy="topics")
+	 */
+	protected $trainers;
+
+	/**
+	 * @var \Chantrea\Training\Domain\Model\Location
+	 * @ORM\ManyToOne
+	 */
+	protected $location;
+
+	/**
+	 * @var \TYPO3\Flow\Security\Account
+	 * @ORM\ManyToOne
+	 */
+	protected $user;
 
 
 	/**
-	 * Get the Topic's title
-	 *
-	 * @return string The Topic's title
+	 * @return string
 	 */
 	public function getTitle() {
 		return $this->title;
 	}
 
 	/**
-	 * Sets this Topic's title
-	 *
-	 * @param string $title The Topic's title
+	 * @param string $title
 	 * @return void
 	 */
 	public function setTitle($title) {
@@ -73,48 +80,59 @@ class Topic {
 	}
 
 	/**
-	 * Get the Topic's short description
-	 *
-	 * @return string The Topic's short description
+	 * @return string
 	 */
-	public function getShortDescription() {
-		return $this->shortDescription;
+	public function getDescription() {
+		return $this->description;
 	}
 
 	/**
-	 * Sets this Topic's short description
-	 *
-	 * @param string $shortDescription The Topic's short description
+	 * @param string $description
 	 * @return void
 	 */
-	public function setShortDescription($shortDescription) {
-		$this->shortDescription = $shortDescription;
+	public function setDescription($description) {
+		$this->description = $description;
 	}
 
 	/**
-	 * Get the Topic's account
-	 *
-	 * @return \TYPO3\Flow\Security\Account The Topic's owner
+	 * @return \DateTime
 	 */
-	public function getAccount() {
-		return $this->account;
+	public function getCreationDate() {
+		return $this->creationDate;
 	}
 
 	/**
-	 * Sets this Topic's account
-	 *
-	 * @param \TYPO3\Flow\Security\Account $account The Topic's owner
+	 * @param \DateTime $creationDate
 	 * @return void
 	 */
-	public function setAccount(Account $account) {
-		$this->account = $account;
+	public function setCreationDate($creationDate) {
+		$this->creationDate = $creationDate;
 	}
 
 	/**
-	 * Sets this Topic's isAccepted
-	 *
-	 * @param boolean $isAccepted The Topic's isAccepted
-	 *
+	 * @return \DateTime
+	 */
+	public function getTrainingDate() {
+		return $this->trainingDate;
+	}
+
+	/**
+	 * @param \DateTime $trainingDate
+	 * @return void
+	 */
+	public function setTrainingDate($trainingDate) {
+		$this->trainingDate = $trainingDate;
+	}
+
+	/**
+	 * @return boolean
+	 */
+	public function getIsAccepted() {
+		return $this->isAccepted;
+	}
+
+	/**
+	 * @param boolean $isAccepted
 	 * @return void
 	 */
 	public function setIsAccepted($isAccepted) {
@@ -122,12 +140,79 @@ class Topic {
 	}
 
 	/**
-	 * Gets the Topic's isAccepted
-	 *
-	 * @return boolean The Topic's isAccepted
+	 * @return \Chantrea\Training\Domain\Model\Category
 	 */
-	public function getIsAccepted() {
-		return $this->isAccepted;
+	public function getCategory() {
+		return $this->category;
+	}
+
+	/**
+	 * @param \Chantrea\Training\Domain\Model\Category $category
+	 * @return void
+	 */
+	public function setCategory($category) {
+		$this->category = $category;
+	}
+
+	/**
+	 * @return \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\Trainer>
+	 */
+	public function getTrainers() {
+		return $this->trainers;
+	}
+
+	/**
+	 * @param \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\Trainer> $trainers
+	 * @return void
+	 */
+	public function setTrainers(\Doctrine\Common\Collections\Collection $trainers) {
+		$this->trainers = $trainers;
+	}
+
+	/**
+	 * @param \Chantrea\Training\Domain\Model\Trainer $trainer
+	 * @return void
+	 */
+	public function addTrainer($trainer) {
+		$this->trainers->add($trainer);
+	}
+
+	/**
+	 * @param \Chantrea\Training\Domain\Model\Trainer $trainer
+	 * @return void
+	 */
+	public function removeTrainer($trainer) {
+		$this->trainers->remove($trainer);
+	}
+
+	/**
+	 * @return \Chantrea\Training\Domain\Model\Location
+	 */
+	public function getLocation() {
+		return $this->location;
+	}
+
+	/**
+	 * @param \Chantrea\Training\Domain\Model\Location $location
+	 * @return void
+	 */
+	public function setLocation($location) {
+		$this->location = $location;
+	}
+
+	/**
+	 * @return \TYPO3\Flow\Security\Account
+	 */
+	public function getUser() {
+		return $this->user;
+	}
+
+	/**
+	 * @param \TYPO3\Flow\Security\Account $user
+	 * @return void
+	 */
+	public function setUser(\TYPO3\Flow\Security\Account $user) {
+		$this->user = $user;
 	}
 
 }

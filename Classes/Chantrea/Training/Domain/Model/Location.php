@@ -10,36 +10,49 @@ use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * A Location
- *
  * @Flow\Entity
  */
 class Location {
 
 	/**
-	 * The room
 	 * @var string
 	 */
 	protected $room;
 
+	/**
+	 * @var string
+	 */
+	protected $description;
+
 
 	/**
-	 * Get the Location's room
-	 *
-	 * @return string The Location's room
+	 * @return string
 	 */
 	public function getRoom() {
 		return $this->room;
 	}
 
 	/**
-	 * Sets this Location's room
-	 *
-	 * @param string $room The Location's room
+	 * @param string $room
 	 * @return void
 	 */
 	public function setRoom($room) {
 		$this->room = $room;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDescription() {
+		return $this->description;
+	}
+
+	/**
+	 * @param string $description
+	 * @return void
+	 */
+	public function setDescription($description) {
+		$this->description = $description;
 	}
 
 }

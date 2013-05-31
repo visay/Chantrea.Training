@@ -48,18 +48,14 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 	 * @return void
 	 */
 	public function createCommand($identifier, $password, $firstName, $lastName) {
-		$person = new \TYPO3\Party\Domain\Model\Person();
-		$person->setName(new \TYPO3\Party\Domain\Model\PersonName('', $firstName, '', $lastName));
-
-		$electronicAddress = new \TYPO3\Party\Domain\Model\ElectronicAddress();
-		$electronicAddress->setType(\TYPO3\Party\Domain\Model\ElectronicAddress::TYPE_EMAIL);
-		$electronicAddress->setIdentifier($identifier);
-		$person->setPrimaryElectronicAddress($electronicAddress);
+		$trainer = new \Chantrea\Training\Domain\Model\Trainer();
+		$trainer->setName(new \TYPO3\Party\Domain\Model\PersonName('', $firstName, '', $lastName));
 
 		$account = $this->accountFactory->createAccountWithPassword($identifier, $password, array('Chantrea.Training:Administrator'));
 		$this->accountRepository->add($account);
-		$person->addAccount($account);
-		$this->partyRepository->add($person);
+		$trainer->addAccount($account);
+
+		$this->partyRepository->add($trainer);
 
 		$this->outputLine('New account "%s" has been created.', array($identifier));
 	}

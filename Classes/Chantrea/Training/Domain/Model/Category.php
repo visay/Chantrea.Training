@@ -10,36 +10,49 @@ use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * A Category
- *
  * @Flow\Entity
  */
 class Category {
 
 	/**
-	 * The category
 	 * @var string
 	 */
-	protected $category;
+	protected $name;
+
+	/**
+	 * @var string
+	 */
+	protected $description;
 
 
 	/**
-	 * Get the Category's category
-	 *
-	 * @return string The Category's category
+	 * @return string
 	 */
-	public function getCategory() {
-		return $this->category;
+	public function getName() {
+		return $this->name;
 	}
 
 	/**
-	 * Sets this Category's category
-	 *
-	 * @param string $category The Category's category
+	 * @param string $name
 	 * @return void
 	 */
-	public function setCategory($category) {
-		$this->category = $category;
+	public function setName($name) {
+		$this->name = $name;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDescription() {
+		return $this->description;
+	}
+
+	/**
+	 * @param string $description
+	 * @return void
+	 */
+	public function setDescription($description) {
+		$this->description = $description;
 	}
 
 }
