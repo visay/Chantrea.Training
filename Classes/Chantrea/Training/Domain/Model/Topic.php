@@ -20,14 +20,21 @@ class Topic {
 	protected $title;
 
 	/**
+	 * The short description
 	 * @var string
+	 * @Flow\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="Text")
+	 * @Flow\Validate(type="StringLength", options={"minimum"=50, "maximum"=255})
+	 * @ORM\Column(type="text")
 	 */
-	protected $description;
+	protected $shortDescription;
 
 	/**
+	 * The creation date
+	 *
 	 * @var \DateTime
 	 */
-	protected $creationDate;
+	//protected $creationDate;
 
 	/**
 	 * @var \DateTime
@@ -61,7 +68,7 @@ class Topic {
 	 * @var \TYPO3\Flow\Security\Account
 	 * @ORM\ManyToOne
 	 */
-	protected $user;
+	protected $account;
 
 
 	/**
@@ -80,32 +87,41 @@ class Topic {
 	}
 
 	/**
-	 * @return string
+	 * Get the Topic's short description
+	 *
+	 * @return string The Topic's short description
 	 */
-	public function getDescription() {
-		return $this->description;
+	public function getShortDescription() {
+		return $this->shortDescription;
 	}
 
 	/**
-	 * @param string $description
+	 * Sets this Topic's short description
+	 *
+	 * @param string $shortDescription The Topic's short description
 	 * @return void
 	 */
-	public function setDescription($description) {
-		$this->description = $description;
+	public function setShortDescription($shortDescription) {
+		$this->shortDescription = $shortDescription;
 	}
 
 	/**
-	 * @return \DateTime
+	 * Gets the topic's create date
+	 * 
+	 * @return \DateTime The topic's create date
 	 */
 	public function getCreationDate() {
 		return $this->creationDate;
 	}
 
 	/**
-	 * @param \DateTime $creationDate
+	 * Sets this topic's create date
+	 *
+	 * @param \DateTime $creationDate The topic's create date
+	 *
 	 * @return void
 	 */
-	public function setCreationDate($creationDate) {
+	public function setCreationDate(\DateTime $creationDate) {
 		$this->creationDate = $creationDate;
 	}
 
@@ -203,17 +219,16 @@ class Topic {
 	/**
 	 * @return \TYPO3\Flow\Security\Account
 	 */
-	public function getUser() {
-		return $this->user;
+	public function getAccount() {
+		return $this->account;
 	}
 
 	/**
 	 * @param \TYPO3\Flow\Security\Account $user
 	 * @return void
 	 */
-	public function setUser(\TYPO3\Flow\Security\Account $user) {
-		$this->user = $user;
+	public function setAccount(\TYPO3\Flow\Security\Account $account) {
+		$this->account = $account;
 	}
-
 }
 ?>
