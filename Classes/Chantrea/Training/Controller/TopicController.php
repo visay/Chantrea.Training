@@ -38,6 +38,10 @@ class TopicController extends ActionController {
 	 */
 	public function indexAction() {
 		$this->view->assign('topics', $this->topicRepository->findAll());
+                $this->view->assign('acceptedTopics', $this->topicRepository->findAcceptedTopic());
+                $this->view->assign('scheduleTopics', $this->topicRepository->findScheduleTopic());
+               // $this->view->assign('suggestedTopics', $this->topicRepository->findSuggestedTopic());
+               // echo(count($this->topicRepository->findScheduleTopic()));exit();
 	}
 
 	/**

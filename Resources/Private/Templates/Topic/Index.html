@@ -21,8 +21,42 @@
 			<p>No topics created yet.</p>
 		</f:else>
 	</f:if>
+        <f:if condition="{scheduleTopics}">
+            123
+           
+        </f:if>
+        <f:if condition="{suggestedTopics}">
+            <h4>10 Latest Suggestion</h4>
+            <table class="table table-condensed">
+                    <tr>
+                        <th>Topic</th>
+                        <th>By</th>
+                    </tr>
+                        <f:for each="{suggestedTopics}" as="suggestedTopic">
+                            <tr class="warning">
+                                <td>{suggestedTopic.title}</td>
+                                <td>{suggestedTopic.account.party.name}</td>
+                            </tr>
+                    </f:for>
+              </table>
+        </f:if>
+        <f:if condition="{acceptedTopics}">
+            <h4>10 Latest Accepted</h4>
+            <table class="table table-condensed">
+                    <tr>
+                        <th>Topic</th>
+                        <th>By</th>
+                    </tr>
+                        <f:for each="{acceptedTopics}" as="acceptedTopic">
+                            <tr class="success">
+                                <td>{acceptedTopic.title}</td>
+                                <td>{acceptedTopic.account.party.name}</td>
+                            </tr>
+                    </f:for>
+              </table>
+	</f:if>
 	<p><f:link.action action="new">Create a new topic</f:link.action></p>
 	<p><f:link.action action="new" controller="Category">Create new category</f:link.action></p>
 	<p><f:link.action action="new" controller="Trainer">Create new trainer</f:link.action></p>
 	<p><f:link.action action="new" controller="Location">Create new location</f:link.action></p>
-</f:section>
+</f:section>ss

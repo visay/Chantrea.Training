@@ -34,7 +34,7 @@ class Topic {
 	 *
 	 * @var \DateTime
 	 */
-	//protected $creationDate;
+	protected $creationDate;
 
 	/**
 	 * @var \DateTime
