@@ -22,9 +22,7 @@ class Topic {
 	/**
 	 * The short description
 	 * @var string
-	 * @Flow\Validate(type="NotEmpty")
 	 * @Flow\Validate(type="Text")
-	 * @Flow\Validate(type="StringLength", options={"minimum"=50, "maximum"=255})
 	 * @ORM\Column(type="text")
 	 */
 	protected $shortDescription;
@@ -38,13 +36,15 @@ class Topic {
 
 	/**
 	 * @var \DateTime
+	 * @ORM\Column(nullable=true)
 	 */
 	protected $trainingDate;
 
 	/**
-	 * @var boolean
+	 * @var \Chantrea\Training\Domain\Model\Status
+	 * @ORM\ManyToOne
 	 */
-	protected $isAccepted;
+	protected $status;
 
 	/**
 	 * @var \Chantrea\Training\Domain\Model\Category
@@ -70,6 +70,13 @@ class Topic {
 	 */
 	protected $account;
 
+	/**
+	 * Constructs a new topic's creation date
+	 * @deprecated
+	 */
+	public function __construct() {
+		$this->creationDate = new \DateTime();
+	}
 
 	/**
 	 * @return string
@@ -141,18 +148,18 @@ class Topic {
 	}
 
 	/**
-	 * @return boolean
+	 * @return \Chantrea\Training\Domain\Model\Status
 	 */
-	public function getIsAccepted() {
-		return $this->isAccepted;
+	public function getStatus() {
+		return $this->status;
 	}
 
 	/**
-	 * @param boolean $isAccepted
+	 * @param \Chantrea\Training\Domain\Model\Status $status
 	 * @return void
 	 */
-	public function setIsAccepted($isAccepted) {
-		$this->isAccepted = $isAccepted;
+	public function setStatus($status) {
+		$this->status = $status;
 	}
 
 	/**

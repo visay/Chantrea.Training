@@ -22,8 +22,27 @@
 		</f:else>
 	</f:if>
         <f:if condition="{scheduleTopics}">
-            123
-           
+            <h4>10 Training Scheduled</h4>
+            <table class="table table-condensed">
+                    <tr>
+                        <th>Training Date</th>
+                        <th>Topic</th>
+                        <th>Trainer</th>
+                        <th>Location</th>
+                    </tr>
+                    <f:for each="{scheduleTopics}" as="scheduleTopic">
+                            <tr>
+                                <td><f:format.date>{scheduleTopic.trainingDate}</f:format.date></td>
+                                <td>{scheduleTopic.title}</td>
+                                <td>
+                                    <f:for each="{scheduleTopic.trainers}" as="trainer">
+                                        {trainer.name} <br/>
+                                    </f:for>
+                                </td>
+                                <td>{scheduleTopic.location.room}</td>
+                            </tr>
+                    </f:for>
+              </table>
         </f:if>
         <f:if condition="{suggestedTopics}">
             <h4>10 Latest Suggestion</h4>
@@ -55,8 +74,7 @@
                     </f:for>
               </table>
 	</f:if>
-	<p><f:link.action action="new">Create a new topic</f:link.action></p>
 	<p><f:link.action action="new" controller="Category">Create new category</f:link.action></p>
 	<p><f:link.action action="new" controller="Trainer">Create new trainer</f:link.action></p>
 	<p><f:link.action action="new" controller="Location">Create new location</f:link.action></p>
-</f:section>ss
+</f:section>

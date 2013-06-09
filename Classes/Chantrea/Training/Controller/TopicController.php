@@ -31,6 +31,18 @@ class TopicController extends ActionController {
 	protected $topicRepository;
 
 	/**
+	 * @Flow\Inject
+	 * @var \Chantrea\Training\Domain\Repository\CategoryRepository
+	 */
+	protected $categoryRepository;
+	
+	/**
+	 * @Flow\Inject
+	 * @var \Chantrea\Training\Domain\Repository\StatusRepository
+	 */
+	protected $statusRepository;
+
+	/**
 	 * Shows a list of topics
 	 *
 	 * @return void
@@ -38,10 +50,9 @@ class TopicController extends ActionController {
 	 */
 	public function indexAction() {
 		$this->view->assign('topics', $this->topicRepository->findAll());
-                $this->view->assign('acceptedTopics', $this->topicRepository->findAcceptedTopic());
-                $this->view->assign('scheduleTopics', $this->topicRepository->findScheduleTopic());
-               // $this->view->assign('suggestedTopics', $this->topicRepository->findSuggestedTopic());
-               // echo(count($this->topicRepository->findScheduleTopic()));exit();
+		$this->view->assign('acceptedTopics', $this->topicRepository->findAcceptedTopic());
+		$this->view->assign('scheduleTopics', $this->topicRepository->findScheduleTopic());
+		$this->view->assign('suggestedTopics', $this->topicRepository->findSuggestedTopic());
 	}
 
 	/**
@@ -56,6 +67,16 @@ class TopicController extends ActionController {
 	}
 
 	/**
+	 * Shows a list of suggest topics
+	 *
+	 * @return void
+	 * @Flow\SkipCsrfProtection
+	 */
+	public function suggestAction () {
+		$this->view->assign('suggestedTopics', $this->topicRepository->findSuggestedTopic());
+	}
+
+	/**
 	 * Shows a form for creating a new topic object
 	 *
 	 * @return void
@@ -63,6 +84,7 @@ class TopicController extends ActionController {
 	 */
 	public function newAction() {
 		$this->view->assign('account', $this->securityContext->getAccount());
+		$this->view->assign('category', $this->categoryRepository->findAll());
 	}
 
 	/**
@@ -73,6 +95,7 @@ class TopicController extends ActionController {
 	 */
 	public function createAction(Topic $newTopic) {
 		$newTopic->setAccount($this->securityContext->getAccount());
+		//$newTopic->setStatus();
 		$this->topicRepository->add($newTopic);
 		$this->addFlashMessage('Created a new topic.');
 		$this->redirect('index');
@@ -121,6 +144,20 @@ class TopicController extends ActionController {
 	public function redirectAction() {
 		$this->redirect('index');
 	}
+
+	/**
+	 * Update status of topic
+	 *
+	 * @param \Chantrea\Training\Domain\Model\Topic $suggestedTopic The topic to update
+	 * @return void
+	 * @Flow\SkipCsrfProtection
+	 */
+	/*public function acceptedAction(Topic $suggestedTopic) {
+		//debug($suggestedTopic);exit();
+		$suggestedTopic->setStatus('2');
+		$this->topicRepository->update($suggestedTopic);
+		$this->redirect('suggested');
+	}*/
 }
 
 ?>

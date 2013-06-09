@@ -76,3 +76,4 @@
     topic:
       objectType: Chantrea\Training\Domain\Model\Topic
       uriPattern: '{title}'
+  

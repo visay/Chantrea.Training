@@ -21,10 +21,11 @@ class TopicRepository extends \TYPO3\Flow\Persistence\Repository {
      * @return object
      */
    public function findScheduleTopic() {
-       $query = $this->createQuery();
-        return $query->matching($query->logicalNot($query->isEmpty('trainingDate')))
-                ->setOrderings(array('trainingDate' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_ASCENDING))
-                ->execute();
+		$query = $this->createQuery();
+		return $query->matching($query->equals('status', 4))
+					->setOrderings(array('trainingDate' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_ASCENDING))
+					->setLimit(10)
+					->execute();
     }
 
     /**(
@@ -33,22 +34,24 @@ class TopicRepository extends \TYPO3\Flow\Persistence\Repository {
      * @return object
      */
     public function findAcceptedTopic() {
-        $query = $this->createQuery();
-	$query->matching($query->equals('isAccepted', '1'));
-        return $query->setOrderings(array('creationDate' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_DESCENDING))
-                ->execute();
-    }
-    
+		$query = $this->createQuery();
+		$constraint = $query->matching($query->equals('status', 2));
+		return $query->setOrderings(array('creationDate' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_DESCENDING))
+					->setLimit(10)
+					->execute();
+	}
+
     /**
      * find suggeted topics
      * 
      * @return object
      */
     public function findSuggestedTopic() {
-        $query = $this->createQuery();
-	$query->matching($query->equals('isAccepted', '0'));
-        return $query->setOrderings(array('creationDate' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_DESCENDING))
-                ->execute();
+		$query = $this->createQuery();
+		$query->matching($query->equals('status', 1));
+		return $query->setOrderings(array('creationDate' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_DESCENDING))
+					->setLimit(10)
+					->execute();
     }
 }
 ?>
