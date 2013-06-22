@@ -13,3 +13,11 @@ TYPO3:
             entryPoint: 'WebRedirect'
             entryPointOptions:
               uri: 'login'
+
+Chantrea:
+  Training:
+    statusOptions:
+      new: 'New'
+      accepted: 'Accepted'
+      rejected: 'Rejected'
+      scheduled: 'Scheduled'

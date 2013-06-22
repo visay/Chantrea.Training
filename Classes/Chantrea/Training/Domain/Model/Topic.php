@@ -41,8 +41,7 @@ class Topic {
 	protected $trainingDate;
 
 	/**
-	 * @var \Chantrea\Training\Domain\Model\Status
-	 * @ORM\ManyToOne
+	 * @var string
 	 */
 	protected $status;
 
@@ -149,14 +148,14 @@ class Topic {
 	}
 
 	/**
-	 * @return \Chantrea\Training\Domain\Model\Status
+	 * @return string
 	 */
 	public function getStatus() {
 		return $this->status;
 	}
 
 	/**
-	 * @param \Chantrea\Training\Domain\Model\Status $status
+	 * @param string $status
 	 * @return void
 	 */
 	public function setStatus($status) {

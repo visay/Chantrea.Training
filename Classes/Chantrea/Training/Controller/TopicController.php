@@ -35,7 +35,7 @@ class TopicController extends ActionController {
 	 * @var \Chantrea\Training\Domain\Repository\CategoryRepository
 	 */
 	protected $categoryRepository;
-	
+
 	/**
 	 * @Flow\Inject
 	 * @var \Chantrea\Training\Domain\Repository\StatusRepository
@@ -50,9 +50,9 @@ class TopicController extends ActionController {
 	 */
 	public function indexAction() {
 		$this->view->assign('topics', $this->topicRepository->findAll());
-		$this->view->assign('acceptedTopics', $this->topicRepository->findAcceptedTopic());
-		$this->view->assign('scheduleTopics', $this->topicRepository->findScheduleTopic());
-		$this->view->assign('suggestedTopics', $this->topicRepository->findSuggestedTopic());
+		$this->view->assign('acceptedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['accepted']));
+		$this->view->assign('scheduleTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['scheduled']));
+		$this->view->assign('suggestedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['new']));
 	}
 
 	/**
@@ -73,7 +73,7 @@ class TopicController extends ActionController {
 	 * @Flow\SkipCsrfProtection
 	 */
 	public function suggestAction () {
-		$this->view->assign('suggestedTopics', $this->topicRepository->findSuggestedTopic());
+		$this->view->assign('suggestedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['new']));
 	}
 
 	/**
@@ -84,7 +84,7 @@ class TopicController extends ActionController {
 	 */
 	public function newAction() {
 		$this->view->assign('account', $this->securityContext->getAccount());
-		$this->view->assign('category', $this->categoryRepository->findAll());
+		$this->view->assign('categories', $this->categoryRepository->findAll());
 	}
 
 	/**
@@ -95,7 +95,7 @@ class TopicController extends ActionController {
 	 */
 	public function createAction(Topic $newTopic) {
 		$newTopic->setAccount($this->securityContext->getAccount());
-		//$newTopic->setStatus();
+		$newTopic->setStatus($this->settings['statusOptions']['new']);
 		$this->topicRepository->add($newTopic);
 		$this->addFlashMessage('Created a new topic.');
 		$this->redirect('index');
@@ -146,26 +146,25 @@ class TopicController extends ActionController {
 	}
 
 	/**
-	 * Update status of topic
+	 * Accept a suggested topic
 	 *
-	 * @param \Chantrea\Training\Domain\Model\Topic $suggestedTopic The topic to update
+	 * @param \Chantrea\Training\Domain\Model\Topic $suggestedTopic The topic to accept
 	 * @return void
-	 * @Flow\SkipCsrfProtection
 	 */
-	/*public function acceptedAction(Topic $suggestedTopic) {
-		//debug($suggestedTopic);exit();
-		$suggestedTopic->setStatus('2');
+	public function acceptAction(Topic $suggestedTopic) {
+		$suggestedTopic->setStatus($this->settings['statusOptions']['accepted']);
 		$this->topicRepository->update($suggestedTopic);
-		$this->redirect('suggested');
-	}*/
+		$this->persistenceManager->persistAll();
+		$this->redirect('listAcceptedTopic');
+	}
+
 	/**
 	 * List AcceptedTopic the Training
 	 */
 	public function listAcceptedTopicAction() {
-		$this->view->assign('acceptedTopics', $this->topicRepository->findAcceptedTopic());
-	//	$this->view->assign('status', $this->settings['newStatus']);
+		$this->view->assign('acceptedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['accepted']));
 	}
-	
+
 	/**
 	 * Shows a form for set plan an existing topic object
 	 *
@@ -173,8 +172,8 @@ class TopicController extends ActionController {
 	 * @return void
 	 * @Flow\SkipCsrfProtection
 	 */
-	/*public function planAction(Topic $acceptedTopic) {
-		$this->view->assing('planTopic', $acceptedTopic);
-	}*/
+	public function planAction(Topic $acceptedTopic) {
+		$this->view->assign('planTopic', $acceptedTopic);
+	}
 }
 ?>

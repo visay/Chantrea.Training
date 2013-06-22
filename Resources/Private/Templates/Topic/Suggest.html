@@ -1,27 +1,31 @@
 <f:layout name="Default" />
 
-<f:section name="Title"></f:section>
-<f:section name="Header"></f:section>
+<f:section name="Title">Suggested Topic - Chantrea Training</f:section>
+<f:section name="Header">Suggested Topic</f:section>
 
 <f:section name="Content">
 	<f:render partial="FormErrors" arguments="{objectName: objectName}" />
-        <f:if condition="{suggestedTopics}">
-            <table class="table table-condensed">
-                    <tr>
-                        <th>Date</th>
-                        <th>Title</th>
-                        <th>By:</th>
-                        <th>Accepted</th>
-                        <th>Unaccepted</th>
-                    </tr>
-                        <f:for each="{suggestedTopics}" as="suggestedTopic">
-                            <tr class="warning">
-                                <td><f:format.date>{suggestedTopic.creationDate}</f:format.date></td>
-                                <td>{suggestedTopic.title}</td>
-                                <td>{suggestedTopic.account.party.name}</td>
-                            </tr>
-                    </f:for>
-              </table>
-        </f:if>
-	<p><f:link.action action="new">Create a new topic</f:link.action></p>
+	<f:if condition="{suggestedTopics}">
+		<table class="table table-condensed">
+			<tr>
+				<th>Date</th>
+				<th>Title</th>
+				<th>By:</th>
+				<th>Accepted</th>
+				<th>Unaccepted</th>
+			</tr>
+			<f:for each="{suggestedTopics}" as="suggestedTopic">
+				<tr class="warning">
+					<td><f:format.date>{suggestedTopic.creationDate}</f:format.date></td>
+					<td>{suggestedTopic.title}</td>
+					<td>{suggestedTopic.account.party.name}</td>
+					<td><f:link.action action="accept" controller="Topic" arguments="{suggestedTopic: suggestedTopic}"><i class="icon-plus-sign" /></f:link.action></td>
+					<td><i class="icon-minus-sign" /></td>
+				</tr>
+			</f:for>
+		</table>
+	</f:if>
+	<p>
+		<f:link.action action="new">Create a new topic</f:link.action>
+	</p>
 </f:section>

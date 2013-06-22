@@ -14,44 +14,21 @@ use TYPO3\Flow\Annotations as Flow;
  * @Flow\Scope("singleton")
  */
 class TopicRepository extends \TYPO3\Flow\Persistence\Repository {
-    
-    /**
-     * find schedule topics
-     * 
-     * @return object
-     */
-   public function findScheduleTopic() {
-		$query = $this->createQuery();
-		return $query->matching($query->equals('status', 4))
-					->setOrderings(array('trainingDate' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_ASCENDING))
-					->setLimit(10)
-					->execute();
-    }
 
-    /**(
-     * find accepted topics
-     * 
-     * @return object
-     */
-    public function findAcceptedTopic() {
+	/**
+	 * Find topics by status
+	 *
+	 * @param string $status The status to find
+	 * @param integer $limit Set limit for record to display
+	 *
+	 * @return object
+	 */
+	public function findByStatus($status, $limit = 10) {
 		$query = $this->createQuery();
-		$constraint = $query->matching($query->equals('status', 2));
-		return $query->setOrderings(array('creationDate' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_DESCENDING))
-					->setLimit(10)
-					->execute();
+		return $query->matching($query->equals('status', $status))
+			->setOrderings(array('creationDate' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_DESCENDING))
+			->setLimit($limit)
+			->execute();
 	}
-
-    /**
-     * find suggeted topics
-     * 
-     * @return object
-     */
-    public function findSuggestedTopic() {
-		$query = $this->createQuery();
-		$query->matching($query->equals('status', 1));
-		return $query->setOrderings(array('creationDate' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_DESCENDING))
-					->setLimit(10)
-					->execute();
-    }
 }
 ?>
