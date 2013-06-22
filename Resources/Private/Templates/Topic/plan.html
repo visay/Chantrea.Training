@@ -1,0 +1,25 @@
+<f:layout name="Default" />
+
+<f:section name="Title"></f:section>
+<f:section name="Header"></f:section>
+
+<f:section name="Content">
+	<f:render partial="FormErrors" arguments="{objectName: objectName}" />
+	<f:form action="setSchedule" object="{planTopic}" name="planTopic">
+		<ol>
+			<li>
+				<label for="title">Title</label>
+				<f:form.textfield property="title" id="title" placeholder="Enter title here" />
+			</li>
+		
+			<li>
+				<label for="shortDescription">Short description</label>
+				<f:form.textarea property="shortDescription" id="shortDescription" rows="3" cols="50" placeholder="Enter description here" />
+			</li>
+		
+			<li>
+				<f:form.submit value="Update"/>
+			</li>
+		</ol>
+	</f:form>
+</f:section>

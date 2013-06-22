@@ -76,6 +76,7 @@ class Topic {
 	 */
 	public function __construct() {
 		$this->creationDate = new \DateTime();
+		$this->status = new \Chantrea\Training\Domain\Model\Status();
 	}
 
 	/**

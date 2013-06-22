@@ -1,0 +1,25 @@
+<f:layout name="Default" />
+
+<f:section name="Title"></f:section>
+<f:section name="Header"></f:section>
+
+<f:section name="Content">
+	<f:if condition="{acceptedTopics}">
+            <table class="table table-condensed">
+                    <tr>
+                        <th>Date</th>
+                        <th>Title</th>
+                        <th>By:</th>
+                        <th>Schedule</th>
+                    </tr>
+                        <f:for each="{acceptedTopics}" as="acceptedTopic">
+                            <tr class="success">
+                                <td><f:format.date>{acceptedTopic.creationDate}</f:format.date></td>
+                                <td>{acceptedTopic.title}</td>
+                                <td>{acceptedTopic.account.party.name}</td>
+                                <td><input type="checkbox" /></td>
+                            </tr>
+                    </f:for>
+              </table>
+        </f:if>
+</f:section>

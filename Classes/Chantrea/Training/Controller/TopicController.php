@@ -158,6 +158,23 @@ class TopicController extends ActionController {
 		$this->topicRepository->update($suggestedTopic);
 		$this->redirect('suggested');
 	}*/
+	/**
+	 * List AcceptedTopic the Training
+	 */
+	public function listAcceptedTopicAction() {
+		$this->view->assign('acceptedTopics', $this->topicRepository->findAcceptedTopic());
+	//	$this->view->assign('status', $this->settings['newStatus']);
+	}
+	
+	/**
+	 * Shows a form for set plan an existing topic object
+	 *
+	 * @param \Chantrea\Training\Domain\Model\Topic $acceptedTopic The topic to edit
+	 * @return void
+	 * @Flow\SkipCsrfProtection
+	 */
+	/*public function planAction(Topic $acceptedTopic) {
+		$this->view->assing('planTopic', $acceptedTopic);
+	}*/
 }
-
 ?>
