@@ -8,8 +8,8 @@ resources:
       Chantrea_Training_My_Topic: 'current.securityContext.account != this.account'
 
 roles:
-  Developer: []
-  Administrator: [Developer]
+  User: []
+  Administrator: [User]
 
 acls:
   Administrator:

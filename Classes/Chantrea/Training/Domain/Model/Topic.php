@@ -76,7 +76,7 @@ class Topic {
 	 */
 	public function __construct() {
 		$this->creationDate = new \DateTime();
-		$this->status = new \Chantrea\Training\Domain\Model\Status();
+		$this->trainers = new \Doctrine\Common\Collections\ArrayCollection();
 	}
 
 	/**
@@ -115,7 +115,7 @@ class Topic {
 
 	/**
 	 * Gets the topic's create date
-	 * 
+	 *
 	 * @return \DateTime The topic's create date
 	 */
 	public function getCreationDate() {

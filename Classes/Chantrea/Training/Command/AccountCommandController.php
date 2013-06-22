@@ -34,6 +34,14 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 	protected $partyRepository;
 
 	/**
+	 * Name of the authentication provider to be used.
+	 *
+	 * @var string
+	 */
+	protected $authenticationProviderName = 'DefaultProvider';
+
+
+	/**
 	 * Command to create an account
 	 *
 	 * The account is at the moment only available to create using the command line since the registering through
@@ -45,13 +53,28 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 	 * @param string $password The account's password
 	 * @param string $firstName The account's first name
 	 * @param string $lastName The account's last name
+	 * @param boolean $admin If enable, grant admin access
 	 * @return void
 	 */
-	public function createCommand($identifier, $password, $firstName, $lastName) {
+	public function createCommand($identifier, $password, $firstName, $lastName, $admin = FALSE) {
+		// Check if the account already exists
+		$existingAccount = $this->accountRepository->findActiveByAccountIdentifierAndAuthenticationProviderName($identifier, $this->authenticationProviderName);
+		if ($existingAccount) {
+			$this->outputLine('FAILED! Account "' . $identifier . '" already exists!');
+			return;
+		}
+
 		$trainer = new \Chantrea\Training\Domain\Model\Trainer();
 		$trainer->setName(new \TYPO3\Party\Domain\Model\PersonName('', $firstName, '', $lastName));
 
-		$account = $this->accountFactory->createAccountWithPassword($identifier, $password, array('Chantrea.Training:Administrator'));
+		$roleIdentifiers = array();
+		if ($admin === TRUE) {
+			$roleIdentifiers[] = 'Chantrea.Training:Administrator';
+		} else {
+			$roleIdentifiers[] = 'Chantrea.Training:User';
+		}
+
+		$account = $this->accountFactory->createAccountWithPassword($identifier, $password, $roleIdentifiers);
 		$this->accountRepository->add($account);
 		$trainer->addAccount($account);
 
