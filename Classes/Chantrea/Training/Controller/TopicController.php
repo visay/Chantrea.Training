@@ -159,6 +159,19 @@ class TopicController extends ActionController {
 	}
 
 	/**
+	 * Un Accept a suggested topic
+	 *
+	 * @param \Chantrea\Training\Domain\Model\Topic $suggestedTopic The topic to accept
+	 * @return void
+	 */
+	public function unAcceptAction(Topic $suggestedTopic) {
+		$suggestedTopic->setStatus($this->settings['statusOptions']['rejected']);
+		$this->topicRepository->update($suggestedTopic);
+		$this->persistenceManager->persistAll();
+		$this->redirect('listAcceptedTopic');
+	}
+
+	/**
 	 * List AcceptedTopic the Training
 	 */
 	public function listAcceptedTopicAction() {
@@ -174,6 +187,22 @@ class TopicController extends ActionController {
 	 */
 	public function planAction(Topic $acceptedTopic) {
 		$this->view->assign('planTopic', $acceptedTopic);
+	}
+
+	/**
+	 * Updates the given topic object
+	 *
+	 * @param \Chantrea\Training\Domain\Model\Topic $planTopic The topic to update
+	 * @return void
+	 */
+	public function setScheduleAction(Topic $planTopic) {
+		$planTopic->setStatus($this->settings['statusOptions']['scheduled']);
+		//$this->persistenceManager->persistAll();
+		//$this->redirect('listAcceptedTopic')
+
+		$this->topicRepository->update($planTopic);
+		$this->addFlashMessage('Scheduled the topic.');
+		$this->redirect('index');
 	}
 }
 ?>

@@ -20,7 +20,7 @@
 					<td>{suggestedTopic.title}</td>
 					<td>{suggestedTopic.account.party.name}</td>
 					<td><f:link.action action="accept" controller="Topic" arguments="{suggestedTopic: suggestedTopic}"><i class="icon-plus-sign" /></f:link.action></td>
-					<td><i class="icon-minus-sign" /></td>
+					<td><f:link.action action="unAccept" controller="Topic" arguments="{suggestedTopic: suggestedTopic}"><i class="icon-minus-sign" /></f:link.action></td>
 				</tr>
 			</f:for>
 		</table>

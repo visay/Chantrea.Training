@@ -17,7 +17,7 @@
                                 <td><f:format.date>{acceptedTopic.creationDate}</f:format.date></td>
                                 <td>{acceptedTopic.title}</td>
                                 <td>{acceptedTopic.account.party.name}</td>
-                                <td><input type="checkbox" /></td>
+                                <td><f:link.action action="plan" controller="Topic" arguments="{acceptedTopic: acceptedTopic}"><input type="checkbox" /></f:link.action></td>
                             </tr>
                     </f:for>
               </table>
