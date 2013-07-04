@@ -38,10 +38,15 @@ class TopicController extends ActionController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \Chantrea\Training\Domain\Repository\StatusRepository
+	 * @var \Chantrea\Training\Domain\Repository\TrainerRepository
 	 */
-	protected $statusRepository;
+	protected $trainerRepository;
 
+	/**
+	 * @Flow\Inject
+	 * @var \Chantrea\Training\Domain\Repository\LocationRepository
+	 */
+	protected $locationRepository;
 	/**
 	 * Shows a list of topics
 	 *
@@ -168,7 +173,8 @@ class TopicController extends ActionController {
 		$suggestedTopic->setStatus($this->settings['statusOptions']['rejected']);
 		$this->topicRepository->update($suggestedTopic);
 		$this->persistenceManager->persistAll();
-		$this->redirect('listAcceptedTopic');
+		$this->addFlashMessage('Topic was reject');
+		$this->redirect('suggest');
 	}
 
 	/**
@@ -187,6 +193,8 @@ class TopicController extends ActionController {
 	 */
 	public function planAction(Topic $acceptedTopic) {
 		$this->view->assign('planTopic', $acceptedTopic);
+		$this->view->assign('trainers', $this->trainerRepository->findAll());
+		$this->view->assign('locations', $this->locationRepository->findAll());
 	}
 
 	/**
@@ -197,10 +205,8 @@ class TopicController extends ActionController {
 	 */
 	public function setScheduleAction(Topic $planTopic) {
 		$planTopic->setStatus($this->settings['statusOptions']['scheduled']);
-		//$this->persistenceManager->persistAll();
-		//$this->redirect('listAcceptedTopic')
-
 		$this->topicRepository->update($planTopic);
+		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('Scheduled the topic.');
 		$this->redirect('index');
 	}
