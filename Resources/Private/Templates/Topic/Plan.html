@@ -2,29 +2,65 @@
 
 <f:section name="Title"></f:section>
 <f:section name="Header"></f:section>
-
 <f:section name="Content">
-	<f:render partial="FormErrors" arguments="{objectName: objectName}" />
-	<f:form action="setSchedule" object="{planTopic}" name="planTopic">
-		<ol>
-			<li>
-				<label for="trainingDate">Training Date</label>
-				<f:form.textfield property="trainingDate" id="trainingDate" placeholder="Enter training date" />
-			</li>
-
-			<li>
-				<label for="trainer">Trainer</label>
-				<f:form.select name="trainer" options="{trainers}" optionValueField="name" optionLabelField="name" />
-			</li>
-
-			<li>
-				<label for="location">Location</label>
-				<f:form.select name="location" options="{locations}" optionValueField="room" optionLabelField="room" />
-			</li>
-
-			<li>
-				<f:form.submit value="Update"/>
-			</li>
-		</ol>
-	</f:form>
+    <f:render partial="FormErrors" arguments="{objectName: objectName}" />
+    <f:form action="schedule" object="{planTopic}" name="planTopic" class="form-horizontal">
+        <div class="control-group">
+           <div class="control-label">
+                <label for="creationDate"><f:translate id="label.field.creationDate" />:</label>
+           </div>
+           <div class="controls">
+               <label class="checkbox"><f:format.date>{planTopic.creationDate}</f:format.date></label>
+           </div>
+        </div>
+       <div class="control-group">
+           <div class="control-label">
+                <label for="title"><f:translate id="label.field.topic" />:</label>
+           </div>
+           <div class="controls">
+               <label class="checkbox">{planTopic.title}</label>
+           </div>
+        </div>
+       <div class="control-group">
+           <div class="control-label">
+               <label for="account"><f:translate id="label.field.account" />:</label>
+           </div>
+           <div class="controls">
+               <label class="checkbox">{planTopic.account.party.name}</label>
+           </div>
+        </div>
+        <div class="control-group">
+           <div class="control-label">
+               <label for="category"><f:translate id="label.field.category" />:</label>
+           </div>
+           <div class="controls">
+               <label class="checkbox">{planTopic.category.name}</label>
+           </div>
+         </div>
+        <div class="control-group">
+            <label class="control-label" for="trainingDate"><f:translate id="label.field.trainingDate" /></label>
+            <div class="controls">
+                <f:form.textfield property="trainingDate" placeholder="Enter training date" />
+            </div>
+        </div>
+        <div class="control-group">
+              <label class="control-label" for="trainers"><f:translate id="label.field.trainer" /></label>
+              <div class="controls">
+                      <div class="left">
+                              <f:form.select name="trainers" options="{trainers}" optionLabelField="name" multiple="1" size="5" id="trainers" />
+                      </div>
+              </div>
+          </div>
+          <div class="control-group">
+              <label class="control-label" for="location"><f:translate id="label.field.location" /></label>
+              <div class="controls">
+                  <f:form.select name="location" property="location" options="{locations}" optionLabelField="room" />
+              </div>
+          </div>
+          <div class="control-group">
+              <div class="controls">
+                   <f:form.submit value="{f:translate(id: 'label.plan.save')}" class="bnt"/>
+              </div>
+          </div>
+    </f:form>
 </f:section>

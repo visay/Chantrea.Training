@@ -23,12 +23,18 @@ class TopicRepository extends \TYPO3\Flow\Persistence\Repository {
 	 *
 	 * @return object
 	 */
-	public function findByStatus($status, $limit = 10) {
+	public function findByStatus($status, $limit=NULL) {
 		$query = $this->createQuery();
-		return $query->matching($query->equals('status', $status))
-			->setOrderings(array('creationDate' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_DESCENDING))
-			->setLimit($limit)
-			->execute();
+		if ($limit) {
+			return $query->matching($query->equals('status', $status))
+					->setOrderings(array('creationDate' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_DESCENDING))
+					->setLimit($limit)
+					->execute();
+		} else {
+			return $query->matching($query->equals('status', $status))
+					->setOrderings(array('creationDate' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_DESCENDING))
+					->execute();
+		}
 	}
 }
 ?>

@@ -26,63 +26,74 @@
 		</f:else>
 	</f:if>-->
 		<f:if condition="{scheduleTopics}">
-			<h4>10 Training Scheduled</h4>
-			<table class="table table-condensed">
-				<tr>
-					<th>Training Date</th>
-					<th>Topic</th>
-					<th>Trainer</th>
-					<th>Location</th>
-				</tr>
-				<f:for each="{scheduleTopics}" as="scheduleTopic">
-					<tr>
-						<td><f:format.date>{scheduleTopic.trainingDate}</f:format.date></td>
-						<td>{scheduleTopic.title}</td>
-						<td>
-							<f:for each="{scheduleTopic.trainers}" as="trainer">
-								{trainer.name} <br/>
-							</f:for>
-						</td>
-						<td>{scheduleTopic.location.room}</td>
-					</tr>
-				</f:for>
-			</table>
+                    <f:then>
+                        <h4>10 Training Scheduled</h4>
+                        <table class="table table-condensed">
+                            <tr>
+                                <th><f:translate id="label.field.trainingDate" /></th>
+                                <th><f:translate id="label.field.topic" /></th>
+                                <th><f:translate id="label.field.trainer" /></th>
+                                <th><f:translate id="label.field.location" /></th>
+                            </tr>
+                            <f:for each="{scheduleTopics}" as="scheduleTopic">
+                                <tr>
+                                    <td><f:format.date>{scheduleTopic.trainingDate}</f:format.date></td>
+                                    <td>{scheduleTopic.title}</td>
+                                    <td>
+                                            <f:for each="{scheduleTopic.trainers}" as="trainer">
+                                                    {trainer.name} <br/>
+                                            </f:for>
+                                    </td>
+                                    <td>{scheduleTopic.location.room}</td>
+                                </tr>
+                            </f:for>
+                        </table>
+                    </f:then>
+                    <f:else><f:translate id="label.message.noscheduled" /></f:else>
 		</f:if>
 		<div class="row-fluid">
 		<div class="span4">
-			<h4>10 Latest Suggestion</h4>
-			<f:if condition="{suggestedTopics}">
-				<table class="table table-condensed">
-					<tr>
-						<th>Topic</th>
-						<th>By</th>
-					</tr>
-					<f:for each="{suggestedTopics}" as="suggestedTopic">
-						<tr class="warning">
-							<td>{suggestedTopic.title}</td>
-							<td>{suggestedTopic.account.party.name}</td>
-						</tr>
-					</f:for>
-				</table>
-			</f:if>
+                    <h4><f:translate id="label.latest.suggestion" /></h4>
+                    <f:if condition="{suggestedTopics}">
+                        <f:then>
+                            <table class="table table-condensed">
+                                <tr>
+                                    <th><f:translate id="label.field.topic" /></th>
+                                    <th><f:translate id="label.field.account" /></th>
+                                </tr>
+                                <f:for each="{suggestedTopics}" as="suggestedTopic">
+                                    <tr class="warning">
+                                            <td>{suggestedTopic.title}</td>
+                                            <td>{suggestedTopic.account.party.name}</td>
+                                    </tr>
+                                </f:for>
+                            </table>
+                        </f:then>
+                        <f:else><f:translate id="label.message.nosuggestion" /></f:else>
+                    </f:if>
 		</div>
-		<f:if condition="{acceptedTopics}">
-			<div class="span4">
-			<h4>10 Latest Accepted</h4>
-			<table class="table table-condensed">
-				<tr>
-					<th>Topic</th>
-					<th>By</th>
-				</tr>
-				<f:for each="{acceptedTopics}" as="acceptedTopic">
-					<tr class="success">
-						<td>{acceptedTopic.title}</td>
-						<td>{acceptedTopic.account.party.name}</td>
-					</tr>
-				</f:for>
-			</table>
-			</div>
-		</f:if>
+		<div class="span4">
+                    <h4><f:translate id="label.latest-accpeted" /></h4>
+                    <f:if condition="{acceptedTopics}">
+                        <f:then>
+                            <table class="table table-condensed">
+                                <tr>
+                                    <th><f:translate id="label.field.topic" /></th>
+                                    <th><f:translate id="label.field.account" /></th>
+                                </tr>
+                                <f:for each="{acceptedTopics}" as="acceptedTopic">
+                                    <tr class="success">
+                                            <td>{acceptedTopic.title}</td>
+                                            <td>{acceptedTopic.account.party.name}</td>
+                                    </tr>
+                                </f:for>
+                            </table>
+                        </f:then>
+                        <f:else>
+                            <f:translate id="label.message.noaccepted" />
+                        </f:else>
+                    </f:if>
+		</div>
 	</div> 
 <!-- 
 	<p><f:link.action action="new" controller="Category">Create new category</f:link.action></p>

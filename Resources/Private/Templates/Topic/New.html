@@ -4,34 +4,34 @@
 <f:section name="Header"></f:section>
 
 <f:section name="Content">
-	<f:if condition="{categories}">
-		<f:then>
-			<f:render partial="FormErrors" arguments="{objectName: objectName}" />
-			<p>Just fill out the following form to create a new topic:</p>
-			<f:form action="create" name="newTopic">
-				<ol>
-					<li>
-						<label for="title">Title</label>
-						<f:form.textfield property="title" id="title" placeholder="Enter title here" />
-					</li>
-					<li>
-						<label for="shortDescription">Short description</label>
-						<f:form.textarea property="shortDescription" id="shortDescription" rows="3" cols="50" placeholder="Enter description here" />
-					</li>
-					<li>
-						<label for="category">Category</label>
-						<f:form.select name="category" options="{categories}" optionLabelField="name" property="category" />
-					</li>
-					<f:form.hidden property="account" value="{account}" />
-					<li>
-						<f:form.submit value="Create" />
-					</li>
-				</ol>
-			</f:form>
-		</f:then>
-		<f:else>
-			<f:debug></f:debug>
-			<p>Please create a category first. <f:link.action action="new" controller="Category">Click here</f:link.action></p>
-		</f:else>
-	</f:if>
+    <f:if condition="{categories}">
+        <f:then>
+                <f:render partial="FormErrors" arguments="{objectName: objectName}" />
+                <p>Just fill out the following form to create a new topic:</p>
+                <f:form action="create" name="newTopic">
+                        <ol>
+                                <li>
+                                        <label for="title">Title</label>
+                                        <f:form.textfield property="title" id="title" placeholder="Enter title here" />
+                                </li>
+                                <li>
+                                        <label for="shortDescription">Short description</label>
+                                        <f:form.textarea property="shortDescription" id="shortDescription" rows="3" cols="50" placeholder="Enter description here" />
+                                </li>
+                                <li>
+                                        <label for="category">Category</label>
+                                        <f:form.select name="category" options="{categories}" optionLabelField="name" property="category" />
+                                </li>
+                                <f:form.hidden property="account" value="{account}" />
+                                <li>
+                                        <f:form.submit value="Create" />
+                                </li>
+                        </ol>
+                </f:form>
+        </f:then>
+        <f:else>
+                <f:debug></f:debug>
+                <p>Please create a category first. <f:link.action action="new" controller="Category">Click here</f:link.action></p>
+        </f:else>
+    </f:if>
 </f:section>

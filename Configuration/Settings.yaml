@@ -16,6 +16,8 @@ TYPO3:
 
 Chantrea:
   Training:
+    limit: 10
+    dateFormat: 'Y-m-d'
     statusOptions:
       new: 'New'
       accepted: 'Accepted'

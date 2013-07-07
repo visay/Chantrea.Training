@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" source-language="en" datatype="plaintext">
+		<body>
+                    <trans-unit id="label.field.creationDate">
+                        <source>Post date</source>
+                    </trans-unit>
+                    <trans-unit id="label.field.topic">
+                        <source>Topic</source>
+                    </trans-unit>
+                    <trans-unit id="label.field.account">
+                        <source>Post by</source>
+                    </trans-unit>
+                    <trans-unit id="label.field.category">
+                        <source>Category</source>
+                    </trans-unit>
+                    <trans-unit id="label.field.trainer">
+                        <source>Trainer</source>
+                    </trans-unit>
+                    <trans-unit id="label.field.trainingDate">
+                        <source>Training date</source>
+                    </trans-unit>
+                    <trans-unit id="label.field.location">
+                        <source>Location</source>
+                    </trans-unit>
+                    <trans-unit id="label.plan.save">
+                        <source>Save</source>
+                    </trans-unit>
+                    <trans-unit id="label.message.acceptedtopic">
+                        <source>
+                            <![CDATA[
+                                Please Accept the topics before you can set schedule <br />
+                            ]]>
+                        </source>
+                    </trans-unit>
+                    <trans-unit id="label.latest.suggestion">
+                        <source>10 Latest Suggestions</source>
+                    </trans-unit>
+                    <trans-unit id="label.latest-accpeted">
+                        <source>10 Latest Accepteds</source>
+                    </trans-unit>
+                    <trans-unit id="label.message.noaccepted">
+                        <source>There is no accepted topics yet</source>
+                    </trans-unit>
+                    <trans-unit id="label.message.nosuggestion">
+                        <source>There is no suggested topics yet</source>
+                    </trans-unit>
+                    <trans-unit id="label.message.noscheduled">
+                        <source>There is no scheduled topics yet</source>
+                    </trans-unit>
+                    <trans-unit id="label.field.accepted">
+                        <source>Accepted</source>
+                    </trans-unit>
+                    <trans-unit id="label.field.unaccepted">
+                        <source>Unaccepted</source>
+                    </trans-unit>
+                    <trans-unit id="label.back.suggested">
+                        <source>Back to suggested topic</source>
+                    </trans-unit>
+                    <trans-unit id="label.suggest.topic">
+                        <source>Create a new topic</source>
+                    </trans-unit>
+		</body>
+	</file>
+</xliff>

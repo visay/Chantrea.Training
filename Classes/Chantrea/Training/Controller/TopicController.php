@@ -55,9 +55,9 @@ class TopicController extends ActionController {
 	 */
 	public function indexAction() {
 		$this->view->assign('topics', $this->topicRepository->findAll());
-		$this->view->assign('acceptedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['accepted']));
-		$this->view->assign('scheduleTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['scheduled']));
-		$this->view->assign('suggestedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['new']));
+		$this->view->assign('acceptedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['accepted'], $this->settings['limit']));
+		$this->view->assign('scheduleTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['scheduled'], $this->settings['limit']));
+		$this->view->assign('suggestedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['new'], $this->settings['limit']));
 	}
 
 	/**
@@ -103,7 +103,7 @@ class TopicController extends ActionController {
 		$newTopic->setStatus($this->settings['statusOptions']['new']);
 		$this->topicRepository->add($newTopic);
 		$this->addFlashMessage('Created a new topic.');
-		$this->redirect('index');
+		$this->redirect('new');
 	}
 
 	/**
@@ -198,17 +198,39 @@ class TopicController extends ActionController {
 	}
 
 	/**
-	 * Updates the given topic object
+	 * Initialize the schedule action
 	 *
-	 * @param \Chantrea\Training\Domain\Model\Topic $planTopic The topic to update
 	 * @return void
 	 */
-	public function setScheduleAction(Topic $planTopic) {
-		$planTopic->setStatus($this->settings['statusOptions']['scheduled']);
-		$this->topicRepository->update($planTopic);
-		$this->persistenceManager->persistAll();
-		$this->addFlashMessage('Scheduled the topic.');
-		$this->redirect('index');
+	public function initializeScheduleAction() {
+		$this->arguments['planTopic']->getPropertyMappingConfiguration()->forProperty('trainingDate')
+				->setTypeConverterOption('TYPO3\Flow\Property\TypeConverter\DateTimeConverter',
+				\TYPO3\Flow\Property\TypeConverter\DateTimeConverter::CONFIGURATION_DATE_FORMAT, $this->settings['dateFormat']);
+	}
+
+	/**
+	 * Schedule the given topic object
+	 *
+	 * @param \Chantrea\Training\Domain\Model\Topic $planTopic The topic to scheudle
+	 * @return void
+	 */
+	public function scheduleAction(Topic $planTopic) {
+		try {
+			$trainers = $this->request->getArgument('trainers') == '' ? array() : $this->request->getArgument('trainers');
+			$newTrainers = new \Doctrine\Common\Collections\ArrayCollection();
+			foreach ($trainers as $trainer) {
+				$newTrainer = $this->trainerRepository->findByIdentifier($trainer);
+				$newTrainers->add($newTrainer);
+			}
+			$planTopic->setTrainers($newTrainers);
+			$planTopic->setStatus($this->settings['statusOptions']['scheduled']);
+			$this->topicRepository->update($planTopic);
+			$this->persistenceManager->persistAll();
+			$this->addFlashMessage('Scheduled the topic.');
+			$this->redirect('index');
+		} catch (\PDOException $exception) {
+			$this->addFlashMessage($exception->getMessage(), '', Message::SEVERITY_ERROR);
+		}
 	}
 }
 ?>
