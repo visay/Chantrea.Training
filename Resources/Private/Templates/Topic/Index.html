@@ -27,24 +27,26 @@
 	</f:if>-->
 		<f:if condition="{scheduleTopics}">
                     <f:then>
-                        <h4>10 Training Scheduled</h4>
+                        <h4><f:translate id="label.latest.scheduled" /></h4>
                         <table class="table table-condensed">
                             <tr>
-                                <th><f:translate id="label.field.trainingDate" /></th>
+                                <th><f:translate id="label.field.topic.trainingDate" /></th>
                                 <th><f:translate id="label.field.topic" /></th>
-                                <th><f:translate id="label.field.trainer" /></th>
-                                <th><f:translate id="label.field.location" /></th>
+                                <th><f:translate id="label.field.topic.trainer" /></th>
+                                <th><f:translate id="label.field.topic.location" /></th>
+                                <th><f:translate id="label.edit" /></th>
                             </tr>
                             <f:for each="{scheduleTopics}" as="scheduleTopic">
                                 <tr>
                                     <td><f:format.date>{scheduleTopic.trainingDate}</f:format.date></td>
                                     <td>{scheduleTopic.title}</td>
                                     <td>
-                                            <f:for each="{scheduleTopic.trainers}" as="trainer">
-                                                    {trainer.name} <br/>
-                                            </f:for>
+                                        <f:for each="{scheduleTopic.trainers}" as="trainer">
+                                            {trainer.name} <br/>
+                                        </f:for>
                                     </td>
                                     <td>{scheduleTopic.location.room}</td>
+                                    <td><f:link.action action="plan" controller="Topic" arguments="{acceptedTopic: scheduleTopic}"><i class="icon-edit"></i></f:link.action></td>
                                 </tr>
                             </f:for>
                         </table>
@@ -52,14 +54,14 @@
                     <f:else><f:translate id="label.message.noscheduled" /></f:else>
 		</f:if>
 		<div class="row-fluid">
-		<div class="span4">
+		<div class="span6">
                     <h4><f:translate id="label.latest.suggestion" /></h4>
                     <f:if condition="{suggestedTopics}">
                         <f:then>
                             <table class="table table-condensed">
                                 <tr>
                                     <th><f:translate id="label.field.topic" /></th>
-                                    <th><f:translate id="label.field.account" /></th>
+                                    <th><f:translate id="label.field.topic.account" /></th>
                                 </tr>
                                 <f:for each="{suggestedTopics}" as="suggestedTopic">
                                     <tr class="warning">
@@ -72,14 +74,14 @@
                         <f:else><f:translate id="label.message.nosuggestion" /></f:else>
                     </f:if>
 		</div>
-		<div class="span4">
-                    <h4><f:translate id="label.latest-accpeted" /></h4>
+		<div class="span6">
+                    <h4><f:translate id="label.latest.accpeted" /></h4>
                     <f:if condition="{acceptedTopics}">
                         <f:then>
                             <table class="table table-condensed">
                                 <tr>
                                     <th><f:translate id="label.field.topic" /></th>
-                                    <th><f:translate id="label.field.account" /></th>
+                                    <th><f:translate id="label.field.topic.account" /></th>
                                 </tr>
                                 <f:for each="{acceptedTopics}" as="acceptedTopic">
                                     <tr class="success">

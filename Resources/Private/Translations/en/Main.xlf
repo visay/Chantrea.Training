@@ -2,42 +2,93 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
 	<file original="" source-language="en" datatype="plaintext">
 		<body>
-                    <trans-unit id="label.field.creationDate">
-                        <source>Post date</source>
+                    <!-- general start-->
+                    <trans-unit id="label.field.topic.creationDate">
+                        <source>Date</source>
                     </trans-unit>
                     <trans-unit id="label.field.topic">
                         <source>Topic</source>
                     </trans-unit>
-                    <trans-unit id="label.field.account">
-                        <source>Post by</source>
+                    <trans-unit id="label.field.topic.title">
+                        <source>Title</source>
                     </trans-unit>
-                    <trans-unit id="label.field.category">
+                    <trans-unit id="label.field.topic.shortdescription">
+                        <source>Description</source>
+                    </trans-unit>
+                    <trans-unit id="label.field.topic.account">
+                        <source>By</source>
+                    </trans-unit>
+                    <trans-unit id="label.field.topic.category">
                         <source>Category</source>
                     </trans-unit>
-                    <trans-unit id="label.field.trainer">
+                    <trans-unit id="label.field.topic.trainer">
                         <source>Trainer</source>
                     </trans-unit>
-                    <trans-unit id="label.field.trainingDate">
-                        <source>Training date</source>
+                    <trans-unit id="label.field.topic.trainingDate">
+                        <source>Date</source>
                     </trans-unit>
-                    <trans-unit id="label.field.location">
+                    <trans-unit id="label.field.topic.location">
                         <source>Location</source>
                     </trans-unit>
+                    <trans-unit id="label.edit">
+                        <source>Edit</source>
+                    </trans-unit>
+                    <trans-unit id="label.update">
+                        <source>Update</source>
+                    </trans-unit>
+                    <trans-unit id="label.delete">
+                        <source>Delete</source>
+                    </trans-unit>
+                    <!-- general end -->
+
+                    <!-- plan form start -->
                     <trans-unit id="label.plan.save">
                         <source>Save</source>
                     </trans-unit>
-                    <trans-unit id="label.message.acceptedtopic">
-                        <source>
-                            <![CDATA[
-                                Please Accept the topics before you can set schedule <br />
-                            ]]>
-                        </source>
+                   <trans-unit id="label.plan.select.location">
+                        <source>-- Please select location --</source>
+                    </trans-unit>
+                    <trans-unit id="label.plan.field.topic.creationDate">
+                        <source>Post date</source>
+                    </trans-unit>
+                    <trans-unit id="label.plan.field.topic.trainingDate">
+                        <source>Training date</source>
+                    </trans-unit>
+                    <!-- plan form end -->
+
+                    <!-- suggest form start -->
+                    <trans-unit id="label.suggest.accepted">
+                        <source>Accepted</source>
+                    </trans-unit>
+                    <trans-unit id="label.suggest.unaccepted">
+                        <source>Unaccepted</source>
+                    </trans-unit>
+                    <trans-unit id="label.suggest.save">
+                        <source>Suggest</source>
+                    </trans-unit>
+                    <trans-unit id="label.suggest.new.topic">
+                        <source>Suggest new</source>
+                    </trans-unit>
+                    <trans-unit id="label.suggest.create.category">
+                        <source>Please create a category first.</source>
+                    </trans-unit>
+                    <trans-unit id="label.create.category">
+                        <source>Click here</source>
+                    </trans-unit>
+                    <trans-unit id="label.suggest.select.category">
+                        <source>-- Please select category --</source>
+                    </trans-unit>
+                    <!-- suggest form end -->
+
+                    <!-- index start -->
+                    <trans-unit id="label.latest.scheduled">
+                        <source>10 Latest scheduled</source>
                     </trans-unit>
                     <trans-unit id="label.latest.suggestion">
-                        <source>10 Latest Suggestions</source>
+                        <source>10 Latest suggestions</source>
                     </trans-unit>
-                    <trans-unit id="label.latest-accpeted">
-                        <source>10 Latest Accepteds</source>
+                    <trans-unit id="label.latest.accpeted">
+                        <source>10 Latest accepteds</source>
                     </trans-unit>
                     <trans-unit id="label.message.noaccepted">
                         <source>There is no accepted topics yet</source>
@@ -45,21 +96,26 @@
                     <trans-unit id="label.message.nosuggestion">
                         <source>There is no suggested topics yet</source>
                     </trans-unit>
+                    <!-- index end-->
+
+                    <!-- list accepted topic start -->
+                    <trans-unit id="label.message.acceptedtopic">
+                        <source>
+                            <![CDATA[
+                                Please Accept the topics before you can set schedule <br />
+                            ]]>
+                        </source>
+                    </trans-unit>
                     <trans-unit id="label.message.noscheduled">
                         <source>There is no scheduled topics yet</source>
-                    </trans-unit>
-                    <trans-unit id="label.field.accepted">
-                        <source>Accepted</source>
-                    </trans-unit>
-                    <trans-unit id="label.field.unaccepted">
-                        <source>Unaccepted</source>
                     </trans-unit>
                     <trans-unit id="label.back.suggested">
                         <source>Back to suggested topic</source>
                     </trans-unit>
-                    <trans-unit id="label.suggest.topic">
-                        <source>Create a new topic</source>
+                    <trans-unit id="label.listAccepted.schedule">
+                        <source>Schedule</source>
                     </trans-unit>
+                    <!-- list accepted topic end -->
 		</body>
 	</file>
 </xliff>

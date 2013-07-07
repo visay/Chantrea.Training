@@ -7,7 +7,7 @@
     <f:form action="schedule" object="{planTopic}" name="planTopic" class="form-horizontal">
         <div class="control-group">
            <div class="control-label">
-                <label for="creationDate"><f:translate id="label.field.creationDate" />:</label>
+                <label for="creationDate"><f:translate id="label.plan.field.topic.creationDate" />:</label>
            </div>
            <div class="controls">
                <label class="checkbox"><f:format.date>{planTopic.creationDate}</f:format.date></label>
@@ -23,7 +23,7 @@
         </div>
        <div class="control-group">
            <div class="control-label">
-               <label for="account"><f:translate id="label.field.account" />:</label>
+               <label for="account"><f:translate id="label.field.topic.account" />:</label>
            </div>
            <div class="controls">
                <label class="checkbox">{planTopic.account.party.name}</label>
@@ -31,20 +31,20 @@
         </div>
         <div class="control-group">
            <div class="control-label">
-               <label for="category"><f:translate id="label.field.category" />:</label>
+               <label for="category"><f:translate id="label.field.topic.category" />:</label>
            </div>
            <div class="controls">
                <label class="checkbox">{planTopic.category.name}</label>
            </div>
          </div>
         <div class="control-group">
-            <label class="control-label" for="trainingDate"><f:translate id="label.field.trainingDate" /></label>
+            <label class="control-label" for="trainingDate"><f:translate id="label.plan.field.topic.trainingDate" />: </label>
             <div class="controls">
                 <f:form.textfield property="trainingDate" placeholder="Enter training date" />
             </div>
         </div>
         <div class="control-group">
-              <label class="control-label" for="trainers"><f:translate id="label.field.trainer" /></label>
+              <label class="control-label" for="trainers"><f:translate id="label.field.topic.trainer" />: </label>
               <div class="controls">
                       <div class="left">
                               <f:form.select name="trainers" options="{trainers}" optionLabelField="name" multiple="1" size="5" id="trainers" />
@@ -52,14 +52,14 @@
               </div>
           </div>
           <div class="control-group">
-              <label class="control-label" for="location"><f:translate id="label.field.location" /></label>
+              <label class="control-label" for="location"><f:translate id="label.field.topic.location" />: </label>
               <div class="controls">
-                  <f:form.select name="location" property="location" options="{locations}" optionLabelField="room" />
+                  <f:form.select name="location" property="location" options="{locations}" optionLabelField="room" prependOptionLabel="{f:translate(id: 'label.plan.select.location')}" />
               </div>
           </div>
           <div class="control-group">
               <div class="controls">
-                   <f:form.submit value="{f:translate(id: 'label.plan.save')}" class="bnt"/>
+                  <f:form.button class="bnt"><f:translate id="label.plan.save" /></f:form.button>
               </div>
           </div>
     </f:form>

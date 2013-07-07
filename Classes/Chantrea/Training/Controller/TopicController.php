@@ -115,6 +115,7 @@ class TopicController extends ActionController {
 	 */
 	public function editAction(Topic $topic) {
 		$this->view->assign('topic', $topic);
+		$this->view->assign('categories', $this->categoryRepository->findAll());
 	}
 
 	/**
@@ -138,6 +139,7 @@ class TopicController extends ActionController {
 	public function deleteAction(Topic $topic) {
 		$this->topicRepository->remove($topic);
 		$this->addFlashMessage('Deleted a topic.');
+		$this->persistenceManager->persistAll();
 		$this->redirect('index');
 	}
 

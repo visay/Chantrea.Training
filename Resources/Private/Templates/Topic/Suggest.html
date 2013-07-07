@@ -4,28 +4,32 @@
 <f:section name="Header">Suggested Topic</f:section>
 
 <f:section name="Content">
-	<f:render partial="FormErrors" arguments="{objectName: objectName}" />
-	<f:if condition="{suggestedTopics}">
-		<table class="table table-condensed">
-			<tr>
-				<th><f:translate id="label.field.creationDate" /></th>
-				<th><f:translate id="label.field.topic" /></th>
-				<th><f:translate id="label.field.account" /></th>
-				<th><f:translate id="label.field.accepted" /></th>
-				<th><f:translate id="label.field.unaccepted" /></th>
-			</tr>
-			<f:for each="{suggestedTopics}" as="suggestedTopic">
-				<tr class="warning">
-					<td><f:format.date>{suggestedTopic.creationDate}</f:format.date></td>
-					<td>{suggestedTopic.title}</td>
-					<td>{suggestedTopic.account.party.name}</td>
-					<td><f:link.action action="accept" controller="Topic" arguments="{suggestedTopic: suggestedTopic}"><i class="icon-plus-sign" /></f:link.action></td>
-					<td><f:link.action action="unAccept" controller="Topic" arguments="{suggestedTopic: suggestedTopic}"><i class="icon-minus-sign" /></f:link.action></td>
-				</tr>
-			</f:for>
-		</table>
-	</f:if>
-	<p>
-		<f:link.action action="new"><f:translate id="label.suggest.topic" /></f:link.action>
-	</p>
+    <f:render partial="FormErrors" arguments="{objectName: objectName}" />
+    <f:if condition="{suggestedTopics}">
+        <table class="table table-condensed">
+            <tr>
+                    <th><f:translate id="label.field.topic.creationDate" /></th>
+                    <th><f:translate id="label.field.topic.title" /></th>
+                    <th><f:translate id="label.field.topic.account" /></th>
+                    <th><f:translate id="label.suggest.accepted" /></th>
+                    <th><f:translate id="label.suggest.unaccepted" /></th>
+                    <th><f:translate id="label.edit" /></th>
+                    <th><f:translate id="label.delete" /></th>
+            </tr>
+            <f:for each="{suggestedTopics}" as="suggestedTopic">
+                <tr class="warning">
+                    <td><f:format.date>{suggestedTopic.creationDate}</f:format.date></td>
+                    <td>{suggestedTopic.title}</td>
+                    <td>{suggestedTopic.account.party.name}</td>
+                    <td><f:link.action action="accept" controller="Topic" arguments="{suggestedTopic: suggestedTopic}"><i class="icon-plus-sign" /></f:link.action></td>
+                    <td><f:link.action action="unAccept" controller="Topic" arguments="{suggestedTopic: suggestedTopic}"><i class="icon-minus-sign" /></f:link.action></td>
+                    <td><f:link.action action="edit" controller="Topic" arguments="{topic: suggestedTopic}"><i class="icon-edit"></i></f:link.action></td>
+            <td><f:link.action action="delete" controller="Topic" arguments="{topic: suggestedTopic}"><i class="icon-trash" onclick="return confirm('Are you sure want to delete?')"></i></f:link.action></td>
+                </tr>
+            </f:for>
+        </table>
+    </f:if>
+    <p>
+            <f:link.action action="new"><f:translate id="label.suggest.new.topic" /></f:link.action>
+    </p>
 </f:section>
