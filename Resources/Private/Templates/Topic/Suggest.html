@@ -11,20 +11,32 @@
                     <th><f:translate id="label.field.topic.creationDate" /></th>
                     <th><f:translate id="label.field.topic.title" /></th>
                     <th><f:translate id="label.field.topic.account" /></th>
-                    <th><f:translate id="label.suggest.accepted" /></th>
-                    <th><f:translate id="label.suggest.unaccepted" /></th>
-                    <th><f:translate id="label.edit" /></th>
-                    <th><f:translate id="label.delete" /></th>
+                    <f:security.ifHasRole role="Administrator">
+                        <f:then>
+                            <th><f:translate id="label.suggest.accepted" /></th>
+                            <th><f:translate id="label.suggest.unaccepted" /></th>
+                        </f:then>
+                        <f:else>
+                            <th><f:translate id="label.edit" /></th>
+                            <th><f:translate id="label.delete" /></th>
+                        </f:else>
+                    </f:security.ifHasRole>
             </tr>
             <f:for each="{suggestedTopics}" as="suggestedTopic">
                 <tr class="warning">
                     <td><f:format.date>{suggestedTopic.creationDate}</f:format.date></td>
                     <td>{suggestedTopic.title}</td>
                     <td>{suggestedTopic.account.party.name}</td>
-                    <td><f:link.action action="accept" controller="Topic" arguments="{suggestedTopic: suggestedTopic}"><i class="icon-plus-sign" /></f:link.action></td>
-                    <td><f:link.action action="unAccept" controller="Topic" arguments="{suggestedTopic: suggestedTopic}"><i class="icon-minus-sign" /></f:link.action></td>
-                    <td><f:link.action action="edit" controller="Topic" arguments="{topic: suggestedTopic}"><i class="icon-edit"></i></f:link.action></td>
-            <td><f:link.action action="delete" controller="Topic" arguments="{topic: suggestedTopic}"><i class="icon-trash" onclick="return confirm('Are you sure want to delete?')"></i></f:link.action></td>
+                    <f:security.ifHasRole role="Administrator">
+                        <f:then>
+                            <td><f:link.action action="accept" controller="Topic" arguments="{suggestedTopic: suggestedTopic}"><i class="icon-plus-sign" /></f:link.action></td>
+                            <td><f:link.action action="unAccept" controller="Topic" arguments="{suggestedTopic: suggestedTopic}"><i class="icon-minus-sign" /></f:link.action></td>
+                        </f:then>
+                        <f:else>
+                            <td><f:link.action action="edit" controller="Topic" arguments="{topic: suggestedTopic}"><i class="icon-edit"></i></f:link.action></td>
+                            <td><f:link.action action="delete" controller="Topic" arguments="{topic: suggestedTopic}"><i class="icon-trash" onclick="return confirm('Are you sure want to delete?')"></i></f:link.action></td>
+                        </f:else>
+                    </f:security.ifHasRole>
                 </tr>
             </f:for>
         </table>

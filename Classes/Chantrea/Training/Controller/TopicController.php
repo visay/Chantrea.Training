@@ -96,6 +96,9 @@ class TopicController extends ActionController {
 	 * Adds the given new topic object to the topic repository
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Topic $newTopic A new topic to add
+	 *
+	 * @Flow\Validate(argumentName="newTopic.title", type="NotEmpty")
+	 * @Flow\Validate(argumentName="newTopic.category", type="NotEmpty")
 	 * @return void
 	 */
 	public function createAction(Topic $newTopic) {
@@ -122,6 +125,9 @@ class TopicController extends ActionController {
 	 * Updates the given topic object
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to update
+	 *
+	 * @Flow\Validate(argumentName="topic.title", type="NotEmpty")
+	 * @Flow\Validate(argumentName="topic.category", type="NotEmpty")
 	 * @return void
 	 */
 	public function updateAction(Topic $topic) {
@@ -214,6 +220,9 @@ class TopicController extends ActionController {
 	 * Schedule the given topic object
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Topic $planTopic The topic to scheudle
+	 *
+	 * @Flow\Validate(argumentName="planTopic.trainingDate", type="NotEmpty")
+	 * @Flow\Validate(argumentName="planTopic.location", type="NotEmpty")
 	 * @return void
 	 */
 	public function scheduleAction(Topic $planTopic) {

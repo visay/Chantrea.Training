@@ -116,6 +116,29 @@
                         <source>Schedule</source>
                     </trans-unit>
                     <!-- list accepted topic end -->
+                    
+                    <!-- validation message -->
+                    <trans-unit id="label.field.topic.newTopic.title">
+                        <source>Title</source>
+                    </trans-unit>
+                    <trans-unit id="label.field.topic.newTopic.category">
+                        <source>Category</source>
+                    </trans-unit>
+                    <trans-unit id="label.field.topic.topic.title">
+                        <source>Title</source>
+                    </trans-unit>
+                    <trans-unit id="label.field.topic.topic.category">
+                        <source>Category</source>
+                    </trans-unit>
+                    <trans-unit id="label.field.topic.planTopic.trainingDate">
+                        <source>Training Date</source>
+                    </trans-unit>
+                    <trans-unit id="label.field.topic.planTopic.location">
+                        <source>Location</source>
+                    </trans-unit>
+                    <trans-unit id="label.field.topic.planTopic.trainers">
+                        <source>Trainer</source>
+                    </trans-unit>
 		</body>
 	</file>
 </xliff>
