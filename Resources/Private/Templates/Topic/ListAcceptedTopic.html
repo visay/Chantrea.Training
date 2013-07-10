@@ -4,27 +4,33 @@
 <f:section name="Header"></f:section>
 
 <f:section name="Content">
-    <f:if condition="{acceptedTopics}">
-        <f:then>
-            <table class="table table-condensed">
-                <tr>
-                    <th><f:translate id="label.field.topic.creationDate" /></th>
-                    <th><f:translate id="label.field.topic.title" /></th>
-                    <th><f:translate id="label.field.topic.account" /></th>
-                    <th><f:translate id="label.listAccepted.schedule" /></th>
-                </tr>
-                    <f:for each="{acceptedTopics}" as="acceptedTopic">
-                        <tr class="success">
-                            <td><f:format.date>{acceptedTopic.creationDate}</f:format.date></td>
-                            <td>{acceptedTopic.title}</td>
-                            <td>{acceptedTopic.account.party.name}</td>
-                            <td><f:link.action action="plan" controller="Topic" arguments="{acceptedTopic: acceptedTopic}"><i class="icon-time" /></f:link.action></td>
-                        </tr>
-                </f:for>
-            </table>
-        </f:then>
-        <f:else>
-            <f:translate id="label.message.acceptedtopic" /><f:link.action action="suggest"><f:translate id="label.back.suggested" /></f:link.action>
-        </f:else>
-    </f:if>
+	<f:if condition="{acceptedTopics}">
+		<f:then>
+			<table class="table table-condensed">
+				<tr>
+					<th><f:translate id="label.field.topic.creationDate" /></th>
+					<th><f:translate id="label.field.topic.title" /></th>
+					<th><f:translate id="label.field.topic.account" /></th>
+					<th><f:translate id="label.listAccepted.schedule" /></th>
+				</tr>
+				<f:for each="{acceptedTopics}" as="acceptedTopic">
+					<tr class="success">
+						<td><f:format.date>{acceptedTopic.creationDate}</f:format.date></td>
+						<td>{acceptedTopic.title}</td>
+						<td>{acceptedTopic.account.party.name}</td>
+						<td><f:link.action action="plan" controller="Topic"
+								arguments="{acceptedTopic: acceptedTopic}">
+								<i class="icon-time" />
+							</f:link.action></td>
+					</tr>
+				</f:for>
+			</table>
+		</f:then>
+		<f:else>
+			<f:translate id="label.message.acceptedtopic" />
+			<f:link.action action="suggest">
+				<f:translate id="label.back.suggested" />
+			</f:link.action>
+		</f:else>
+	</f:if>
 </f:section>

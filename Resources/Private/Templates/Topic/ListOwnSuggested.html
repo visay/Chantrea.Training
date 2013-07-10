@@ -21,30 +21,26 @@
 					<td><f:format.date>{suggestedTopic.creationDate}</f:format.date></td>
 					<td>{suggestedTopic.title}</td>
 					<td>{suggestedTopic.account.party.name}</td>
-					<f:security.ifHasRole role="Administrator">
-						<f:then>
-							<td><f:link.action action="accept" controller="Topic"
-									arguments="{suggestedTopic: suggestedTopic}">
-									<i class="icon-plus-sign" />
-								</f:link.action></td>
-							<td><f:link.action action="unAccept" controller="Topic"
-									arguments="{suggestedTopic: suggestedTopic}">
-									<i class="icon-minus-sign" onclick="return confirm('Are you sure want to reject this topic?')">
-								</f:link.action></td>
-						</f:then>
-					</f:security.ifHasRole>
+					<td>
+						<f:link.action action="edit" controller="Topic"
+							arguments="{topic: suggestedTopic}">
+							<i class="icon-edit"></i>
+						</f:link.action>
+					</td>
+					<td>
+						<f:link.action action="delete" controller="Topic"
+							arguments="{topic: suggestedTopic}">
+							<i class="icon-trash"
+								onclick="return confirm('Are you sure want to delete?')"></i>
+						</f:link.action>
+					</td>
 				</tr>
 			</f:for>
 		</table>
 	</f:if>
 	<p>
-		<f:link.action action="new">
-			<f:translate id="label.suggest.new.topic" />
+		<f:link.action action="suggest">
+			<f:translate id="label.back.suggested.topic" />
 		</f:link.action>
-	</p>
-	<p>
-	<f:link.action action="listOwnSuggested">
-		<f:translate id="label.own.suggested.topic" />
-	</f:link.action>
 	</p>
 </f:section>

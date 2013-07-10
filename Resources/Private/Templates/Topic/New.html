@@ -4,45 +4,59 @@
 <f:section name="Header"></f:section>
 
 <f:section name="Content">
-    <f:if condition="{categories}">
-        <f:then>
-            <f:render partial="FormErrors" arguments="{objectName: objectName}" />
-            <p>Just fill out the following form to create a new topic:</p>
-            <f:form action="create" name="newTopic">
-                <div class="control-group">
-                   <div class="control-label">
-                        <label for="title"><f:translate id="label.field.topic.title" /></label>
-                   </div>
-                   <div class="controls">
-                       <f:form.textfield property="title" id="title" placeholder="Enter title here" />
-                   </div>
-                </div>
-                <div class="control-group">
-                   <div class="control-label">
-                        <label for="shortDescription"><f:translate id="label.field.topic.shortdescription" /></label>
-                   </div>
-                   <div class="controls">
-                       <f:form.textarea property="shortDescription" id="shortDescription" rows="3" cols="50" placeholder="Enter description here" />
-                   </div>
-                </div>
-                <div class="control-group">
-                   <div class="control-label">
-                        <label for="category"><f:translate id="label.field.topic.category" /></label>
-                   </div>
-                   <div class="controls">
-                       <f:form.select name="category" options="{categories}" optionLabelField="name" property="category" prependOptionLabel="{f:translate(id: 'label.suggest.select.category')}"/>
-                   </div>
-                </div>
-                <f:form.hidden property="account" value="{account}" />
-                <div class="control-group">
-                    <div class="controls">
-                        <f:form.button class="bnt"><f:translate id="label.suggest.save" /></f:form.button>
-                    </div>
-                </div>
-            </f:form>
-        </f:then>
-        <f:else>
-            <p><f:translate id="label.suggest.create.category" /><f:link.action action="new" controller="Category"><f:translate id="label.create.category" /></f:link.action></p>
-        </f:else>
-    </f:if>
+	<f:if condition="{categories}">
+		<f:then>
+			<f:render partial="FormErrors" arguments="{objectName: objectName}" />
+			<p>Just fill out the following form to create a new topic:</p>
+			<f:form action="create" name="newTopic">
+				<div class="control-group">
+					<div class="control-label">
+						<label for="title"><f:translate
+								id="label.field.topic.title" /></label>
+					</div>
+					<div class="controls">
+						<f:form.textfield property="title" id="title"
+							placeholder="Enter title here" />
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="control-label">
+						<label for="shortDescription"><f:translate
+								id="label.field.topic.shortdescription" /></label>
+					</div>
+					<div class="controls">
+						<f:form.textarea property="shortDescription" id="shortDescription"
+							rows="3" cols="50" placeholder="Enter description here" />
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="control-label">
+						<label for="category"><f:translate
+								id="label.field.topic.category" /></label>
+					</div>
+					<div class="controls">
+						<f:form.select name="category" options="{categories}"
+							optionLabelField="name" property="category"
+							prependOptionLabel="{f:translate(id: 'label.suggest.select.category')}" />
+					</div>
+				</div>
+				<f:form.hidden property="account" value="{account}" />
+				<div class="control-group">
+					<div class="controls">
+						<f:form.button class="bnt">
+							<f:translate id="label.suggest.save" />
+						</f:form.button>
+					</div>
+				</div>
+			</f:form>
+		</f:then>
+		<f:else>
+			<p>
+				<f:translate id="label.suggest.create.category" />
+				<f:link.action action="new" controller="Category">
+					<f:translate id="label.create.category" />
+				</f:link.action>
+			</p>
+		</f:else>
+	</f:if>
 </f:section>

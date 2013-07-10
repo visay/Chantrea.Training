@@ -36,5 +36,23 @@ class TopicRepository extends \TYPO3\Flow\Persistence\Repository {
 					->execute();
 		}
 	}
+	
+	/**
+	 * Find topics by account
+	 *
+	 * @param string $status The status to find
+	 * @param string $account The account to find
+	 *
+	 * @return object
+	 */
+	public function findSuggestedByAccount($status, $account) {
+		$query = $this->createQuery();
+		return $query->matching(
+					$query->logicalAnd(
+						$query->equals('status', $status),
+						$query->equals('account', $account)
+					)
+				)->execute();
+	}
 }
 ?>

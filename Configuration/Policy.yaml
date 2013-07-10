@@ -12,6 +12,6 @@ roles:
   Administrator: [User]
 
 acls:
-  Administrator:
+  User:
     entities:
       Chantrea_Training_My_Topic: GRANT

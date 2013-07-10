@@ -13,7 +13,9 @@
                         <ul class="nav">
                             <li class="active"><a href="#">Dashboard</a></li>
                             <li><f:link.action action="suggest" controller="Topic">Suggested Topic</f:link.action></li>
-                        <f:security.ifHasRole role="Administrator"><li><f:link.action action="listAcceptedTopic" controller="Topic">Accepted / Plan</f:link.action></li></f:security.ifHasRole>
+                        	<f:security.ifHasRole role="Administrator">
+                        		<li><f:link.action action="listAcceptedTopic" controller="Topic">Accepted / Plan</f:link.action></li>
+                        	</f:security.ifHasRole>
                         </ul>
                         <f:form controller="Standard" action="logout" method="post" class="navbar-form pull-right">
                             <f:form.button class="btn" type="submit">Sign out</f:form.button>

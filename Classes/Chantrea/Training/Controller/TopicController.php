@@ -25,6 +25,12 @@ class TopicController extends ActionController {
 	protected $securityContext;
 
 	/**
+	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+	 * @Flow\Inject
+	 */
+	protected $persistenceManager;
+
+	/**
 	 * @Flow\Inject
 	 * @var \Chantrea\Training\Domain\Repository\TopicRepository
 	 */
@@ -47,6 +53,7 @@ class TopicController extends ActionController {
 	 * @var \Chantrea\Training\Domain\Repository\LocationRepository
 	 */
 	protected $locationRepository;
+
 	/**
 	 * Shows a list of topics
 	 *
@@ -56,8 +63,19 @@ class TopicController extends ActionController {
 	public function indexAction() {
 		$this->view->assign('topics', $this->topicRepository->findAll());
 		$this->view->assign('acceptedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['accepted'], $this->settings['limit']));
-		$this->view->assign('scheduleTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['scheduled'], $this->settings['limit']));
+		$this->view->assign('scheduleTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['scheduled']));
 		$this->view->assign('suggestedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['new'], $this->settings['limit']));
+	}
+
+	/**
+	 * Shows a list of topics you have suggested
+	 *
+	 * @return void
+	 * @Flow\SkipCsrfProtection
+	 */
+	public function listOwnSuggestedAction() {
+		$accountIdentifier = $this->persistenceManager->getIdentifierByObject($this->securityContext->getAccount());
+		$this->view->assign('suggestedTopics', $this->topicRepository->findSuggestedByAccount($this->settings['statusOptions']['new'], $accountIdentifier));
 	}
 
 	/**
@@ -133,7 +151,7 @@ class TopicController extends ActionController {
 	public function updateAction(Topic $topic) {
 		$this->topicRepository->update($topic);
 		$this->addFlashMessage('Updated the topic.');
-		$this->redirect('index');
+		$this->redirect('listOwnSuggested');
 	}
 
 	/**
@@ -233,6 +251,7 @@ class TopicController extends ActionController {
 				$newTrainer = $this->trainerRepository->findByIdentifier($trainer);
 				$newTrainers->add($newTrainer);
 			}
+			
 			$planTopic->setTrainers($newTrainers);
 			$planTopic->setStatus($this->settings['statusOptions']['scheduled']);
 			$this->topicRepository->update($planTopic);

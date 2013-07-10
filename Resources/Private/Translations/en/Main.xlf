@@ -78,6 +78,12 @@
                     <trans-unit id="label.suggest.select.category">
                         <source>-- Please select category --</source>
                     </trans-unit>
+                    <trans-unit id="label.own.suggested.topic">
+                        <source>View your suggested topics</source>
+                    </trans-unit>
+                    <trans-unit id="label.back.suggested.topic">
+                        <source>Back to all suggested topics</source>
+                    </trans-unit>
                     <!-- suggest form end -->
 
                     <!-- index start -->
