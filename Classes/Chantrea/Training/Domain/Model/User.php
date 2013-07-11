@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @Flow\Entity
  */
-class Trainer extends \TYPO3\Party\Domain\Model\Person {
+class User extends \TYPO3\Party\Domain\Model\Person {
 
 	/**
 	 * @var string
@@ -25,13 +25,6 @@ class Trainer extends \TYPO3\Party\Domain\Model\Person {
 	 * @ORM\Column(nullable=true)
 	 */
 	protected $email;
-
-	/**
-	 * @var \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\Topic>
-	 * @ORM\ManyToMany(mappedBy="trainers")
-	 */
-	protected $topics;
-
 
 	/**
 	 * @return string
@@ -61,37 +54,6 @@ class Trainer extends \TYPO3\Party\Domain\Model\Person {
 	 */
 	public function setEmail($email) {
 		$this->email = $email;
-	}
-
-	/**
-	 * @return \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\Topic>
-	 */
-	public function getTopics() {
-		return $this->topics;
-	}
-
-	/**
-	 * @param \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\Topic> $topics
-	 * @return void
-	 */
-	public function setTopics(\Doctrine\Common\Collections\Collection $topics) {
-		$this->topics = $topics;
-	}
-
-	/**
-	 * @param \Chantrea\Training\Domain\Model\Topic $topic
-	 * @return void
-	 */
-	public function addTopic($topic) {
-		$this->topics->add($topic);
-	}
-
-	/**
-	 * @param \Chantrea\Training\Domain\Model\Topic $topic
-	 * @return void
-	 */
-	public function removeTopic($topic) {
-		$this->topics->remove($topic);
 	}
 
 }

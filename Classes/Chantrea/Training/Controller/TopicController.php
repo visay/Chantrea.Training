@@ -46,9 +46,9 @@ class TopicController extends ActionController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \Chantrea\Training\Domain\Repository\TrainerRepository
+	 * @var \Chantrea\Training\Domain\Repository\UserRepository
 	 */
-	protected $trainerRepository;
+	protected $userRepository;
 
 	/**
 	 * @Flow\Inject
@@ -224,7 +224,7 @@ class TopicController extends ActionController {
 	 */
 	public function planAction(Topic $acceptedTopic) {
 		$this->view->assign('planTopic', $acceptedTopic);
-		$this->view->assign('trainers', $this->trainerRepository->findAll());
+		$this->view->assign('trainers', $this->userRepository->findAll());
 		$this->view->assign('locations', $this->locationRepository->findAll());
 	}
 
@@ -253,10 +253,10 @@ class TopicController extends ActionController {
 			$trainers = $this->request->getArgument('trainers') == '' ? array() : $this->request->getArgument('trainers');
 			$newTrainers = new \Doctrine\Common\Collections\ArrayCollection();
 			foreach ($trainers as $trainer) {
-				$newTrainer = $this->trainerRepository->findByIdentifier($trainer);
+				$newTrainer = $this->userRepository->findByIdentifier($trainer);
 				$newTrainers->add($newTrainer);
 			}
-			
+
 			$planTopic->setTrainers($newTrainers);
 			$planTopic->setStatus($this->settings['statusOptions']['scheduled']);
 			$this->topicRepository->update($planTopic);

@@ -52,7 +52,7 @@ class Topic {
 	protected $category;
 
 	/**
-	 * @var \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\Trainer>
+	 * @var \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\User>
 	 * @ORM\ManyToMany(inversedBy="topics")
 	 */
 	protected $trainers;
@@ -178,14 +178,14 @@ class Topic {
 	}
 
 	/**
-	 * @return \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\Trainer>
+	 * @return \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\User>
 	 */
 	public function getTrainers() {
 		return $this->trainers;
 	}
 
 	/**
-	 * @param \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\Trainer> $trainers
+	 * @param \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\User> $trainers
 	 * @return void
 	 */
 	public function setTrainers(\Doctrine\Common\Collections\Collection $trainers) {
@@ -193,7 +193,7 @@ class Topic {
 	}
 
 	/**
-	 * @param \Chantrea\Training\Domain\Model\Trainer $trainer
+	 * @param \Chantrea\Training\Domain\Model\User $trainer
 	 * @return void
 	 */
 	public function addTrainer($trainer) {
@@ -201,7 +201,7 @@ class Topic {
 	}
 
 	/**
-	 * @param \Chantrea\Training\Domain\Model\Trainer $trainer
+	 * @param \Chantrea\Training\Domain\Model\User $trainer
 	 * @return void
 	 */
 	public function removeTrainer($trainer) {

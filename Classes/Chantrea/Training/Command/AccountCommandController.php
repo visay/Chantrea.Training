@@ -64,8 +64,8 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 			return;
 		}
 
-		$trainer = new \Chantrea\Training\Domain\Model\Trainer();
-		$trainer->setName(new \TYPO3\Party\Domain\Model\PersonName('', $firstName, '', $lastName));
+		$user = new \Chantrea\Training\Domain\Model\User();
+		$user->setName(new \TYPO3\Party\Domain\Model\PersonName('', $firstName, '', $lastName));
 
 		$roleIdentifiers = array();
 		if ($admin === TRUE) {
@@ -76,9 +76,9 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 
 		$account = $this->accountFactory->createAccountWithPassword($identifier, $password, $roleIdentifiers);
 		$this->accountRepository->add($account);
-		$trainer->addAccount($account);
+		$user->addAccount($account);
 
-		$this->partyRepository->add($trainer);
+		$this->partyRepository->add($user);
 
 		$this->outputLine('New account "%s" has been created.', array($identifier));
 	}

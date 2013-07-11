@@ -9,11 +9,11 @@ namespace Chantrea\Training\Domain\Repository;
 use TYPO3\Flow\Annotations as Flow;
 
 /**
- * A repository for Trainers
+ * A repository for Users
  *
  * @Flow\Scope("singleton")
  */
-class TrainerRepository extends \TYPO3\Flow\Persistence\Repository {
+class UserRepository extends \TYPO3\Flow\Persistence\Repository {
 
 	// add customized methods here
 

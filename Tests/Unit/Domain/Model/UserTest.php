@@ -7,9 +7,9 @@ namespace Chantrea\Training\Tests\Unit\Domain\Model;
  *                                                                        */
 
 /**
- * Testcase for Trainer
+ * Testcase for User
  */
-class TrainerTest extends \TYPO3\Flow\Tests\UnitTestCase {
+class UserTest extends \TYPO3\Flow\Tests\UnitTestCase {
 
 	/**
 	 * @test
