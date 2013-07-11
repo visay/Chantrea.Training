@@ -33,26 +33,6 @@
 				</div>
 				<div class="control-group">
 					<div class="control-label">
-						<label for="trainingDateFrom">
-							<f:translate id="label.field.topic.trainingDateFrom" />
-						</label>
-					</div>
-					<div class="controls">
-						<f:form.textfield property="trainingDateFrom" id="trainingDateFrom" />
-					</div>
-				</div>
-				<div class="control-group">
-					<div class="control-label">
-						<label for="trainingDateTo">
-							<f:translate id="label.field.topic.trainingDateTo" />
-						</label>
-					</div>
-					<div class="controls">
-						<f:form.textfield property="trainingDateTo" id="trainingDateTo" />
-					</div>
-				</div>
-				<div class="control-group">
-					<div class="control-label">
 						<label for="category">
 							<f:translate id="label.field.topic.category" />
 						</label>
@@ -63,7 +43,7 @@
 							prependOptionLabel="{f:translate(id: 'label.suggest.select.category')}" />
 					</div>
 				</div>
-				<f:form.hidden property="account" value="{account}" />
+				<f:form.hidden property="owner" value="{owner}" />
 				<div class="control-group">
 					<div class="controls">
 						<f:form.button class="bnt">

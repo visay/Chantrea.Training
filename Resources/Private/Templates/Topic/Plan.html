@@ -42,11 +42,23 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="trainingDate"><f:translate
-					id="label.plan.field.topic.trainingDate" />: </label>
+			<div class="control-label">
+				<label for="trainingDateFrom">
+					<f:translate id="label.field.topic.trainingDateFrom" />
+				</label>
+			</div>
 			<div class="controls">
-				<f:form.textfield property="trainingDate"
-					placeholder="Enter training date" />
+				<f:form.textfield property="trainingDateFrom" id="trainingDateFrom" />
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="control-label">
+				<label for="trainingDateTo">
+					<f:translate id="label.field.topic.trainingDateTo" />
+				</label>
+			</div>
+			<div class="controls">
+				<f:form.textfield property="trainingDateTo" id="trainingDateTo" />
 			</div>
 		</div>
 		<div class="control-group">

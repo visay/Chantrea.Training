@@ -74,6 +74,7 @@ class TopicController extends ActionController {
 	 * Shows a single topic object
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to show
+	 *
 	 * @return void
 	 * @Flow\SkipCsrfProtection
 	 */
@@ -109,7 +110,7 @@ class TopicController extends ActionController {
 	 * @Flow\SkipCsrfProtection
 	 */
 	public function newAction() {
-		$this->view->assign('account', $this->securityContext->getAccount());
+		$this->view->assign('owner', $this->securityContext->getAccount()->getParty());
 		$this->view->assign('categories', $this->categoryRepository->findAll());
 	}
 
@@ -123,7 +124,7 @@ class TopicController extends ActionController {
 	 * @return void
 	 */
 	public function createAction(Topic $newTopic) {
-		$newTopic->setAccount($this->securityContext->getAccount());
+		$newTopic->setOwner($this->securityContext->getAccount()->getParty());
 		$newTopic->setStatus($this->settings['statusOptions']['new']);
 		$this->topicRepository->add($newTopic);
 		$this->addFlashMessage('Created a new topic.');
@@ -134,6 +135,7 @@ class TopicController extends ActionController {
 	 * Shows a form for editing an existing topic object
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to edit
+	 *
 	 * @return void
 	 * @Flow\SkipCsrfProtection
 	 */
@@ -162,6 +164,7 @@ class TopicController extends ActionController {
 	 * Removes the given topic object from the topic repository
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to delete
+	 *
 	 * @return void
 	 */
 	public function deleteAction(Topic $topic) {
@@ -234,9 +237,12 @@ class TopicController extends ActionController {
 	 * @return void
 	 */
 	public function initializeScheduleAction() {
-		$this->arguments['planTopic']->getPropertyMappingConfiguration()->forProperty('trainingDate')
+		$this->arguments['topic']->getPropertyMappingConfiguration()->forProperty('trainingDateFrom')
 			->setTypeConverterOption('TYPO3\Flow\Property\TypeConverter\DateTimeConverter',
-			\TYPO3\Flow\Property\TypeConverter\DateTimeConverter::CONFIGURATION_DATE_FORMAT, $this->settings['dateFormat']);
+				\TYPO3\Flow\Property\TypeConverter\DateTimeConverter::CONFIGURATION_DATE_FORMAT, $this->settings['dateFormat']);
+		$this->arguments['topic']->getPropertyMappingConfiguration()->forProperty('trainingDateTo')
+			->setTypeConverterOption('TYPO3\Flow\Property\TypeConverter\DateTimeConverter',
+				\TYPO3\Flow\Property\TypeConverter\DateTimeConverter::CONFIGURATION_DATE_FORMAT, $this->settings['dateFormat']);
 	}
 
 	/**

@@ -10,6 +10,8 @@ use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Topic
+ *
  * @Flow\Entity
  */
 class Topic {
@@ -36,9 +38,13 @@ class Topic {
 
 	/**
 	 * @var \DateTime
-	 * @ORM\Column(nullable=true)
 	 */
-	protected $trainingDate;
+	protected $trainingDateTo;
+
+	/**
+	 * @var \DateTime
+	 */
+	protected $trainingDateFrom;
 
 	/**
 	 * @var string
@@ -70,10 +76,10 @@ class Topic {
 	protected $location;
 
 	/**
-	 * @var \TYPO3\Flow\Security\Account
+	 * @var \Chantrea\Training\Domain\Model\User
 	 * @ORM\ManyToOne
 	 */
-	protected $account;
+	protected $owner;
 
 	
 	/**
@@ -85,6 +91,7 @@ class Topic {
 
 	/**
 	 * Constructs a new topic's creation date
+	 *
 	 * @deprecated
 	 */
 	public function __construct() {
@@ -94,6 +101,8 @@ class Topic {
 	}
 
 	/**
+	 * getTitle
+	 *
 	 * @return string
 	 */
 	public function getTitle() {
@@ -101,7 +110,10 @@ class Topic {
 	}
 
 	/**
-	 * @param string $title
+	 * setTitle
+	 *
+	 * @param string $title title
+	 *
 	 * @return void
 	 */
 	public function setTitle($title) {
@@ -121,6 +133,7 @@ class Topic {
 	 * Sets this Topic's short description
 	 *
 	 * @param string $shortDescription The Topic's short description
+	 *
 	 * @return void
 	 */
 	public function setShortDescription($shortDescription) {
@@ -148,21 +161,48 @@ class Topic {
 	}
 
 	/**
+	 * getTrainingDateTo
+	 *
 	 * @return \DateTime
 	 */
-	public function getTrainingDate() {
-		return $this->trainingDate;
+	public function getTrainingDateTo() {
+		return $this->trainingDateTo;
 	}
 
 	/**
-	 * @param \DateTime $trainingDate
+	 * setTrainingDateTo
+	 *
+	 * @param \DateTime $trainingDateTo trainingDateTo
+	 *
 	 * @return void
 	 */
-	public function setTrainingDate(\DateTime $trainingDate) {
-		$this->trainingDate = $trainingDate;
+	public function setTrainingDateTo($trainingDateTo) {
+		$this->trainingDateTo = $trainingDateTo;
 	}
 
 	/**
+	 * getTrainingDateFrom
+	 *
+	 * @return \DateTime
+	 */
+	public function getTrainingDateFrom() {
+		return $this->trainingDateFrom;
+	}
+
+	/**
+	 * setTrainingDateFrom
+	 *
+	 * @param \DateTime $trainingDateFrom trainingDateFrom
+	 *
+	 * @return void
+	 */
+	public function setTrainingDateFrom($trainingDateFrom) {
+		$this->trainingDateFrom = $trainingDateFrom;
+	}
+
+	/**
+	 * getStatus
+	 *
 	 * @return string
 	 */
 	public function getStatus() {
@@ -170,7 +210,10 @@ class Topic {
 	}
 
 	/**
-	 * @param string $status
+	 * setStatus
+	 *
+	 * @param string $status status
+	 *
 	 * @return void
 	 */
 	public function setStatus($status) {
@@ -178,6 +221,8 @@ class Topic {
 	}
 
 	/**
+	 * getCategory
+	 *
 	 * @return \Chantrea\Training\Domain\Model\Category
 	 */
 	public function getCategory() {
@@ -185,7 +230,10 @@ class Topic {
 	}
 
 	/**
-	 * @param \Chantrea\Training\Domain\Model\Category $category
+	 * setCategory
+	 *
+	 * @param \Chantrea\Training\Domain\Model\Category $category category
+	 *
 	 * @return void
 	 */
 	public function setCategory(Category $category) {
@@ -193,6 +241,8 @@ class Topic {
 	}
 
 	/**
+	 * getTrainers
+	 *
 	 * @return \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\User>
 	 */
 	public function getTrainers() {
@@ -200,7 +250,10 @@ class Topic {
 	}
 
 	/**
-	 * @param \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\User> $trainers
+	 * setTrainers
+	 *
+	 * @param \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\User> $trainers trainers
+	 *
 	 * @return void
 	 */
 	public function setTrainers(\Doctrine\Common\Collections\Collection $trainers) {
@@ -208,7 +261,10 @@ class Topic {
 	}
 
 	/**
-	 * @param \Chantrea\Training\Domain\Model\User $trainer
+	 * addTrainer
+	 *
+	 * @param \Chantrea\Training\Domain\Model\User $trainer trainer
+	 *
 	 * @return void
 	 */
 	public function addTrainer(User $trainer) {
@@ -216,7 +272,10 @@ class Topic {
 	}
 
 	/**
-	 * @param \Chantrea\Training\Domain\Model\User $trainer
+	 * removeTrainer
+	 *
+	 * @param \Chantrea\Training\Domain\Model\User $trainer trainer
+	 *
 	 * @return void
 	 */
 	public function removeTrainer(User $trainer) {
@@ -255,6 +314,8 @@ class Topic {
 	}
 
 	/**
+	 * getLocation
+	 *
 	 * @return \Chantrea\Training\Domain\Model\Location
 	 */
 	public function getLocation() {
@@ -262,7 +323,10 @@ class Topic {
 	}
 
 	/**
-	 * @param \Chantrea\Training\Domain\Model\Location $location
+	 * setLocation
+	 *
+	 * @param \Chantrea\Training\Domain\Model\Location $location location
+	 *
 	 * @return void
 	 */
 	public function setLocation(Location $location) {
@@ -270,18 +334,23 @@ class Topic {
 	}
 
 	/**
-	 * @return \TYPO3\Flow\Security\Account
+	 * getOwner
+	 *
+	 * @return \Chantrea\Training\Domain\Model\User
 	 */
-	public function getAccount() {
-		return $this->account;
+	public function getOwner() {
+		return $this->owner;
 	}
 
 	/**
-	 * @param \TYPO3\Flow\Security\Account $user
+	 * setOwner
+	 *
+	 * @param \Chantrea\Training\Domain\Model\User $owner owner
+	 *
 	 * @return void
 	 */
-	public function setAccount(\TYPO3\Flow\Security\Account $account) {
-		$this->account = $account;
+	public function setOwner(\Chantrea\Training\Domain\Model\User $owner) {
+		$this->owner = $owner;
 	}
 
 	/**

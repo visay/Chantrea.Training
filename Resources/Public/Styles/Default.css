@@ -8,3 +8,7 @@
 body {
 	background-color: #F5F5F5;
 }
+
+.ui-widget {
+	font-size: 13px !important;
+}
