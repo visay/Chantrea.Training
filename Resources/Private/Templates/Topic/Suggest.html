@@ -5,6 +5,7 @@
 
 <f:section name="Content">
 	<f:render partial="FormErrors" arguments="{objectName: objectName}" />
+	<f:form.hidden name="nav-class" class="nav-class" value="{class}" />
 	<f:if condition="{suggestedTopics}">
 		<table class="table table-condensed">
 			<tr>
@@ -15,24 +16,49 @@
 					<th><f:translate id="label.suggest.accepted" /></th>
 					<th><f:translate id="label.suggest.unaccepted" /></th>
 				</f:security.ifHasRole>
+				<f:if condition="{matchAccount}">
+					<th><f:translate id="label.edit" /></th>
+					<th><f:translate id="label.delete" /></th>
+				</f:if>
 			</tr>
 			<f:for each="{suggestedTopics}" as="suggestedTopic">
 				<tr class="warning">
 					<td><f:format.date>{suggestedTopic.creationDate}</f:format.date></td>
 					<td>{suggestedTopic.title}</td>
-					<td>{suggestedTopic.account.party.name}</td>
+					<td>{suggestedTopic.account.party.name}
 					<f:security.ifHasRole role="Administrator">
-						<f:then>
-							<td><f:link.action action="accept" controller="Topic"
-									arguments="{suggestedTopic: suggestedTopic}">
-									<i class="icon-plus-sign" />
-								</f:link.action></td>
-							<td><f:link.action action="unAccept" controller="Topic"
-									arguments="{suggestedTopic: suggestedTopic}">
-									<i class="icon-minus-sign" onclick="return confirm('Are you sure want to reject this topic?')">
-								</f:link.action></td>
-						</f:then>
+						<td><f:link.action action="accept" controller="Topic"
+								arguments="{suggestedTopic: suggestedTopic}">
+								<i class="icon-plus-sign" />
+							</f:link.action></td>
+						<td><f:link.action action="unAccept" controller="Topic"
+								arguments="{suggestedTopic: suggestedTopic}">
+								<i class="icon-minus-sign" onclick="return confirm('Are you sure want to reject this topic?')">
+							</f:link.action></td>
 					</f:security.ifHasRole>
+					<f:if condition="{matchAccount}">
+						<f:if condition="{0: suggestedTopic.account.accountIdentifier} == {0: accountIdentifier}">
+							<f:then>
+								<td>
+									<f:link.action action="edit" controller="Topic"
+										arguments="{topic: suggestedTopic}">
+										<i class="icon-edit"></i>
+									</f:link.action>
+								</td>
+								<td>
+									<f:link.action action="delete" controller="Topic"
+										arguments="{topic: suggestedTopic}">
+										<i class="icon-trash"
+											onclick="return confirm('Are you sure want to delete?')"></i>
+									</f:link.action>
+								</td>
+							</f:then>
+							<f:else>
+								<td></td>
+								<td></td>
+							</f:else>
+						</f:if>
+					</f:if>
 				</tr>
 			</f:for>
 		</table>
@@ -41,10 +67,5 @@
 		<f:link.action action="new">
 			<f:translate id="label.suggest.new.topic" />
 		</f:link.action>
-	</p>
-	<p>
-	<f:link.action action="listOwnSuggested">
-		<f:translate id="label.own.suggested.topic" />
-	</f:link.action>
 	</p>
 </f:section>

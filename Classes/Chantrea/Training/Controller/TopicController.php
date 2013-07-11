@@ -6,6 +6,8 @@ namespace Chantrea\Training\Controller;
  *                                                                        *
  *                                                                        */
 
+use TYPO3\Flow\I18n\Utility_Original;
+
 use TYPO3\Flow\Annotations as Flow;
 
 use TYPO3\Flow\Mvc\Controller\ActionController;
@@ -68,17 +70,6 @@ class TopicController extends ActionController {
 	}
 
 	/**
-	 * Shows a list of topics you have suggested
-	 *
-	 * @return void
-	 * @Flow\SkipCsrfProtection
-	 */
-	public function listOwnSuggestedAction() {
-		$accountIdentifier = $this->persistenceManager->getIdentifierByObject($this->securityContext->getAccount());
-		$this->view->assign('suggestedTopics', $this->topicRepository->findSuggestedByAccount($this->settings['statusOptions']['new'], $accountIdentifier));
-	}
-
-	/**
 	 * Shows a single topic object
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to show
@@ -96,7 +87,17 @@ class TopicController extends ActionController {
 	 * @Flow\SkipCsrfProtection
 	 */
 	public function suggestAction () {
-		$this->view->assign('suggestedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['new']));
+		$accountIdentifier = $this->securityContext->getAccount()->getAccountIdentifier();
+		$suggestedTopics = $this->topicRepository->findByStatus($this->settings['statusOptions']['new']);
+		// check if there is account match in the topic
+		foreach ($suggestedTopics as $suggestedTopic) {
+			if ($accountIdentifier == $suggestedTopic->getAccount()->getAccountIdentifier()) {
+				$this->view->assign('matchAccount', $accountIdentifier);
+			}
+		}
+
+		$this->view->assign('suggestedTopics', $suggestedTopics);
+		$this->view->assign('accountIdentifier', $accountIdentifier);
 	}
 
 	/**
@@ -124,7 +125,7 @@ class TopicController extends ActionController {
 		$newTopic->setStatus($this->settings['statusOptions']['new']);
 		$this->topicRepository->add($newTopic);
 		$this->addFlashMessage('Created a new topic.');
-		$this->redirect('new');
+		$this->redirect('suggest');
 	}
 
 	/**
@@ -150,8 +151,9 @@ class TopicController extends ActionController {
 	 */
 	public function updateAction(Topic $topic) {
 		$this->topicRepository->update($topic);
+		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('Updated the topic.');
-		$this->redirect('listOwnSuggested');
+		$this->redirect('suggest');
 	}
 
 	/**
