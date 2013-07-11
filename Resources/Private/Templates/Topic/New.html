@@ -11,8 +11,9 @@
 			<f:form action="create" name="newTopic">
 				<div class="control-group">
 					<div class="control-label">
-						<label for="title"><f:translate
-								id="label.field.topic.title" /></label>
+						<label for="title">
+							<f:translate id="label.field.topic.title" />
+						</label>
 					</div>
 					<div class="controls">
 						<f:form.textfield property="title" id="title"
@@ -21,8 +22,9 @@
 				</div>
 				<div class="control-group">
 					<div class="control-label">
-						<label for="shortDescription"><f:translate
-								id="label.field.topic.shortdescription" /></label>
+						<label for="shortDescription">
+							<f:translate id="label.field.topic.shortdescription" />
+						</label>
 					</div>
 					<div class="controls">
 						<f:form.textarea property="shortDescription" id="shortDescription"
@@ -31,8 +33,29 @@
 				</div>
 				<div class="control-group">
 					<div class="control-label">
-						<label for="category"><f:translate
-								id="label.field.topic.category" /></label>
+						<label for="trainingDateFrom">
+							<f:translate id="label.field.topic.trainingDateFrom" />
+						</label>
+					</div>
+					<div class="controls">
+						<f:form.textfield property="trainingDateFrom" id="trainingDateFrom" />
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="control-label">
+						<label for="trainingDateTo">
+							<f:translate id="label.field.topic.trainingDateTo" />
+						</label>
+					</div>
+					<div class="controls">
+						<f:form.textfield property="trainingDateTo" id="trainingDateTo" />
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="control-label">
+						<label for="category">
+							<f:translate id="label.field.topic.category" />
+						</label>
 					</div>
 					<div class="controls">
 						<f:form.select name="category" options="{categories}"

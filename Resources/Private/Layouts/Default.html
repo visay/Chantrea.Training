@@ -6,8 +6,7 @@
 		<title><f:render section="Title" /></title>
 		<f:base />
 		<!-- Bootstrap -->
-		<link href="{f:uri.resource(path: '2.2/css/bootstrap.min.css', package: 'TYPO3.Twitter.Bootstrap')}" rel="stylesheet" media="screen" />
-		<!-- <link href="{f:uri.resource(path: '2/css/bootstrap.min.css', package: 'TYPO3.Twitter.Bootstrap')}" rel="stylesheet" media="screen" /> -->
+		<link href="{f:uri.resource(path: '2.3/css/bootstrap.min.css', package: 'TYPO3.Twitter.Bootstrap')}" rel="stylesheet" media="screen" />
 		<link href="{f:uri.resource(path: 'Styles/Default.css')}" rel="stylesheet" media="screen" />
 		<f:if condition="{login}">
 			<link href="{f:uri.resource(path: 'Styles/Login.css')}" rel="stylesheet" media="screen" />
@@ -18,8 +17,13 @@
 				padding-bottom: 40px;
 			}
 		</style>
-		<link href="{f:uri.resource(path: '2.2/css/bootstrap-responsive.min.css', package: 'TYPO3.Twitter.Bootstrap')}" rel="stylesheet" />
-		<!-- <link href="{f:uri.resource(path: '2/css/bootstrap-responsive.min.css', package: 'TYPO3.Twitter.Bootstrap')}" rel="stylesheet" /> -->
+		<link href="{f:uri.resource(path: '2.3/css/bootstrap-responsive.min.css', package: 'TYPO3.Twitter.Bootstrap')}" rel="stylesheet" />
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		<link href="{f:uri.resource(path: 'Styles/jquery-ui-timepicker-addon.css')}" rel="stylesheet" media="screen" />
+		<script src="{f:uri.resource(path: '2.3/js/bootstrap.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
+		<script src="{f:uri.resource(path: 'Libraries/jQuery/jquery-2.0.2.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script src="{f:uri.resource(path: 'JavaScript/jquery-ui-timepicker-addon.js')}"></script>
 	</head>
 	<body>
 		<f:render partial="NavBar" arguments="{login: login, currentPage: currentPage}"/>
@@ -33,10 +37,6 @@
 			<f:render section="Content" />
 			<f:render partial="Footer" arguments="{login: login}" />
 		</div>
-		<script src="{f:uri.resource(path: 'Libraries/jQuery/jquery-1.8.2.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
-		<!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
-		<script src="{f:uri.resource(path: '2.2/js/bootstrap.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
-		<!-- <script src="{f:uri.resource(path: '2/js/bootstrap.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script> -->
-		<script src="{f:uri.resource(path: 'Javascripts/main.js')}"></script>
+		<script src="{f:uri.resource(path: 'JavaScript/Default.js')}"></script>
 	</body>
 </html>
