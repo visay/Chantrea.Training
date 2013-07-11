@@ -65,8 +65,9 @@ class TopicController extends ActionController {
 	public function indexAction() {
 		$this->view->assign('topics', $this->topicRepository->findAll());
 		$this->view->assign('acceptedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['accepted'], $this->settings['limit']));
-		$this->view->assign('scheduleTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['scheduled']));
+		$this->view->assign('scheduleTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['scheduled']), $this->settings['limit']);
 		$this->view->assign('suggestedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['new'], $this->settings['limit']));
+		$this->view->assign('currentPage', 'index');
 	}
 
 	/**
@@ -98,6 +99,7 @@ class TopicController extends ActionController {
 
 		$this->view->assign('suggestedTopics', $suggestedTopics);
 		$this->view->assign('accountIdentifier', $accountIdentifier);
+		$this->view->assign('currentPage', 'suggested');
 	}
 
 	/**
@@ -210,6 +212,7 @@ class TopicController extends ActionController {
 	 */
 	public function listAcceptedTopicAction() {
 		$this->view->assign('acceptedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['accepted']));
+		$this->view->assign('currentPage', 'listAccepted');
 	}
 
 	/**
@@ -259,10 +262,21 @@ class TopicController extends ActionController {
 			$this->topicRepository->update($planTopic);
 			$this->persistenceManager->persistAll();
 			$this->addFlashMessage('Scheduled the topic.');
-			$this->redirect('index');
+			$this->redirect('showScheduled');
 		} catch (\PDOException $exception) {
 			$this->addFlashMessage($exception->getMessage(), '', Message::SEVERITY_ERROR);
 		}
+	}
+
+	/**
+	 * Shows a list of scheduled Topics
+	 *
+	 * @return void
+	 * @Flow\SkipCsrfProtection
+	 */
+	public function showScheduledAction() {
+		$this->view->assign('scheduleTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['scheduled']));
+		$this->view->assign('currentPage', 'showScheduled');
 	}
 }
 ?>

@@ -25,6 +25,7 @@
 			<p>No topics created yet.</p>
 		</f:else>
 	</f:if>-->
+	<div class="">
 	<f:if condition="{scheduleTopics}">
 		<f:then>
 			<h4>
@@ -36,24 +37,26 @@
 					<th><f:translate id="label.field.topic" /></th>
 					<th><f:translate id="label.field.topic.trainer" /></th>
 					<th><f:translate id="label.field.topic.location" /></th>
-					<f:security.ifHasRole role="Administrator">
+					<!-- <f:security.ifHasRole role="Administrator">
 						<th><f:translate id="label.edit" /></th>
-					</f:security.ifHasRole>
+					</f:security.ifHasRole> -->
 				</tr>
 				<f:for each="{scheduleTopics}" as="scheduleTopic">
 					<tr>
 						<td><f:format.date>{scheduleTopic.trainingDate}</f:format.date></td>
 						<td>{scheduleTopic.title}</td>
-						<td><f:for each="{scheduleTopic.trainers}" as="trainer">
-                                            {trainer.name} <br />
-							</f:for></td>
+						<td>
+							<f:for each="{scheduleTopic.trainers}" as="trainer">
+								{trainer.name} <br />
+							</f:for>
+						</td>
 						<td>{scheduleTopic.location.room}</td>
-						<f:security.ifHasRole role="Administrator">
+						<!-- <f:security.ifHasRole role="Administrator">
 							<td><f:link.action action="plan" controller="Topic"
 									arguments="{acceptedTopic: scheduleTopic}">
 									<i class="icon-edit"></i>
 								</f:link.action></td>
-						</f:security.ifHasRole>
+						</f:security.ifHasRole> -->
 					</tr>
 				</f:for>
 			</table>
@@ -62,7 +65,8 @@
 			<f:translate id="label.message.noscheduled" />
 		</f:else>
 	</f:if>
-	<div class="row-fluid">
+	</div>
+	<div class="row">
 		<div class="span6">
 			<h4>
 				<f:translate id="label.latest.suggestion" />

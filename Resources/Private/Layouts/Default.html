@@ -22,7 +22,7 @@
 		<!-- <link href="{f:uri.resource(path: '2/css/bootstrap-responsive.min.css', package: 'TYPO3.Twitter.Bootstrap')}" rel="stylesheet" /> -->
 	</head>
 	<body>
-		<f:render partial="NavBar" arguments="{login: login}" />
+		<f:render partial="NavBar" arguments="{login: login, currentPage: currentPage}"/>
 		<div class="container">
 			<f:if condition="{login}">
 				<f:else>
@@ -33,10 +33,10 @@
 			<f:render section="Content" />
 			<f:render partial="Footer" arguments="{login: login}" />
 		</div>
-		<script src="{f:uri.resource(path: 'Javascripts/main.js')}"></script>
 		<script src="{f:uri.resource(path: 'Libraries/jQuery/jquery-1.8.2.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
 		<!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
 		<script src="{f:uri.resource(path: '2.2/js/bootstrap.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
 		<!-- <script src="{f:uri.resource(path: '2/js/bootstrap.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script> -->
+		<script src="{f:uri.resource(path: 'Javascripts/main.js')}"></script>
 	</body>
 </html>

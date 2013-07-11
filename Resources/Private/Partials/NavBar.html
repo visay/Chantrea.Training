@@ -1,28 +1,63 @@
 <f:if condition="{login}">
-    <f:else>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a href="/" class="brand">Chantrea Training</a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li class="active"><a href="#">Dashboard</a></li>
-                            <li><f:link.action action="suggest" controller="Topic">Suggested Topic</f:link.action></li>
-                        	<f:security.ifHasRole role="Administrator">
-                        		<li><f:link.action action="listAcceptedTopic" controller="Topic">Accepted / Plan</f:link.action></li>
-                        	</f:security.ifHasRole>
-                        </ul>
-                        <f:form controller="Standard" action="logout" method="post" class="navbar-form pull-right">
-                            <f:form.button class="btn" type="submit">Sign out</f:form.button>
-                        </f:form>
-                    </div><!--/.nav-collapse -->
-                </div>
-            </div>
-        </div>
-    </f:else>
+	<f:else>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a data-target=".nav-collapse" data-toggle="collapse"
+						class="btn btn-navbar"> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span>
+					</a> <a href="/" class="brand">Chantrea Training</a>
+					<div class="nav-collapse collapse">
+						<ul class="nav">
+							<f:if condition="{0: currentPage} == {0: 'index'}">
+								<f:then>
+									<li class="navigation-item active"><a href="#">Dashboard</a></li>
+								</f:then>
+								<f:else>
+									<li class="navigation-item"><a href="#">Dashboard</a></li>
+								</f:else>
+							</f:if>
+							<f:if condition="{0: currentPage} == {0: 'suggested'}">
+								<f:then>
+									<li class="navigation-item active"><f:link.action action="suggest" controller="Topic">Suggested Topics</f:link.action></li>
+								</f:then>
+								<f:else>
+									<li class="navigation-item"><f:link.action action="suggest" controller="Topic">Suggested Topics</f:link.action></li>
+								</f:else>
+							</f:if>
+							<f:if condition="{0: currentPage} == {0: 'listAccepted'}">
+								<f:then>
+									<li class="navigation-item active">
+										<f:link.action action="listAcceptedTopic" controller="Topic">Accepted / Plan</f:link.action>
+									</li>
+								</f:then>
+								<f:else>
+									<li class="navigation-item">
+										<f:link.action action="listAcceptedTopic" controller="Topic">Accepted / Plan</f:link.action>
+									</li>
+								</f:else>
+							</f:if>
+							<f:if condition="{0: currentPage} == {0: 'showScheduled'}">
+								<f:then>
+									<li class="navigation-item active">
+										<f:link.action action="showScheduled" controller="Topic">Scheduled Topics</f:link.action>
+									</li>
+								</f:then>
+								<f:else>
+									<li class="navigation-item">
+										<f:link.action action="showScheduled" controller="Topic">Scheduled Topics</f:link.action>
+									</li>
+								</f:else>
+							</f:if>
+						</ul>
+						<f:form controller="Standard" action="logout" method="post"
+							class="navbar-form pull-right">
+							<f:form.button class="btn" type="submit">Sign out</f:form.button>
+						</f:form>
+					</div>
+					<!--/.nav-collapse -->
+				</div>
+			</div>
+		</div>
+	</f:else>
 </f:if>

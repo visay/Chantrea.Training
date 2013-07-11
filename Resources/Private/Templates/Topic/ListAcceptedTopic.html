@@ -11,17 +11,19 @@
 					<th><f:translate id="label.field.topic.creationDate" /></th>
 					<th><f:translate id="label.field.topic.title" /></th>
 					<th><f:translate id="label.field.topic.account" /></th>
-					<th><f:translate id="label.listAccepted.schedule" /></th>
+					<f:security.ifHasRole role="Administrator"><th><f:translate id="label.listAccepted.schedule" /></th></f:security.ifHasRole>
 				</tr>
 				<f:for each="{acceptedTopics}" as="acceptedTopic">
 					<tr class="success">
 						<td><f:format.date>{acceptedTopic.creationDate}</f:format.date></td>
 						<td>{acceptedTopic.title}</td>
 						<td>{acceptedTopic.account.party.name}</td>
+						<f:security.ifHasRole role="Administrator">
 						<td><f:link.action action="plan" controller="Topic"
 								arguments="{acceptedTopic: acceptedTopic}">
 								<i class="icon-time" />
 							</f:link.action></td>
+						</f:security.ifHasRole>
 					</tr>
 				</f:for>
 			</table>

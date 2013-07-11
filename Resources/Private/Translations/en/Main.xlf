@@ -60,8 +60,8 @@
                     <trans-unit id="label.suggest.accepted">
                         <source>Accepted</source>
                     </trans-unit>
-                    <trans-unit id="label.suggest.unaccepted">
-                        <source>Unaccepted</source>
+                    <trans-unit id="label.suggest.reject">
+                        <source>Reject</source>
                     </trans-unit>
                     <trans-unit id="label.suggest.save">
                         <source>Suggest</source>
@@ -122,7 +122,7 @@
                         <source>Schedule</source>
                     </trans-unit>
                     <!-- list accepted topic end -->
-                    
+
                     <!-- validation message -->
                     <trans-unit id="label.field.topic.newTopic.title">
                         <source>Title</source>
@@ -145,6 +145,12 @@
                     <trans-unit id="label.field.topic.planTopic.trainers">
                         <source>Trainer</source>
                     </trans-unit>
+
+                    <!-- list of all scheduled topics start -->
+                    	<trans-unit id="label.all.scheduled">
+                    		<source>List all scheduled topics</source>
+                    	</trans-unit>
+                    <!-- list of all scheduled topics end-->
 		</body>
 	</file>
 </xliff>
