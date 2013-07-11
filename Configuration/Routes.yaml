@@ -10,6 +10,20 @@
     '@action':     'index'
 
 -
+  name: 'Standard action'
+  uriPattern: 'register'
+  defaults:
+    '@controller': 'Standard'
+    '@action':     'register'
+
+-
+  name: 'Standard action'
+  uriPattern: 'user/create'
+  defaults:
+    '@controller': 'Standard'
+    '@action':     'create'
+
+-
   name: 'Authenticate action'
   uriPattern: 'authenticate'
   defaults:

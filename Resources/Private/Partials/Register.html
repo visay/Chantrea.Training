@@ -1,0 +1,15 @@
+<f:security.ifAuthenticated>
+	<f:else>
+		<f:form action="create" name="newUser" method="post" class="form-signin">
+			<h2 class="form-signin-heading">Please fill in</h2>
+			<f:form.textfield name="username" placeholder="Username" class="input-block-level" />
+			<f:form.textfield name="firstName" placeholder="First Name" class="input-block-level" />
+			<f:form.textfield name="lastName" placeholder="Last Name" class="input-block-level" />
+			<f:form.textfield name="email" placeholder="Email" class="input-block-level" />
+			<input type="password" name="password[0]" placeholder="Password" class="input-block-level" />
+			<input type="password" name="password[1]" placeholder="Repeat Password" class="input-block-level" />
+			<f:form.button type="submit" class="btn btn-large btn-primary">Sign Up</f:form.button>
+			<div class="signup">Already on Chantrea Training? <f:link.action action="index">Sign in</f:link.action>.</div>
+		</f:form>
+	</f:else>
+</f:security.ifAuthenticated>

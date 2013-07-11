@@ -15,7 +15,17 @@ use TYPO3\Flow\Annotations as Flow;
  */
 class UserRepository extends \TYPO3\Flow\Persistence\Repository {
 
-	// add customized methods here
-
+	/**
+	 * Find a user object by email address
+	 *
+	 * @param string $email The email address of the user to search for
+	 *
+	 * @return \Chantrea\Training\Domain\Model\User
+	 */
+	public function findByEmail($email) {
+		$query = $this->createQuery();
+		return $query->matching($query->equals('email', $email))
+		->execute()->getFirst();
+	}
 }
 ?>

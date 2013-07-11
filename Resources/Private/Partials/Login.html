@@ -5,6 +5,7 @@
 			<f:form.textfield name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" placeholder="Username" class="input-block-level" />
 			<input type="password" name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]" placeholder="Password" class="input-block-level" />
 			<f:form.button type="submit" class="btn btn-large btn-primary">Sign in</f:form.button>
+			<div class="signup">New to Chantrea Training? <f:link.action action="register">Sign up</f:link.action>.</div>
 		</f:form>
 	</f:else>
 </f:security.ifAuthenticated>

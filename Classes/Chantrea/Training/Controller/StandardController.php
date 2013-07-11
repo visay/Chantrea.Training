@@ -25,7 +25,25 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	protected $authenticationManager;
 
 	/**
-	 * Index action
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Security\AccountFactory
+	 */
+	protected $accountFactory;
+
+	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Security\AccountRepository
+	 */
+	protected $accountRepository;
+
+	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Party\Domain\Repository\PartyRepository
+	 */
+	protected $partyRepository;
+
+	/**
+	 * Index/login action
 	 *
 	 * @return void
 	 */
@@ -34,6 +52,60 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 			$this->redirect('index', 'Topic');
 		} else {
 			$this->view->assign('login', TRUE);
+		}
+	}
+
+	/**
+	 * Register action
+	 *
+	 * @return void
+	 */
+	public function registerAction() {
+		if ($this->authenticationManager->isAuthenticated()) {
+			$this->redirect('index', 'Topic');
+		} else {
+			$this->view->assign('login', TRUE);
+		}
+	}
+
+	/**
+	 * Create a new user action
+	 *
+	 * @param string  $username   The username
+	 * @param string  $firstName  The first name
+	 * @param string  $lastName   The last name
+	 * @param string  $email      The email address
+	 * @param array   $password   The password
+	 *
+	 * @Flow\Validate(argumentName="username", type="NotEmpty")
+	 * @Flow\Validate(argumentName="username", type="StringLength", options={"minimum"=3, "maximum"=25})
+	 * @Flow\Validate(argumentName="username", type="Chantrea.Training:AccountExists")
+	 *
+	 * @Flow\Validate(argumentName="firstName", type="NotEmpty")
+	 * @Flow\Validate(argumentName="lastName", type="NotEmpty")
+	 *
+	 * @Flow\Validate(argumentName="email", type="NotEmpty")
+	 * @Flow\Validate(argumentName="email", type="EmailAddress")
+	 * @Flow\Validate(argumentName="email", type="Chantrea.Training:EmailExists")
+	 *
+	 * @Flow\Validate(argumentName="password", type="Chantrea.Training:Password", options={"minimumLength"=5})
+	 *
+	 * @return void
+	 */
+	public function createAction($username, $firstName, $lastName, $email, $password) {
+		if ($this->authenticationManager->isAuthenticated()) {
+			$this->redirect('index', 'Topic');
+		} else {
+			$user = new \Chantrea\Training\Domain\Model\User();
+			$user->setName(new \TYPO3\Party\Domain\Model\PersonName('', $firstName, '', $lastName));
+
+			$account = $this->accountFactory->createAccountWithPassword($username, $password[0], array('Chantrea.Training:User'));
+			$this->accountRepository->add($account);
+			$user->addAccount($account);
+
+			$this->partyRepository->add($user);
+			$this->addFlashMessage('Your account has been created successfully.');
+			$this->redirect('index');
 		}
 	}
 
