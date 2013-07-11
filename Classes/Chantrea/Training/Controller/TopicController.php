@@ -278,5 +278,15 @@ class TopicController extends ActionController {
 		$this->view->assign('scheduleTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['scheduled']));
 		$this->view->assign('currentPage', 'showScheduled');
 	}
+
+	/**
+	 * Vote a suggested topic
+	 *
+	 * @param \Chantrea\Training\Domain\Model\Topic $suggestedTopic The topic to vote
+	 * @return void
+	 */
+	public function voteTopicAction() {
+		echo('113');exit();
+	}
 }
 ?>

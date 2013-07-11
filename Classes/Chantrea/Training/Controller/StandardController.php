@@ -10,7 +10,7 @@ use TYPO3\Flow\Aop\Exception\VoidImplementationException;
 
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\Flow\Security\Account;
-
+use TYPO3\Flow\Error\Message;
 /**
  * Standard controller for the Chantrea.Training package
  *
@@ -57,7 +57,7 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 			$this->authenticationManager->authenticate();
 			$this->redirect('index', 'Topic');
 		} catch(\TYPO3\Flow\Security\Exception $exception) {
-			$this->addFlashMessage($exception->getMessage());
+			$this->addFlashMessage('Incorrect username or password.', '', Message::SEVERITY_ERROR);
 			throw $exception;
 		}
 	}
