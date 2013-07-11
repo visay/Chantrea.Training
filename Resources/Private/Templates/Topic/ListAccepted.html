@@ -19,10 +19,11 @@
 						<td>{acceptedTopic.title}</td>
 						<td>{acceptedTopic.account.party.name}</td>
 						<f:security.ifHasRole role="Administrator">
-						<td><f:link.action action="plan" controller="Topic"
-								arguments="{acceptedTopic: acceptedTopic}">
-								<i class="icon-time" />
-							</f:link.action></td>
+						<td>
+							<f:link.action action="plan" controller="Topic" arguments="{topic: acceptedTopic}">
+								<i class="icon-time"></i>
+							</f:link.action>
+						</td>
 						</f:security.ifHasRole>
 					</tr>
 				</f:for>

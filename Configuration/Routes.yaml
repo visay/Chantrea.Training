@@ -82,7 +82,7 @@
 
 -
   name: 'Topic actions'
-  uriPattern: 'topic/{topic}/{@action}'
+  uriPattern: 'topic/{@action}/{topic}'
   defaults:
     '@controller': 'Topic'
     '@action':     'show'

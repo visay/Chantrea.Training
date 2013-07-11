@@ -58,6 +58,12 @@ class Topic {
 	protected $trainers;
 
 	/**
+	 * @var \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\User>
+	 * @ORM\ManyToMany(inversedBy="topics")
+	 */
+	protected $voteUsers;
+
+	/**
 	 * @var \Chantrea\Training\Domain\Model\Location
 	 * @ORM\ManyToOne
 	 */
@@ -69,6 +75,14 @@ class Topic {
 	 */
 	protected $account;
 
+	
+	/**
+	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+	 * @Flow\Inject
+	 * @deprecated
+	 */
+	protected $persistenceManager;
+
 	/**
 	 * Constructs a new topic's creation date
 	 * @deprecated
@@ -76,6 +90,7 @@ class Topic {
 	public function __construct() {
 		$this->creationDate = new \DateTime();
 		$this->trainers = new \Doctrine\Common\Collections\ArrayCollection();
+		$this->voteUsers = new \Doctrine\Common\Collections\ArrayCollection();
 	}
 
 	/**
@@ -143,7 +158,7 @@ class Topic {
 	 * @param \DateTime $trainingDate
 	 * @return void
 	 */
-	public function setTrainingDate($trainingDate) {
+	public function setTrainingDate(\DateTime $trainingDate) {
 		$this->trainingDate = $trainingDate;
 	}
 
@@ -173,7 +188,7 @@ class Topic {
 	 * @param \Chantrea\Training\Domain\Model\Category $category
 	 * @return void
 	 */
-	public function setCategory($category) {
+	public function setCategory(Category $category) {
 		$this->category = $category;
 	}
 
@@ -196,7 +211,7 @@ class Topic {
 	 * @param \Chantrea\Training\Domain\Model\User $trainer
 	 * @return void
 	 */
-	public function addTrainer($trainer) {
+	public function addTrainer(User $trainer) {
 		$this->trainers->add($trainer);
 	}
 
@@ -204,8 +219,39 @@ class Topic {
 	 * @param \Chantrea\Training\Domain\Model\User $trainer
 	 * @return void
 	 */
-	public function removeTrainer($trainer) {
+	public function removeTrainer(User $trainer) {
 		$this->trainers->remove($trainer);
+	}
+
+	/**
+	 * @return \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\User>
+	 */
+	public function getVoteUsers() {
+		return $this->voteUsers;
+	}
+
+	/**
+	 * @param \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\User> $voteUsers
+	 * @return void
+	 */
+	public function setVoteUsers(\Doctrine\Common\Collections\Collection $voteUsers) {
+		$this->voteUsers = $voteUsers;
+	}
+	
+	/**
+	 * @param \Chantrea\Training\Domain\Model\User $voteUsers
+	 * @return void
+	 */
+	public function addVoteUser(User $voteUser) {
+		$this->voteUsers->add($voteUser);
+	}
+	
+	/**
+	 * @param \Chantrea\Training\Domain\Model\User $trainer
+	 * @return void
+	 */
+	public function removeVoteUser(User $voteUser) {
+		$this->voteUsers->remove($voteUser);
 	}
 
 	/**
@@ -219,7 +265,7 @@ class Topic {
 	 * @param \Chantrea\Training\Domain\Model\Location $location
 	 * @return void
 	 */
-	public function setLocation($location) {
+	public function setLocation(Location $location) {
 		$this->location = $location;
 	}
 
@@ -236,6 +282,16 @@ class Topic {
 	 */
 	public function setAccount(\TYPO3\Flow\Security\Account $account) {
 		$this->account = $account;
+	}
+
+	/**
+	 * Gets identifier
+	 *
+	 * @return string
+	 * @deprecated
+	 */
+	public function getIdentifier() {
+		return $this->persistenceManager->getIdentifierByObject($this);
 	}
 }
 ?>

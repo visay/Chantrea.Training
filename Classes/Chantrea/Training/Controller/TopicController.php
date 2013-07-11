@@ -87,11 +87,11 @@ class TopicController extends ActionController {
 	 * @return void
 	 * @Flow\SkipCsrfProtection
 	 */
-	public function suggestAction () {
+	public function suggestAction() {
 		$accountIdentifier = $this->securityContext->getAccount()->getAccountIdentifier();
 		$suggestedTopics = $this->topicRepository->findByStatus($this->settings['statusOptions']['new']);
 		// check if there is account match in the topic
-		foreach ($suggestedTopics as $suggestedTopic) {
+		foreach($suggestedTopics as $suggestedTopic) {
 			if ($accountIdentifier == $suggestedTopic->getAccount()->getAccountIdentifier()) {
 				$this->view->assign('matchAccount', $accountIdentifier);
 			}
@@ -183,34 +183,35 @@ class TopicController extends ActionController {
 	/**
 	 * Accept a suggested topic
 	 *
-	 * @param \Chantrea\Training\Domain\Model\Topic $suggestedTopic The topic to accept
+	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to accept
 	 * @return void
 	 */
-	public function acceptAction(Topic $suggestedTopic) {
-		$suggestedTopic->setStatus($this->settings['statusOptions']['accepted']);
-		$this->topicRepository->update($suggestedTopic);
+	public function acceptAction(Topic $topic) {
+		$topic->setStatus($this->settings['statusOptions']['accepted']);
+		$this->topicRepository->update($topic);
 		$this->persistenceManager->persistAll();
-		$this->redirect('listAcceptedTopic');
+		$this->addFlashMessage('Topic accepted.');
+		$this->redirect('listAccepted');
 	}
 
 	/**
 	 * Un Accept a suggested topic
 	 *
-	 * @param \Chantrea\Training\Domain\Model\Topic $suggestedTopic The topic to accept
+	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to accept
 	 * @return void
 	 */
-	public function unAcceptAction(Topic $suggestedTopic) {
-		$suggestedTopic->setStatus($this->settings['statusOptions']['rejected']);
-		$this->topicRepository->update($suggestedTopic);
+	public function rejectAction(Topic $topic) {
+		$topic->setStatus($this->settings['statusOptions']['rejected']);
+		$this->topicRepository->update($topic);
 		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('Topic was reject');
 		$this->redirect('suggest');
 	}
 
 	/**
-	 * List AcceptedTopic the Training
+	 * List Accepted Topic the Training
 	 */
-	public function listAcceptedTopicAction() {
+	public function listAcceptedAction() {
 		$this->view->assign('acceptedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['accepted']));
 		$this->view->assign('currentPage', 'listAccepted');
 	}
@@ -218,12 +219,11 @@ class TopicController extends ActionController {
 	/**
 	 * Shows a form for set plan an existing topic object
 	 *
-	 * @param \Chantrea\Training\Domain\Model\Topic $acceptedTopic The topic to edit
+	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to edit
 	 * @return void
-	 * @Flow\SkipCsrfProtection
 	 */
-	public function planAction(Topic $acceptedTopic) {
-		$this->view->assign('planTopic', $acceptedTopic);
+	public function planAction(Topic $topic) {
+		$this->view->assign('planTopic', $topic);
 		$this->view->assign('trainers', $this->userRepository->findAll());
 		$this->view->assign('locations', $this->locationRepository->findAll());
 	}
@@ -235,20 +235,20 @@ class TopicController extends ActionController {
 	 */
 	public function initializeScheduleAction() {
 		$this->arguments['planTopic']->getPropertyMappingConfiguration()->forProperty('trainingDate')
-				->setTypeConverterOption('TYPO3\Flow\Property\TypeConverter\DateTimeConverter',
-				\TYPO3\Flow\Property\TypeConverter\DateTimeConverter::CONFIGURATION_DATE_FORMAT, $this->settings['dateFormat']);
+			->setTypeConverterOption('TYPO3\Flow\Property\TypeConverter\DateTimeConverter',
+			\TYPO3\Flow\Property\TypeConverter\DateTimeConverter::CONFIGURATION_DATE_FORMAT, $this->settings['dateFormat']);
 	}
 
 	/**
 	 * Schedule the given topic object
 	 *
-	 * @param \Chantrea\Training\Domain\Model\Topic $planTopic The topic to scheudle
+	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to scheudle
 	 *
-	 * @Flow\Validate(argumentName="planTopic.trainingDate", type="NotEmpty")
-	 * @Flow\Validate(argumentName="planTopic.location", type="NotEmpty")
+	 * @Flow\Validate(argumentName="topic.trainingDate", type="NotEmpty")
+	 * @Flow\Validate(argumentName="topic.location", type="NotEmpty")
 	 * @return void
 	 */
-	public function scheduleAction(Topic $planTopic) {
+	public function scheduleAction(Topic $topic) {
 		try {
 			$trainers = $this->request->getArgument('trainers') == '' ? array() : $this->request->getArgument('trainers');
 			$newTrainers = new \Doctrine\Common\Collections\ArrayCollection();
@@ -257,10 +257,9 @@ class TopicController extends ActionController {
 				$newTrainers->add($newTrainer);
 			}
 
-			$planTopic->setTrainers($newTrainers);
-			$planTopic->setStatus($this->settings['statusOptions']['scheduled']);
-			$this->topicRepository->update($planTopic);
-			$this->persistenceManager->persistAll();
+			$topic->setTrainers($newTrainers);
+			$topic->setStatus($this->settings['statusOptions']['scheduled']);
+			$this->topicRepository->update($topic);
 			$this->addFlashMessage('Scheduled the topic.');
 			$this->redirect('showScheduled');
 		} catch (\PDOException $exception) {
@@ -272,7 +271,6 @@ class TopicController extends ActionController {
 	 * Shows a list of scheduled Topics
 	 *
 	 * @return void
-	 * @Flow\SkipCsrfProtection
 	 */
 	public function showScheduledAction() {
 		$this->view->assign('scheduleTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['scheduled']));
@@ -280,13 +278,17 @@ class TopicController extends ActionController {
 	}
 
 	/**
-	 * Vote a suggested topic
+	 * Vote a topic
 	 *
-	 * @param \Chantrea\Training\Domain\Model\Topic $suggestedTopic The topic to vote
+	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to vote
 	 * @return void
 	 */
-	public function voteTopicAction() {
-		echo('113');exit();
+	public function voteAction(Topic $topic) {
+		$topic->addVoteUser($this->securityContext->getAccount()->getParty());
+		$this->topicRepository->update($topic);
+		$this->persistenceManager->persistAll();
+		$this->addFlashMessage('Voting success.');
+		$this->redirect('suggest');
 	}
 }
 ?>

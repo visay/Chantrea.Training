@@ -22,9 +22,7 @@ class Location {
 	/**
 	 * The description
 	 * @var string
-	 * @Flow\Validate(type="NotEmpty")
 	 * @Flow\Validate(type="Text")
-	 * @Flow\Validate(type="StringLength", options={"minimum"=50, "maximum"=255})
 	 * @ORM\Column(type="text")
 	 */
 	protected $description;
