@@ -60,7 +60,6 @@ class TopicController extends ActionController {
 	 * Shows a list of topics
 	 *
 	 * @return void
-	 * @Flow\SkipCsrfProtection
 	 */
 	public function indexAction() {
 		$this->view->assign('topics', $this->topicRepository->findAll());
@@ -76,7 +75,6 @@ class TopicController extends ActionController {
 	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to show
 	 *
 	 * @return void
-	 * @Flow\SkipCsrfProtection
 	 */
 	public function showAction(Topic $topic) {
 		$this->view->assign('topic', $topic);
@@ -86,7 +84,6 @@ class TopicController extends ActionController {
 	 * Shows a list of suggest topics
 	 *
 	 * @return void
-	 * @Flow\SkipCsrfProtection
 	 */
 	public function suggestAction() {
 		$accountIdentifier = $this->securityContext->getAccount()->getAccountIdentifier();
@@ -107,7 +104,6 @@ class TopicController extends ActionController {
 	 * Shows a form for creating a new topic object
 	 *
 	 * @return void
-	 * @Flow\SkipCsrfProtection
 	 */
 	public function newAction() {
 		$this->view->assign('owner', $this->securityContext->getAccount()->getParty());
@@ -137,7 +133,6 @@ class TopicController extends ActionController {
 	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to edit
 	 *
 	 * @return void
-	 * @Flow\SkipCsrfProtection
 	 */
 	public function editAction(Topic $topic) {
 		$this->view->assign('topic', $topic);
