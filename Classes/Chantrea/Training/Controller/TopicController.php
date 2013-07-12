@@ -90,9 +90,9 @@ class TopicController extends ActionController {
 		$suggestedTopics = $this->topicRepository->findByStatus($this->settings['statusOptions']['new']);
 		// check if there is account match in the topic
 		foreach($suggestedTopics as $suggestedTopic) {
-			if ($accountIdentifier == $suggestedTopic->getAccount()->getAccountIdentifier()) {
+		//	if ($accountIdentifier == $suggestedTopic->getAccount()->getAccountIdentifier()) {
 				$this->view->assign('matchAccount', $accountIdentifier);
-			}
+			//}
 		}
 
 		$this->view->assign('suggestedTopics', $suggestedTopics);

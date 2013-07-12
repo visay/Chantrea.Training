@@ -38,11 +38,13 @@ class Topic {
 
 	/**
 	 * @var \DateTime
+	 * @ORM\Column(nullable=true)
 	 */
 	protected $trainingDateTo;
 
 	/**
 	 * @var \DateTime
+	 * @ORM\Column(nullable=true)
 	 */
 	protected $trainingDateFrom;
 
@@ -176,7 +178,7 @@ class Topic {
 	 *
 	 * @return void
 	 */
-	public function setTrainingDateTo($trainingDateTo) {
+	public function setTrainingDateTo(\DateTime $trainingDateTo) {
 		$this->trainingDateTo = $trainingDateTo;
 	}
 
@@ -196,7 +198,7 @@ class Topic {
 	 *
 	 * @return void
 	 */
-	public function setTrainingDateFrom($trainingDateFrom) {
+	public function setTrainingDateFrom(\DateTime $trainingDateFrom) {
 		$this->trainingDateFrom = $trainingDateFrom;
 	}
 

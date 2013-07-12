@@ -15,6 +15,13 @@ use Doctrine\ORM\Mapping as ORM;
 class User extends \TYPO3\Party\Domain\Model\Person {
 
 	/**
+	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+	 * @Flow\Inject
+	 * @deprecated
+	 */
+	protected $persistenceManager;
+
+	/**
 	 * @var string
 	 * @ORM\Column(nullable=true)
 	 */
@@ -54,6 +61,16 @@ class User extends \TYPO3\Party\Domain\Model\Person {
 	 */
 	public function setEmail($email) {
 		$this->email = $email;
+	}
+
+	/**
+	 * Gets identifier
+	 *
+	 * @return string
+	 * @deprecated
+	 */
+	public function getIdentifier() {
+		return $this->persistenceManager->getIdentifierByObject($this);
 	}
 
 }

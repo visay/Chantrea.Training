@@ -26,7 +26,7 @@
 				<tr class="warning">
 					<td><f:format.date>{suggestedTopic.creationDate}</f:format.date></td>
 					<td>{suggestedTopic.title}</td>
-					<td>{suggestedTopic.account.party.name}
+					<td>{suggestedTopic.owner.name}
 					<f:security.ifHasRole role="Administrator">
 						<td>
 							<f:link.action action="accept" controller="Topic" arguments="{topic: suggestedTopic}">
@@ -41,7 +41,7 @@
 					</f:security.ifHasRole>
 					<f:if condition="{matchAccount}">
 						<f:then>
-							<f:if condition="{0: suggestedTopic.account.accountIdentifier} == {0: accountIdentifier}">
+							<f:if condition="{0: suggestedTopic.owner.accountIdentifier} == {0: accountIdentifier}">
 								<f:then>
 									<td>
 										<f:link.action action="edit" controller="Topic" arguments="{topic: suggestedTopic}">
