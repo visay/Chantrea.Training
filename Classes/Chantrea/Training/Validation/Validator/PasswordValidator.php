@@ -38,7 +38,7 @@ class PasswordValidator extends \TYPO3\Flow\Validation\Validator\AbstractValidat
 		}
 			// check for password length
 		elseif (strlen($value[0]) < $minimumLength) {
-			$this->addError('The password minimum length must be ' . $minimumLength, 1221560718);
+			$this->addError('The minimum length must be ' . $minimumLength . '.', 1221560718);
 		}
 			// check that the passwords are the same
 		elseif (strcmp($value[0], $value[1]) != 0) {

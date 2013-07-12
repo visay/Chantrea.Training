@@ -178,6 +178,28 @@
 				<source>List all scheduled topics</source>
 			</trans-unit>
 			<!-- list of all scheduled topics end-->
+
+			<!-- user validation message start -->
+			<trans-unit id="label.field.topic.username">
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.firstName">
+				<source>First Name</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.lastName">
+				<source>Last Name</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.password">
+				<source>Password</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.repeatPassword">
+				<source>Repeat Password</source>
+			</trans-unit>
+			<!-- user validation message start -->
+
 		</body>
 	</file>
 </xliff>

@@ -1,6 +1,8 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
 <f:security.ifAuthenticated>
 	<f:else>
 		<f:form action="authenticate" method="post" class="form-signin">
+			<ct:flashMessages />
 			<h2 class="form-signin-heading">Please sign in</h2>
 			<f:form.textfield name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" placeholder="Username" class="input-block-level" />
 			<input type="password" name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]" placeholder="Password" class="input-block-level" />

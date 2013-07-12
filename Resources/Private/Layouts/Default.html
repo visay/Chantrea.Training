@@ -20,10 +20,11 @@
 		<link href="{f:uri.resource(path: '2.3/css/bootstrap-responsive.min.css', package: 'TYPO3.Twitter.Bootstrap')}" rel="stylesheet" />
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 		<link href="{f:uri.resource(path: 'Styles/jquery-ui-timepicker-addon.css')}" rel="stylesheet" media="screen" />
-		<script src="{f:uri.resource(path: '2.3/js/bootstrap.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
+
 		<script src="{f:uri.resource(path: 'Libraries/jQuery/jquery-2.0.2.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		<script src="{f:uri.resource(path: 'JavaScript/jquery-ui-timepicker-addon.js')}"></script>
+		<script src="{f:uri.resource(path: '2.3/js/bootstrap.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
 	</head>
 	<body>
 		<f:render partial="NavBar" arguments="{login: login, currentPage: currentPage}"/>
@@ -33,7 +34,6 @@
 					<h1><f:render section="Header" /></h1>
 				</f:else>
 			</f:if>
-			<f:flashMessages class="flashmessages" />
 			<f:render section="Content" />
 			<f:render partial="Footer" arguments="{login: login}" />
 		</div>
