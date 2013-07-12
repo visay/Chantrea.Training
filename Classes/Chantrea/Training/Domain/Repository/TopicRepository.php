@@ -36,7 +36,7 @@ class TopicRepository extends \TYPO3\Flow\Persistence\Repository {
 					->execute();
 		}
 	}
-	
+
 	/**
 	 * Find topics by account
 	 *

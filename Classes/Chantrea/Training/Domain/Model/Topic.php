@@ -17,6 +17,12 @@ use Doctrine\ORM\Mapping as ORM;
 class Topic {
 
 	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Security\Context
+	 */
+	protected $securityContext;
+
+	/**
 	 * @var string
 	 */
 	protected $title;
@@ -83,7 +89,7 @@ class Topic {
 	 */
 	protected $owner;
 
-	
+
 	/**
 	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
 	 * @Flow\Inject
@@ -298,7 +304,7 @@ class Topic {
 	public function setVoteUsers(\Doctrine\Common\Collections\Collection $voteUsers) {
 		$this->voteUsers = $voteUsers;
 	}
-	
+
 	/**
 	 * @param \Chantrea\Training\Domain\Model\User $voteUsers
 	 * @return void
@@ -306,7 +312,7 @@ class Topic {
 	public function addVoteUser(User $voteUser) {
 		$this->voteUsers->add($voteUser);
 	}
-	
+
 	/**
 	 * @param \Chantrea\Training\Domain\Model\User $trainer
 	 * @return void
@@ -359,10 +365,23 @@ class Topic {
 	 * Gets identifier
 	 *
 	 * @return string
-	 * @deprecated
 	 */
 	public function getIdentifier() {
 		return $this->persistenceManager->getIdentifierByObject($this);
+	}
+
+	/**
+	 * Check if this topic is not yet voted by current login user
+	 *
+	 * @return boolean
+	 */
+	public function isNotYetVotedByCurrentUser() {
+		$voteUsers = $this->getVoteUsers();
+		$loginUser = $this->securityContext->getAccount()->getParty();
+		foreach ($voteUsers as $voteUser) {
+			if ($voteUser === $loginUser) return FALSE;
+		}
+		return TRUE;
 	}
 }
 ?>

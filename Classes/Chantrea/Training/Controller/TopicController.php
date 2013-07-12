@@ -86,17 +86,11 @@ class TopicController extends ActionController {
 	 * @return void
 	 */
 	public function suggestAction() {
-		$accountIdentifier = $this->securityContext->getAccount()->getAccountIdentifier();
+		$loginUser = $this->securityContext->getAccount()->getParty();
 		$suggestedTopics = $this->topicRepository->findByStatus($this->settings['statusOptions']['new']);
-		// check if there is account match in the topic
-		foreach($suggestedTopics as $suggestedTopic) {
-		//	if ($accountIdentifier == $suggestedTopic->getAccount()->getAccountIdentifier()) {
-				$this->view->assign('matchAccount', $accountIdentifier);
-			//}
-		}
-
+		//echo($suggestedTopics->getVoteUsers());exit();
 		$this->view->assign('suggestedTopics', $suggestedTopics);
-		$this->view->assign('accountIdentifier', $accountIdentifier);
+		$this->view->assign('loginUser', $loginUser);
 		$this->view->assign('currentPage', 'suggested');
 	}
 

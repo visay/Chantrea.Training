@@ -16,10 +16,9 @@
 					<th><f:translate id="label.suggest.accept" /></th>
 					<th><f:translate id="label.suggest.reject" /></th>
 				</f:security.ifHasRole>
-				<f:if condition="{matchAccount}">
-					<th><f:translate id="label.edit" /></th>
-					<th><f:translate id="label.delete" /></th>
-				</f:if>
+				<th><f:translate id="label.edit" /></th>
+				<th><f:translate id="label.delete" /></th>
+				<th>Vote Numbers</th>
 				<th><f:translate id="label.suggest.vote" /></th>
 			</tr>
 			<f:for each="{suggestedTopics}" as="suggestedTopic">
@@ -39,38 +38,39 @@
 							</f:link.action>
 						</td>
 					</f:security.ifHasRole>
-					<f:if condition="{matchAccount}">
+					<f:if condition="{0: suggestedTopic.owner} == {0: loginUser}">
 						<f:then>
-							<f:if condition="{0: suggestedTopic.owner.accountIdentifier} == {0: accountIdentifier}">
-								<f:then>
-									<td>
-										<f:link.action action="edit" controller="Topic" arguments="{topic: suggestedTopic}">
-											<i class="icon-edit"></i>
-										</f:link.action>
-									</td>
-									<td>
-										<f:link.action action="delete" controller="Topic" arguments="{topic: suggestedTopic}">
-											<i class="icon-trash" onclick="return confirm('Are you sure want to delete?')"></i>
-										</f:link.action>
-									</td>
-									<td></td>
-								</f:then>
-								<f:else>
-									<td></td>
-									<td></td>
-									<td>
-										<f:link.action action="vote" controller="Topic" arguments="{topic: suggestedTopic}">
-											<i class="icon-thumbs-up"></i>
-										</f:link.action>
-									</td>
-								</f:else>
-							</f:if>
+								<td>
+									<f:link.action action="edit" controller="Topic" arguments="{topic: suggestedTopic}">
+										<i class="icon-edit"></i>
+									</f:link.action>
+								</td>
+								<td>
+									<f:link.action action="delete" controller="Topic" arguments="{topic: suggestedTopic}">
+										<i class="icon-trash" onclick="return confirm('Are you sure want to delete?')"></i>
+									</f:link.action>
+								</td>
+								<td>
+									<f:for each="{suggestedTopic.voteUsers}" as="vote">
+										<i class="icon-star"></i>
+									</f:for>
+								</td>
+								<td></td>
 						</f:then>
 						<f:else>
+							<td></td>
+							<td></td>
 							<td>
-								<f:link.action action="vote" controller="Topic" arguments="{topic: suggestedTopic}">
-									<i class="icon-thumbs-up"></i>
-								</f:link.action>
+								<f:for each="{suggestedTopic.voteUsers}" as="vote">
+									<i class="icon-star"></i>
+								</f:for>
+							</td>
+							<td>
+								<f:if condition="{suggestedTopic.notYetVotedByCurrentUser}">
+									<f:link.action action="vote" controller="Topic" arguments="{topic: suggestedTopic}">
+										<i class="icon-thumbs-up"></i>
+									</f:link.action>
+								</f:if>
 							</td>
 						</f:else>
 					</f:if>
