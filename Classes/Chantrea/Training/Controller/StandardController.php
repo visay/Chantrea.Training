@@ -98,6 +98,7 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 		} else {
 			$user = new \Chantrea\Training\Domain\Model\User();
 			$user->setName(new \TYPO3\Party\Domain\Model\PersonName('', $firstName, '', $lastName));
+			$user->setEmail($email);
 
 			$account = $this->accountFactory->createAccountWithPassword($username, $password[0], array('Chantrea.Training:User'));
 			$this->accountRepository->add($account);

@@ -51,7 +51,7 @@ class FlashMessagesViewHelper extends \TYPO3\Fluid\Core\ViewHelper\AbstractViewH
 	protected function renderAsList(array $flashMessages) {
 		$content = '';
 		foreach ($flashMessages as $singleFlashMessage) {
-			$severityClass = 'alert alert-' . strtolower($singleFlashMessage->getSeverity());
+			$severityClass = 'alert alert-' . (strtolower($singleFlashMessage->getSeverity()) == 'ok' ? 'success' : strtolower($singleFlashMessage->getSeverity()));
 			$messageContent = htmlspecialchars($singleFlashMessage->render());
 			if ($singleFlashMessage->getTitle() !== '') {
 				$messageContent = sprintf('<strong>%s</strong> ', htmlspecialchars($singleFlashMessage->getTitle())) . $messageContent;

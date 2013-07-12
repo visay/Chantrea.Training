@@ -1,14 +1,39 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
 <f:layout name="Default" />
 
-<f:section name="Title">Show user "{user.name}"</f:section>
-<f:section name="Header">Show user "{user.name}"</f:section>
+<f:section name="Title">User Information</f:section>
+<f:section name="Header">User Information</f:section>
 
 <f:section name="Content">
-	<table>
-		<tr>
-			<th>Name</th>
-			<td>{user.name}</td>
-		</tr>
-	</table>
-	<f:link.action action="index">Back</f:link.action>
+	<div class="row">
+		<div class="span4">
+			<ct:flashMessages />
+			<table class="table table-bordered table-striped">
+				<colgroup>
+					<col class="span1">
+					<col class="span3">
+				</colgroup>
+				<thead>
+					<tr>
+						<th>Field</th>
+						<th>Details</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Name</td>
+						<td>{user.name}</td>
+					</tr>
+					<tr>
+						<td>Email</td>
+						<td>{user.email}</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><f:link.action action="edit" arguments="{user: user}">Edit</f:link.action> | <f:link.action action="resetPassword" arguments="{user: user}">Password Reset</f:link.action></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </f:section>

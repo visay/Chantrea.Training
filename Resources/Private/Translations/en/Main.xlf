@@ -189,6 +189,9 @@
 			<trans-unit id="label.field.topic.username">
 				<source>Username</source>
 			</trans-unit>
+			<trans-unit id="label.field.topic.user.name">
+				<source>Name</source>
+			</trans-unit>
 			<trans-unit id="label.field.topic.firstName">
 				<source>First Name</source>
 			</trans-unit>
@@ -198,11 +201,17 @@
 			<trans-unit id="label.field.topic.email">
 				<source>Email</source>
 			</trans-unit>
+			<trans-unit id="label.field.topic.user.email">
+				<source>Email</source>
+			</trans-unit>
 			<trans-unit id="label.field.topic.password">
 				<source>Password</source>
 			</trans-unit>
 			<trans-unit id="label.field.topic.repeatPassword">
 				<source>Repeat Password</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.newPassword">
+				<source>New Password</source>
 			</trans-unit>
 			<!-- user validation message start -->
 

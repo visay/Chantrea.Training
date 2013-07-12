@@ -17,7 +17,6 @@ class User extends \TYPO3\Party\Domain\Model\Person {
 	/**
 	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
 	 * @Flow\Inject
-	 * @deprecated
 	 */
 	protected $persistenceManager;
 
@@ -29,7 +28,9 @@ class User extends \TYPO3\Party\Domain\Model\Person {
 
 	/**
 	 * @var string
-	 * @ORM\Column(nullable=true)
+	 * @Flow\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="EmailAddress")
+	 * @ORM\Column(type="string", unique=true)
 	 */
 	protected $email;
 

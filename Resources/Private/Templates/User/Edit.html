@@ -1,19 +1,46 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
 <f:layout name="Default" />
 
-<f:section name="Title">Edit user "{user.name}"</f:section>
-<f:section name="Header">Edit user "{user.name}"</f:section>
+<f:section name="Title">Edit user information</f:section>
+<f:section name="Header">Edit user information</f:section>
 
 <f:section name="Content">
 	<f:form action="update" object="{user}" name="user">
-		<ol>
-			<li>
-				<label for="name">Name</label>
-				<f:form.textfield property="name" id="name" />
-			</li>
-		
-			<li>
-				<f:form.submit value="Update"/>
-			</li>
-		</ol>
+		<div class="row">
+			<div class="span4">
+				<div class="hidden"><ct:flashMessages /></div>
+				<f:render partial="FormErrors" arguments="{objectName: objectName}" />
+				<table class="table table-bordered table-striped">
+					<colgroup>
+						<col class="span1">
+						<col class="span3">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>Field</th>
+							<th>Details</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><label for="firstName">First Name</label></td>
+							<td><f:form.textfield property="name.firstName" id="firstName" /></td>
+						</tr>
+						<tr>
+							<td><label for="lastName">Last Name</label></td>
+							<td><f:form.textfield property="name.lastName" id="lastName" /></td>
+						</tr>
+						<tr>
+							<td><label for="email">Email</label></td>
+							<td><f:form.textfield property="email" id="email" /></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><f:form.submit value="Update"/></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</f:form>
 </f:section>

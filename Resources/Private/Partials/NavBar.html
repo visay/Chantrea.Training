@@ -9,7 +9,7 @@
 					</a> <a href="/" class="brand">Chantrea Training</a>
 					<div class="nav-collapse collapse">
 						<p class="navbar-text pull-right">
-							Logged in as <f:link.action action="show" controller="User" class="navbar-link">{sessionUser.accountIdentifier}</f:link.action> |
+							Logged in as <strong><f:link.action action="show" controller="User" arguments="{user: sessionUser}" class="navbar-link">{sessionUser.name}</f:link.action></strong> |
 							Not you? <f:link.action controller="Standard" action="logout">Sign out</f:link.action>
 						</p>
 						<ul class="nav">

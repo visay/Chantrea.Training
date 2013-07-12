@@ -64,7 +64,7 @@ class TopicController extends ActionController {
 	 * @return void
 	 */
 	protected function initializeView(\TYPO3\Flow\Mvc\View\ViewInterface $view) {
-		$view->assign('sessionUser', $this->securityContext->getAccount());
+		$view->assign('sessionUser', $this->securityContext->getAccount()->getParty());
 	}
 
 	/**
