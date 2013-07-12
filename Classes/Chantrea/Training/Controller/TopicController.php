@@ -57,6 +57,17 @@ class TopicController extends ActionController {
 	protected $locationRepository;
 
 	/**
+	 * Initializes the view before invoking an action method.
+	 *
+	 * @param \TYPO3\Flow\Mvc\View\ViewInterface $view The view to be initialized
+	 *
+	 * @return void
+	 */
+	protected function initializeView(\TYPO3\Flow\Mvc\View\ViewInterface $view) {
+		$view->assign('sessionUser', $this->securityContext->getAccount());
+	}
+
+	/**
 	 * Shows a list of topics
 	 *
 	 * @return void

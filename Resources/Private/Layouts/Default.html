@@ -27,7 +27,7 @@
 		<script src="{f:uri.resource(path: '2.3/js/bootstrap.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
 	</head>
 	<body>
-		<f:render partial="NavBar" arguments="{login: login, currentPage: currentPage}"/>
+		<f:render partial="NavBar" arguments="{login: login, sessionUser: sessionUser, currentPage: currentPage}"/>
 		<div class="container">
 			<f:if condition="{login}">
 				<f:else>
