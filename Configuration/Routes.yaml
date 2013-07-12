@@ -90,4 +90,53 @@
     topic:
       objectType: Chantrea\Training\Domain\Model\Topic
       uriPattern: '{title}'
-  
+
+-
+  name: 'Category list action'
+  uriPattern: 'categories'
+  defaults:
+    '@controller': 'Category'
+    '@action':     'index'
+
+-
+  name: 'Category actions'
+  uriPattern: 'category/new'
+  defaults:
+    '@controller': 'Category'
+    '@action':     'new'
+
+-
+  name: 'Category actions'
+  uriPattern: 'category/{@action}/{category}'
+  defaults:
+    '@controller': 'Category'
+    '@action':     'show'
+  routeParts:
+    topic:
+      objectType: Chantrea\Training\Domain\Model\Category
+      uriPattern: '{title}'
+
+-
+  name: 'Location list action'
+  uriPattern: 'locations'
+  defaults:
+    '@controller': 'Location'
+    '@action':     'index'
+
+-
+  name: 'Location actions'
+  uriPattern: 'location/new'
+  defaults:
+    '@controller': 'Location'
+    '@action':     'new'
+
+-
+  name: 'Location actions'
+  uriPattern: 'location/{@action}/{location}'
+  defaults:
+    '@controller': 'Location'
+    '@action':     'show'
+  routeParts:
+    topic:
+      objectType: Chantrea\Training\Domain\Model\Location
+      uriPattern: '{title}'

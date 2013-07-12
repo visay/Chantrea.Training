@@ -17,7 +17,7 @@
 					<tr class="success">
 						<td><f:format.date>{acceptedTopic.creationDate}</f:format.date></td>
 						<td>{acceptedTopic.title}</td>
-						<td>{acceptedTopic.account.party.name}</td>
+						<td>{acceptedTopic.owner.name}</td>
 						<f:security.ifHasRole role="Administrator">
 						<td>
 							<f:link.action action="plan" controller="Topic" arguments="{topic: acceptedTopic}">
@@ -36,4 +36,9 @@
 			</f:link.action>
 		</f:else>
 	</f:if>
+	<p>
+		<f:link.action action="new" controller="Location" class="btn">
+			<f:translate id="label.suggest.new.location" />
+		</f:link.action>
+	</p>
 </f:section>

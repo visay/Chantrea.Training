@@ -76,7 +76,13 @@
 				<source>Suggest</source>
 			</trans-unit>
 			<trans-unit id="label.suggest.new.topic">
-				<source>Suggest new</source>
+				<source>New Suggest</source>
+			</trans-unit>
+			<trans-unit id="label.suggest.new.category">
+				<source>New Category</source>
+			</trans-unit>
+			<trans-unit id="label.suggest.new.location">
+				<source>New Location</source>
 			</trans-unit>
 			<trans-unit id="label.suggest.create.category">
 				<source>Please create a category first.</source>

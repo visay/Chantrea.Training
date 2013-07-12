@@ -20,5 +20,8 @@
 			<p>No locations created yet.</p>
 		</f:else>
 	</f:if>
-	<p><f:link.action action="new">Create a new location</f:link.action></p>
+	<p>
+		<f:link.action action="new" class="btn">Create</f:link.action>
+		<f:link.action action="listAccepted" controller="Topic" class="btn">Return to suggestion</f:link.action>
+	</p>
 </f:section>

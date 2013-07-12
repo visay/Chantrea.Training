@@ -79,8 +79,11 @@
 		</table>
 	</f:if>
 	<p>
-		<f:link.action action="new">
+		<f:link.action action="new" class="btn">
 			<f:translate id="label.suggest.new.topic" />
+		</f:link.action>
+		<f:link.action action="new" controller="Category" class="btn">
+			<f:translate id="label.suggest.new.category" />
 		</f:link.action>
 	</p>
 </f:section>

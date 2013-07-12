@@ -20,5 +20,8 @@
 			<p>No categories created yet.</p>
 		</f:else>
 	</f:if>
-	<p><f:link.action action="new">Create a new category</f:link.action></p>
+	<p>
+		<f:link.action action="new" class="btn">Create</f:link.action>
+		<f:link.action action="suggest" controller="Topic" class="btn">Return to suggestion</f:link.action>
+	</p>
 </f:section>

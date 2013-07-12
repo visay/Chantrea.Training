@@ -82,7 +82,7 @@
 						<f:for each="{suggestedTopics}" as="suggestedTopic">
 							<tr class="warning">
 								<td>{suggestedTopic.title}</td>
-								<td>{suggestedTopic.account.party.name}</td>
+								<td>{suggestedTopic.owner.name}</td>
 							</tr>
 						</f:for>
 					</table>
@@ -106,7 +106,7 @@
 						<f:for each="{acceptedTopics}" as="acceptedTopic">
 							<tr class="success">
 								<td>{acceptedTopic.title}</td>
-								<td>{acceptedTopic.account.party.name}</td>
+								<td>{acceptedTopic.owner.name}</td>
 							</tr>
 						</f:for>
 					</table>
