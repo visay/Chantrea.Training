@@ -15,9 +15,6 @@
 					<th><f:translate id="label.field.topic" /></th>
 					<th><f:translate id="label.field.topic.trainer" /></th>
 					<th><f:translate id="label.field.topic.location" /></th>
-					<f:security.ifHasRole role="Administrator">
-						<th><f:translate id="label.edit" /></th>
-					</f:security.ifHasRole>
 				</tr>
 				<f:for each="{scheduleTopics}" as="scheduleTopic">
 					<tr>
@@ -29,15 +26,10 @@
 						<td>{scheduleTopic.title}</td>
 						<td>
 							<f:for each="{scheduleTopic.trainers}" as="trainer">
-								{trainer.party.name} <br />
+								{trainer.name} <br />
 							</f:for>
 						</td>
 						<td>{scheduleTopic.location.room}</td>
-						<f:security.ifHasRole role="Administrator">
-							<td>
-								<f:link.action action="plan" controller="Topic" arguments="{topic: scheduleTopic}"><i class="icon-edit"></i></f:link.action>
-							</td>
-						</f:security.ifHasRole>
 					</tr>
 				</f:for>
 			</table>

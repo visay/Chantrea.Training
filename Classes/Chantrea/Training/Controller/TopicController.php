@@ -247,13 +247,11 @@ class TopicController extends ActionController {
 	public function scheduleAction(Topic $topic) {
 		try {
 			$trainers = $this->request->getArgument('trainers') == '' ? array() : $this->request->getArgument('trainers');
-			$newTrainers = new \Doctrine\Common\Collections\ArrayCollection();
 			foreach ($trainers as $trainer) {
 				$newTrainer = $this->userRepository->findByIdentifier($trainer);
-				$newTrainers->add($newTrainer);
+				$topic->addTrainer($newTrainer);
 			}
 
-			$topic->setTrainers($newTrainers);
 			$topic->setStatus($this->settings['statusOptions']['scheduled']);
 			$this->topicRepository->update($topic);
 			$this->addFlashMessage('Scheduled the topic.');

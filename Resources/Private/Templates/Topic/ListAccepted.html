@@ -37,8 +37,10 @@
 		</f:else>
 	</f:if>
 	<p>
-		<f:link.action action="new" controller="Location" class="btn">
-			<f:translate id="label.suggest.new.location" />
-		</f:link.action>
+		<f:security.ifHasRole role="Administrator">
+			<f:link.action action="new" controller="Location" class="btn">
+				<f:translate id="label.suggest.new.location" />
+			</f:link.action>
+		</f:security.ifHasRole>
 	</p>
 </f:section>
