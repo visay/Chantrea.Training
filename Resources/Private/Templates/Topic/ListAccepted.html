@@ -1,9 +1,11 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
 <f:layout name="Default" />
 
 <f:section name="Title"></f:section>
 <f:section name="Header"></f:section>
 
 <f:section name="Content">
+	<ct:flashMessages />
 	<f:if condition="{acceptedTopics}">
 		<f:then>
 			<table class="table table-condensed">

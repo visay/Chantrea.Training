@@ -160,7 +160,7 @@ class TopicController extends ActionController {
 		$this->topicRepository->remove($topic);
 		$this->addFlashMessage('Deleted a topic.');
 		$this->persistenceManager->persistAll();
-		$this->redirect('index');
+		$this->redirect('suggest');
 	}
 
 	/**

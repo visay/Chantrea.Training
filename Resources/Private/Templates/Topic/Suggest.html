@@ -1,9 +1,11 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
 <f:layout name="Default" />
 
 <f:section name="Title">Suggested Topic - Chantrea Training</f:section>
 <f:section name="Header">Suggested Topic</f:section>
 
 <f:section name="Content">
+	<ct:flashMessages />
 	<f:render partial="FormErrors" arguments="{objectName: objectName}" />
 	<f:form.hidden name="nav-class" class="nav-class" value="{class}" />
 	<f:if condition="{suggestedTopics}">

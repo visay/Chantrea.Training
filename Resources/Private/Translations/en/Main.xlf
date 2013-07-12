@@ -109,10 +109,10 @@
 				<source>10 Latest scheduled</source>
 			</trans-unit>
 			<trans-unit id="label.latest.suggestion">
-				<source>10 Latest suggestions</source>
+				<source>10 Latest suggestion</source>
 			</trans-unit>
 			<trans-unit id="label.latest.accpeted">
-				<source>10 Latest accepteds</source>
+				<source>10 Latest accepted</source>
 			</trans-unit>
 			<trans-unit id="label.message.noaccepted">
 				<source>There is no accepted topics yet</source>
