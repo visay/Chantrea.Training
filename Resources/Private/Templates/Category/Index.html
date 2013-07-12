@@ -1,9 +1,11 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
 <f:layout name="Default" />
 
 <f:section name="Title">A list of categories</f:section>
-<f:section name="Header">A list of category"</f:section>
+<f:section name="Header">A list of category</f:section>
 
 <f:section name="Content">
+	<ct:flashMessages />
 	<f:if condition="{categories}">
 		<f:then>
 			<ul>

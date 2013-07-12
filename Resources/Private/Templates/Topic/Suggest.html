@@ -13,6 +13,7 @@
 			<tr>
 				<th><f:translate id="label.field.topic.creationDate" /></th>
 				<th><f:translate id="label.field.topic.title" /></th>
+				<th><f:translate id="label.field.topic.category" /></th>
 				<th><f:translate id="label.field.topic.account" /></th>
 				<f:security.ifHasRole role="Administrator">
 					<th><f:translate id="label.suggest.accept" /></th>
@@ -27,6 +28,7 @@
 				<tr class="warning">
 					<td><f:format.date>{suggestedTopic.creationDate}</f:format.date></td>
 					<td>{suggestedTopic.title}</td>
+					<td>{suggestedTopic.category.name}</td>
 					<td>{suggestedTopic.owner.name}
 					<f:security.ifHasRole role="Administrator">
 						<td>

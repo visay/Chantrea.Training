@@ -66,6 +66,9 @@
 			<!-- plan form end -->
 
 			<!-- suggest form start -->
+			<trans-unit id="label.field.topic.category">
+				<source>Category</source>
+			</trans-unit>
 			<trans-unit id="label.suggest.accept">
 				<source>Accept</source>
 			</trans-unit>
@@ -126,7 +129,7 @@
 			<trans-unit id="label.message.acceptedtopic">
 				<source>
 				<![CDATA[
-				Please Accept the topics before you can set schedule <br />
+					There is no accpeted topics yet<br />
 				]]>
 				</source>
 			</trans-unit>
@@ -135,6 +138,9 @@
 			</trans-unit>
 			<trans-unit id="label.back.suggested">
 				<source>Back to suggested topic</source>
+			</trans-unit>
+			<trans-unit id="label.back.accepted">
+				<source>Back to accepted topics</source>
 			</trans-unit>
 			<trans-unit id="label.listAccepted.schedule">
 				<source>Schedule</source>
