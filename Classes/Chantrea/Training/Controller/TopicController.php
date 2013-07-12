@@ -215,7 +215,7 @@ class TopicController extends ActionController {
 	 * @return void
 	 */
 	public function planAction(Topic $topic) {
-		$this->view->assign('planTopic', $topic);
+		$this->view->assign('topic', $topic);
 		$this->view->assign('trainers', $this->userRepository->findAll());
 		$this->view->assign('locations', $this->locationRepository->findAll());
 	}
@@ -228,10 +228,10 @@ class TopicController extends ActionController {
 	public function initializeScheduleAction() {
 		$this->arguments['topic']->getPropertyMappingConfiguration()->forProperty('trainingDateFrom')
 			->setTypeConverterOption('TYPO3\Flow\Property\TypeConverter\DateTimeConverter',
-				\TYPO3\Flow\Property\TypeConverter\DateTimeConverter::CONFIGURATION_DATE_FORMAT, $this->settings['dateFormat']);
+				\TYPO3\Flow\Property\TypeConverter\DateTimeConverter::CONFIGURATION_DATE_FORMAT, $this->settings['dateTimeFormat']);
 		$this->arguments['topic']->getPropertyMappingConfiguration()->forProperty('trainingDateTo')
 			->setTypeConverterOption('TYPO3\Flow\Property\TypeConverter\DateTimeConverter',
-				\TYPO3\Flow\Property\TypeConverter\DateTimeConverter::CONFIGURATION_DATE_FORMAT, $this->settings['dateFormat']);
+				\TYPO3\Flow\Property\TypeConverter\DateTimeConverter::CONFIGURATION_DATE_FORMAT, $this->settings['dateTimeFormat']);
 	}
 
 	/**
@@ -239,7 +239,8 @@ class TopicController extends ActionController {
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to scheudle
 	 *
-	 * @Flow\Validate(argumentName="topic.trainingDate", type="NotEmpty")
+	 * @Flow\Validate(argumentName="topic.trainingDateFrom", type="NotEmpty")
+	 * @Flow\Validate(argumentName="topic.trainingDateTo", type="NotEmpty")
 	 * @Flow\Validate(argumentName="topic.location", type="NotEmpty")
 	 * @return void
 	 */

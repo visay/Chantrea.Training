@@ -24,6 +24,9 @@
 			<trans-unit id="label.field.topic.trainer">
 				<source>Trainer</source>
 			</trans-unit>
+			<trans-unit id="label.field.topic.trainingDate">
+				<source>Date</source>
+			</trans-unit>
 			<trans-unit id="label.field.topic.trainingDateFrom">
 				<source>From</source>
 			</trans-unit>
@@ -157,8 +160,11 @@
 			<trans-unit id="label.field.topic.topic.category">
 				<source>Category</source>
 			</trans-unit>
-			<trans-unit id="label.field.topic.planTopic.trainingDate">
-				<source>Training Date</source>
+			<trans-unit id="label.field.topic.planTopic.trainingDateFrom">
+				<source>Date From</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.planTopic.trainingDateTo">
+				<source>Date To</source>
 			</trans-unit>
 			<trans-unit id="label.field.topic.planTopic.location">
 				<source>Location</source>

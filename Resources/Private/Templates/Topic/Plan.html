@@ -4,15 +4,14 @@
 <f:section name="Header"></f:section>
 <f:section name="Content">
 	<f:render partial="FormErrors" arguments="{objectName: objectName}" />
-	<f:form action="schedule" object="{planTopic}" name="planTopic"
-		class="form-horizontal">
+	<f:form action="schedule" object="{topic}" name="topic" class="form-horizontal">
 		<div class="control-group">
 			<div class="control-label">
 				<label for="creationDate"><f:translate
 						id="label.plan.field.topic.creationDate" />:</label>
 			</div>
 			<div class="controls">
-				<label class="checkbox"><f:format.date>{planTopic.creationDate}</f:format.date></label>
+				<label class="checkbox"><f:format.date>{topic.creationDate}</f:format.date></label>
 			</div>
 		</div>
 		<div class="control-group">
@@ -20,7 +19,7 @@
 				<label for="title"><f:translate id="label.field.topic" />:</label>
 			</div>
 			<div class="controls">
-				<label class="checkbox">{planTopic.title}</label>
+				<label class="checkbox">{topic.title}</label>
 			</div>
 		</div>
 		<div class="control-group">
@@ -29,7 +28,7 @@
 						id="label.field.topic.account" />:</label>
 			</div>
 			<div class="controls">
-				<label class="checkbox">{planTopic.owner.name}</label>
+				<label class="checkbox">{topic.owner.name}</label>
 			</div>
 		</div>
 		<div class="control-group">
@@ -38,7 +37,7 @@
 						id="label.field.topic.category" />:</label>
 			</div>
 			<div class="controls">
-				<label class="checkbox">{planTopic.category.name}</label>
+				<label class="checkbox">{topic.category.name}</label>
 			</div>
 		</div>
 		<div class="control-group">
