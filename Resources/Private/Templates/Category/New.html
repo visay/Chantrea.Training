@@ -1,24 +1,28 @@
 <f:layout name="Default" />
 
-<f:section name="Title">New category</f:section>
-<f:section name="Header">New category</f:section>
+<f:section name="Title"><f:translate id="label.category.new" /></f:section>
+<f:section name="Header"><f:translate id="label.category.new" /></f:section>
 
 <f:section name="Content">
 	<p>Just fill out the following form to create a new category:</p>
 
 	<f:form action="create" name="newCategory">
-		<ol>
-			<li>
-				<label for="name">Name</label>
+		<div class="control-group">
+			<div class="control-label" for="name">
+				<f:translate id="label.field.category.name" />
+			</div>
+			<div class="controls">
 				<f:form.textfield property="name" id="name" />
-			</li>
-			<li>
-				<label for="description">Description</label>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="control-label" for="description">
+				<f:translate id="label.field.category.description" />
+			</div>
+			<div class="controls">
 				<f:form.textarea property="description" id="description" rows="3" cols="50" placeholder="Enter description here" />
-			</li>
-			<li>
-				<f:form.submit value="Create" />
-			</li>
-		</ol>
+			</div>
+		</div>
+		<f:form.button class="btn"><f:translate id="label.create" /></f:form.button>
 	</f:form>
 </f:section>

@@ -7,18 +7,22 @@
 	<p>Just fill out the following form to create a new location:</p>
 
 	<f:form action="create" name="newLocation">
-		<ol>
-			<li>
+		<div class="control-group">
+			<div class="control-label">
 				<label for="room">Room</label>
+			</div>
+			<div class="controls">
 				<f:form.textfield property="room" id="room" />
-			</li>
-			<li>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="control-label">
 				<label for="description">Description</label>
+			</div>
+			<div class="controls">
 				<f:form.textarea property="description" id="description" rows="3" cols="50" placeholder="Enter description here" />
-			</li>
-			<li>
-				<f:form.submit value="Create" />
-			</li>
-		</ol>
+			</div>
+		</div>
+		<f:form.button class="btn"><f:translate id="label.create" /></f:form.button>
 	</f:form>
 </f:section>

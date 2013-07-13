@@ -1,14 +1,13 @@
 <f:layout name="Default" />
 
 <f:section name="Title"></f:section>
-<f:section name="Header"></f:section>
+<f:section name="Header">Plan the training</f:section>
 <f:section name="Content">
 	<f:render partial="FormErrors" arguments="{objectName: objectName}" />
 	<f:form action="schedule" object="{topic}" name="topic" class="form-horizontal">
 		<div class="control-group">
 			<div class="control-label">
-				<label for="creationDate"><f:translate
-						id="label.plan.field.topic.creationDate" />:</label>
+				<label for="creationDate"><f:translate id="label.plan.field.topic.creationDate" />:</label>
 			</div>
 			<div class="controls">
 				<label class="checkbox"><f:format.date>{topic.creationDate}</f:format.date></label>
@@ -24,8 +23,7 @@
 		</div>
 		<div class="control-group">
 			<div class="control-label">
-				<label for="account"><f:translate
-						id="label.field.topic.account" />:</label>
+				<label for="account"><f:translate id="label.field.topic.account" />:</label>
 			</div>
 			<div class="controls">
 				<label class="checkbox">{topic.owner.name}</label>
@@ -33,8 +31,7 @@
 		</div>
 		<div class="control-group">
 			<div class="control-label">
-				<label for="category"><f:translate
-						id="label.field.topic.category" />:</label>
+				<label for="category"><f:translate id="label.field.topic.category" />:</label>
 			</div>
 			<div class="controls">
 				<label class="checkbox">{topic.category.name}</label>
@@ -42,9 +39,7 @@
 		</div>
 		<div class="control-group">
 			<div class="control-label">
-				<label for="trainingDateFrom">
-					<f:translate id="label.field.topic.trainingDateFrom" />
-				</label>
+				<label for="trainingDateFrom"><f:translate id="label.field.topic.trainingDateFrom" /></label>
 			</div>
 			<div class="controls">
 				<f:form.textfield property="trainingDateFrom" id="trainingDateFrom" />
@@ -52,18 +47,16 @@
 		</div>
 		<div class="control-group">
 			<div class="control-label">
-				<label for="trainingDateTo">
-					<f:translate id="label.field.topic.trainingDateTo" />
-				</label>
+				<label for="trainingDateTo"><f:translate id="label.field.topic.trainingDateTo" /></label>
 			</div>
 			<div class="controls">
 				<f:form.textfield property="trainingDateTo" id="trainingDateTo" />
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="trainers">
-				<f:translate id="label.field.topic.trainer" />:
-			</label>
+			<div class="control-label">
+				<label for="trainers"><f:translate id="label.field.topic.trainer" />:</label>
+			</div>
 			<div class="controls">
 				<div class="left">
 					<f:form.select name="trainers" options="{trainers}" optionLabelField="name" multiple="1" size="5" id="trainers" />
@@ -71,19 +64,20 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="location"><f:translate
-					id="label.field.topic.location" />: </label>
+			<div class="control-label">
+				<label for="location"><f:translate id="label.field.topic.location" />: </label>
+			</div>
 			<div class="controls">
-				<f:form.select name="location" property="location"
-					options="{locations}" optionLabelField="room"
-					prependOptionLabel="{f:translate(id: 'label.plan.select.location')}" />
+				<f:form.select name="location" property="location" options="{locations}" optionLabelField="room" prependOptionLabel="{f:translate(id: 'label.plan.select.location')}" />
+				<f:security.ifHasRole role="Administrator">
+					<f:link.action action="new" controller="Location"> <i class="icon-plus"></i></f:link.action>
+				</f:security.ifHasRole>
 			</div>
 		</div>
+
 		<div class="control-group">
 			<div class="controls">
-				<f:form.button class="bnt">
-					<f:translate id="label.plan.save" />
-				</f:form.button>
+				<f:form.button class="btn" type="submit"><f:translate id="label.plan.save" /></f:form.button>
 			</div>
 		</div>
 	</f:form>

@@ -1,30 +1,9 @@
 <f:layout name="Default" />
 
-<f:section name="Title">A list of topics</f:section>
+<f:section name="Title">Dashboard</f:section>
 <f:section name="Header"></f:section>
 
 <f:section name="Content">
-	<!-- 
-	<f:if condition="{topics}">
-		<f:then>
-			<ul>
-				<f:for each="{topics}" as="topic">
-					<li>
-						<f:link.action action="show" arguments="{topic: topic}">{topic.title}</f:link.action>
-						<f:link.action controller="Standard" action="showAccount" arguments="{account: topic.account}">{topic.account.party.name}</f:link.action>
-						<f:for each="{topic.account.roles}" as="role">
-							{role}
-						</f:for> 
-						<f:link.action action="edit" arguments="{topic: topic}">Edit</f:link.action>
-						<f:link.action action="delete" arguments="{topic: topic}">Delete</f:link.action>
-					</li>
-				</f:for>
-			</ul>
-		</f:then>
-		<f:else>
-			<p>No topics created yet.</p>
-		</f:else>
-	</f:if>-->
 	<div class="">
 	<f:if condition="{scheduleTopics}">
 		<f:then>
@@ -37,9 +16,6 @@
 					<th><f:translate id="label.field.topic" /></th>
 					<th><f:translate id="label.field.topic.trainer" /></th>
 					<th><f:translate id="label.field.topic.location" /></th>
-					<!-- <f:security.ifHasRole role="Administrator">
-						<th><f:translate id="label.edit" /></th>
-					</f:security.ifHasRole> -->
 				</tr>
 				<f:for each="{scheduleTopics}" as="scheduleTopic">
 					<tr>
@@ -55,13 +31,6 @@
 							</f:for>
 						</td>
 						<td>{scheduleTopic.location.room}</td>
-						<!-- <f:security.ifHasRole role="Administrator">
-							<td>
-								<f:link.action action="plan" controller="Topic" arguments="{topic: scheduleTopic}">
-									<i class="icon-edit"></i>
-								</f:link.action>
-							</td>
-						</f:security.ifHasRole> -->
 					</tr>
 				</f:for>
 			</table>
@@ -121,8 +90,4 @@
 			</f:if>
 		</div>
 	</div>
-	<!-- 
-	<p><f:link.action action="new" controller="Category">Create new category</f:link.action></p>
-	<p><f:link.action action="new" controller="User">Create new user</f:link.action></p>
-	<p><f:link.action action="new" controller="Location">Create new location</f:link.action></p> -->
 </f:section>

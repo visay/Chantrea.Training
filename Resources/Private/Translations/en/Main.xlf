@@ -45,6 +45,12 @@
 			<trans-unit id="label.delete">
 				<source>Delete</source>
 			</trans-unit>
+			<trans-unit id="label.field.category.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="label.field.category.description">
+				<source>Description</source>
+			</trans-unit>
 			<!-- general end -->
 
 			<!-- plan form start -->
@@ -75,6 +81,9 @@
 			<trans-unit id="label.suggest.reject">
 				<source>Reject</source>
 			</trans-unit>
+			<trans-unit id="label.suggest.votenumber">
+				<source>Vote Numbers</source>
+			</trans-unit>
 			<trans-unit id="label.suggest.vote">
 				<source>Vote</source>
 			</trans-unit>
@@ -104,6 +113,15 @@
 			</trans-unit>
 			<trans-unit id="label.back.suggested.topic">
 				<source>Back to all suggested topics</source>
+			</trans-unit>
+			<trans-unit id="label.placeholder.description">
+				<source>Enter description here</source>
+			</trans-unit>
+			<trans-unit id="label.placeholder.title">
+				<source>Enter title here</source>
+			</trans-unit>
+			<trans-unit id="label.suggest.message.prompt">
+				<source>Just fill out the following form to create a new topic:</source>
 			</trans-unit>
 			<!-- suggest form end -->
 
@@ -215,6 +233,53 @@
 			</trans-unit>
 			<!-- user validation message start -->
 
+			<!-- header block start -->
+			<trans-unit id="label.create">
+				<source>Create</source>
+			</trans-unit>
+			<trans-unit id="label.category list">
+				<source>A list of category</source>
+			</trans-unit>
+			<trans-unit id="label.edit.category">
+				<source>Edit Category</source>
+			</trans-unit>
+			<trans-unit id="label.category.new">
+				<source>New Category</source>
+			</trans-unit>
+			<trans-unit id="label.topic.new">
+				<source>New Topic</source>
+			</trans-unit>
+			<trans-unit id="label.topic.edit">
+				<source>Edit Topic</source>
+			</trans-unit>
+			<!-- header block end -->
+
+			<!-- sign in and sign up block end -->
+			<trans-unit id="label.login.signin">
+				<source>Please sign in</source>
+			</trans-unit>
+			<trans-unit id="label.signin.button">
+				<source>Sign In</source>
+			</trans-unit>
+			<trans-unit id="label.login.not.member">
+				<source>New to Chantrea Training?</source>
+			</trans-unit>
+			<trans-unit id="label.signup.button">
+				<source>Sign Up</source>
+			</trans-unit>
+			<trans-unit id="label.login.placeholder.username">
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="label.login.placeholder.password">
+				<source>Password</source>
+			</trans-unit>
+			<trans-unit id="label.already.memeber">
+				<source>Already on Chantrea Training?</source>
+			</trans-unit>
+			<trans-unit id="label.suggested.header">
+				<source>Suggested Topics</source>
+			</trans-unit>
+			<!-- sign in and sign up end -->
 		</body>
 	</file>
 </xliff>

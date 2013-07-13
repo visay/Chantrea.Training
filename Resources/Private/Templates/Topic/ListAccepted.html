@@ -1,7 +1,7 @@
 {namespace ct=Chantrea\Training\ViewHelpers}
 <f:layout name="Default" />
 
-<f:section name="Title"></f:section>
+<f:section name="Title">Accepted Topics</f:section>
 <f:section name="Header"></f:section>
 
 <f:section name="Content">
@@ -21,11 +21,9 @@
 						<td>{acceptedTopic.title}</td>
 						<td>{acceptedTopic.owner.name}</td>
 						<f:security.ifHasRole role="Administrator">
-						<td>
-							<f:link.action action="plan" controller="Topic" arguments="{topic: acceptedTopic}">
-								<i class="icon-time"></i>
-							</f:link.action>
-						</td>
+							<td>
+								<f:link.action action="plan" controller="Topic" arguments="{topic: acceptedTopic}"><i class="icon-time"></i></f:link.action>
+							</td>
 						</f:security.ifHasRole>
 					</tr>
 				</f:for>
@@ -35,11 +33,4 @@
 			<f:translate id="label.message.acceptedtopic" />
 		</f:else>
 	</f:if>
-	<p>
-		<f:security.ifHasRole role="Administrator">
-			<f:link.action action="new" controller="Location" class="btn">
-				<f:translate id="label.suggest.new.location" />
-			</f:link.action>
-		</f:security.ifHasRole>
-	</p>
 </f:section>

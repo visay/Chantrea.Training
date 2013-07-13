@@ -25,6 +25,12 @@ class CategoryController extends ActionController {
 	protected $categoryRepository;
 
 	/**
+	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+	 * @Flow\Inject
+	 */
+	protected $persistenceManager;
+
+	/**
 	 * @Flow\Inject
 	 * @var \TYPO3\Flow\Security\Context
 	 */
@@ -88,6 +94,7 @@ class CategoryController extends ActionController {
 	 */
 	public function updateAction(Category $category) {
 		$this->categoryRepository->update($category);
+		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('Updated the category.');
 		$this->redirect('index');
 	}
@@ -100,6 +107,7 @@ class CategoryController extends ActionController {
 	 */
 	public function deleteAction(Category $category) {
 		$this->categoryRepository->remove($category);
+		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('Deleted a category.');
 		$this->redirect('index');
 	}

@@ -1,23 +1,27 @@
 <f:layout name="Default" />
 
-<f:section name="Title">Edit location "{location.name}"</f:section>
-<f:section name="Header">Edit location "{location.name}"</f:section>
+<f:section name="Title">Edit location "{location.room}"</f:section>
+<f:section name="Header">Edit location "{location.room}"</f:section>
 
 
 <f:section name="Content">
 	<f:form action="update" object="{location}" name="location">
-		<ol>
-			<li>
+		<div class="control-group">
+			<div class="control-label">
 				<label for="room">Room</label>
+			</div>
+			<div class="controls">
 				<f:form.textfield property="room" id="room" />
-			</li>
-			<li>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="control-label">
 				<label for="description">Description</label>
+			</div>
+			<div class="controls">
 				<f:form.textarea property="description" id="description" rows="3" cols="50" placeholder="Enter description here" />
-			</li>
-			<li>
-				<f:form.submit value="Update"/>
-			</li>
-		</ol>
+			</div>
+		</div>
+		<f:form.button class="btn"><f:translate id="label.update" /></f:form.button>
 	</f:form>
 </f:section>

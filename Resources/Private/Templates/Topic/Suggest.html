@@ -1,8 +1,8 @@
 {namespace ct=Chantrea\Training\ViewHelpers}
 <f:layout name="Default" />
 
-<f:section name="Title">Suggested Topic - Chantrea Training</f:section>
-<f:section name="Header">Suggested Topic</f:section>
+<f:section name="Title"><f:translate id="label.suggested.header" /></f:section>
+<f:section name="Header"><f:translate id="label.suggested.header" /></f:section>
 
 <f:section name="Content">
 	<ct:flashMessages />
@@ -21,7 +21,7 @@
 				</f:security.ifHasRole>
 				<th><f:translate id="label.edit" /></th>
 				<th><f:translate id="label.delete" /></th>
-				<th>Vote Numbers</th>
+				<th><f:translate id="label.suggest.votenumber" /></th>
 				<th><f:translate id="label.suggest.vote" /></th>
 			</tr>
 			<f:for each="{suggestedTopics}" as="suggestedTopic">
@@ -86,10 +86,5 @@
 		<f:link.action action="new" class="btn">
 			<f:translate id="label.suggest.new.topic" />
 		</f:link.action>
-		<f:security.ifHasRole role="Administrator">
-			<f:link.action action="new" controller="Category" class="btn">
-				<f:translate id="label.suggest.new.category" />
-			</f:link.action>
-		</f:security.ifHasRole>
 	</p>
 </f:section>

@@ -1,17 +1,19 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
 <f:layout name="Default" />
 
 <f:section name="Title">A list of locations</f:section>
 <f:section name="Header">A list of location</f:section>
 
 <f:section name="Content">
+	<ct:flashMessages />
 	<f:if condition="{locations}">
 		<f:then>
 			<ul>
 				<f:for each="{locations}" as="location">
 					<li>
 						<f:link.action action="show" arguments="{location: location}">{location.room}</f:link.action>
-						<f:link.action action="edit" arguments="{location: location}">Edit</f:link.action>
-						<f:link.action action="delete" arguments="{location: location}">Delete</f:link.action>
+						<f:link.action action="edit" arguments="{location: location}"><i class="icon-edit"></i></f:link.action>
+						<f:link.action action="delete" arguments="{location: location}"><i class="icon-trash" onclick="return confirm('Are you sure want to delete?')"></i></f:link.action>
 					</li>
 				</f:for>
 			</ul>

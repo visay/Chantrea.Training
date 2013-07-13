@@ -1,7 +1,7 @@
 {namespace ct=Chantrea\Training\ViewHelpers}
 <f:layout name="Default" />
 
-<f:section name="Title">A list of categories</f:section>
+<f:section name="Title"></f:section>
 <f:section name="Header">A list of category</f:section>
 
 <f:section name="Content">
@@ -12,8 +12,8 @@
 				<f:for each="{categories}" as="category">
 					<li>
 						<f:link.action action="show" arguments="{category: category}">{category.name}</f:link.action>
-						<f:link.action action="edit" arguments="{category: category}">Edit</f:link.action>
-						<f:link.action action="delete" arguments="{category: category}">Delete</f:link.action>
+						<f:link.action action="edit" arguments="{category: category}"><i class="icon-edit"></i></f:link.action>
+						<f:link.action action="delete" arguments="{category: category}"><i class="icon-trash" onclick="return confirm('Are you sure want to delete?')"></i></f:link.action>
 					</li>
 				</f:for>
 			</ul>

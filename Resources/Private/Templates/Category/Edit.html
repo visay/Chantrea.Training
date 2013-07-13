@@ -1,22 +1,24 @@
 <f:layout name="Default" />
 
-<f:section name="Title">Edit category "{category.name}"</f:section>
-<f:section name="Header">Edit category "{category.name}"</f:section>
+<f:section name="Title"><f:translate id="label.edit.category" />"{category.name}"</f:section>
+<f:section name="Header"><f:translate id="label.edit.category" /> "{category.name}"</f:section>
 
 <f:section name="Content">
 	<f:form action="update" object="{category}" name="category">
-		<ol>
-			<li>
-				<label for="name">Name</label>
+		<div class="control-group">
+			<div class="control-label">
+				<label for="name"><f:translate id="label.field.category.name" /></label>
+			</div>
+			<div class="control-group">
 				<f:form.textfield property="name" id="name" />
-			</li>
-			<li>
-				<label for="description">Description</label>
-				<f:form.textarea property="description" id="description" rows="3" cols="50" placeholder="Enter description here" />
-			</li>
-			<li>
-				<f:form.submit value="Update"/>
-			</li>
-		</ol>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="control-label">
+				<label for="description"><f:translate id="label.field.category.description" /></label>
+			</div>
+			<f:form.textarea property="description" id="description" rows="3" cols="50" placeholder="Enter description here" />
+		</div>
+		<f:form.button class="btn"><f:translate id="label.update" /></f:form.button>
 	</f:form>
 </f:section>
