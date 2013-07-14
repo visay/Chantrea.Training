@@ -280,6 +280,36 @@
 				<source>Suggested Topics</source>
 			</trans-unit>
 			<!-- sign in and sign up end -->
+
+			<!-- view report start -->
+			<trans-unit id="label.report.view.title">
+				<source>Report</source>
+			</trans-unit>
+			<trans-unit id="label.report.reportbymonth">
+				<source>Select date</source>
+			</trans-unit>
+			<trans-unit id="label.report.reportbystatus">
+				<source>Select status</source>
+			</trans-unit>
+			<trans-unit id="label.search">
+				<source>Search</source>
+			</trans-unit>
+			<trans-unit id="label.plan.field.topic.trainingDate">
+				<source>Training date</source>
+			</trans-unit>
+			<trans-unit id="label.message.no.match.result">
+				<source>No report found</source>
+			</trans-unit>
+			<trans-unit id="label.report.reportbyusers">
+				<source>Select user</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.status">
+				<source>Status</source>
+			</trans-unit>
+			<trans-unit id="label.report.back">
+				<source>Back to report filter</source>
+			</trans-unit>
+			<!-- view report end -->
 		</body>
 	</file>
 </xliff>

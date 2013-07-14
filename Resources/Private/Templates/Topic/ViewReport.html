@@ -1,0 +1,16 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="Title"><f:translate id="label.report.view.title" /></f:section>
+<f:section name="Header"></f:section>
+
+<f:section name="Content">
+	<ct:flashMessages />
+	<p>Please filter report by bellow options:</p>
+	<f:form action="showReportByFilter" object="{topic}" class="form-inline">
+		<f:form.select name="userFilter" options="{users}" optionLabelField="name" prependOptionLabel="{f:translate(id: 'label.report.reportbyusers')}"/>
+		<f:form.select name="statusFilter" options="{statuses}" prependOptionLabel="{f:translate(id: 'label.report.reportbystatus')}" />
+		<f:form.select name="categoryFilter" options="{categories}" optionLabelField="name" property="category" prependOptionLabel="{f:translate(id: 'label.suggest.select.category')}" />
+		<f:form.button type="submit" class="btn"><f:translate id="label.search" /></f:form.button>
+	</f:form>
+</f:section>

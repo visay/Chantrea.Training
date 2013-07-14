@@ -38,21 +38,45 @@ class TopicRepository extends \TYPO3\Flow\Persistence\Repository {
 	}
 
 	/**
-	 * Find topics by account
+	 * Find topics by filter
 	 *
+	 * @param string $user The user to find
 	 * @param string $status The status to find
-	 * @param string $account The account to find
+	 * @param string $category The category to find
 	 *
 	 * @return object
 	 */
-	public function findSuggestedByAccount($status, $account) {
+	public function findTopicByFilter($user, $status, $category) {
+		//echo('123'.$user);
 		$query = $this->createQuery();
-		return $query->matching(
-					$query->logicalAnd(
-						$query->equals('status', $status),
-						$query->equals('account', $account)
-					)
-				)->execute();
+		$constraint = '';
+		if ($user) {
+			$constraint = $query->equals('owner', $user);
+		}
+
+		if ($status) {
+			if ($constraint) {
+				$constraint = $query->logicalAnd(
+							$constraint,
+							$query->equals('status', $status)
+						);
+			} else {
+				$constraint = $query->equals('status', $status);
+			}
+		}
+
+		if ($category) {
+			if ($constraint) {
+				$constraint = $query->logicalAnd(
+							$constraint,
+							$query->equals('category', $category)
+						);
+			} else {
+				$constraint = $query->equals('category', $category);
+			}
+		}
+
+		return $query->matching($constraint)->execute();
 	}
 }
 ?>

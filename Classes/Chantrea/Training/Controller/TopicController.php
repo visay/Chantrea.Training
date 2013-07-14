@@ -295,5 +295,29 @@ class TopicController extends ActionController {
 		$this->addFlashMessage('Voting success.');
 		$this->redirect('suggest');
 	}
+
+	/**
+	 * View report
+	 *
+	 * @return void
+	 */
+	public function viewReportAction() {
+		$this->view->assign('statuses', $this->settings['statusOptions']);
+		$this->view->assign('users', $this->userRepository->findAll());
+		$this->view->assign('categories', $this->categoryRepository->findAll());
+		$this->view->assign('currentPage', 'viewReport');
+	}
+	
+	/**
+	 * Show result of search  report
+	 *
+	 * @return void
+	 */
+	public function showReportByFilterAction() {
+		$user = $this->request->hasArgument('userFilter') ? $user = $this->request->getArgument('userFilter') : '';
+		$status = $this->request->hasArgument('statusFilter') ? $this->request->getArgument('statusFilter') : '';
+		$category = $this->request->hasArgument('categoryFilter') ? $this->request->getArgument('categoryFilter') : '';
+		$this->view->assign('searchResults', $this->topicRepository->findTopicByFilter($user, $status, $category));
+	}
 }
 ?>

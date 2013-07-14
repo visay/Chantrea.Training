@@ -53,6 +53,18 @@
 									</li>
 								</f:else>
 							</f:if>
+							<f:if condition="{0: currentPage} == {0: 'viewReport'}">
+								<f:then>
+									<li class="navigation-item active">
+										<f:link.action action="viewReport" controller="Topic"><f:translate id="label.report.view.title" /></f:link.action>
+									</li>
+								</f:then>
+								<f:else>
+									<li class="navigation-item">
+										<f:link.action action="viewReport" controller="Topic"><f:translate id="label.report.view.title" /></f:link.action>
+									</li>
+								</f:else>
+							</f:if>
 						</ul>
 					</div>
 					<!--/.nav-collapse -->
