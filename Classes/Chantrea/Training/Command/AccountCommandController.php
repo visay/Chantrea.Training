@@ -34,6 +34,12 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 	protected $partyRepository;
 
 	/**
+	 * @Flow\Inject
+	 * @var \Chantrea\Training\Domain\Repository\UserRepository
+	 */
+	protected $userRepository;
+
+	/**
 	 * Name of the authentication provider to be used.
 	 *
 	 * @var string
@@ -44,28 +50,51 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 	/**
 	 * Command to create an account
 	 *
-	 * The account is at the moment only available to create using the command line since the registering through
-	 * Web Interface is not done yet.
+	 * This command create an account as an alternative to registering through
+	 * Web Interface. This is the only way at the moment to create account with
+	 * admin access.
 	 *
 	 * Please apply the correct parameters as in the Usage and Arguments section above
 	 *
-	 * @param string $identifier The account's identifier
+	 * @param string $username The account's username
 	 * @param string $password The account's password
 	 * @param string $firstName The account's first name
 	 * @param string $lastName The account's last name
+	 * @param string $email The account's email address
 	 * @param boolean $admin If enable, grant admin access
+	 *
 	 * @return void
 	 */
-	public function createCommand($identifier, $password, $firstName, $lastName, $admin = FALSE) {
+	public function createCommand($username, $password, $firstName, $lastName, $email, $admin = FALSE) {
 		// Check if the account already exists
-		$existingAccount = $this->accountRepository->findActiveByAccountIdentifierAndAuthenticationProviderName($identifier, $this->authenticationProviderName);
-		if ($existingAccount) {
-			$this->outputLine('FAILED! Account "' . $identifier . '" already exists!');
+		$existingAccount = $this->accountRepository->findActiveByAccountIdentifierAndAuthenticationProviderName($username, $this->authenticationProviderName);
+		if ($existingAccount && $existingAccount->getAccountIdentifier() == $username) {
+			$this->outputLine('FAILED: Account "' . $username . '" already exists!');
+			return;
+		}
+
+		if (! $this->validEmail($email)) {
+			$this->outputLine('FAILED: Please specify a valid email address.');
+			return;
+		}
+
+		// Check if the email address already in use
+		$userEmailExist = $this->userRepository->findByEmail($email);
+		if ($userEmailExist) {
+			$this->outputLine('FAILED: Email address "' . $email . '" already exists in the system.');
+			return;
+		}
+
+		// Check for password length
+		$minimumLength = 5;
+		if (strlen($password) < $minimumLength) {
+			$this->outputLine('FAILED: The minimum password length must be ' . $minimumLength . '.');
 			return;
 		}
 
 		$user = new \Chantrea\Training\Domain\Model\User();
 		$user->setName(new \TYPO3\Party\Domain\Model\PersonName('', $firstName, '', $lastName));
+		$user->setEmail($email);
 
 		$roleIdentifiers = array();
 		if ($admin === TRUE) {
@@ -74,13 +103,29 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 			$roleIdentifiers[] = 'Chantrea.Training:User';
 		}
 
-		$account = $this->accountFactory->createAccountWithPassword($identifier, $password, $roleIdentifiers);
+		$account = $this->accountFactory->createAccountWithPassword($username, $password, $roleIdentifiers);
 		$this->accountRepository->add($account);
 		$user->addAccount($account);
 
 		$this->partyRepository->add($user);
 
-		$this->outputLine('New account "%s" has been created.', array($identifier));
+		$this->outputLine('New account "%s" has been created.', array($username));
+	}
+
+	/**
+	 * Checking syntax of input email address
+	 *
+	 * @param string $emailAddress Input string to evaluate
+	 * @return boolean Returns TRUE if the $email address (input string) is valid
+	 */
+	private function validEmail($emailAddress) {
+		// Enforce maximum length to prevent libpcre recursion crash bug #52929 in PHP
+		// fixed in PHP 5.3.4; length restriction per SMTP RFC 2821
+		if (strlen($emailAddress) > 320) {
+			return FALSE;
+		}
+
+		return (filter_var($emailAddress, FILTER_VALIDATE_EMAIL) !== FALSE);
 	}
 }
 
