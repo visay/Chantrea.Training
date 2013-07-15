@@ -47,15 +47,14 @@ class TopicRepository extends \TYPO3\Flow\Persistence\Repository {
 	 * @return object
 	 */
 	public function findTopicByFilter($user, $status, $category) {
-		//echo('123'.$user);
 		$query = $this->createQuery();
-		$constraint = '';
+		$constraint = NULL;
 		if ($user) {
 			$constraint = $query->equals('owner', $user);
 		}
 
 		if ($status) {
-			if ($constraint) {
+			if ($constraint != NULL) {
 				$constraint = $query->logicalAnd(
 							$constraint,
 							$query->equals('status', $status)
@@ -66,7 +65,7 @@ class TopicRepository extends \TYPO3\Flow\Persistence\Repository {
 		}
 
 		if ($category) {
-			if ($constraint) {
+			if ($constraint != NULL) {
 				$constraint = $query->logicalAnd(
 							$constraint,
 							$query->equals('category', $category)

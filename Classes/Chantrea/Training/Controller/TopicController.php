@@ -306,8 +306,9 @@ class TopicController extends ActionController {
 		$this->view->assign('users', $this->userRepository->findAll());
 		$this->view->assign('categories', $this->categoryRepository->findAll());
 		$this->view->assign('currentPage', 'viewReport');
+		$this->view->assign('searchResults', $this->topicRepository->findAll());
 	}
-	
+
 	/**
 	 * Show result of search  report
 	 *
@@ -318,6 +319,7 @@ class TopicController extends ActionController {
 		$status = $this->request->hasArgument('statusFilter') ? $this->request->getArgument('statusFilter') : '';
 		$category = $this->request->hasArgument('categoryFilter') ? $this->request->getArgument('categoryFilter') : '';
 		$this->view->assign('searchResults', $this->topicRepository->findTopicByFilter($user, $status, $category));
+		$this->view->assign('currentPage', 'viewReport');
 	}
 }
 ?>

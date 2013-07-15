@@ -9,3 +9,15 @@ jQuery(document).ready(function(){
 	jQuery('#trainingDateFrom').datetimepicker();
 	jQuery('#trainingDateTo').datetimepicker();
 });
+
+//view report by filter
+jQuery('#userFilter, #statusFilter, #categoryFilter').change(function() {
+
+	jQuery.ajax({
+		url: '/topic/showreportbyfilter' ,
+		type: 'POST',
+		data: $('#report').serialize(),
+	}).done(function(data) {
+	 jQuery("#resultFilter").html(data);
+	});
+});
