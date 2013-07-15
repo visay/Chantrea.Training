@@ -27,6 +27,13 @@ class Location {
 	 */
 	protected $description;
 
+	/**
+	 * The topics contained in this category
+	 *
+	 * @var \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\Topic>
+	 * @ORM\OneToMany(targetEntity="Chantrea\Training\Domain\Model\Topic", mappedBy="location")
+	 */
+	protected $topics;
 
 	/**
 	 * @return string
@@ -58,5 +65,13 @@ class Location {
 		$this->description = $description;
 	}
 
+	/**
+	 * Gets all topics in this category
+	 *
+	 * @return \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\Topic> The topics of this category
+	 */
+	public function getTopics() {
+		return $this->topics;
+	}
 }
 ?>

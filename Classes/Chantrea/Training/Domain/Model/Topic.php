@@ -24,6 +24,7 @@ class Topic {
 
 	/**
 	 * @var string
+	 * @Flow\Validate(type="NotEmpty")
 	 */
 	protected $title;
 
@@ -61,6 +62,7 @@ class Topic {
 
 	/**
 	 * @var \Chantrea\Training\Domain\Model\Category
+	 * @Flow\Validate(type="NotEmpty")
 	 * @ORM\ManyToOne
 	 */
 	protected $category;

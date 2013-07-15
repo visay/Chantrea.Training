@@ -27,6 +27,14 @@ class Category {
 	 */
 	protected $description;
 
+	/**
+	 * The topics contained in this category
+	 *
+	 * @var \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\Topic>
+	 * @ORM\OneToMany(targetEntity="Chantrea\Training\Domain\Model\Topic", mappedBy="category")
+	 */
+	protected $topics;
+
 
 	/**
 	 * @return string
@@ -65,6 +73,15 @@ class Category {
 	*/
 	public function getIdentifier() {
 		return $this->persistenceManager->getIdentifierByObject($this);
+	}
+
+	/**
+	 * Gets all topics in this category
+	 *
+	 * @return \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\Topic> The topics of this category
+	 */
+	public function getTopics() {
+		return $this->topics;
 	}
 
 }

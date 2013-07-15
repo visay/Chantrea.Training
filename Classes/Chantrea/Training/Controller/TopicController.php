@@ -119,8 +119,6 @@ class TopicController extends ActionController {
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Topic $newTopic A new topic to add
 	 *
-	 * @Flow\Validate(argumentName="newTopic.title", type="NotEmpty")
-	 * @Flow\Validate(argumentName="newTopic.category", type="NotEmpty")
 	 * @return void
 	 */
 	public function createAction(Topic $newTopic) {
