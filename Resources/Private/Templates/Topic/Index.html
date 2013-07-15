@@ -12,8 +12,9 @@
 			</h4>
 			<table class="table table-condensed">
 				<tr>
-					<th><f:translate id="label.field.topic.trainingDate" /></th>
+					<th><f:translate id="label.field.topic.trainingDateFrom" /> - <f:translate id="label.field.topic.trainingDateTo" /></th>
 					<th><f:translate id="label.field.topic" /></th>
+					<th><f:translate id="label.field.topic.category" /></th>
 					<th><f:translate id="label.field.topic.trainer" /></th>
 					<th><f:translate id="label.field.topic.location" /></th>
 				</tr>
@@ -25,6 +26,7 @@
 							<f:format.date format="m/d/Y H:i">{scheduleTopic.trainingDateTo}</f:format.date>
 						</td>
 						<td>{scheduleTopic.title}</td>
+						<td>{scheduleTopic.category.name}</td>
 						<td>
 							<f:for each="{scheduleTopic.trainers}" as="trainer">
 								{trainer.name} <br />

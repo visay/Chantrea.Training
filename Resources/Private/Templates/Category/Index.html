@@ -8,15 +8,22 @@
 	<ct:flashMessages />
 	<f:if condition="{categories}">
 		<f:then>
-			<ul>
+			<table class="table table-condensed">
+				<tr>
+					<th>Room</th>
+					<th>Description</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
 				<f:for each="{categories}" as="category">
-					<li>
-						<f:link.action action="show" arguments="{category: category}">{category.name}</f:link.action>
-						<f:link.action action="edit" arguments="{category: category}"><i class="icon-edit"></i></f:link.action>
-						<f:link.action action="delete" arguments="{category: category}"><i class="icon-trash" onclick="return confirm('Are you sure want to delete?')"></i></f:link.action>
-					</li>
+					<tr>
+						<td>{category.name}</td>
+						<td>{category.description}</td>
+						<td><f:link.action action="edit" arguments="{category: category}"><i class="icon-pencil"></i></f:link.action></td>
+						<td><f:link.action action="delete" arguments="{category: category}"><i class="icon-trash" onclick="return confirm('Are you sure want to delete?')"></i></f:link.action></td>
+					</tr>
 				</f:for>
-			</ul>
+			</table>
 		</f:then>
 		<f:else>
 			<p>No categories created yet.</p>

@@ -99,7 +99,6 @@ class TopicController extends ActionController {
 	public function suggestAction() {
 		$loginUser = $this->securityContext->getAccount()->getParty();
 		$suggestedTopics = $this->topicRepository->findByStatus($this->settings['statusOptions']['new']);
-		//echo($suggestedTopics->getVoteUsers());exit();
 		$this->view->assign('suggestedTopics', $suggestedTopics);
 		$this->view->assign('loginUser', $loginUser);
 		$this->view->assign('currentPage', 'suggested');

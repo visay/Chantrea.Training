@@ -7,12 +7,13 @@
 <f:section name="Content">
 	<ct:flashMessages />
 	<p>Please filter report by bellow options:</p>
-	<f:form action="showReportByFilter" object="{topic}" class="" id="report">
+	<f:form action="showReportByFilter" object="{topic}" id="report">
 		<f:form.select name="userFilter" id="userFilter" options="{users}" optionLabelField="name" prependOptionLabel="{f:translate(id: 'label.report.reportbyusers')}" />
 		<f:form.select name="statusFilter" id="statusFilter" options="{statuses}" prependOptionLabel="{f:translate(id: 'label.report.reportbystatus')}"  />
 		<f:form.select name="categoryFilter" id="categoryFilter" options="{categories}" optionLabelField="name" property="category" prependOptionLabel="{f:translate(id: 'label.suggest.select.category')}" />
 	</f:form>
 	<h4>List of topics</h4>
+	<f:link.action action="viewReport"><i onclick="window.print();" class="icon-print"></i></f:link.action>
 	<div id="resultFilter">
 			<f:if condition="{searchResults}">
 			<f:then>

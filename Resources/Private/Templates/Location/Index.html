@@ -8,15 +8,22 @@
 	<ct:flashMessages />
 	<f:if condition="{locations}">
 		<f:then>
-			<ul>
+			<table class="table table-condensed">
+				<tr>
+					<th>Category</th>
+					<th>Description</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
 				<f:for each="{locations}" as="location">
-					<li>
-						<f:link.action action="show" arguments="{location: location}">{location.room}</f:link.action>
-						<f:link.action action="edit" arguments="{location: location}"><i class="icon-edit"></i></f:link.action>
-						<f:link.action action="delete" arguments="{location: location}"><i class="icon-trash" onclick="return confirm('Are you sure want to delete?')"></i></f:link.action>
-					</li>
+					<tr>
+						<td>{location.room}</td>
+						<td>{location.description}</td>
+						<td><f:link.action action="edit" arguments="{location: location}"><i class="icon-pencil"></i></f:link.action></td>
+						<td><f:link.action action="delete" arguments="{location: location}"><i class="icon-trash" onclick="return confirm('Are you sure want to delete?')"></i></f:link.action></td>
+					</tr>
 				</f:for>
-			</ul>
+			</table>
 		</f:then>
 		<f:else>
 			<p>No locations created yet.</p>
@@ -24,6 +31,6 @@
 	</f:if>
 	<p>
 		<f:link.action action="new" class="btn">Create</f:link.action>
-		<f:link.action action="listAccepted" controller="Topic" class="btn">Return to suggestion</f:link.action>
+		<f:link.action action="listAccepted" controller="Topic" class="btn">Return to plan form</f:link.action>
 	</p>
 </f:section>
