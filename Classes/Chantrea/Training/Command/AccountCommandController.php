@@ -40,6 +40,12 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 	protected $userRepository;
 
 	/**
+	 * @Flow\Inject
+	 * @var TYPO3\Flow\Persistence\PersistenceManagerInterface
+	 */
+	protected $persistenceManager;
+
+	/**
 	 * Name of the authentication provider to be used.
 	 *
 	 * @var string
@@ -131,12 +137,16 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 		}
 
 		if ($this->confirm('Are you sure you want to remove account "' . $username . '"? (Y/n): ')) {
-			$this->accountRepository->remove($existingAccount);
-			$this->partyRepository->remove($existingAccount->getParty());
-			$this->outputLine('Account "%s" has been removed.', array($username));
+			try {
+				$this->accountRepository->remove($existingAccount);
+				$this->partyRepository->remove($existingAccount->getParty());
+				$this->persistenceManager->persistAll();
+				$this->outputLine('Account "%s" has been removed.', array($username));
+			} catch (\Exception $exception) {
+				$this->outputLine('FAILED: Account "%s" is associated with training topics and cannot be removed!', array($username));
+			}
 		} else {
 			$this->outputLine('Aborted!');
-			return;
 		}
 	}
 
