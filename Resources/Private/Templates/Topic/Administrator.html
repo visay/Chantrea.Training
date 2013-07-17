@@ -1,0 +1,75 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="Title">Administor</f:section>
+<f:section name="Header"></f:section>
+
+<f:section name="Content">
+	<ct:flashMessages />
+	<h4>Show list of categories</h4>
+	<f:if condition="{categories}">
+		<f:then>
+			<table class="table table-condensed">
+				<tr>
+					<th>Room</th>
+					<th>Description</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+				<f:for each="{categories}" as="category">
+					<tr>
+						<td>{category.name}</td>
+						<td>{category.description}</td>
+						<td><f:link.action action="edit" arguments="{category: category}" controller="Category"><i class="icon-pencil"></i></f:link.action></td>
+						<f:if condition="{category.topics ->f:count()} > 0">
+							<f:then>
+								<td></td>
+							</f:then>
+							<f:else>
+								<td><f:link.action action="delete" arguments="{category: category}" controller="Category"><i class="icon-trash" onclick="return confirm('Are you sure want to delete?')"></i></f:link.action></td>
+							</f:else>
+						</f:if>
+					</tr>
+				</f:for>
+			</table>
+		</f:then>
+		<f:else>
+			<p>No categories created yet.</p>
+			<f:link.action action="new" controller="Category" class="btn"><f:translate id="label.suggest.new.category" /></f:link.action>
+		</f:else>
+	</f:if>
+	<f:link.action action="new" controller="Category" class="btn"><f:translate id="label.suggest.new.category" /></f:link.action>
+	<h4>Show list of locations</h4>
+	<f:if condition="{locations}">
+		<f:then>
+			<table class="table table-condensed">
+				<tr>
+					<th>Room</th>
+					<th>Description</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+				<f:for each="{locations}" as="location">
+					<tr>
+						<td>{location.room}</td>
+						<td>{location.description}</td>
+						<td><f:link.action action="edit" arguments="{location: location}" controller="Location"><i class="icon-pencil"></i></f:link.action></td>
+						<f:if condition="{location.topics ->f:count()} > 0">
+							<f:then>
+								<td></td>
+							</f:then>
+							<f:else>
+								<td><f:link.action action="delete" arguments="{location: location}" controller="Location"><i class="icon-trash" onclick="return confirm('Are you sure want to delete?')"></i></f:link.action></td>
+							</f:else>
+						</f:if>
+					</tr>
+				</f:for>
+			</table>
+		</f:then>
+		<f:else>
+			<p>No locations created yet.</p>
+			<f:link.action action="new" controller="Location" class="btn"><f:translate id="label.suggest.new.location" /></f:link.action>
+		</f:else>
+	</f:if>
+	<f:link.action action="new" controller="Location" class="btn"><f:translate id="label.suggest.new.location" /></f:link.action>
+</f:section>

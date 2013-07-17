@@ -12,7 +12,7 @@ use TYPO3\Flow\Mvc\Controller\ActionController;
 use \Chantrea\Training\Domain\Model\Category;
 
 /**
- * Category controller for the Chantrea.Training package 
+ * Category controller for the Chantrea.Training package
  *
  * @Flow\Scope("singleton")
  */
@@ -37,15 +37,6 @@ class CategoryController extends ActionController {
 	protected $securityContext;
 
 	/**
-	 * Shows a list of categories
-	 *
-	 * @return void
-	 */
-	public function indexAction() {
-		$this->view->assign('categories', $this->categoryRepository->findAll());
-	}
-
-	/**
 	 * Shows a single category object
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Category $category The category to show
@@ -61,7 +52,7 @@ class CategoryController extends ActionController {
 	 * @return void
 	 */
 	public function newAction() {
-		
+
 	}
 
 	/**
@@ -73,7 +64,7 @@ class CategoryController extends ActionController {
 	public function createAction(Category $newCategory) {
 		$this->categoryRepository->add($newCategory);
 		$this->addFlashMessage('Created a new category.');
-		$this->redirect('index');
+		$this->redirect('administrator', 'Topic');
 	}
 
 	/**
@@ -96,7 +87,7 @@ class CategoryController extends ActionController {
 		$this->categoryRepository->update($category);
 		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('Updated the category.');
-		$this->redirect('index');
+		$this->redirect('administrator', 'Topic');
 	}
 
 	/**
@@ -109,7 +100,7 @@ class CategoryController extends ActionController {
 		$this->categoryRepository->remove($category);
 		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('Deleted a category.');
-		$this->redirect('index');
+		$this->redirect('administrator', 'Topic');
 	}
 
 }

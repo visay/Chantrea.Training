@@ -12,7 +12,7 @@ use TYPO3\Flow\Mvc\Controller\ActionController;
 use \Chantrea\Training\Domain\Model\Location;
 
 /**
- * Location controller for the Chantrea.Training package 
+ * Location controller for the Chantrea.Training package
  *
  * @Flow\Scope("singleton")
  */
@@ -20,18 +20,21 @@ class LocationController extends ActionController {
 
 	/**
 	 * @Flow\Inject
+	 * @var \Chantrea\Training\Domain\Repository\CategoryRepository
+	 */
+	protected $categoryRepository;
+
+	/**
+	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+	 * @Flow\Inject
+	 */
+	protected $persistenceManager;
+
+	/**
+	 * @Flow\Inject
 	 * @var \Chantrea\Training\Domain\Repository\LocationRepository
 	 */
 	protected $locationRepository;
-
-	/**
-	 * Shows a list of locations
-	 *
-	 * @return void
-	 */
-	public function indexAction() {
-		$this->view->assign('locations', $this->locationRepository->findAll());
-	}
 
 	/**
 	 * Shows a single location object
@@ -60,7 +63,7 @@ class LocationController extends ActionController {
 	public function createAction(Location $newLocation) {
 		$this->locationRepository->add($newLocation);
 		$this->addFlashMessage('Created a new location.');
-		$this->redirect('index');
+		$this->redirect('administrator', 'Topic');
 	}
 
 	/**
@@ -81,8 +84,9 @@ class LocationController extends ActionController {
 	 */
 	public function updateAction(Location $location) {
 		$this->locationRepository->update($location);
+		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('Updated the location.');
-		$this->redirect('index');
+		$this->redirect('administrator', 'Topic');
 	}
 
 	/**
@@ -93,8 +97,9 @@ class LocationController extends ActionController {
 	 */
 	public function deleteAction(Location $location) {
 		$this->locationRepository->remove($location);
+		$this->persistenceManager->persistAll();
 		$this->addFlashMessage('Deleted a location.');
-		$this->redirect('index');
+		$this->redirect('administrator', 'Topic');
 	}
 
 }

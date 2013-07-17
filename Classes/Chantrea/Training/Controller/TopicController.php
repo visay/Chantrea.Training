@@ -318,5 +318,16 @@ class TopicController extends ActionController {
 		$this->view->assign('searchResults', $this->topicRepository->findTopicByFilter($user, $status, $category));
 		$this->view->assign('currentPage', 'viewReport');
 	}
+
+	/**
+	 * Show admin page
+	 *
+	 * @return void
+	 */
+	public function administratorAction() {
+		$this->view->assign('categories', $this->categoryRepository->findAll());
+		$this->view->assign('locations', $this->locationRepository->findAll());
+		$this->view->assign('currentPage', 'admin');
+	}
 }
 ?>

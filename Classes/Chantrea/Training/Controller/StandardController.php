@@ -43,6 +43,12 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	protected $partyRepository;
 
 	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Security\Context
+	 */
+	protected $securityContext;
+
+	/**
 	 * Index/login action
 	 *
 	 * @return void
@@ -128,6 +134,12 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	public function authenticateAction() {
 		try {
 			$this->authenticationManager->authenticate();
+			$roles = $this->securityContext->getAccount()->getRoles();
+			foreach ($roles as $role) {
+				if ($role == 'Chantrea.Training:Administrator') {
+					$this->redirect('administrator', 'Topic');
+				}
+			}
 			$this->redirect('index', 'Topic');
 		} catch(\TYPO3\Flow\Security\Exception $exception) {
 			$this->addFlashMessage('Incorrect username or password.', '', Message::SEVERITY_ERROR);
