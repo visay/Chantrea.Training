@@ -68,7 +68,7 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 	public function createCommand($username, $password, $firstName, $lastName, $email, $admin = FALSE) {
 		// Check if the account already exists
 		$existingAccount = $this->accountRepository->findActiveByAccountIdentifierAndAuthenticationProviderName($username, $this->authenticationProviderName);
-		if ($existingAccount && $existingAccount->getAccountIdentifier() == $username) {
+		if ($existingAccount) {
 			$this->outputLine('FAILED: Account "' . $username . '" already exists!');
 			return;
 		}
@@ -113,6 +113,34 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 	}
 
 	/**
+	 * Command to remove an account
+	 *
+	 * This command remove an account from the database by searching for the username applied.
+	 * Come with a confirmation message to reduce common mistake.
+	 *
+	 * @param string $username The account's username
+	 *
+	 * @return void
+	 */
+	public function removeCommand($username) {
+		// Check if the account exists
+		$existingAccount = $this->accountRepository->findActiveByAccountIdentifierAndAuthenticationProviderName($username, $this->authenticationProviderName);
+		if (! $existingAccount) {
+			$this->outputLine('FAILED: Account "' . $username . '" does not exist!');
+			return;
+		}
+
+		if ($this->confirm('Are you sure you want to remove account "' . $username . '"? (Y/n): ')) {
+			$this->accountRepository->remove($existingAccount);
+			$this->partyRepository->remove($existingAccount->getParty());
+			$this->outputLine('Account "%s" has been removed.', array($username));
+		} else {
+			$this->outputLine('Aborted!');
+			return;
+		}
+	}
+
+	/**
 	 * Checking syntax of input email address
 	 *
 	 * @param string $emailAddress Input string to evaluate
@@ -126,6 +154,23 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 		}
 
 		return (filter_var($emailAddress, FILTER_VALIDATE_EMAIL) !== FALSE);
+	}
+
+	/**
+	 * Confirm message in command line action
+	 *
+	 * @param string $message The message
+	 *
+	 * @return boolean
+	 */
+	private function confirm($message) {
+		print($message);
+		$response = (string)fgets(STDIN);
+		if (strcmp(trim($response), 'Y') == 0) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
 	}
 }
 
