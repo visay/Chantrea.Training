@@ -12,3 +12,13 @@ body {
 .ui-widget {
 	font-size: 13px !important;
 }
+
+#ajaxLoading {
+	background: url("../Images/Icons/ajax-loader.gif") no-repeat scroll center center transparent;
+	height: 32px;
+	margin-left: 570px;
+	margin-top: 15px;
+	position: absolute;
+	width: 32px;
+	display: none;
+}

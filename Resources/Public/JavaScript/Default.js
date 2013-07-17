@@ -17,7 +17,11 @@ jQuery('#userFilter, #statusFilter, #categoryFilter').change(function() {
 		url: '/topic/showreportbyfilter' ,
 		type: 'POST',
 		data: $('#report').serialize(),
+		beforeSend: function(){
+			$('#ajaxLoading').show();
+		}
 	}).done(function(data) {
-	 jQuery("#resultFilter").html(data);
+		jQuery("#resultFilter").html(data);
+		$('#ajaxLoading').hide();
 	});
 });
