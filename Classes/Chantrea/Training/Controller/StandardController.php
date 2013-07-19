@@ -111,6 +111,17 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 			$user->addAccount($account);
 
 			$this->partyRepository->add($user);
+
+			// TODO: read email from constant and render body from view
+			$mail = new \TYPO3\SwiftMailer\Message();
+			$mail->setFrom(array('noreply@visay.info' => 'Chantrea Training'))
+				->setTo(array($email => $user->getName()))
+				->setSubject('Account Creation')
+				->setFormat('html')
+				->setBody('Dear ' . $user->getName() . ',<br/><br/>Your account "' . $username .
+					'" has been created.<br/><br/>Best regards,<br/>Chantrea Training Team', 'text/html');
+			$mail->send();
+
 			$this->addFlashMessage('Your account has been created successfully.');
 			$this->redirect('index');
 		}
