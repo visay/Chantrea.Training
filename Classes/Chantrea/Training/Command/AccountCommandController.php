@@ -151,6 +151,22 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 	}
 
 	/**
+	 * Command to list all accounts
+	 *
+	 * This command lists all accounts from the database with some useful information.
+	 *
+	 * @return void
+	 */
+	public function listCommand() {
+		$accounts = $this->accountRepository->findAll();
+		foreach ($accounts as $account) {
+			$this->outputLine('- ' . $account->getAccountIdentifier() . ' | ' . $account->getParty()->getName() .
+				' | ' . $account->getParty()->getEmail() . ' | ' . (in_array('Chantrea.Training:Administrator', $account->getRoles()) ?
+				'Administrator' : 'User'));
+		}
+	}
+
+	/**
 	 * Checking syntax of input email address
 	 *
 	 * @param string $emailAddress Input string to evaluate
