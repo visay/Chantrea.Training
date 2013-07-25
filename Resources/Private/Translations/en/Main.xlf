@@ -169,6 +169,27 @@
 			<trans-unit id="label.field.topic.newTopic.title">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="label.field.topic.newCategory.name">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.topic.trainingDateFrom">
+				<source>Training Date From</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.topic.trainingDateTo">
+				<source>Training Date To</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.topic.location">
+				<source>Location</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.category.name">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.newLocation.room">
+				<source>Room</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.location.room">
+				<source>Room</source>
+			</trans-unit>
 			<trans-unit id="label.field.topic.newTopic.category">
 				<source>Category</source>
 			</trans-unit>

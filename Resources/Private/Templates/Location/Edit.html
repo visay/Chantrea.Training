@@ -1,3 +1,4 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
 <f:layout name="Default" />
 
 <f:section name="Title">Edit location "{location.room}"</f:section>
@@ -5,6 +6,8 @@
 
 
 <f:section name="Content">
+	<div style="display: none"><ct:flashMessages /></div>
+	<f:render partial="FormErrors" arguments="{objectName: objectName}" />
 	<f:form action="update" object="{location}" name="location">
 		<div class="control-group">
 			<div class="control-label">

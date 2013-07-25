@@ -146,8 +146,6 @@ class TopicController extends ActionController {
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to update
 	 *
-	 * @Flow\Validate(argumentName="topic.title", type="NotEmpty")
-	 * @Flow\Validate(argumentName="topic.category", type="NotEmpty")
 	 * @return void
 	 */
 	public function updateAction(Topic $topic) {

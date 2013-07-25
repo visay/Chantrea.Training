@@ -1,8 +1,10 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
 <f:layout name="Default" />
 
 <f:section name="Title"></f:section>
 <f:section name="Header">Plan the training</f:section>
 <f:section name="Content">
+	<div style="display: none;"><ct:flashMessages /></div>
 	<f:render partial="FormErrors" arguments="{objectName: objectName}" />
 	<f:form action="schedule" object="{topic}" name="topic" class="form-horizontal">
 		<div class="control-group">

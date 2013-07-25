@@ -22,3 +22,8 @@ body {
 	width: 32px;
 	display: none;
 }
+
+.report-view {
+	float: right;
+	margin-bottom: 10px;
+}

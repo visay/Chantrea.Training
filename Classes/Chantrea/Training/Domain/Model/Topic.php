@@ -186,7 +186,7 @@ class Topic {
 	 *
 	 * @return void
 	 */
-	public function setTrainingDateTo(\DateTime $trainingDateTo) {
+	public function setTrainingDateTo($trainingDateTo) {
 		$this->trainingDateTo = $trainingDateTo;
 	}
 
@@ -206,7 +206,7 @@ class Topic {
 	 *
 	 * @return void
 	 */
-	public function setTrainingDateFrom(\DateTime $trainingDateFrom) {
+	public function setTrainingDateFrom($trainingDateFrom) {
 		$this->trainingDateFrom = $trainingDateFrom;
 	}
 
@@ -246,7 +246,7 @@ class Topic {
 	 *
 	 * @return void
 	 */
-	public function setCategory(Category $category) {
+	public function setCategory($category) {
 		$this->category = $category;
 	}
 
@@ -339,7 +339,7 @@ class Topic {
 	 *
 	 * @return void
 	 */
-	public function setLocation(Location $location) {
+	public function setLocation($location) {
 		$this->location = $location;
 	}
 

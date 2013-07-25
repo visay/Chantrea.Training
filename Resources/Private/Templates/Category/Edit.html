@@ -1,9 +1,12 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
 <f:layout name="Default" />
 
 <f:section name="Title"><f:translate id="label.edit.category" />"{category.name}"</f:section>
 <f:section name="Header"><f:translate id="label.edit.category" /> "{category.name}"</f:section>
 
 <f:section name="Content">
+	<div style="display: none"><ct:flashMessages /></div>
+	<f:render partial="FormErrors" arguments="{objectName: objectName}" />
 	<f:form action="update" object="{category}" name="category">
 		<div class="control-group">
 			<div class="control-label">

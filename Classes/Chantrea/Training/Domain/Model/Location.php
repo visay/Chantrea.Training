@@ -16,6 +16,7 @@ class Location {
 
 	/**
 	 * @var string
+	 * @Flow\Validate(type="NotEmpty")
 	 */
 	protected $room;
 

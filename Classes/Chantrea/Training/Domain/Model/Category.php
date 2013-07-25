@@ -16,6 +16,7 @@ class Category {
 
 	/**
 	 * @var string
+	 * @Flow\Validate(type="NotEmpty")
 	 */
 	protected $name;
 
@@ -65,7 +66,7 @@ class Category {
 	public function setDescription($description) {
 		$this->description = $description;
 	}
-	
+
 	/**
 	* Get identifier
 	*
