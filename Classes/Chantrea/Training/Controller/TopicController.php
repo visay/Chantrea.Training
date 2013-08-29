@@ -261,20 +261,25 @@ class TopicController extends ActionController {
 			$topic->setStatus($this->settings['statusOptions']['scheduled']);
 			$this->topicRepository->update($topic);
 			$this->addFlashMessage('Scheduled the topic.');
-			$this->redirect('showScheduled');
+			$this->redirect('listTraining');
 		} catch (\PDOException $exception) {
 			$this->addFlashMessage($exception->getMessage(), '', Message::SEVERITY_ERROR);
 		}
 	}
 
 	/**
-	 * Shows a list of scheduled Topics
+	 * List of Training Topics
 	 *
 	 * @return void
 	 */
-	public function showScheduledAction() {
-		$this->view->assign('scheduleTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['scheduled']));
-		$this->view->assign('currentPage', 'showScheduled');
+	public function listTrainingAction() {
+		// find archieve topics
+		$currentDate = date("Y-m-d H:i:s");
+		$archieveTopics = $this->topicRepository->findArchieve($currentDate, $this->settings['statusOptions']['scheduled']);
+		$this->view->assign('archieveTopics', $archieveTopics);
+
+		$this->view->assign('availableTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['scheduled'], NULL, $currentDate));
+		$this->view->assign('currentPage', 'listTraining');
 	}
 
 	/**

@@ -20,9 +20,9 @@
 				<f:for each="{scheduleTopics}" as="scheduleTopic">
 					<tr>
 						<td>
-							<f:format.date format="m/d/Y H:i">{scheduleTopic.trainingDateFrom}</f:format.date>
+							<f:format.date format="d/m/Y H:i">{scheduleTopic.trainingDateFrom}</f:format.date>
 							-
-							<f:format.date format="m/d/Y H:i">{scheduleTopic.trainingDateTo}</f:format.date>
+							<f:format.date format="d/m/Y H:i">{scheduleTopic.trainingDateTo}</f:format.date>
 						</td>
 						<td>{scheduleTopic.title}</td>
 						<td>{scheduleTopic.category.name}</td>

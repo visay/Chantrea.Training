@@ -154,6 +154,12 @@
 			<trans-unit id="label.message.noscheduled">
 				<source>There is no scheduled topics yet</source>
 			</trans-unit>
+			<trans-unit id="label.message.noarchieve">
+				<source>There is no archieve topics yet</source>
+			</trans-unit>
+			<trans-unit id="label.all.archieve">
+				<source>List of archieve topics</source>
+			</trans-unit>
 			<trans-unit id="label.back.suggested">
 				<source>Back to suggested topic</source>
 			</trans-unit>
@@ -220,7 +226,7 @@
 
 			<!-- list of all scheduled topics start -->
 			<trans-unit id="label.all.scheduled">
-				<source>List all scheduled topics</source>
+				<source>List all archieve topics</source>
 			</trans-unit>
 			<!-- list of all scheduled topics end-->
 

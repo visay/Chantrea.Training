@@ -51,15 +51,15 @@
 									</li>
 								</f:else>
 							</f:if>
-							<f:if condition="{0: currentPage} == {0: 'showScheduled'}">
+							<f:if condition="{0: currentPage} == {0: 'listTraining'}">
 								<f:then>
 									<li class="navigation-item active">
-										<f:link.action action="showScheduled" controller="Topic">Scheduled Topics</f:link.action>
+										<f:link.action action="listTraining" controller="Topic">Training Topics</f:link.action>
 									</li>
 								</f:then>
 								<f:else>
 									<li class="navigation-item">
-										<f:link.action action="showScheduled" controller="Topic">Scheduled Topics</f:link.action>
+										<f:link.action action="listTraining" controller="Topic">Training Topics</f:link.action>
 									</li>
 								</f:else>
 							</f:if>
