@@ -57,6 +57,13 @@ class TopicController extends ActionController {
 	protected $locationRepository;
 
 	/**
+	 * @Flow\Inject
+	 * @var \Chantrea\Training\Domain\Repository\TypeRepository
+	 */
+	protected $typeRepository;
+
+
+	/**
 	 * Initializes the view before invoking an action method.
 	 *
 	 * @param \TYPO3\Flow\Mvc\View\ViewInterface $view The view to be initialized
@@ -112,6 +119,7 @@ class TopicController extends ActionController {
 	public function newAction() {
 		$this->view->assign('owner', $this->securityContext->getAccount()->getParty());
 		$this->view->assign('categories', $this->categoryRepository->findAll());
+		$this->view->assign('types', $this->typeRepository->findAll());
 	}
 
 	/**
@@ -139,6 +147,7 @@ class TopicController extends ActionController {
 	public function editAction(Topic $topic) {
 		$this->view->assign('topic', $topic);
 		$this->view->assign('categories', $this->categoryRepository->findAll());
+		$this->view->assign('types', $this->typeRepository->findAll());
 	}
 
 	/**
@@ -182,6 +191,7 @@ class TopicController extends ActionController {
 	 * Accept a suggested topic
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to accept
+	 *
 	 * @return void
 	 */
 	public function acceptAction(Topic $topic) {
@@ -196,6 +206,7 @@ class TopicController extends ActionController {
 	 * Un Accept a suggested topic
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to accept
+	 *
 	 * @return void
 	 */
 	public function rejectAction(Topic $topic) {
@@ -208,6 +219,8 @@ class TopicController extends ActionController {
 
 	/**
 	 * List Accepted Topic the Training
+	 *
+	 * @return void
 	 */
 	public function listAcceptedAction() {
 		$this->view->assign('acceptedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['accepted']));
@@ -218,6 +231,7 @@ class TopicController extends ActionController {
 	 * Shows a form for set plan an existing topic object
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to edit
+	 *
 	 * @return void
 	 */
 	public function planAction(Topic $topic) {
@@ -286,6 +300,7 @@ class TopicController extends ActionController {
 	 * Vote a topic
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic to vote
+	 *
 	 * @return void
 	 */
 	public function voteAction(Topic $topic) {
@@ -330,6 +345,7 @@ class TopicController extends ActionController {
 	public function administratorAction() {
 		$this->view->assign('categories', $this->categoryRepository->findAll());
 		$this->view->assign('locations', $this->locationRepository->findAll());
+		$this->view->assign('types', $this->typeRepository->findAll());
 		$this->view->assign('currentPage', 'admin');
 	}
 }

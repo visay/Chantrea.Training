@@ -51,6 +51,9 @@
 			<trans-unit id="label.field.category.description">
 				<source>Description</source>
 			</trans-unit>
+			<trans-unit id="label.confirm.delete">
+				<source>Are you sure want to delete?</source>
+			</trans-unit>
 			<!-- general end -->
 
 			<!-- plan form start -->
@@ -99,14 +102,23 @@
 			<trans-unit id="label.suggest.new.location">
 				<source>New Location</source>
 			</trans-unit>
+			<trans-unit id="label.suggest.new.type">
+				<source>New Type</source>
+			</trans-unit>
 			<trans-unit id="label.suggest.create.category">
 				<source>Please create a category first.</source>
+			</trans-unit>
+			<trans-unit id="label.suggest.create.type">
+				<source>Please create a type first.</source>
 			</trans-unit>
 			<trans-unit id="label.create.category">
 				<source>Click here</source>
 			</trans-unit>
 			<trans-unit id="label.suggest.select.category">
 				<source>-- Please select category --</source>
+			</trans-unit>
+			<trans-unit id="label.suggest.select.type">
+				<source>-- Please select type --</source>
 			</trans-unit>
 			<trans-unit id="label.own.suggested.topic">
 				<source>View your suggested topics</source>
@@ -178,6 +190,9 @@
 			<trans-unit id="label.field.topic.newCategory.name">
 				<source>Category</source>
 			</trans-unit>
+			<trans-unit id="label.field.topic.newType.name">
+				<source>Name</source>
+			</trans-unit>
 			<trans-unit id="label.field.topic.topic.trainingDateFrom">
 				<source>Training Date From</source>
 			</trans-unit>
@@ -190,6 +205,9 @@
 			<trans-unit id="label.field.topic.category.name">
 				<source>Category</source>
 			</trans-unit>
+			<trans-unit id="label.field.topic.type.name">
+				<source>Type</source>
+			</trans-unit>
 			<trans-unit id="label.field.topic.newLocation.room">
 				<source>Room</source>
 			</trans-unit>
@@ -198,6 +216,9 @@
 			</trans-unit>
 			<trans-unit id="label.field.topic.newTopic.category">
 				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.newTopic.type">
+				<source>Type</source>
 			</trans-unit>
 			<trans-unit id="label.field.topic.newTopic.trainingDateFrom">
 				<source>Date From</source>
@@ -210,6 +231,9 @@
 			</trans-unit>
 			<trans-unit id="label.field.topic.topic.category">
 				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.topic.type">
+				<source>Type</source>
 			</trans-unit>
 			<trans-unit id="label.field.topic.planTopic.trainingDateFrom">
 				<source>Date From</source>
@@ -264,7 +288,7 @@
 			<trans-unit id="label.create">
 				<source>Create</source>
 			</trans-unit>
-			<trans-unit id="label.category list">
+			<trans-unit id="label.category.list">
 				<source>A list of category</source>
 			</trans-unit>
 			<trans-unit id="label.edit.category">
@@ -337,6 +361,43 @@
 				<source>Back to report filter</source>
 			</trans-unit>
 			<!-- view report end -->
+
+			<!-- view type start -->
+			<trans-unit id="label.field.topic.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="label.field.type.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="label.field.type.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="label.create.type">
+				<source>Click here</source>
+			</trans-unit>
+			<trans-unit id="label.type.list">
+				<source>A list of type</source>
+			</trans-unit>
+			<trans-unit id="label.edit.type">
+				<source>Edit Type</source>
+			</trans-unit>
+			<trans-unit id="label.type.new">
+				<source>New Type</source>
+			</trans-unit>
+			<trans-unit id="label.no.type">
+				<source>No type created yet.</source>
+			</trans-unit>
+			<trans-unit id="label.type.new.welcome">
+				<source>Just fill out the following form to create a new type:</source>
+			</trans-unit>
+			<!-- view type end -->
+
+			<trans-unit id="label.no.location">
+				<source>No location created yet.</source>
+			</trans-unit>
+			<trans-unit id="label.no.category">
+				<source>No category created yet.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

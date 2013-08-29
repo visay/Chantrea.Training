@@ -1,0 +1,27 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="Title"><f:translate id="label.edit.type" />"{type.name}"</f:section>
+<f:section name="Header"><f:translate id="label.edit.type" /> "{type.name}"</f:section>
+
+<f:section name="Content">
+	<div style="display: none"><ct:flashMessages /></div>
+	<f:render partial="FormErrors" arguments="{objectName: objectName}" />
+	<f:form action="update" object="{type}" name="type">
+		<div class="control-group">
+			<div class="control-label">
+				<label for="name"><f:translate id="label.field.type.name" /></label>
+			</div>
+			<div class="control-group">
+				<f:form.textfield property="name" id="name" />
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="control-label">
+				<label for="description"><f:translate id="label.field.type.description" /></label>
+			</div>
+			<f:form.textarea property="description" id="description" rows="3" cols="50" placeholder="{f:translate(id: 'label.placeholder.description')}" />
+		</div>
+		<f:form.button class="btn"><f:translate id="label.update" /></f:form.button>
+	</f:form>
+</f:section>

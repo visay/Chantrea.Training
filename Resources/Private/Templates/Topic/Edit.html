@@ -35,6 +35,17 @@
 				</f:security.ifHasRole>
 			</div>
 		</div>
+		<div class="control-group">
+			<div class="control-label">
+				<label for="type"><f:translate id="label.field.topic.type" /></label>
+			</div>
+			<div class="controls">
+				<f:form.select name="type" options="{types}" optionLabelField="name" property="type" prependOptionLabel="{f:translate(id: 'label.suggest.select.type')}" />
+				<f:security.ifHasRole role="Administrator">
+					<f:link.action action="new" controller="Type"> <i class="icon-plus"></i></f:link.action>
+				</f:security.ifHasRole>
+			</div>
+		</div>
 		<f:form.button type="submit" class="btn"><f:translate id="label.update" /></f:form.button>
 	</f:form>
 </f:section>

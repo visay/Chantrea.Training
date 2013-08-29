@@ -13,6 +13,7 @@
 					<th><f:translate id="label.field.topic.creationDate" /></th>
 					<th><f:translate id="label.field.topic.title" /></th>
 					<th><f:translate id="label.field.topic.category" /></th>
+					<th><f:translate id="label.field.topic.type" /></th>
 					<th><f:translate id="label.field.topic.account" /></th>
 					<f:security.ifHasRole role="Administrator"><th><f:translate id="label.listAccepted.schedule" /></th></f:security.ifHasRole>
 				</tr>
@@ -21,6 +22,7 @@
 						<td><f:format.date>{acceptedTopic.creationDate}</f:format.date></td>
 						<td>{acceptedTopic.title}</td>
 						<td>{acceptedTopic.category.name}</td>
+						<td>{acceptedTopic.type.name}</td>
 						<td>{acceptedTopic.owner.name}</td>
 						<f:security.ifHasRole role="Administrator">
 							<td>

@@ -91,13 +91,19 @@ class Topic {
 	 */
 	protected $owner;
 
-
 	/**
 	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
 	 * @Flow\Inject
 	 * @deprecated
 	 */
 	protected $persistenceManager;
+
+	/**
+	 * @var \Chantrea\Training\Domain\Model\Type
+	 * @ORM\ManyToOne
+	 */
+	protected $type;
+
 
 	/**
 	 * Constructs a new topic's creation date
@@ -293,6 +299,8 @@ class Topic {
 	}
 
 	/**
+	 * getVoteUsers
+	 *
 	 * @return \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\User>
 	 */
 	public function getVoteUsers() {
@@ -300,7 +308,10 @@ class Topic {
 	}
 
 	/**
-	 * @param \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\User> $voteUsers
+	 * setVoteUsers
+	 *
+	 * @param \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\User> $voteUsers voteUsers
+	 *
 	 * @return void
 	 */
 	public function setVoteUsers(\Doctrine\Common\Collections\Collection $voteUsers) {
@@ -308,7 +319,10 @@ class Topic {
 	}
 
 	/**
-	 * @param \Chantrea\Training\Domain\Model\User $voteUsers
+	 * addVoteUser
+	 *
+	 * @param \Chantrea\Training\Domain\Model\User $voteUser voteUser
+	 *
 	 * @return void
 	 */
 	public function addVoteUser(User $voteUser) {
@@ -316,7 +330,10 @@ class Topic {
 	}
 
 	/**
-	 * @param \Chantrea\Training\Domain\Model\User $trainer
+	 * removeVoteUser
+	 *
+	 * @param \Chantrea\Training\Domain\Model\User $voteUser $voteUser
+	 *
 	 * @return void
 	 */
 	public function removeVoteUser(User $voteUser) {
@@ -381,9 +398,31 @@ class Topic {
 		$voteUsers = $this->getVoteUsers();
 		$loginUser = $this->securityContext->getAccount()->getParty();
 		foreach ($voteUsers as $voteUser) {
-			if ($voteUser === $loginUser) return FALSE;
+			if ($voteUser === $loginUser) {
+				return FALSE;
+			}
 		}
 		return TRUE;
+	}
+
+	/**
+	 * getType
+	 *
+	 * @return \Chantrea\Training\Domain\Model\Type
+	 */
+	public function getType() {
+		return $this->type;
+	}
+
+	/**
+	 * setType
+	 *
+	 * @param \Chantrea\Training\Domain\Model\Type $type type
+	 *
+	 * @return void
+	 */
+	public function setType($type) {
+		$this->type = $type;
 	}
 }
 ?>

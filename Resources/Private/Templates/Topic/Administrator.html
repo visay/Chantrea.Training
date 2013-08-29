@@ -27,7 +27,7 @@
 								<td></td>
 							</f:then>
 							<f:else>
-								<td><f:link.action action="delete" arguments="{category: category}" controller="Category"><i class="icon-trash" onclick="return confirm('Are you sure want to delete?')"></i></f:link.action></td>
+								<td><f:link.action action="delete" arguments="{category: category}" controller="Category"><i class="icon-trash" onclick="return confirm('{f:translate(id: 'label.confirm.delete')}');"></i></f:link.action></td>
 							</f:else>
 						</f:if>
 					</tr>
@@ -35,8 +35,7 @@
 			</table>
 		</f:then>
 		<f:else>
-			<p>No categories created yet.</p>
-			<f:link.action action="new" controller="Category" class="btn"><f:translate id="label.suggest.new.category" /></f:link.action>
+			<p><f:translate id="label.no.category" /></p>
 		</f:else>
 	</f:if>
 	<f:link.action action="new" controller="Category" class="btn"><f:translate id="label.suggest.new.category" /></f:link.action>
@@ -60,7 +59,7 @@
 								<td></td>
 							</f:then>
 							<f:else>
-								<td><f:link.action action="delete" arguments="{location: location}" controller="Location"><i class="icon-trash" onclick="return confirm('Are you sure want to delete?')"></i></f:link.action></td>
+								<td><f:link.action action="delete" arguments="{location: location}" controller="Location"><i class="icon-trash" onclick="return confirm('{f:translate(id: 'label.confirm.delete')}');"></i></f:link.action></td>
 							</f:else>
 						</f:if>
 					</tr>
@@ -68,9 +67,40 @@
 			</table>
 		</f:then>
 		<f:else>
-			<p>No locations created yet.</p>
-			<f:link.action action="new" controller="Location" class="btn"><f:translate id="label.suggest.new.location" /></f:link.action>
+			<p><f:translate id="label.no.location" /></p>
 		</f:else>
 	</f:if>
 	<f:link.action action="new" controller="Location" class="btn"><f:translate id="label.suggest.new.location" /></f:link.action>
+	<h4><f:translate id="label.type.list" /></h4>
+	<f:if condition="{types}">
+		<f:then>
+			<table class="table table-condensed">
+				<tr>
+					<th><f:translate id="label.field.type.name" /></th>
+					<th><f:translate id="label.field.type.description" /></th>
+					<th><f:translate id="label.edit" /></th>
+					<th><f:translate id="label.delete" /></th>
+				</tr>
+				<f:for each="{types}" as="type">
+					<tr>
+						<td>{type.name}</td>
+						<td>{type.description}</td>
+						<td><f:link.action action="edit" arguments="{type: type}" controller="Type"><i class="icon-pencil"></i></f:link.action></td>
+						<f:if condition="{type.topics ->f:count()} > 0">
+							<f:then>
+								<td></td>
+							</f:then>
+							<f:else>
+								<td><f:link.action action="delete" arguments="{type: type}" controller="Type"><i class="icon-trash" onclick="return confirm('{f:translate(id: 'label.confirm.delete')}');"></i></f:link.action></td>
+							</f:else>
+						</f:if>
+					</tr>
+				</f:for>
+			</table>
+		</f:then>
+		<f:else>
+			<p><f:translate id="label.no.type" /></p>
+		</f:else>
+	</f:if>
+	<f:link.action action="new" controller="Type" class="btn"><f:translate id="label.suggest.new.type" /></f:link.action>
 </f:section>
