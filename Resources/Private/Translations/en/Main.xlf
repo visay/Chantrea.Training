@@ -78,9 +78,6 @@
 			<!-- plan form end -->
 
 			<!-- suggest form start -->
-			<trans-unit id="label.field.comment.count">
-				<source>Comments</source>
-			</trans-unit>
 			<trans-unit id="label.field.topic.category">
 				<source>Category</source>
 			</trans-unit>
