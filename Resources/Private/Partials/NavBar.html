@@ -16,10 +16,10 @@
 							<f:security.ifHasRole role="Administrator">
 								<f:if condition="{0: currentPage} == {0: 'admin'}">
 									<f:then>
-										<li class="navigation-item active"><f:link.action action="administrator" controller="Topic">Admin</f:link.action></li>
+										<li class="navigation-item active"><f:link.action action="administrator" controller="Topic">Administration</f:link.action></li>
 									</f:then>
 									<f:else>
-										<li class="navigation-item"><f:link.action action="administrator" controller="Topic">Admin</f:link.action></li>
+										<li class="navigation-item"><f:link.action action="administrator" controller="Topic">Administration</f:link.action></li>
 									</f:else>
 								</f:if>
 							</f:security.ifHasRole>
