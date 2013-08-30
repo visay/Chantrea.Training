@@ -104,6 +104,7 @@ class TopicController extends ActionController {
 		}
 		// display topic title
 		$this->view->assign('topic', $topic);
+		$this->view->assign('commentCount', TRUE);
 	}
 
 	/**

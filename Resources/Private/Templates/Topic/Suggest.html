@@ -24,7 +24,7 @@
 				<th><f:translate id="label.delete" /></th>
 				<th><f:translate id="label.suggest.votenumber" /></th>
 				<th><f:translate id="label.suggest.vote" /></th>
-				<th><f:translate id="label.suggest.commentCount" /></th>
+				<th><f:translate id="label.field.comment.count" /></th>
 			</tr>
 			<f:for each="{suggestedTopics}" as="suggestedTopic">
 				<tr class="warning">
@@ -83,7 +83,7 @@
 							</td>
 						</f:else>
 					</f:if>
-					<td><a href="http://demo.chantrea-training.web-essentials.asia/topic/suggest#disqus_thread">Comment Count</a></td>
+					<td><a onclick="javascript: return false;" href="#disqus_thread">Comment Count</a></td>
 				</tr>
 			</f:for>
 		</table>

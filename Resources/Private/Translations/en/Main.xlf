@@ -78,6 +78,9 @@
 			<!-- plan form end -->
 
 			<!-- suggest form start -->
+			<trans-unit id="label.field.comment.count">
+				<source>Comments</source>
+			</trans-unit>
 			<trans-unit id="label.field.topic.category">
 				<source>Category</source>
 			</trans-unit>
@@ -92,9 +95,6 @@
 			</trans-unit>
 			<trans-unit id="label.suggest.vote">
 				<source>Vote</source>
-			</trans-unit>
-			<trans-unit id="label.suggest.commentCount">
-				<source>Comment Count</source>
 			</trans-unit>
 			<trans-unit id="label.suggest.save">
 				<source>Suggest</source>
