@@ -117,6 +117,7 @@ class TopicController extends ActionController {
 		$this->view->assign('suggestedTopics', $suggestedTopics);
 		$this->view->assign('loginUser', $loginUser);
 		$this->view->assign('currentPage', 'suggested');
+		$this->view->assign('commentCount', TRUE);
 	}
 
 	/**

@@ -90,6 +90,9 @@
 			<trans-unit id="label.suggest.vote">
 				<source>Vote</source>
 			</trans-unit>
+			<trans-unit id="label.suggest.commentCount">
+				<source>Comment Count</source>
+			</trans-unit>
 			<trans-unit id="label.suggest.save">
 				<source>Suggest</source>
 			</trans-unit>
