@@ -63,6 +63,9 @@
 			<trans-unit id="label.plan.select.location">
 				<source>-- Please select location --</source>
 			</trans-unit>
+			<trans-unit id="label.plan.select.type">
+				<source>-- Please select type --</source>
+			</trans-unit>
 			<trans-unit id="label.plan.field.topic.creationDate">
 				<source>Post date</source>
 			</trans-unit>
@@ -192,6 +195,9 @@
 			</trans-unit>
 			<trans-unit id="label.field.topic.newType.name">
 				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.topic">
+				<source>Scheduler</source>
 			</trans-unit>
 			<trans-unit id="label.field.topic.topic.trainingDateFrom">
 				<source>Training Date From</source>
