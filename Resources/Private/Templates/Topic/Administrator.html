@@ -1,21 +1,21 @@
 {namespace ct=Chantrea\Training\ViewHelpers}
 <f:layout name="Default" />
 
-<f:section name="Title">Administration</f:section>
+<f:section name="Title"><f:translate id="label.header.administration" /></f:section>
 <f:section name="Header"></f:section>
 
 <f:section name="Content">
 	<ct:flashMessages />
 	<f:link.action class="report-view btn" action="viewReport" controller="Topic"><f:translate id="label.report.view.title" /></f:link.action>
-	<h4>Show list of categories</h4>
+	<h4><f:translate id="label.list.category" /></h4>
 	<f:if condition="{categories}">
 		<f:then>
 			<table class="table table-condensed">
 				<tr>
-					<th>Room</th>
-					<th>Description</th>
-					<th>Edit</th>
-					<th>Delete</th>
+					<th><f:translate id="label.list.category.name" /></th>
+					<th><f:translate id="label.list.category.description" /></th>
+					<th><f:translate id="label.list.category.edit" /></th>
+					<th><f:translate id="label.list.category.delete" /></th>
 				</tr>
 				<f:for each="{categories}" as="category">
 					<tr>
@@ -39,15 +39,15 @@
 		</f:else>
 	</f:if>
 	<f:link.action action="new" controller="Category" class="btn"><f:translate id="label.suggest.new.category" /></f:link.action>
-	<h4>Show list of locations</h4>
+	<h4><f:translate id="label.list.location" /></h4>
 	<f:if condition="{locations}">
 		<f:then>
 			<table class="table table-condensed">
 				<tr>
-					<th>Room</th>
-					<th>Description</th>
-					<th>Edit</th>
-					<th>Delete</th>
+					<th><f:translate id="label.list.location.name" /></th>
+					<th><f:translate id="label.list.location.description" /></th>
+					<th><f:translate id="label.list.location.edit" /></th>
+					<th><f:translate id="label.list.location.delete" /></th>
 				</tr>
 				<f:for each="{locations}" as="location">
 					<tr>

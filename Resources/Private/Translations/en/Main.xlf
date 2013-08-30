@@ -253,7 +253,7 @@
 
 			<!-- list of all scheduled topics start -->
 			<trans-unit id="label.all.scheduled">
-				<source>List all archieve topics</source>
+				<source>List all available topics</source>
 			</trans-unit>
 			<!-- list of all scheduled topics end-->
 
@@ -306,6 +306,10 @@
 			<trans-unit id="label.topic.edit">
 				<source>Edit Topic</source>
 			</trans-unit>
+			<trans-unit id="label.header.administration">
+				<source>Administration</source>
+			</trans-unit>
+			
 			<!-- header block end -->
 
 			<!-- sign in and sign up block end -->
@@ -400,6 +404,37 @@
 			</trans-unit>
 			<trans-unit id="label.no.category">
 				<source>No category created yet.</source>
+			</trans-unit>
+			
+			<trans-unit id="label.list.category">
+				<source>Show list of categories</source>
+			</trans-unit>
+			<trans-unit id="label.list.category.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="label.list.category.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="label.list.category.edit">
+				<source>Edit</source>
+			</trans-unit>
+			<trans-unit id="label.list.category.delete">
+				<source>Delete</source>
+			</trans-unit>
+			<trans-unit id="label.list.location">
+				<source>Show list of locations</source>
+			</trans-unit>
+				<trans-unit id="label.list.location.name">
+			<source>Name</source>
+			</trans-unit>
+			<trans-unit id="label.list.location.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="label.list.location.edit">
+				<source>Edit</source>
+			</trans-unit>
+			<trans-unit id="label.list.location.delete">
+				<source>Delete</source>
 			</trans-unit>
 		</body>
 	</file>
