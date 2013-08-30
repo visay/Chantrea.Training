@@ -13,7 +13,6 @@
 				<th><f:translate id="label.field.topic.category" /></th>
 				<th><f:translate id="label.field.topic.type" /></th>
 				<th><f:translate id="label.field.topic.account" /></th>
-				<th><f:translate id="label.field.comment.count" /></th>
 			</tr>
 			<tr>
 				<td><f:format.date>{suggestedOrAccepted.creationDate}</f:format.date></td>
@@ -22,7 +21,6 @@
 				<td>{suggestedOrAccepted.category.name}</td>
 				<td>{suggestedOrAccepted.type.name}</td>
 				<td>{suggestedOrAccepted.owner.name}</td>
-				<td><a href="{baseURL}<f:uri.action action='show' controller='Topic' arguments='{topic: suggestedOrAccepted}' />#disqus_thread">{suggestedOrAccepted.title}</a></td>
 			</tr>
 		</table>
 	</f:if>
