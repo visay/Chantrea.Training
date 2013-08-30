@@ -69,16 +69,6 @@
     '@controller': 'Topic'
     '@action':     'redirect'
 
--
-  name: 'Topic actions'
-  uriPattern: 'topic/{topic}'
-  defaults:
-    '@controller': 'Topic'
-    '@action':     'show'
-  routeParts:
-    topic:
-      objectType: Chantrea\Training\Domain\Model\Topic
-      uriPattern: '{title}'
 
 -
   name: 'Topic actions'

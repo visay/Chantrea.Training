@@ -139,7 +139,7 @@
 
 			<!-- index start -->
 			<trans-unit id="label.latest.scheduled">
-				<source>10 Latest scheduled</source>
+				<source>10 Latest available topics</source>
 			</trans-unit>
 			<trans-unit id="label.latest.suggestion">
 				<source>10 Latest suggestion</source>
@@ -164,7 +164,7 @@
 				</source>
 			</trans-unit>
 			<trans-unit id="label.message.noscheduled">
-				<source>There is no scheduled topics yet</source>
+				<source>There is no available topics yet</source>
 			</trans-unit>
 			<trans-unit id="label.message.noarchieve">
 				<source>There is no archieve topics yet</source>

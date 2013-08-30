@@ -20,7 +20,7 @@
 				<f:for each="{acceptedTopics}" as="acceptedTopic">
 					<tr class="success">
 						<td><f:format.date>{acceptedTopic.creationDate}</f:format.date></td>
-						<td>{acceptedTopic.title}</td>
+						<td><f:link.action action="show" controller="Topic" arguments="{topic: acceptedTopic}">{acceptedTopic.title}</f:link.action></td>
 						<td>{acceptedTopic.category.name}</td>
 						<td>{acceptedTopic.type.name}</td>
 						<td>{acceptedTopic.owner.name}</td>

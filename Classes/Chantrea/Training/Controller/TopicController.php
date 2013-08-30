@@ -80,9 +80,10 @@ class TopicController extends ActionController {
 	 * @return void
 	 */
 	public function indexAction() {
+		$currentDate = date("Y-m-d H:i:s");
 		$this->view->assign('topics', $this->topicRepository->findAll());
 		$this->view->assign('acceptedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['accepted'], $this->settings['limit']));
-		$this->view->assign('scheduleTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['scheduled']), $this->settings['limit']);
+		$this->view->assign('availableTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['scheduled']), $this->settings['limit'], $currentDate);
 		$this->view->assign('suggestedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['new'], $this->settings['limit']));
 		$this->view->assign('currentPage', 'index');
 	}
@@ -95,6 +96,13 @@ class TopicController extends ActionController {
 	 * @return void
 	 */
 	public function showAction(Topic $topic) {
+		// test the status of topic to display scheduled or accepted or suggested topics
+		if ($topic->getStatus() == $this->settings['statusOptions']['scheduled']) {
+			$this->view->assign('scheduledTopic', $topic);
+		} else {
+			$this->view->assign('suggestedOrAccepted', $topic);
+		}
+		// display topic title
 		$this->view->assign('topic', $topic);
 	}
 

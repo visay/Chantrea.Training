@@ -63,7 +63,6 @@ class TopicRepository extends \TYPO3\Flow\Persistence\Repository {
 	 */
 	public function findTopicByFilter($user, $status, $category) {
 		$query = $this->createQuery();
-		$constraint = $query->lessThan('trainingDateTo', $currentDate);
 		$constraint = NULL;
 		if ($user) {
 			$constraint = $query->equals('owner', $user);

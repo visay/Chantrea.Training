@@ -28,7 +28,9 @@
 			<f:for each="{suggestedTopics}" as="suggestedTopic">
 				<tr class="warning">
 					<td><f:format.date>{suggestedTopic.creationDate}</f:format.date></td>
-					<td>{suggestedTopic.title}</td>
+					<td>
+						<f:link.action action="show" controller="Topic" arguments="{topic: suggestedTopic}">{suggestedTopic.title}</f:link.action>
+					</td>
 					<td>{suggestedTopic.category.name}</td>
 					<td>{suggestedTopic.type.name}</td>
 					<td>{suggestedTopic.owner.name}
