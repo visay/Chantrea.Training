@@ -22,7 +22,7 @@
 				<td>{suggestedOrAccepted.category.name}</td>
 				<td>{suggestedOrAccepted.type.name}</td>
 				<td>{suggestedOrAccepted.owner.name}</td>
-				<td><a onclick="javascript: return false;" href="#disqus_thread">Comment Count</a></td>
+				<td><a href="<f:uri.action action='show' controller='Topic' arguments='{topic: topic}' />#disqus_thread">Comment Count</a></td>
 			</tr>
 		</table>
 	</f:if>
