@@ -83,7 +83,7 @@
 							</td>
 						</f:else>
 					</f:if>
-					<td><a href="{baseURL}<f:uri.action action='show' controller='Topic' arguments='{topic: suggestedTopic}' />#disqus_thread">Comment Count</a></td>
+					<td><a href="{baseURL}<f:uri.action action='show' controller='Topic' arguments='{topic: suggestedTopic}' />#disqus_thread">{suggestedTopic.title}</a></td>
 				</tr>
 			</f:for>
 		</table>
