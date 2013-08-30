@@ -27,7 +27,7 @@
 							-
 							<f:format.date format="d/m/Y H:i">{availableTopic.trainingDateTo}</f:format.date>
 						</td>
-						<td>{availableTopic.title}</td>
+						<td><f:link.action action="show" controller="Topic" arguments="{topic: availableTopic}">{availableTopic.title}</f:link.action></td>
 						<td>{availableTopic.category.name}</td>
 						<td>{availableTopic.type.name}</td>
 						<td>
@@ -65,7 +65,7 @@
 							-
 							<f:format.date format="d/m/Y H:i">{archieveTopic.trainingDateTo}</f:format.date>
 						</td>
-						<td>{archieveTopic.title}</td>
+						<td><f:link.action action="show" controller="Topic" arguments="{topic: archieveTopic}">{archieveTopic.title}</f:link.action></td>
 						<td>{archieveTopic.category.name}</td>
 						<td>{archieveTopic.type.name}</td>
 						<td>

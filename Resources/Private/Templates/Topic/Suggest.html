@@ -24,11 +24,14 @@
 				<th><f:translate id="label.delete" /></th>
 				<th><f:translate id="label.suggest.votenumber" /></th>
 				<th><f:translate id="label.suggest.vote" /></th>
+				<th><f:translate id="label.suggest.commentCount" /></th>
 			</tr>
 			<f:for each="{suggestedTopics}" as="suggestedTopic">
 				<tr class="warning">
 					<td><f:format.date>{suggestedTopic.creationDate}</f:format.date></td>
-					<td>{suggestedTopic.title}</td>
+					<td>
+						<f:link.action action="show" controller="Topic" arguments="{topic: suggestedTopic}">{suggestedTopic.title}</f:link.action>
+					</td>
 					<td>{suggestedTopic.category.name}</td>
 					<td>{suggestedTopic.type.name}</td>
 					<td>{suggestedTopic.owner.name}
@@ -80,6 +83,7 @@
 							</td>
 						</f:else>
 					</f:if>
+					<td><a href="http://demo.chantrea-training.web-essentials.asia/topic/suggest#disqus_thread">Comment Count</a></td>
 				</tr>
 			</f:for>
 		</table>
