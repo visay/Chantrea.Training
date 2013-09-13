@@ -1,0 +1,54 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="Title">Contact</f:section>
+<f:section name="Header"></f:section>
+
+<f:section name="Content">
+	<f:form action="sendContact" name="newContact" method="post" class="form-horizontal">
+		<div class="hidden"><ct:flashMessages /></div>
+		<f:render partial="FormErrors" arguments="{objectName: objectName}" />
+		<div class="control-group">
+			<h2>Contact Form</h2>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="firstName"><f:translate id="label.contact.firstName" /></label>
+			<div class="controls">
+				<f:form.textfield name="firstName" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="lastName"><f:translate id="label.contact.lastName" /></label>
+			<div class="controls">
+				<f:form.textfield name="lastName" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="email"><f:translate id="label.contact.email" /></label>
+			<div class="controls">
+				<f:form.textfield name="email" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="org-company"><f:translate id="label.contact.org-company" /></label>
+			<div class="controls">
+				<f:form.textfield name="orgCompany" />
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="control-label">
+				<label for="message">
+					<f:translate id="label.contact.message" />
+				</label>
+			</div>
+			<div class="controls">
+				<f:form.textarea name="message" rows="5" cols="50" />
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<f:form.button type="submit" class="btn"><f:translate id="label.contact.submit" /></f:form.button>
+			</div>
+		</div>
+	</f:form>
+</f:section>

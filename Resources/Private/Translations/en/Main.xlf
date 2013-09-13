@@ -288,6 +288,9 @@
 			<trans-unit id="label.field.topic.newPassword">
 				<source>New Password</source>
 			</trans-unit>
+			<trans-unit id="label.field.topic.message">
+				<source>Message</source>
+			</trans-unit>
 			<!-- user validation message start -->
 
 			<!-- header block start -->
@@ -438,6 +441,35 @@
 			</trans-unit>
 			<trans-unit id="label.list.location.delete">
 				<source>Delete</source>
+			</trans-unit>
+
+			<trans-unit id="label.footer">
+				<source>
+					<![CDATA[
+						&copy; 2013 Chantrea Training. Powered by: Visay - Rayuth - Chanthorn
+					]]>
+				</source>
+			</trans-unit>
+			<trans-unit id="label.contact">
+				<source>Contact Us</source>
+			</trans-unit>
+			<trans-unit id="label.contact.message">
+				<source>Your message</source>
+			</trans-unit>
+			<trans-unit id="label.contact.org-company">
+				<source>Organization / Company</source>
+			</trans-unit>
+			<trans-unit id="label.contact.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="label.contact.firstName">
+				<source>First Name</source>
+			</trans-unit>
+			<trans-unit id="label.contact.lastName">
+				<source>Last Name</source>
+			</trans-unit>
+			<trans-unit id="label.contact.submit">
+				<source>Submit</source>
 			</trans-unit>
 		</body>
 	</file>
