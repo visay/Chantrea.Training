@@ -186,6 +186,7 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	 * @return Void
 	 */
 	public function showContactAction() {
+		//$this->view->assign('sessionUser', $this->securityContext->getAccount()->getParty());
 	}
 
 	/**
@@ -207,25 +208,26 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	 * @return void
 	 */
 	public function sendContactAction($firstName, $lastName, $email, $orgCompany, $message) {
-		/*
-		echo($firstName);
-		echo($lastName);
-		echo($email);
-		echo($orgCompany);
-		echo($message);exit();
-
 		// TODO: read email from constant and render body from view
 		$mail = new \TYPO3\SwiftMailer\Message();
-		$mail->setFrom(array('noreply@visay.info' => 'Chantrea Training'))
-			->setTo(array($email => $user->getName()))
-			->setSubject('Account Creation')
-			->setFormat('html')
-			->setBody('Dear ' . $user->getName() . ',<br/><br/>Your account "' . $username .
-				'" has been created.<br/><br/>Best regards,<br/>Chantrea Training Team', 'text/html');
-		$mail->send();
-
-		$this->addFlashMessage('Your contact has been created successfully.');
-		$this->redirect('index');*/
+		for ($i = 1; $i <= count($this->settings['adminEmails']); $i++) {
+			$adminEmail = $this->settings['adminEmails']['contact' . $i . ''];
+			$adminName = $this->settings['adminNames']['contact' . $i . ''];
+			$msg = 'Dear ' . $adminName . ',';
+			$msg .= 'You have recieved contact request on Chantrea Training with the following information: <br/><br/>';
+			$msg .= 'First Name: ' . $firstName . '<br/>';
+			$msg .= 'Last Name: ' . $lastName . '<br/>';
+			$msg .= 'Email: ' . $email . '<br/>';
+			$msg .= 'Message: ' . $message . '<br/><br/><br/>';
+			$mail->setFrom(array($email => $firstName . ' ' . $lastName))
+				->setTo(array($adminEmail => $adminName))
+				->setSubject('New Contact on Chantrea Training')
+				->setFormat('html')
+				->setBody($msg);
+			$mail->send();
+		}
+		$this->addFlashMessage('Your message has been sent successfully.');
+		$this->redirect('showContact');
 	}
 }
 

@@ -454,22 +454,22 @@
 				<source>Contact Us</source>
 			</trans-unit>
 			<trans-unit id="label.contact.message">
-				<source>Your message</source>
+				<source>Your message:</source>
 			</trans-unit>
 			<trans-unit id="label.contact.org-company">
-				<source>Organization / Company</source>
+				<source>Organization / Company:</source>
 			</trans-unit>
 			<trans-unit id="label.contact.email">
-				<source>Email</source>
+				<source>Email:</source>
 			</trans-unit>
 			<trans-unit id="label.contact.firstName">
-				<source>First Name</source>
+				<source>First Name:</source>
 			</trans-unit>
 			<trans-unit id="label.contact.lastName">
-				<source>Last Name</source>
+				<source>Last Name:</source>
 			</trans-unit>
 			<trans-unit id="label.contact.submit">
-				<source>Submit</source>
+				<source>Send</source>
 			</trans-unit>
 		</body>
 	</file>

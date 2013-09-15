@@ -24,3 +24,11 @@ Chantrea:
       accepted: 'Accepted'
       rejected: 'Rejected'
       scheduled: 'Scheduled'
+    adminNames:
+      contact1: 'Visay'
+      contact2: 'Rayuth'
+      contact3: 'Chanthorn'
+    adminEmails:
+      contact1: 'visay@web-essentails.asia'
+      contact2: 'rayuth@web-essentails.asia'
+      contact3: 'chanthorn@web-essentials.asia'
