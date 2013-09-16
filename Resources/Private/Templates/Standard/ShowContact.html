@@ -14,19 +14,19 @@
 		<div class="control-group">
 			<label class="control-label" for="firstName"><f:translate id="label.contact.firstName" /> * </label>
 			<div class="controls">
-				<f:form.textfield name="firstName" />
+				<f:form.textfield name="firstName" value="{sessionUser.name.firstName}"/>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="lastName"><f:translate id="label.contact.lastName" /> * </label>
 			<div class="controls">
-				<f:form.textfield name="lastName" />
+				<f:form.textfield name="lastName" value="{sessionUser.name.lastName}"/>
 			</div>
 		</div>
 		<div class="control-group">
 			<label class="control-label" for="email"><f:translate id="label.contact.email" /> * </label>
 			<div class="controls">
-				<f:form.textfield name="email" />
+				<f:form.textfield name="email" value="{sessionUser.email}"/>
 			</div>
 		</div>
 		<div class="control-group">

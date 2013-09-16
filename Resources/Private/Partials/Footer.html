@@ -2,7 +2,21 @@
 	<f:else>
 		<hr />
 		<footer>
-			<p class="footer"><f:translate id="label.footer" /> <f:link.action action="showContact" controller="Standard"><f:translate id="label.contact" /></f:link.action></p>
+			<p class="footer">
+				<f:translate id="label.footer" />
+				<f:if condition="{sessionUser}">
+					<f:then>
+						<f:link.action action="showContact" controller="Standard" arguments="{user:  sessionUser}">
+							<f:translate id="label.contact" />
+						</f:link.action>
+					</f:then>
+					<f:else>
+						<f:link.action action="showContact" controller="Standard">
+							<f:translate id="label.contact" />
+						</f:link.action>
+					</f:else>
+				</f:if>
+			</p>
 		</footer>
 	</f:else>
 </f:if>

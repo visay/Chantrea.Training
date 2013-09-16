@@ -5,8 +5,7 @@
 <f:section name="Header"><f:translate id="label.suggested.header" /></f:section>
 
 <f:section name="Content">
-	<div style="display: none;"><ct:flashMessages /></div>
-	<f:render partial="FormErrors" arguments="{objectName: objectName}" />
+	<ct:flashMessages />
 	<f:form.hidden name="nav-class" class="nav-class" value="{class}" />
 	<f:if condition="{suggestedTopics}">
 		<table class="table table-condensed">

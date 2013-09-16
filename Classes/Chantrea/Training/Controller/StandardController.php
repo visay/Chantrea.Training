@@ -183,10 +183,11 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	/**
 	 * Show contact form action
 	 *
+	 * @param \Chantrea\Training\Domain\Model\User $user session
 	 * @return Void
 	 */
-	public function showContactAction() {
-		//$this->view->assign('sessionUser', $this->securityContext->getAccount()->getParty());
+	public function showContactAction($user = NULL) {
+		$this->view->assign('sessionUser', $user);
 	}
 
 	/**
@@ -213,17 +214,19 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 		for ($i = 1; $i <= count($this->settings['adminEmails']); $i++) {
 			$adminEmail = $this->settings['adminEmails']['contact' . $i . ''];
 			$adminName = $this->settings['adminNames']['contact' . $i . ''];
-			$msg = 'Dear ' . $adminName . ',';
+			$msg = 'Dear ' . $adminName . ',<br/><br/>';
 			$msg .= 'You have recieved contact request on Chantrea Training with the following information: <br/><br/>';
-			$msg .= 'First Name: ' . $firstName . '<br/>';
-			$msg .= 'Last Name: ' . $lastName . '<br/>';
-			$msg .= 'Email: ' . $email . '<br/>';
-			$msg .= 'Message: ' . $message . '<br/><br/><br/>';
+			$msg .= '<table>';
+			$msg .= '<tr><td><strong>First Name:</strong></td><td> ' . $firstName . '<br/></td></tr>';
+			$msg .= '<tr><td><strong>Last Name:</strong></td><td> ' . $lastName . '<br/></td></tr>';
+			$msg .= '<tr><td><strong>Email:</strong></td><td> ' . $email . '<br/></td></tr>';
+			$msg .= '<tr><td><strong>Organization / Company:</strong></td><td> ' . $orgCompany . '<br/></td></tr>';
+			$msg .= '<tr><td><strong>Message:</strong></td><td> ' . $message . '<br/></td></tr>';
 			$mail->setFrom(array($email => $firstName . ' ' . $lastName))
 				->setTo(array($adminEmail => $adminName))
 				->setSubject('New Contact on Chantrea Training')
 				->setFormat('html')
-				->setBody($msg);
+				->setBody($msg, 'text/html');
 			$mail->send();
 		}
 		$this->addFlashMessage('Your message has been sent successfully.');

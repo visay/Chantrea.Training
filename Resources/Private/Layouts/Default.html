@@ -35,7 +35,7 @@
 				</f:else>
 			</f:if>
 			<f:render section="Content" />
-			<f:render partial="Footer" arguments="{login: login}" />
+			<f:render partial="Footer" arguments="{login: login, sessionUser: sessionUser}" />
 		</div>
 		<script src="{f:uri.resource(path: 'JavaScript/Default.js')}"></script>
 	</body>

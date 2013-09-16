@@ -5,8 +5,8 @@
 <f:section name="Header"><f:translate id="label.category.new" /></f:section>
 
 <f:section name="Content">
-	<div style="display: none"><ct:flashMessages /></div>
 	<p>Just fill out the following form to create a new category:</p>
+	<div style="display: none"><ct:flashMessages /></div>
 	<f:render partial="FormErrors" arguments="{objectName: objectName}" />
 	<f:form action="create" name="newCategory">
 		<div class="control-group">
