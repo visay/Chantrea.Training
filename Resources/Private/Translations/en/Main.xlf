@@ -88,25 +88,25 @@
 				<source>Reject</source>
 			</trans-unit>
 			<trans-unit id="label.suggest.votenumber">
-				<source>Vote Numbers</source>
+				<source>Number of Vote</source>
 			</trans-unit>
 			<trans-unit id="label.suggest.vote">
 				<source>Vote</source>
 			</trans-unit>
 			<trans-unit id="label.suggest.save">
-				<source>Suggest</source>
+				<source>Submit</source>
 			</trans-unit>
 			<trans-unit id="label.suggest.new.topic">
-				<source>New Suggest</source>
+				<source>Suggest New Topic</source>
 			</trans-unit>
 			<trans-unit id="label.suggest.new.category">
-				<source>New Category</source>
+				<source>Add New Category</source>
 			</trans-unit>
 			<trans-unit id="label.suggest.new.location">
-				<source>New Location</source>
+				<source>Add New Location</source>
 			</trans-unit>
 			<trans-unit id="label.suggest.new.type">
-				<source>New Type</source>
+				<source>Add New Training Type</source>
 			</trans-unit>
 			<trans-unit id="label.suggest.create.category">
 				<source>Please create a category first.</source>
@@ -145,16 +145,16 @@
 				<source>10 Latest available topics</source>
 			</trans-unit>
 			<trans-unit id="label.latest.suggestion">
-				<source>10 Latest suggestion</source>
+				<source>10 Latest Suggested Topics:</source>
 			</trans-unit>
 			<trans-unit id="label.latest.accpeted">
-				<source>10 Latest accepted</source>
+				<source>10 Latest Accepted Topics:</source>
 			</trans-unit>
 			<trans-unit id="label.message.noaccepted">
-				<source>There is no accepted topics yet</source>
+				<source>There is no accepted topic yet.</source>
 			</trans-unit>
 			<trans-unit id="label.message.nosuggestion">
-				<source>There is no suggested topics yet</source>
+				<source>There is no suggested topic yet.</source>
 			</trans-unit>
 			<!-- index end-->
 
@@ -162,15 +162,15 @@
 			<trans-unit id="label.message.acceptedtopic">
 				<source>
 				<![CDATA[
-					There is no accpeted topics yet<br />
+					There is no accpeted topic yet.<br />
 				]]>
 				</source>
 			</trans-unit>
 			<trans-unit id="label.message.noscheduled">
-				<source>There is no available topics yet</source>
+				<source>There is no available topic yet.</source>
 			</trans-unit>
 			<trans-unit id="label.message.noarchieve">
-				<source>There is no archieve topics yet</source>
+				<source>There is no archived topic yet.</source>
 			</trans-unit>
 			<trans-unit id="label.all.archieve">
 				<source>List of archieve topics</source>
@@ -389,7 +389,7 @@
 				<source>Click here</source>
 			</trans-unit>
 			<trans-unit id="label.type.list">
-				<source>A list of type</source>
+				<source>Training Type:</source>
 			</trans-unit>
 			<trans-unit id="label.edit.type">
 				<source>Edit Type</source>
@@ -413,7 +413,7 @@
 			</trans-unit>
 
 			<trans-unit id="label.list.category">
-				<source>Show list of categories</source>
+				<source>Category:</source>
 			</trans-unit>
 			<trans-unit id="label.list.category.name">
 				<source>Name</source>
@@ -428,7 +428,7 @@
 				<source>Delete</source>
 			</trans-unit>
 			<trans-unit id="label.list.location">
-				<source>Show list of locations</source>
+				<source>Location:</source>
 			</trans-unit>
 				<trans-unit id="label.list.location.name">
 			<source>Name</source>
@@ -446,7 +446,7 @@
 			<trans-unit id="label.footer">
 				<source>
 					<![CDATA[
-						Chantrea Training - &copy; 2013 by Chanthorn Ngeth, Rayuth You and <a href="http://www.visay.info/" target="_blank">Visay Keo</a>. This is free application, comes with FEATURES WITHOUT ANY WARRANTY.
+						Chantrea Training - &copy; 2013 by Chanthorn Ngeth, Rayuth You and <a href="http://www.visay.info/" target="_blank">Visay Keo</a>. This is a free application comes with <strong>FEATURES WITHOUT ANY WARRANTY</strong>.
 					]]>
 				</source>
 			</trans-unit>
