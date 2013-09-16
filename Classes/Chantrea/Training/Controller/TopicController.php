@@ -104,8 +104,6 @@ class TopicController extends ActionController {
 		}
 		// display topic title
 		$this->view->assign('topic', $topic);
-		$this->view->assign('commentCount', TRUE);
-		$this->view->assign('baseURL', $this->controllerContext->getRequest()->getHttpRequest()->getBaseUri());
 	}
 
 	/**
@@ -119,8 +117,6 @@ class TopicController extends ActionController {
 		$this->view->assign('suggestedTopics', $suggestedTopics);
 		$this->view->assign('loginUser', $loginUser);
 		$this->view->assign('currentPage', 'suggested');
-		$this->view->assign('commentCount', TRUE);
-		$this->view->assign('baseURL', $this->controllerContext->getRequest()->getHttpRequest()->getBaseUri());
 	}
 
 	/**

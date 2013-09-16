@@ -24,3 +24,11 @@ Chantrea:
       accepted: 'Accepted'
       rejected: 'Rejected'
       scheduled: 'Scheduled'
+    adminNames:
+      contact1: 'Visay'
+      contact2: 'Rayuth'
+      contact3: 'Chanthorn'
+    adminEmails:
+      contact1: 'visay@typo3cambodia.org'
+      contact2: 'rayuth@typo3cambodia.org'
+      contact3: 'chanthorn@typo3cambodia.org'

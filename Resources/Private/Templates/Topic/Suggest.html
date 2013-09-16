@@ -5,8 +5,7 @@
 <f:section name="Header"><f:translate id="label.suggested.header" /></f:section>
 
 <f:section name="Content">
-	<div style="display: none;"><ct:flashMessages /></div>
-	<f:render partial="FormErrors" arguments="{objectName: objectName}" />
+	<ct:flashMessages />
 	<f:form.hidden name="nav-class" class="nav-class" value="{class}" />
 	<f:if condition="{suggestedTopics}">
 		<table class="table table-condensed">
@@ -24,7 +23,6 @@
 				<th><f:translate id="label.delete" /></th>
 				<th><f:translate id="label.suggest.votenumber" /></th>
 				<th><f:translate id="label.suggest.vote" /></th>
-				<th><f:translate id="label.field.comment.count" /></th>
 			</tr>
 			<f:for each="{suggestedTopics}" as="suggestedTopic">
 				<tr class="warning">
@@ -83,7 +81,6 @@
 							</td>
 						</f:else>
 					</f:if>
-					<td><a href="{baseURL}<f:uri.action action='show' controller='Topic' arguments='{topic: suggestedTopic}' />#disqus_thread">Comment Count</a></td>
 				</tr>
 			</f:for>
 		</table>

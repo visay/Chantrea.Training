@@ -1,3 +1,4 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
 <f:layout name="Default" />
 
 <f:section name="Title"></f:section>
@@ -6,6 +7,7 @@
 <f:section name="Content">
 	<f:if condition="{categories}">
 		<f:then>
+			<div style="display: none"><ct:flashMessages /></div>
 			<f:render partial="FormErrors" arguments="{objectName: objectName}" />
 			<p><f:translate id="label.suggest.message.prompt" /></p>
 			<f:form action="create" name="newTopic">
