@@ -315,7 +315,7 @@
 			<trans-unit id="label.header.administration">
 				<source>Administration</source>
 			</trans-unit>
-			
+
 			<!-- header block end -->
 
 			<!-- sign in and sign up block end -->
@@ -411,7 +411,7 @@
 			<trans-unit id="label.no.category">
 				<source>No category created yet.</source>
 			</trans-unit>
-			
+
 			<trans-unit id="label.list.category">
 				<source>Show list of categories</source>
 			</trans-unit>
@@ -446,7 +446,7 @@
 			<trans-unit id="label.footer">
 				<source>
 					<![CDATA[
-						&copy; 2013 Chantrea Training. Powered by: Visay - Rayuth - Chanthorn
+						Chantrea Training - &copy; 2013 by Chanthorn Ngeth, Rayuth You and <a href="http://www.visay.info/" target="_blank">Visay Keo</a>. This is free application, comes with FEATURES WITHOUT ANY WARRANTY.
 					]]>
 				</source>
 			</trans-unit>

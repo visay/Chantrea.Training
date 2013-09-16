@@ -2,8 +2,10 @@
 	<f:else>
 		<hr />
 		<footer>
-			<p class="footer">
+			<div class="pull-left">
 				<f:translate id="label.footer" />
+			</div>
+			<div class="pull-right">
 				<f:if condition="{sessionUser}">
 					<f:then>
 						<f:link.action action="showContact" controller="Standard" arguments="{user:  sessionUser}">
@@ -16,7 +18,7 @@
 						</f:link.action>
 					</f:else>
 				</f:if>
-			</p>
+			</div>
 		</footer>
 	</f:else>
 </f:if>
