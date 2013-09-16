@@ -18,8 +18,8 @@ class TopicRepository extends \TYPO3\Flow\Persistence\Repository {
 	/**
 	 * Find topics by status
 	 *
-	 * @param string $status The status to find
-	 * @param integer $limit Set limit for record to display
+	 * @param string   $status      The status to find
+	 * @param integer  $limit       Set limit for record to display
 	 * @param datetime $currentDate The current date to compare
 	 *
 	 * @return object
@@ -55,8 +55,8 @@ class TopicRepository extends \TYPO3\Flow\Persistence\Repository {
 	/**
 	 * Find topics by filter
 	 *
-	 * @param string $user The user to find
-	 * @param string $status The status to find
+	 * @param string $user     The user to find
+	 * @param string $status   The status to find
 	 * @param string $category The category to find
 	 *
 	 * @return object
@@ -97,7 +97,7 @@ class TopicRepository extends \TYPO3\Flow\Persistence\Repository {
 	 * Find archieve topics
 	 *
 	 * @param datetime $currentDate The current date to compare
-	 * @param string $status The status to find
+	 * @param string   $status      The status to find
 	 *
 	 * @return object
 	 */
@@ -114,6 +114,60 @@ class TopicRepository extends \TYPO3\Flow\Persistence\Repository {
 		return $query->matching($constraint)
 				->setOrderings(array('trainingDateTo' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_DESCENDING))
 				->execute();
+	}
+
+	/**
+	 * findAvailableLocation
+	 *
+	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic
+	 *
+	 * @return \Chantrea\Training\Domain\Model\Topic $topic
+	 */
+	public function findAvailableLocation(\Chantrea\Training\Domain\Model\Topic $topic) {
+		$query = $this->createQuery();
+		$constraintFrom = $query->logicalAnd(
+			$query->lessThan('trainingDateFrom', $topic->getTrainingDateFrom()),
+			$query->greaterThan('trainingDateTo', $topic->getTrainingDateFrom())
+		);
+		$constraintTo = $query->logicalAnd(
+			$query->lessThan('trainingDateFrom', $topic->getTrainingDateTo()),
+			$query->greaterThan('trainingDateTo', $topic->getTrainingDateTo())
+		);
+		$constraintDate = $query->logicalOr($constraintFrom, $constraintTo);
+		$constraintOut = $query->logicalAnd(
+			$query->greaterThanOrEqual('trainingDateFrom', $topic->getTrainingDateFrom()),
+			$query->lessThanOrEqual('trainingDateTo', $topic->getTrainingDateTo())
+		);
+		$constraintLocation = $query->equals('location', $topic->getLocation());
+		$constraintDate = $query->logicalOr($constraintDate, $constraintOut);
+		return $query->matching($query->logicalAnd($constraintLocation, $constraintDate))->execute()->getFirst();
+	}
+
+	/**
+	 * findExistTopic
+	 *
+	 * @param \Chantrea\Training\Domain\Model\Topic $topic The topic
+	 *
+	 * @return \Chantrea\Training\Domain\Model\Topic $topic
+	 */
+	public function findAvailableTrainer(\Chantrea\Training\Domain\Model\Topic $topic) {
+		$query = $this->createQuery();
+		$constraintFrom = $query->logicalAnd(
+			$query->lessThan('trainingDateFrom', $topic->getTrainingDateFrom()),
+			$query->greaterThan('trainingDateTo', $topic->getTrainingDateFrom())
+		);
+		$constraintTo = $query->logicalAnd(
+			$query->lessThan('trainingDateFrom', $topic->getTrainingDateTo()),
+			$query->greaterThan('trainingDateTo', $topic->getTrainingDateTo())
+		);
+		$constraintDate = $query->logicalOr($constraintFrom, $constraintTo);
+		$constraintOut = $query->logicalAnd(
+			$query->greaterThanOrEqual('trainingDateFrom', $topic->getTrainingDateFrom()),
+			$query->lessThanOrEqual('trainingDateTo', $topic->getTrainingDateTo())
+		);
+		$constraintTrainer = $query->equals('trainers', $topic->getTrainers());
+		$constraintDate = $query->logicalOr($constraintDate, $constraintOut);
+		return $query->matching($query->logicalAnd($constraintTrainer, $constraintDate))->execute()->getFirst();
 	}
 }
 ?>

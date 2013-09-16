@@ -11,7 +11,7 @@ use TYPO3\Flow\Annotations as Flow;
  * Account exists validator for the Chantrea.Training package
  * Checks the account if it has ready in account repository
  */
-class SchedulerExistsValidator extends \TYPO3\Flow\Validation\Validator\AbstractValidator {
+class TrainerAvailableValidator extends \TYPO3\Flow\Validation\Validator\AbstractValidator {
 
 	/**
 	 * @Flow\Inject
@@ -27,9 +27,10 @@ class SchedulerExistsValidator extends \TYPO3\Flow\Validation\Validator\Abstract
 	 * @return void
 	 */
 	protected function isValid($value) {
-		$topic = $this->topicRepository->findExistLocation($value);
+		$topic = $this->topicRepository->findAvailableTrainer($value);
+
 		if ($topic) {
-			$this->addError('This room already booked!', 1221560718);
+			$this->addError('The trainer is not available!', 1221560718);
 		}
 	}
 }

@@ -6,8 +6,8 @@
  */
 
 jQuery(document).ready(function(){
-	jQuery('#trainingDateFrom').datetimepicker();
-	jQuery('#trainingDateTo').datetimepicker();
+	jQuery('#trainingDateFrom').datetimepicker({minDate: 0});
+	jQuery('#trainingDateTo').datetimepicker({minDate: 0});
 });
 
 //view report by filter

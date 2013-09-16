@@ -275,6 +275,8 @@ class TopicController extends ActionController {
 	 * @Flow\Validate(argumentName="topic.trainingDateFrom", type="NotEmpty")
 	 * @Flow\Validate(argumentName="topic.trainingDateTo", type="NotEmpty")
 	 * @Flow\Validate(argumentName="topic", type="Chantrea.Training:GreaterThan")
+	 * @Flow\Validate(argumentName="topic", type="Chantrea.Training:RoomAvailable")
+	 * @Flow\Validate(argumentName="topic", type="Chantrea.Training:TrainerAvailable")
 	 * @Flow\Validate(argumentName="topic.location", type="NotEmpty")
 	 * @return void
 	 */
