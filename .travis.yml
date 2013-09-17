@@ -1,0 +1,29 @@
+# see http://about.travis-ci.org/docs/user/languages/php/ for more hints
+language: php
+
+# list any PHP version you want to test against
+php:
+  # using major version aliases
+
+  # aliased to a recent 5.3.x version
+  - 5.3
+  # aliased to a recent 5.4.x version
+  - 5.4
+  # aliased to a recent 5.5.x version
+  - 5.5
+
+# optionally specify a list of environments, for example to test different RDBMS
+env:
+  - DB=mysql
+
+# Setting up pre-requirements
+before_script:
+  - git clone git@github.com:visay/Chantrea.Distribution.git
+  - cd Chantrea.Distribution
+  # Get most recent composer
+  - composer self-update
+  - COMPOSER_PROCESS_TIMEOUT=30000 composer update --dev
+
+script:
+  # Install Prerequirements
+  - phpunit -c Build/BuildEssentials/PhpUnit/UnitTests.xml Packages/Application/Chantrea.Training/Tests
