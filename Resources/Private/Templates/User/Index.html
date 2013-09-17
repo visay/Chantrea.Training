@@ -1,7 +1,7 @@
 <f:layout name="Default" />
 
-<f:section name="Title">A list of users</f:section>
-<f:section name="Header">A list of users</f:section>
+<f:section name="Title"><f:translate id="label.user.list" /></f:section>
+<f:section name="Header"><f:translate id="label.user.list" /></f:section>
 
 <f:section name="Content">
 	<f:if condition="{users}">
@@ -17,8 +17,8 @@
 			</ul>
 		</f:then>
 		<f:else>
-			<p>No user created yet.</p>
+			<p><f:translate id="label.user.list.no.user" /></p>
 		</f:else>
 	</f:if>
-	<p><f:link.action action="new">Create a new user</f:link.action></p>
+	<p><f:link.action action="new"><f:translate id="label.user.list.create.new" /></f:link.action></p>
 </f:section>

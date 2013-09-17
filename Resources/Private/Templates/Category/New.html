@@ -11,7 +11,7 @@
 	<f:form action="create" name="newCategory">
 		<div class="control-group">
 			<div class="control-label" for="name">
-				<f:translate id="label.field.category.name" />
+				<f:translate id="label.field.category.name" /> *
 			</div>
 			<div class="controls">
 				<f:form.textfield property="name" id="name" />
@@ -19,10 +19,10 @@
 		</div>
 		<div class="control-group">
 			<div class="control-label" for="description">
-				<f:translate id="label.field.category.description" />
+				<f:translate id="label.field.room.description" />
 			</div>
 			<div class="controls">
-				<f:form.textarea property="description" id="description" rows="3" cols="50" placeholder="Enter description here" />
+				<f:form.textarea property="description" id="description" rows="3" cols="50" placeholder="{f:translate(id: 'label.placeholder.description')}" />
 			</div>
 		</div>
 		<f:form.button class="btn"><f:translate id="label.create" /></f:form.button>

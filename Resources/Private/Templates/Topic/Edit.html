@@ -10,7 +10,7 @@
 	<f:form action="update" object="{topic}" name="topic">
 		<div class="control-group">
 			<div class="control-label">
-				<label for="title"><f:translate id="label.field.topic.title" /></label>
+				<label for="title"><f:translate id="label.field.topic.title" /> * </label>
 			</div>
 			<div class="controls">
 				<f:form.textfield property="title" id="title" placeholder="{f:translate(id: 'label.placeholder.title')}" />
@@ -26,7 +26,7 @@
 		</div>
 		<div class="control-group">
 			<div class="control-label">
-				<label for="category"><f:translate id="label.field.topic.category" /></label>
+				<label for="category"><f:translate id="label.field.topic.category" /> * </label>
 			</div>
 			<div class="controls">
 				<f:form.select name="category" options="{categories}" optionLabelField="name" property="category" prependOptionLabel="{f:translate(id: 'label.suggest.select.category')}" />

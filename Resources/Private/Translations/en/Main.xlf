@@ -54,6 +54,30 @@
 			<trans-unit id="label.confirm.delete">
 				<source>Are you sure want to delete?</source>
 			</trans-unit>
+			<trans-unit id="label.field.room.name">
+				<source>Room</source>
+			</trans-unit>
+			<trans-unit id="label.field.room.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="label.room.message.prompt">
+				<source>Just fill out the following form to create a new location:</source>
+			</trans-unit>
+			<trans-unit id="label.showaccount.account">
+				<source>Account</source>
+			</trans-unit>
+			<trans-unit id="label.showaccount.firstName">
+				<source>First Name</source>
+			</trans-unit>
+			<trans-unit id="label.showaccount.lastName">
+				<source>Last Name</source>
+			</trans-unit>
+			<trans-unit id="label.showaccount.back">
+				<source>back</source>
+			</trans-unit>
+			<trans-unit id="label.showcontact">
+				<source>Contact</source>
+			</trans-unit>
 			<!-- general end -->
 
 			<!-- plan form start -->
@@ -315,6 +339,42 @@
 			<trans-unit id="label.header.administration">
 				<source>Administration</source>
 			</trans-unit>
+			<trans-unit id="label.edit.location">
+				<source>Edit Room</source>
+			</trans-unit>
+			<trans-unit id="label.new.location">
+				<source>New Room</source>
+			</trans-unit>
+			<trans-unit id="label.signin">
+				<source>Sign in</source>
+			</trans-unit>
+			<trans-unit id="label.signup">
+				<source>Sign up</source>
+			</trans-unit>
+			<trans-unit id="label.showaccount">
+				<source>Show account</source>
+			</trans-unit>
+			<trans-unit id="label.dashboard">
+				<source>Dashboard</source>
+			</trans-unit>
+			<trans-unit id="label.accpetedTopic">
+				<source>Accepted Topics</source>
+			</trans-unit>
+			<trans-unit id="label.listTraining">
+				<source>List Trainings</source>
+			</trans-unit>
+			<trans-unit id="label.showTopic">
+				<source>Show Topic</source>
+			</trans-unit>
+			<trans-unit id="label.user.edit">
+				<source>Edit user information</source>
+			</trans-unit>
+			<trans-unit id="label.user.list">
+				<source>A list of users</source>
+			</trans-unit>
+			<trans-unit id="label.resetPassword">
+				<source>Reset Password</source>
+			</trans-unit>
 
 			<!-- header block end -->
 
@@ -372,6 +432,12 @@
 			</trans-unit>
 			<trans-unit id="label.report.back">
 				<source>Back to report filter</source>
+			</trans-unit>
+			<trans-unit id="label.report.not.match">
+				<source>No topic match this filter</source>
+			</trans-unit>
+			<trans-unit id="label.viewReport.filter.options">
+				<source>Please filter report by bellow options:</source>
 			</trans-unit>
 			<!-- view report end -->
 
@@ -442,6 +508,42 @@
 			<trans-unit id="label.list.location.delete">
 				<source>Delete</source>
 			</trans-unit>
+
+			<!-- user blog start -->
+			<trans-unit id="label.user.field">
+				<source>Field</source>
+			</trans-unit>
+			<trans-unit id="label.user.detail">
+				<source>Details</source>
+			</trans-unit>
+			<trans-unit id="label.user.field.firstName">
+				<source>First Name</source>
+			</trans-unit>
+			<trans-unit id="label.user.field.lastName">
+				<source>Last Name</source>
+			</trans-unit>
+			<trans-unit id="label.user.field.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="label.user.list.no.user">
+				<source>No user created yet.</source>
+			</trans-unit>
+			<trans-unit id="label.user.list.create.new">
+				<source>Create new user</source>
+			</trans-unit>
+			<trans-unit id="label.user.field.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="label.user.edit.field.newPassword">
+				<source>New Password</source>
+			</trans-unit>
+			<trans-unit id="label.user.edit.field.repeatPassword">
+				<source>Repeat New Password</source>
+			</trans-unit>
+			<trans-unit id="label.user.show.resetPassword">
+				<source>Password Reset</source>
+			</trans-unit>
+			<!-- user blog end -->
 
 			<trans-unit id="label.footer">
 				<source>

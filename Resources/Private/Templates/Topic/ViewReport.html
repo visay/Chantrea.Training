@@ -6,7 +6,7 @@
 
 <f:section name="Content">
 	<ct:flashMessages />
-	<p>Please filter report by bellow options:</p>
+	<p><f:translate id="label.viewReport.filter.options" /></p>
 	<f:form action="showReportByFilter" object="{topic}" id="report">
 		<f:form.select name="userFilter" id="userFilter" options="{users}" optionLabelField="name" prependOptionLabel="{f:translate(id: 'label.report.reportbyusers')}" />
 		<f:form.select name="statusFilter" id="statusFilter" options="{statuses}" prependOptionLabel="{f:translate(id: 'label.report.reportbystatus')}"  />

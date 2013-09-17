@@ -2,7 +2,7 @@
 <f:layout name="Default" />
 
 <f:section name="Title"></f:section>
-<f:section name="Header">Plan the training</f:section>
+<f:section name="Header"></f:section>
 <f:section name="Content">
 	<div style="display: none;"><ct:flashMessages /></div>
 	<f:render partial="FormErrors" arguments="{objectName: objectName}" />
@@ -41,7 +41,7 @@
 		</div>
 		<div class="control-group">
 			<div class="control-label">
-				<label for="type"><f:translate id="label.field.topic.type" />:</label>
+				<label for="type"><f:translate id="label.field.topic.type" />: *</label>
 			</div>
 			<div class="controls">
 				<f:form.select name="type" property="type" options="{types}" optionLabelField="name" prependOptionLabel="{f:translate(id: 'label.plan.select.type')}" />
@@ -52,7 +52,7 @@
 		</div>
 		<div class="control-group">
 			<div class="control-label">
-				<label for="trainingDateFrom"><f:translate id="label.field.topic.trainingDateFrom" /></label>
+				<label for="trainingDateFrom"><f:translate id="label.field.topic.trainingDateFrom" />: * </label>
 			</div>
 			<div class="controls">
 				<f:form.textfield property="trainingDateFrom" id="trainingDateFrom" />
@@ -60,7 +60,7 @@
 		</div>
 		<div class="control-group">
 			<div class="control-label">
-				<label for="trainingDateTo"><f:translate id="label.field.topic.trainingDateTo" /></label>
+				<label for="trainingDateTo"><f:translate id="label.field.topic.trainingDateTo" />: * </label>
 			</div>
 			<div class="controls">
 				<f:form.textfield property="trainingDateTo" id="trainingDateTo" />
@@ -68,7 +68,7 @@
 		</div>
 		<div class="control-group">
 			<div class="control-label">
-				<label for="trainers"><f:translate id="label.field.topic.trainer" />:</label>
+				<label for="trainers"><f:translate id="label.field.topic.trainer" />: *</label>
 			</div>
 			<div class="controls">
 				<div class="left">
@@ -78,7 +78,7 @@
 		</div>
 		<div class="control-group">
 			<div class="control-label">
-				<label for="location"><f:translate id="label.field.topic.location" />: </label>
+				<label for="location"><f:translate id="label.field.topic.location" />: *</label>
 			</div>
 			<div class="controls">
 				<f:form.select name="location" property="location" options="{locations}" optionLabelField="room" prependOptionLabel="{f:translate(id: 'label.plan.select.location')}" />

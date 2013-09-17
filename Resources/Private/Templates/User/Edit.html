@@ -1,8 +1,8 @@
 {namespace ct=Chantrea\Training\ViewHelpers}
 <f:layout name="Default" />
 
-<f:section name="Title">Edit user information</f:section>
-<f:section name="Header">Edit user information</f:section>
+<f:section name="Title"><f:translate id="label.user.edit" /></f:section>
+<f:section name="Header"><f:translate id="label.user.edit" /></f:section>
 
 <f:section name="Content">
 	<f:form action="update" object="{user}" name="user">
@@ -17,21 +17,21 @@
 					</colgroup>
 					<thead>
 						<tr>
-							<th>Field</th>
-							<th>Details</th>
+							<th><f:translate id="label.user.field" /></th>
+							<th><f:translate id="label.user.field" /></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td><label for="firstName">First Name</label></td>
+							<td><label for="firstName"><f:translate id="label.user.field.firstName" /></label></td>
 							<td><f:form.textfield property="name.firstName" id="firstName" /></td>
 						</tr>
 						<tr>
-							<td><label for="lastName">Last Name</label></td>
+							<td><label for="lastName"><f:translate id="label.user.field.lastName" /></label></td>
 							<td><f:form.textfield property="name.lastName" id="lastName" /></td>
 						</tr>
 						<tr>
-							<td><label for="email">Email</label></td>
+							<td><label for="email"><f:translate id="label.user.field.email" /></label></td>
 							<td><f:form.textfield property="email" id="email" /></td>
 						</tr>
 						<tr>

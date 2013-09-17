@@ -10,7 +10,7 @@
 	<f:form action="update" object="{category}" name="category">
 		<div class="control-group">
 			<div class="control-label">
-				<label for="name"><f:translate id="label.field.category.name" /></label>
+				<label for="name"><f:translate id="label.field.category.name" /> * </label>
 			</div>
 			<div class="control-group">
 				<f:form.textfield property="name" id="name" />
@@ -20,7 +20,7 @@
 			<div class="control-label">
 				<label for="description"><f:translate id="label.field.category.description" /></label>
 			</div>
-			<f:form.textarea property="description" id="description" rows="3" cols="50" placeholder="Enter description here" />
+			<f:form.textarea property="description" id="description" rows="3" cols="50" placeholder="{f:translate(id: 'label.placeholder.description')}" />
 		</div>
 		<f:form.button class="btn"><f:translate id="label.update" /></f:form.button>
 	</f:form>

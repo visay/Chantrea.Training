@@ -1,24 +1,24 @@
 <f:layout name="Default" />
 
-<f:section name="Title">Show account "{account.party.name}"</f:section>
-<f:section name="Header">Show account "{account.party.name}"</f:section>
+<f:section name="Title"><f:translate id="label.showaccount" /> "{account.party.name}"</f:section>
+<f:section name="Header"><f:translate id="label.showaccount" /> "{account.party.name}"</f:section>
 
 <f:section name="Content">
 	<table>
 		<tr>
-			<th>Account</th>
+			<th><f:translate id="label.showaccount.account" /></th>
 			<td>{account.accountIdentifier}</td>
 		</tr>
 
 		<tr>
-			<th>First name</th>
+			<th><f:translate id="label.showaccount.firstName" /></th>
 			<td>{account.party.name.firstName}</td>
 		</tr>
 
 		<tr>
-			<th>Last name</th>
+			<th><f:translate id="label.showaccount.lastName" /></th>
 			<td>{account.party.name.lastName}</td>
 		</tr>
 	</table>
-	<f:link.action controller="Topic" action="index">Back</f:link.action>
+	<f:link.action controller="Topic" action="index"><f:translate id="label.showaccount.back" /></f:link.action>
 </f:section>
