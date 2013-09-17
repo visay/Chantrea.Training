@@ -18,7 +18,7 @@ env:
 
 # Setting up pre-requirements
 before_script:
-  - git clone git@github.com:visay/Chantrea.Distribution.git
+  - git clone https://github.com/visay/Chantrea.Distribution.git
   - cd Chantrea.Distribution
   # Get most recent composer
   - composer self-update
