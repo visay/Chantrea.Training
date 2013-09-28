@@ -12,7 +12,10 @@ TYPO3:
             provider: 'PersistedUsernamePasswordProvider'
             entryPoint: 'WebRedirect'
             entryPointOptions:
-              uri: 'login'
+              routeValues:
+                '@package': 'Chantrea.Training'
+                '@controller': 'Standard'
+                '@action': 'index'
 
 Chantrea:
   Training:
