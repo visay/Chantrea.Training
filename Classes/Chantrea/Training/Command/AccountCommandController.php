@@ -50,11 +50,17 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 	 *
 	 * @var string
 	 */
-	protected $authenticationProviderName = 'DefaultProvider';
-
+	protected $defaultProvider = 'DefaultProvider';
 
 	/**
-	 * Command to create an account
+	 * Name of the authentication provider to be used.
+	 *
+	 * @var string
+	 */
+	protected $ldapProvider = 'LdapProvider';
+
+	/**
+	 * Command to create an account with default provider
 	 *
 	 * This command create an account as an alternative to registering through
 	 * Web Interface. This is the only way at the moment to create account with
@@ -72,32 +78,35 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 	 * @return void
 	 */
 	public function createCommand($username, $password, $firstName, $lastName, $email, $admin = FALSE) {
-		// Check if the account already exists
-		$existingAccount = $this->accountRepository->findActiveByAccountIdentifierAndAuthenticationProviderName($username, $this->authenticationProviderName);
+		// Check if the account already exists in default provider
+		$existingAccount = $this->accountRepository->findActiveByAccountIdentifierAndAuthenticationProviderName($username, $this->defaultProvider);
+		// If account doesn't exist in default provider, continue to check in ldap provider
+		if (! $existingAccount) {
+			$existingAccount = $this->accountRepository->findActiveByAccountIdentifierAndAuthenticationProviderName($username, $this->ldapProvider);
+		}
+		// Doesn't do anything if account exists
 		if ($existingAccount) {
 			$this->outputLine('FAILED: Account "' . $username . '" already exists!');
 			return;
 		}
-
+		// Validate email address
 		if (! $this->validEmail($email)) {
 			$this->outputLine('FAILED: Please specify a valid email address.');
 			return;
 		}
-
 		// Check if the email address already in use
 		$userEmailExist = $this->userRepository->findByEmail($email);
 		if ($userEmailExist) {
 			$this->outputLine('FAILED: Email address "' . $email . '" already exists in the system.');
 			return;
 		}
-
 		// Check for password length
 		$minimumLength = 5;
 		if (strlen($password) < $minimumLength) {
 			$this->outputLine('FAILED: The minimum password length must be ' . $minimumLength . '.');
 			return;
 		}
-
+		// Everything is fine, create an account with default provider
 		$user = new \Chantrea\Training\Domain\Model\User();
 		$user->setName(new \TYPO3\Party\Domain\Model\PersonName('', $firstName, '', $lastName));
 		$user->setEmail($email);
@@ -109,7 +118,7 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 			$roleIdentifiers[] = 'Chantrea.Training:User';
 		}
 
-		$account = $this->accountFactory->createAccountWithPassword($username, $password, $roleIdentifiers);
+		$account = $this->accountFactory->createAccountWithPassword($username, $password, $roleIdentifiers, $this->defaultProvider);
 		$this->accountRepository->add($account);
 		$user->addAccount($account);
 
@@ -119,7 +128,7 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 	}
 
 	/**
-	 * Command to remove an account
+	 * Command to remove an account from default provider
 	 *
 	 * This command remove an account from the database by searching for the username applied.
 	 * Come with a confirmation message to reduce common mistake.
@@ -130,7 +139,7 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 	 */
 	public function removeCommand($username) {
 		// Check if the account exists
-		$existingAccount = $this->accountRepository->findActiveByAccountIdentifierAndAuthenticationProviderName($username, $this->authenticationProviderName);
+		$existingAccount = $this->accountRepository->findActiveByAccountIdentifierAndAuthenticationProviderName($username, $this->defaultProvider);
 		if (! $existingAccount) {
 			$this->outputLine('FAILED: Account "' . $username . '" does not exist!');
 			return;
@@ -162,7 +171,7 @@ class AccountCommandController extends \TYPO3\Flow\Cli\CommandController {
 		foreach ($accounts as $account) {
 			$this->outputLine('- ' . $account->getAccountIdentifier() . ' | ' . $account->getParty()->getName() .
 				' | ' . $account->getParty()->getEmail() . ' | ' . (in_array('Chantrea.Training:Administrator', $account->getRoles()) ?
-				'Administrator' : 'User'));
+				'Administrator' : 'User') . ' | ' . $account->getAuthenticationProviderName());
 		}
 	}
 

@@ -28,7 +28,13 @@ class AccountExistsValidator extends \TYPO3\Flow\Validation\Validator\AbstractVa
 	 * @return void
 	 */
 	protected function isValid($value) {
+		// Check if account exists in default provider
 		$account = $this->accountRepository->findActiveByAccountIdentifierAndAuthenticationProviderName($value, 'DefaultProvider');
+		// If account doesn't exist in default provider, continue to check in ldap provider
+		if (! $account) {
+			$account = $this->accountRepository->findActiveByAccountIdentifierAndAuthenticationProviderName($value, 'LdapProvider');
+		}
+		// If account exists in any provider, throw error
 		if ($account && $account->getAccountIdentifier() == $value) {
 			$this->addError('This username already exists.', 1221560718);
 		}

@@ -8,6 +8,35 @@ TYPO3:
       authentication:
         authenticationStrategy: oneToken
         providers:
+          LdapProvider:
+            provider: Chantrea\Training\Security\Authentication\Provider\LDAPProvider
+            providerOptions:
+              type: 'LDAP'
+              host: directory.web-essentials.asia
+              port: 389
+              baseDn: ou=people,dc=web-essentials,dc=asia
+
+              bind:
+                anonymous: TRUE
+                dn:
+                password:
+
+              # All PHP LDAP options can be set here. Make the constant lowercase
+              # and remove the ldap_opt_ prefix.
+              # Example: LDAP_OPT_PROTOCOL_VERSION becomes protocol_version
+              ldapOptions:
+                protocol_version: 3
+
+              # ? will be replaced with the username provided
+              filter:
+                account: '(uid=?)'
+
+                # this will use the filter with domain, set it to yes to remove it for search
+                ignoreDomain: TRUE
+
+              # will be prefixed to a given username if no other domain was specified
+              domain: 'web-essentials'
+
           DefaultProvider:
             provider: 'PersistedUsernamePasswordProvider'
             entryPoint: 'WebRedirect'

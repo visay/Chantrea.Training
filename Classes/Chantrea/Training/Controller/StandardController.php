@@ -1,8 +1,6 @@
 <?php
 namespace Chantrea\Training\Controller;
 
-use TYPO3\Flow\Aop\Exception\VoidImplementationException;
-
 /*                                                                        *
  * This script belongs to the TYPO3 Flow package "Chantrea.Training".     *
  *                                                                        *
@@ -11,6 +9,7 @@ use TYPO3\Flow\Aop\Exception\VoidImplementationException;
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\Flow\Security\Account;
 use TYPO3\Flow\Error\Message;
+
 /**
  * Standard controller for the Chantrea.Training package
  *
@@ -65,6 +64,7 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	 * Register action
 	 *
 	 * @return void
+	 * @deprecated
 	 */
 	public function registerAction() {
 		if ($this->authenticationManager->isAuthenticated()) {
@@ -97,6 +97,7 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	 * @Flow\Validate(argumentName="password", type="Chantrea.Training:Password", options={"minimumLength"=5})
 	 *
 	 * @return void
+	 * @deprecated
 	 */
 	public function createAction($username, $firstName, $lastName, $email, $password) {
 		if ($this->authenticationManager->isAuthenticated()) {
@@ -140,11 +141,17 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	 * Authenticate action
 	 *
 	 * @return void
-	 * @throws \TYPO3\Flow\Security\Exception
 	 */
 	public function authenticateAction() {
+		$authenticated = FALSE;
 		try {
 			$this->authenticationManager->authenticate();
+			$authenticated = TRUE;
+		} catch(\Exception $exception) {
+			$message = $exception->getMessage();
+		}
+
+		if ($authenticated) {
 			$roles = $this->securityContext->getAccount()->getRoles();
 			foreach ($roles as $role) {
 				if ($role == 'Chantrea.Training:Administrator') {
@@ -152,9 +159,9 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 				}
 			}
 			$this->redirect('index', 'Topic');
-		} catch(\TYPO3\Flow\Security\Exception $exception) {
+		} else {
 			$this->addFlashMessage('Incorrect username or password.', '', Message::SEVERITY_ERROR);
-			throw $exception;
+			$this->redirect('index');
 		}
 	}
 

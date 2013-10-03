@@ -7,7 +7,7 @@
 			<f:form.textfield name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" placeholder="{f:translate(id: 'label.login.placeholder.username')}" class="input-block-level" />
 			<input type="password" name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]" placeholder="{f:translate(id: 'label.login.placeholder.password')}" class="input-block-level" />
 			<f:form.button type="submit" class="btn btn-large btn-primary"><f:translate id="label.signin.button" /></f:form.button>
-			<div class="signup"> <f:translate id="label.login.not.member" /> <f:link.action action="register"><f:translate id="label.signup.button" /></f:link.action>.</div>
+			<!-- div class="signup"> <f:translate id="label.login.not.member" /> <f:link.action action="register"><f:translate id="label.signup.button" /></f:link.action>.</div -->
 		</f:form>
 	</f:else>
 </f:security.ifAuthenticated>
