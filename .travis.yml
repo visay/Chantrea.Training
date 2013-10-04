@@ -18,14 +18,14 @@ env:
 
 # Setting up pre-requirements
 before_script:
-  - cd ..
+  - cd ~
   - git clone https://github.com/visay/Chantrea.Distribution.git
   - cd Chantrea.Distribution
   # Get most recent composer
   - composer self-update
   - COMPOSER_PROCESS_TIMEOUT=30000 composer update --dev
   - rm -rf Packages/Application/Chantrea.Training
-  - ln -s ../Chantrea.Training Packages/Application/Chantrea.Training
+  - ln -s ~/visay/Chantrea.Training Packages/Application/Chantrea.Training
 
 script:
   # Install Prerequirements
