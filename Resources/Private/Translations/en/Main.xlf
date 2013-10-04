@@ -509,7 +509,13 @@
 				<source>Delete</source>
 			</trans-unit>
 
-			<!-- user blog start -->
+			<!-- user block start -->
+			<trans-unit id="label.user.account">
+				<source>User Account:</source>
+			</trans-unit>
+			<trans-unit id="label.user.management">
+				<source>User Management</source>
+			</trans-unit>
 			<trans-unit id="label.user.field">
 				<source>Field</source>
 			</trans-unit>
@@ -524,6 +530,12 @@
 			</trans-unit>
 			<trans-unit id="label.user.field.email">
 				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="label.user.field.role">
+				<source>Role</source>
+			</trans-unit>
+			<trans-unit id="label.user.field.type">
+				<source>Type</source>
 			</trans-unit>
 			<trans-unit id="label.user.list.no.user">
 				<source>No user created yet.</source>
@@ -543,7 +555,7 @@
 			<trans-unit id="label.user.show.resetPassword">
 				<source>Password Reset</source>
 			</trans-unit>
-			<!-- user blog end -->
+			<!-- user block end -->
 
 			<trans-unit id="label.footer">
 				<source>

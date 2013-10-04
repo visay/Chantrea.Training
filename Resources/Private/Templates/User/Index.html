@@ -1,20 +1,64 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
 <f:layout name="Default" />
 
 <f:section name="Title"><f:translate id="label.user.list" /></f:section>
 <f:section name="Header"><f:translate id="label.user.list" /></f:section>
 
 <f:section name="Content">
+	<ct:flashMessages />
 	<f:if condition="{users}">
 		<f:then>
-			<ul>
+			<table class="table table-condensed">
+				<tr>
+					<th><f:translate id="label.field.topic.username" /></th>
+					<th><f:translate id="label.user.field.name" /></th>
+					<th><f:translate id="label.user.field.email" /></th>
+					<th><f:translate id="label.user.field.type" /></th>
+					<th><f:translate id="label.user.field.role" /></th>
+					<th></th>
+					<th></th>
+				</tr>
 				<f:for each="{users}" as="user">
-					<li>
-						<f:link.action action="show" arguments="{user: user}">{user.name}</f:link.action>
-						<f:link.action action="edit" arguments="{user: user}">Edit</f:link.action>
-						<f:link.action action="delete" arguments="{user: user}">Delete</f:link.action>
-					</li>
+					<tr>
+						<td><f:link.action action="show" arguments="{user: user}">{user.account.accountIdentifier}</f:link.action></td>
+						<td>{user.name}</td>
+						<td>{user.email}</td>
+						<f:if condition="{user.ldapUser}">
+							<f:then>
+								<td>LDAP</td>
+							</f:then>
+							<f:else>
+								<td>System</td>
+							</f:else>
+						</f:if>
+						<f:if condition="{user.admin}">
+							<f:then>
+								<td>Administrator</td>
+							</f:then>
+							<f:else>
+								<td>User</td>
+							</f:else>
+						</f:if>
+						<f:if condition="{user.ldapUser}">
+							<f:then>
+								<td></td>
+								<td></td>
+							</f:then>
+							<f:else>
+								<td><f:link.action action="edit" arguments="{user: user}">Edit</f:link.action></td>
+								<f:if condition="{user == sessionUser}">
+									<f:then>
+										<td></td>
+									</f:then>
+									<f:else>
+										<td><f:link.action action="delete" arguments="{user: user}">Delete</f:link.action></td>
+									</f:else>
+								</f:if>
+							</f:else>
+						</f:if>
+					</tr>
 				</f:for>
-			</ul>
+			</table>
 		</f:then>
 		<f:else>
 			<p><f:translate id="label.user.list.no.user" /></p>

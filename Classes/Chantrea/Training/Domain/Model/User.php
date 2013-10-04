@@ -74,5 +74,29 @@ class User extends \TYPO3\Party\Domain\Model\Person {
 		return $this->persistenceManager->getIdentifierByObject($this);
 	}
 
+	/**
+	 * Gets account
+	 * @return \TYPO3\Flow\Security\Account
+	 */
+	public function getAccount() {
+		return $this->getAccounts()->first();
+	}
+
+	/**
+	 * Checks if ldap user
+	 * @return boolean
+	 */
+	public function isLdapUser() {
+		return ($this->getAccount()->getAuthenticationProviderName() === 'LdapProvider');
+	}
+
+	/**
+	 * Checkis if admin user
+	 * @return boolean
+	 */
+	public function isAdmin() {
+		return (in_array('Chantrea.Training:Administrator', $this->getAccount()->getRoles()));
+	}
+
 }
 ?>
