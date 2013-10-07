@@ -1,0 +1,11 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
+<f:layout name="Standard" />
+
+<f:section name="Title"><f:translate id="label.signin" /></f:section>
+
+<f:section name="Content">
+	<div class="container singin">
+		<ct:flashMessages />
+		<f:render partial="StandardLogin" />
+	</div>
+</f:section>

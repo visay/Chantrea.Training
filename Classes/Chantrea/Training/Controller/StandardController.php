@@ -48,11 +48,19 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	protected $securityContext;
 
 	/**
-	 * Index/login action
+	 * Index action
 	 *
 	 * @return void
 	 */
 	public function indexAction() {
+	}
+
+	/**
+	 * Login action
+	 *
+	 * @return void
+	 */
+	public function loginAction() {
 		if ($this->authenticationManager->isAuthenticated()) {
 			$this->redirect('index', 'Topic');
 		} else {
@@ -124,17 +132,8 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 			$mail->send();
 
 			$this->addFlashMessage('Your account has been created successfully.');
-			$this->redirect('index');
+			$this->redirect('login');
 		}
-	}
-
-	/**
-	 * Redirect action
-	 *
-	 * @return void
-	 */
-	public function redirectAction() {
-		$this->redirect('index');
 	}
 
 	/**
@@ -161,7 +160,7 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 			$this->redirect('index', 'Topic');
 		} else {
 			$this->addFlashMessage('Incorrect username or password.', '', Message::SEVERITY_ERROR);
-			$this->redirect('index');
+			$this->redirect('login');
 		}
 	}
 

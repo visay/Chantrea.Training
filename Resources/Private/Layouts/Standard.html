@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<f:base />
+	<title><f:render section="Title" /> - Chantrea Training</title>
+
+	<link rel="shortcut icon" href="{f:uri.resource(path: 'Images/Icons/favicon.png')}">
+
+	<!-- Bootstrap core CSS -->
+	<link href="{f:uri.resource(path: '3.0/css/bootstrap.min.css', package: 'TYPO3.Twitter.Bootstrap')}" rel="stylesheet">
+	<link href="{f:uri.resource(path: '3.0/css/bootstrap-theme.min.css', package: 'TYPO3.Twitter.Bootstrap')}" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="{f:uri.resource(path: 'Styles/Standard.css')}" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="{f:uri.resource(path: 'JavaScript/html5shiv.js')}"></script>
+		<script src="{f:uri.resource(path: 'JavaScript/respond.min.js')}"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div id="wrap">
+		<f:render section="Content" />
+	</div>
+
+	<!-- Site footer -->
+	<f:render partial="StandardFooter" />
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="{f:uri.resource(path: 'Libraries/jQuery/jquery-2.0.2.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
+	<script src="{f:uri.resource(path: '3.0/js/bootstrap.min.js', package: 'TYPO3.Twitter.Bootstrap')}"></script>
+	<script src="{f:uri.resource(path: 'JavaScript/holder.js')}"></script>
+</body>
+</html>

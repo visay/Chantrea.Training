@@ -1,0 +1,8 @@
+<f:form action="authenticate" method="post" class="form-signin">
+	<h2 class="form-signin-heading"><f:translate id="label.login.signin" /></h2>
+	<f:form.textfield name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" placeholder="{f:translate(id: 'label.login.placeholder.username')}" class="form-control" autofocus="" />
+	<input type="password" name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]" placeholder="{f:translate(id: 'label.login.placeholder.password')}" class="form-control" />
+	<!-- label class="checkbox"><input type="checkbox" value="remember-me"> Remember me</label -->
+	<f:form.button type="submit" class="btn btn-lg btn-primary btn-block"><f:translate id="label.signin.button" /></f:form.button>
+	<!-- div class="signup"> <f:translate id="label.login.not.member" /> <f:link.action action="register"><f:translate id="label.signup.button" /></f:link.action>.</div -->
+</f:form>

@@ -44,7 +44,7 @@ TYPO3:
               routeValues:
                 '@package': 'Chantrea.Training'
                 '@controller': 'Standard'
-                '@action': 'index'
+                '@action': 'login'
 
 Chantrea:
   Training:

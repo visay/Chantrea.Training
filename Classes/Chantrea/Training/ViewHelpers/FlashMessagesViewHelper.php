@@ -51,12 +51,23 @@ class FlashMessagesViewHelper extends \TYPO3\Fluid\Core\ViewHelper\AbstractViewH
 	protected function renderAsList(array $flashMessages) {
 		$content = '';
 		foreach ($flashMessages as $singleFlashMessage) {
-			$severityClass = 'alert alert-' . (strtolower($singleFlashMessage->getSeverity()) == 'ok' ? 'success' : strtolower($singleFlashMessage->getSeverity()));
+			$alertClass = 'info';
+			switch (strtolower($singleFlashMessage->getSeverity())) {
+				case 'ok':
+					$alertClass = 'success';
+					break;
+				case 'error':
+					$alertClass = 'danger';
+					break;
+				default:
+					$alertClass = strtolower($singleFlashMessage->getSeverity());
+			}
+			$severityClass = 'alert alert-block alert-' . $alertClass . ' fade in';
 			$messageContent = htmlspecialchars($singleFlashMessage->render());
 			if ($singleFlashMessage->getTitle() !== '') {
 				$messageContent = sprintf('<strong>%s</strong> ', htmlspecialchars($singleFlashMessage->getTitle())) . $messageContent;
 			}
-			$content .= '<div class="' . htmlspecialchars($severityClass) . '"><button type="button" class="close" data-dismiss="alert">&times;</button>' . $messageContent . '</div>';
+			$content .= '<div class="' . htmlspecialchars($severityClass) . '"><button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>' . $messageContent . '</div>';
 		}
 
 		return $content;

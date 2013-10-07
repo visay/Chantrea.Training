@@ -159,7 +159,7 @@ class UserController extends ActionController {
 			$this->authenticationManager->logout();
 			$this->addFlashMessage('Password updated. Please re-login.');
 		}
-		$this->redirect('index', 'Standard');
+		$this->redirect('login', 'Standard');
 	}
 
 }

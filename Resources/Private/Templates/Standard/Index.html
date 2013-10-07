@@ -1,7 +1,87 @@
-<f:layout name="Default" />
+{namespace ct=Chantrea\Training\ViewHelpers}
+<f:layout name="Standard" />
 
-<f:section name="Title"><f:translate id="label.signin" /></f:section>
+<f:section name="Title">Welcome</f:section>
 
 <f:section name="Content">
-	<f:render partial="Login" />
+	<div class="container welcome">
+
+		<ct:flashMessages />
+
+		<f:render partial="StandardNavBar" />
+
+		<!-- Jumbotron -->
+		<div class="jumbotron">
+			<h1>Chantrea Training</h1>
+			<p class="lead">Short description about Chantrea Training come here. Cras justo odio, dapibus ac facilisis in, egestas
+				eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+				condimentum nibh.</p>
+			<p>
+				<f:security.ifAuthenticated>
+					<f:then>
+						<f:link.action action="login" class="btn btn-lg btn-success">Continue to application</f:link.action>
+					</f:then>
+					<f:else>
+						<a class="btn btn-lg btn-success" href="#myModal" data-toggle="modal">Get started today</a>
+					</f:else>
+				</f:security.ifAuthenticated>
+			</p>
+		</div>
+
+		<!-- Three columns of text below the carousel -->
+		<div class="row">
+			<div class="col-lg-4">
+				<img class="img-circle" src="data:image/png;base64,"
+					data-src="holder.js/140x140" alt="Generic placeholder image">
+				<h2>Feature 1</h2>
+				<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis
+					euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.
+					Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+					Praesent commodo cursus magna.</p>
+				<p>
+					<a class="btn btn-info" href="#">Read more &raquo;</a>
+				</p>
+			</div>
+			<!-- /.col-lg-4 -->
+			<div class="col-lg-4">
+				<img class="img-circle" src="data:image/png;base64,"
+					data-src="holder.js/140x140" alt="Generic placeholder image">
+				<h2>Feature 2</h2>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor
+					ligula, eget lacinia odio sem nec elit. Cras mattis consectetur
+					purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo,
+					tortor mauris condimentum nibh.</p>
+				<p>
+					<a class="btn btn-info" href="#">Read more &raquo;</a>
+				</p>
+			</div>
+			<!-- /.col-lg-4 -->
+			<div class="col-lg-4">
+				<img class="img-circle" src="data:image/png;base64,"
+					data-src="holder.js/140x140" alt="Generic placeholder image">
+				<h2>Feature 3</h2>
+				<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis
+					in, egestas eget quam. Vestibulum id ligula porta felis euismod
+					semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+					condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+				<p>
+					<a class="btn btn-info" href="#">Read more &raquo;</a>
+				</p>
+			</div>
+			<!-- /.col-lg-4 -->
+		</div>
+		<!-- /.row -->
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<f:render partial="StandardLogin" />
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+	</div>
 </f:section>

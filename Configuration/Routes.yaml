@@ -7,7 +7,7 @@
   uriPattern: 'login'
   defaults:
     '@controller': 'Standard'
-    '@action':     'index'
+    '@action':     'login'
 
 -
   name: 'Standard action'
@@ -47,13 +47,6 @@
     account:
       objectType: TYPO3\Flow\Security\Account
       uriPattern: '{party.name.firstName}.{party.name.lastName}'
-
--
-  name: 'Redirect action'
-  uriPattern: ''
-  defaults:
-    '@controller': 'Standard'
-    '@action':     'redirect'
 
 -
   name: 'Topic list action'
@@ -130,3 +123,10 @@
     topic:
       objectType: Chantrea\Training\Domain\Model\Location
       uriPattern: '{title}'
+
+-
+  name: 'Fallback action'
+  uriPattern: ''
+  defaults:
+    '@controller': 'Standard'
+    '@action':     'index'
