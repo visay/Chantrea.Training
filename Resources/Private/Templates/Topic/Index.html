@@ -4,7 +4,7 @@
 <f:section name="Header"></f:section>
 
 <f:section name="Content">
-	<f:if condition="{scheduleTopics}">
+	<f:if condition="{availableTopics}">
 		<f:then>
 			<h4>
 				<f:translate id="label.latest.scheduled" />
@@ -17,21 +17,21 @@
 					<th><f:translate id="label.field.topic.trainer" /></th>
 					<th><f:translate id="label.field.topic.location" /></th>
 				</tr>
-				<f:for each="{scheduleTopics}" as="scheduleTopic">
+				<f:for each="{availableTopics}" as="availableTopic">
 					<tr>
 						<td>
-							<f:format.date format="d/m/Y H:i">{scheduleTopic.trainingDateFrom}</f:format.date>
+							<f:format.date format="d/m/Y H:i">{availableTopic.trainingDateFrom}</f:format.date>
 							-
-							<f:format.date format="d/m/Y H:i">{scheduleTopic.trainingDateTo}</f:format.date>
+							<f:format.date format="d/m/Y H:i">{availableTopic.trainingDateTo}</f:format.date>
 						</td>
-						<td>{scheduleTopic.title}</td>
-						<td>{scheduleTopic.category.name}</td>
+						<td>{availableTopic.title}</td>
+						<td>{availableTopic.category.name}</td>
 						<td>
-							<f:for each="{scheduleTopic.trainers}" as="trainer">
+							<f:for each="{availableTopic.trainers}" as="trainer">
 								{trainer.name} <br />
 							</f:for>
 						</td>
-						<td>{scheduleTopic.location.room}</td>
+						<td>{availableTopic.location.room}</td>
 					</tr>
 				</f:for>
 			</table>
