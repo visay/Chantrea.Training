@@ -27,3 +27,6 @@ body {
 	float: right;
 	margin-bottom: 10px;
 }
+.align-center {
+	text-align: center;
+}

@@ -45,14 +45,12 @@
 			<table class="table table-condensed">
 				<tr>
 					<th><f:translate id="label.list.location.name" /></th>
-					<th><f:translate id="label.list.location.description" /></th>
 					<th><f:translate id="label.list.location.edit" /></th>
 					<th><f:translate id="label.list.location.delete" /></th>
 				</tr>
 				<f:for each="{locations}" as="location">
 					<tr>
 						<td>{location.room}</td>
-						<td>{location.description}</td>
 						<td><f:link.action action="edit" arguments="{location: location}" controller="Location"><i class="icon-pencil"></i></f:link.action></td>
 						<f:if condition="{location.topics ->f:count()} > 0">
 							<f:then>

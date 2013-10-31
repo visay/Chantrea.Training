@@ -51,7 +51,8 @@
 			</h4>
 			<table class="table table-condensed">
 				<tr>
-					<th><f:translate id="label.field.topic.trainingDateFrom" /> - <f:translate id="label.field.topic.trainingDateTo" /></th>
+					<th><f:translate id="label.field.topic.trainingDate" /></th>
+					<th><f:translate id="label.field.topic.trainingTime" /></th>
 					<th><f:translate id="label.field.topic" /></th>
 					<th><f:translate id="label.field.topic.category" /></th>
 					<th><f:translate id="label.field.topic.type" /></th>
@@ -61,9 +62,12 @@
 				<f:for each="{archieveTopics}" as="archieveTopic">
 					<tr>
 						<td>
-							<f:format.date format="d/m/Y H:i">{archieveTopic.trainingDateFrom}</f:format.date>
+							<f:format.date format="d/m/Y">{archieveTopic.trainingDateFrom}</f:format.date>
+						</td>
+						<td>
+							<f:format.date format="H:i">{archieveTopic.trainingDateFrom}</f:format.date>
 							-
-							<f:format.date format="d/m/Y H:i">{archieveTopic.trainingDateTo}</f:format.date>
+							<f:format.date format="H:i">{archieveTopic.trainingDateTo}</f:format.date>
 						</td>
 						<td><f:link.action action="show" controller="Topic" arguments="{topic: archieveTopic}">{archieveTopic.title}</f:link.action></td>
 						<td>{archieveTopic.category.name}</td>

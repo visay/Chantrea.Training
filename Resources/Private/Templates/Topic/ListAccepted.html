@@ -8,13 +8,13 @@
 	<ct:flashMessages />
 	<f:if condition="{acceptedTopics}">
 		<f:then>
+			<h3><f:translate id="label.accepted.looking.for.trainer" /></h3>
 			<table class="table table-condensed">
 				<tr>
 					<th><f:translate id="label.field.topic.creationDate" /></th>
 					<th><f:translate id="label.field.topic.title" /></th>
 					<th><f:translate id="label.field.topic.category" /></th>
 					<th><f:translate id="label.field.topic.type" /></th>
-					<th><f:translate id="label.field.topic.account" /></th>
 					<f:security.ifHasRole role="Administrator"><th><f:translate id="label.listAccepted.schedule" /></th></f:security.ifHasRole>
 				</tr>
 				<f:for each="{acceptedTopics}" as="acceptedTopic">
@@ -23,7 +23,6 @@
 						<td><f:link.action action="show" controller="Topic" arguments="{topic: acceptedTopic}">{acceptedTopic.title}</f:link.action></td>
 						<td>{acceptedTopic.category.name}</td>
 						<td>{acceptedTopic.type.name}</td>
-						<td>{acceptedTopic.owner.name}</td>
 						<f:security.ifHasRole role="Administrator">
 							<td>
 								<f:link.action action="plan" controller="Topic" arguments="{topic: acceptedTopic}"><i class="icon-time"></i></f:link.action>

@@ -16,7 +16,7 @@
 				<source>Description</source>
 			</trans-unit>
 			<trans-unit id="label.field.topic.account">
-				<source>By</source>
+				<source>Suggested By</source>
 			</trans-unit>
 			<trans-unit id="label.field.topic.category">
 				<source>Category</source>
@@ -26,6 +26,9 @@
 			</trans-unit>
 			<trans-unit id="label.field.topic.trainingDate">
 				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.trainingTime">
+				<source>Time</source>
 			</trans-unit>
 			<trans-unit id="label.field.topic.trainingDateFrom">
 				<source>From</source>
@@ -102,6 +105,9 @@
 			<!-- plan form end -->
 
 			<!-- suggest form start -->
+			<trans-unit id="label.welcome.message">
+				<source>Welcome to Web Essentials' Internal Training Homepage Trainings available</source>
+			</trans-unit>
 			<trans-unit id="label.field.topic.category">
 				<source>Category</source>
 			</trans-unit>
@@ -121,7 +127,7 @@
 				<source>Submit</source>
 			</trans-unit>
 			<trans-unit id="label.suggest.new.topic">
-				<source>Suggest New Topic</source>
+				<source>Suggest a New Training Topic</source>
 			</trans-unit>
 			<trans-unit id="label.suggest.new.category">
 				<source>Add New Category</source>
@@ -169,20 +175,23 @@
 				<source>10 Latest available topics</source>
 			</trans-unit>
 			<trans-unit id="label.latest.suggestion">
-				<source>10 Latest Suggested Topics:</source>
+				<source>10 Latest Suggested Topics</source>
 			</trans-unit>
 			<trans-unit id="label.latest.accpeted">
-				<source>10 Latest Accepted Topics:</source>
+				<source>10 Latest Accepted Topics</source>
 			</trans-unit>
 			<trans-unit id="label.message.noaccepted">
-				<source>There is no accepted topic yet.</source>
+				<source>There are no accepted topics yet.</source>
 			</trans-unit>
 			<trans-unit id="label.message.nosuggestion">
-				<source>There is no suggested topic yet.</source>
+				<source>There are no suggested topics yet.</source>
 			</trans-unit>
 			<!-- index end-->
 
 			<!-- list accepted topic start -->
+			<trans-unit id="label.accepted.looking.for.trainer">
+				<source>Looking for a trainer</source>
+			</trans-unit>
 			<trans-unit id="label.message.acceptedtopic">
 				<source>
 				<![CDATA[
@@ -191,10 +200,10 @@
 				</source>
 			</trans-unit>
 			<trans-unit id="label.message.noscheduled">
-				<source>There is no available topic yet.</source>
+				<source>There are no topics avaliable yet.</source>
 			</trans-unit>
 			<trans-unit id="label.message.noarchieve">
-				<source>There is no archived topic yet.</source>
+				<source>There are no topics archived yet.</source>
 			</trans-unit>
 			<trans-unit id="label.all.archieve">
 				<source>List of archieve topics</source>
@@ -455,7 +464,7 @@
 				<source>Click here</source>
 			</trans-unit>
 			<trans-unit id="label.type.list">
-				<source>Training Type:</source>
+				<source>Training Type</source>
 			</trans-unit>
 			<trans-unit id="label.edit.type">
 				<source>Edit Type</source>
@@ -479,7 +488,7 @@
 			</trans-unit>
 
 			<trans-unit id="label.list.category">
-				<source>Category:</source>
+				<source>Training Topic Categories</source>
 			</trans-unit>
 			<trans-unit id="label.list.category.name">
 				<source>Name</source>
@@ -494,7 +503,7 @@
 				<source>Delete</source>
 			</trans-unit>
 			<trans-unit id="label.list.location">
-				<source>Location:</source>
+				<source>Training Locations</source>
 			</trans-unit>
 				<trans-unit id="label.list.location.name">
 			<source>Name</source>
