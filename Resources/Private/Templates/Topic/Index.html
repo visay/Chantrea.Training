@@ -67,11 +67,9 @@
 			</f:if>
 		</div>
 		<div class="span6">
-			<h4>
-				<f:translate id="label.latest.accpeted" />
-			</h4>
 			<f:if condition="{acceptedTopics}">
 				<f:then>
+					<h4><f:translate id="label.latest.accpeted" /></h4>
 					<table class="table table-condensed">
 						<tr>
 							<th><f:translate id="label.field.topic" /></th>
@@ -86,6 +84,19 @@
 				<f:else>
 					<f:translate id="label.message.noaccepted" />
 				</f:else>
+			</f:if>
+			<f:if condition="{topics}">
+				<h4><f:translate id="label.popular.topic" /></h4>
+				<table class="table table-condensed">
+					<tr>
+						<th><f:translate id="label.field.topic" /></th>
+					</tr>
+					<f:for each="{topics}" as="topic">
+						<f:if condition="{topic.voteUsers -> f:count()} > {voteNumber}">
+							<tr><td>{topic.title}</td></tr>
+						</f:if>
+					</f:for>
+				</table>
 			</f:if>
 		</div>
 	</div>

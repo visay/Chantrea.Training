@@ -81,7 +81,8 @@ class TopicController extends ActionController {
 	 */
 	public function indexAction() {
 		$currentDate = date("Y-m-d H:i:s");
-		$this->view->assign('topics', $this->topicRepository->findAll());
+		$this->view->assign('topics', $this->topicRepository->findMostPopular($this->settings['statusOptions']['rejected']));
+		$this->view->assign('voteNumber', $this->settings['voteNumber']);
 		$this->view->assign('acceptedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['accepted'], $this->settings['limit']));
 		$this->view->assign('availableTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['scheduled'], $this->settings['limit'], $currentDate));
 		$this->view->assign('suggestedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['new'], $this->settings['limit']));

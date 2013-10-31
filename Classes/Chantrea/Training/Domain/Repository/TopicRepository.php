@@ -169,5 +169,21 @@ class TopicRepository extends \TYPO3\Flow\Persistence\Repository {
 		$constraintDate = $query->logicalOr($constraintDate, $constraintOut);
 		return $query->matching($query->logicalAnd($constraintTrainer, $constraintDate))->execute()->getFirst();
 	}
+
+	/**
+	 * Find most popular topics
+	 *
+	 * @param string   $status      The status to find
+	 *
+	 * @return object
+	 */
+	public function findMostPopular($status) {
+		$query = $this->createQuery();
+		$constraint = NULL;
+		return $query->matching(
+					$query->logicalNot(
+						$query->equals('status', $status)
+					))->execute();
+	}
 }
 ?>

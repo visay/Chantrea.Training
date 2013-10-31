@@ -48,6 +48,7 @@ TYPO3:
 
 Chantrea:
   Training:
+    voteNumber: 5
     limit: 10
     dateFormat: 'm/d/Y'
     dateTimeFormat: 'm/d/Y H:i'
