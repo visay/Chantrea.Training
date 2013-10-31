@@ -186,6 +186,9 @@
 			<trans-unit id="label.message.nosuggestion">
 				<source>There are no suggested topics yet.</source>
 			</trans-unit>
+			<trans-unit id="label.popular.topic">
+				<source>Most Popular Trainings</source>
+			</trans-unit>
 			<!-- index end-->
 
 			<!-- list accepted topic start -->
@@ -520,7 +523,7 @@
 
 			<!-- user block start -->
 			<trans-unit id="label.user.account">
-				<source>User Account:</source>
+				<source>User Account</source>
 			</trans-unit>
 			<trans-unit id="label.user.management">
 				<source>User Management</source>
