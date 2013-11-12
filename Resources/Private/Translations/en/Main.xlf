@@ -268,6 +268,9 @@
 			<trans-unit id="label.field.topic.newTopic.trainingDateTo">
 				<source>Date To</source>
 			</trans-unit>
+			<trans-unit id="label.field.topic.newTopic.shortDescription">
+				<source>Description</source>
+			</trans-unit>
 			<trans-unit id="label.field.topic.topic.title">
 				<source>Title</source>
 			</trans-unit>

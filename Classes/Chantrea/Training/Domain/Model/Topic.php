@@ -33,6 +33,7 @@ class Topic {
 	 * @var string
 	 * @Flow\Validate(type="Text")
 	 * @ORM\Column(type="text")
+	 * @Flow\Validate(type="NotEmpty")
 	 */
 	protected $shortDescription;
 
