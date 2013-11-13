@@ -14,6 +14,7 @@
 				<tr>
 					<th><f:translate id="label.field.topic.trainingDateFrom" /> - <f:translate id="label.field.topic.trainingDateTo" /></th>
 					<th><f:translate id="label.field.topic" /></th>
+					<th><f:translate id="label.field.topic.level" /></th>
 					<th><f:translate id="label.field.topic.category" /></th>
 					<th><f:translate id="label.field.topic.trainer" /></th>
 					<th><f:translate id="label.field.topic.location" /></th>
@@ -25,7 +26,8 @@
 							-
 							<f:format.date format="d/m/Y H:i">{availableTopic.trainingDateTo}</f:format.date>
 						</td>
-						<td>{availableTopic.title}</td>
+						<td><f:link.action action="show" controller="Topic" arguments="{topic: availableTopic}">{availableTopic.title}</f:link.action></td>
+						<td>{availableTopic.level.name}</td>
 						<td>{availableTopic.category.name}</td>
 						<td>
 							<f:for each="{availableTopic.trainers}" as="trainer">
@@ -55,7 +57,7 @@
 						</tr>
 						<f:for each="{suggestedTopics}" as="suggestedTopic">
 							<tr class="warning">
-								<td>{suggestedTopic.title}</td>
+								<td><f:link.action action="show" controller="Topic" arguments="{topic: suggestedTopic}">{suggestedTopic.title}</f:link.action></td>
 								<td>{suggestedTopic.owner.name}</td>
 							</tr>
 						</f:for>
@@ -76,7 +78,7 @@
 						</tr>
 						<f:for each="{acceptedTopics}" as="acceptedTopic">
 							<tr class="success">
-								<td>{acceptedTopic.title}</td>
+								<td><f:link.action action="show" controller="Topic" arguments="{topic: acceptedTopic}">{acceptedTopic.title}</f:link.action></td>
 							</tr>
 						</f:for>
 					</table>
@@ -93,7 +95,7 @@
 					</tr>
 					<f:for each="{topics}" as="topic">
 						<f:if condition="{topic.voteUsers -> f:count()} > {voteNumber}">
-							<tr><td>{topic.title}</td></tr>
+							<tr><td><f:link.action action="show" controller="Topic" arguments="{topic: topic}">{topic.title}</f:link.action></td></tr>
 						</f:if>
 					</f:for>
 				</table>

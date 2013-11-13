@@ -184,7 +184,7 @@
 				<source>10 Latest Suggested Topics</source>
 			</trans-unit>
 			<trans-unit id="label.latest.accpeted">
-				<source>10 Latest Accepted Topics</source>
+				<source>Looking for trainer</source>
 			</trans-unit>
 			<trans-unit id="label.message.noaccepted">
 				<source>There are no accepted topics yet.</source>
