@@ -62,6 +62,12 @@ class TopicController extends ActionController {
 	 */
 	protected $typeRepository;
 
+	/**
+	 * @Flow\Inject
+	 * @var \Chantrea\Training\Domain\Repository\LevelRepository
+	 */
+	protected $levelRepository;
+
 
 	/**
 	 * Initializes the view before invoking an action method.
@@ -129,6 +135,7 @@ class TopicController extends ActionController {
 		$this->view->assign('owner', $this->securityContext->getAccount()->getParty());
 		$this->view->assign('categories', $this->categoryRepository->findAll());
 		$this->view->assign('types', $this->typeRepository->findAll());
+		$this->view->assign('levels', $this->levelRepository->findAll());
 	}
 
 	/**
@@ -359,6 +366,7 @@ class TopicController extends ActionController {
 		$this->view->assign('categories', $this->categoryRepository->findAll());
 		$this->view->assign('locations', $this->locationRepository->findAll());
 		$this->view->assign('types', $this->typeRepository->findAll());
+		$this->view->assign('levels', $this->levelRepository->findAll());
 		$this->view->assign('currentPage', 'admin');
 	}
 }

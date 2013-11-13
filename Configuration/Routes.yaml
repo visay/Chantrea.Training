@@ -130,3 +130,53 @@
   defaults:
     '@controller': 'Standard'
     '@action':     'index'
+
+-
+  name: 'Level list action'
+  uriPattern: 'levels'
+  defaults:
+    '@controller': 'Level'
+    '@action':     'index'
+
+-
+  name: 'Level actions'
+  uriPattern: 'level/new'
+  defaults:
+    '@controller': 'Level'
+    '@action':     'new'
+
+-
+  name: 'Level actions'
+  uriPattern: 'level/{@action}/{level}'
+  defaults:
+    '@controller': 'Level'
+    '@action':     'show'
+  routeParts:
+    topic:
+      objectType: Chantrea\Training\Domain\Model\Level
+      uriPattern: '{title}'
+
+-
+  name: 'Type list action'
+  uriPattern: 'types'
+  defaults:
+    '@controller': 'Type'
+    '@action':     'index'
+
+-
+  name: 'Type actions'
+  uriPattern: 'type/new'
+  defaults:
+    '@controller': 'Type'
+    '@action':     'new'
+
+-
+  name: 'Type actions'
+  uriPattern: 'type/{@action}/{type}'
+  defaults:
+    '@controller': 'Type'
+    '@action':     'show'
+  routeParts:
+    topic:
+      objectType: Chantrea\Training\Domain\Model\Type
+      uriPattern: '{title}'

@@ -105,6 +105,11 @@ class Topic {
 	 */
 	protected $type;
 
+	/**
+	 * @var \Chantrea\Training\Domain\Model\Level
+	 * @ORM\ManyToOne
+	 */
+	protected $level;
 
 	/**
 	 * Constructs a new topic's creation date
@@ -424,6 +429,26 @@ class Topic {
 	 */
 	public function setType($type) {
 		$this->type = $type;
+	}
+
+	/**
+	 * getLevel
+	 *
+	 * @return \Chantrea\Training\Domain\Model\Level
+	 */
+	public function getLevel() {
+		return $this->level;
+	}
+
+	/**
+	 * setLevel
+	 *
+	 * @param \Chantrea\Training\Domain\Model\Level $level level
+	 *
+	 * @return void
+	 */
+	public function setLevel($level) {
+		$this->level = $level;
 	}
 }
 ?>

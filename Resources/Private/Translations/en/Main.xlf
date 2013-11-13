@@ -138,6 +138,9 @@
 			<trans-unit id="label.suggest.new.type">
 				<source>Add New Training Type</source>
 			</trans-unit>
+			<trans-unit id="label.suggest.new.level">
+				<source>Add New Training Level</source>
+			</trans-unit>
 			<trans-unit id="label.suggest.create.category">
 				<source>Please create a category first.</source>
 			</trans-unit>
@@ -146,6 +149,9 @@
 			</trans-unit>
 			<trans-unit id="label.create.category">
 				<source>Click here</source>
+			</trans-unit>
+			<trans-unit id="label.suggest.select.level">
+				<source>-- Please select level --</source>
 			</trans-unit>
 			<trans-unit id="label.suggest.select.category">
 				<source>-- Please select category --</source>
@@ -250,6 +256,9 @@
 			<trans-unit id="label.field.topic.type.name">
 				<source>Type</source>
 			</trans-unit>
+			<trans-unit id="label.field.topic.level.name">
+				<source>Level</source>
+			</trans-unit>
 			<trans-unit id="label.field.topic.newLocation.room">
 				<source>Room</source>
 			</trans-unit>
@@ -261,6 +270,9 @@
 			</trans-unit>
 			<trans-unit id="label.field.topic.newTopic.type">
 				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.newTopic.level">
+				<source>Level</source>
 			</trans-unit>
 			<trans-unit id="label.field.topic.newTopic.trainingDateFrom">
 				<source>Date From</source>
@@ -575,7 +587,7 @@
 			<trans-unit id="label.footer">
 				<source>
 					<![CDATA[
-						Chantrea Training - &copy; 2013 by Chanthorn Ngeth, Rayuth You and <a href="http://www.visay.info/" target="_blank">Visay Keo</a>. This is a free application comes with <strong>FEATURES WITHOUT ANY WARRANTY</strong>.
+						Chantrea Training - &copy; 2013 by Chanthorn Ngeth, Mary Lüthy, Rayuth You and <a href="http://www.visay.info/" target="_blank">Visay Keo</a>. This is a free application comes with <strong>FEATURES WITHOUT ANY WARRANTY</strong>.
 					]]>
 				</source>
 			</trans-unit>
@@ -600,6 +612,36 @@
 			<trans-unit id="label.contact.submit">
 				<source>Send</source>
 			</trans-unit>
+
+			<!-- view level start -->
+			<trans-unit id="label.field.topic.level">
+				<source>Level</source>
+			</trans-unit>
+			<trans-unit id="label.field.level.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="label.field.level.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="label.create.level">
+				<source>Click here</source>
+			</trans-unit>
+			<trans-unit id="label.level.list">
+				<source>Training Level</source>
+			</trans-unit>
+			<trans-unit id="label.edit.level">
+				<source>Edit Level</source>
+			</trans-unit>
+			<trans-unit id="label.level.new">
+				<source>New Level</source>
+			</trans-unit>
+			<trans-unit id="label.no.level">
+				<source>No level created yet.</source>
+			</trans-unit>
+			<trans-unit id="label.level.new.welcome">
+				<source>Just fill out the following form to create a new level:</source>
+			</trans-unit>
+			<!-- view level end -->
 		</body>
 	</file>
 </xliff>

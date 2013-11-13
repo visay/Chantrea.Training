@@ -15,6 +15,7 @@
 				<tr>
 					<th><f:translate id="label.field.topic.trainingDateFrom" /> - <f:translate id="label.field.topic.trainingDateTo" /></th>
 					<th><f:translate id="label.field.topic" /></th>
+					<th><f:translate id="label.field.topic.level" /></th>
 					<th><f:translate id="label.field.topic.category" /></th>
 					<th><f:translate id="label.field.topic.type" /></th>
 					<th><f:translate id="label.field.topic.trainer" /></th>
@@ -28,6 +29,7 @@
 							<f:format.date format="d/m/Y H:i">{availableTopic.trainingDateTo}</f:format.date>
 						</td>
 						<td><f:link.action action="show" controller="Topic" arguments="{topic: availableTopic}">{availableTopic.title}</f:link.action></td>
+						<td>{availableTopic.level.name}</td>
 						<td>{availableTopic.category.name}</td>
 						<td>{availableTopic.type.name}</td>
 						<td>

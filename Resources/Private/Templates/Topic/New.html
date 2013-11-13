@@ -31,6 +31,19 @@
 				</div>
 				<div class="control-group">
 					<div class="control-label">
+						<label for="level">
+							<f:translate id="label.field.topic.level" />
+						</label>
+					</div>
+					<div class="controls">
+						<f:form.select name="level" options="{levels}" optionLabelField="name" property="level" prependOptionLabel="{f:translate(id: 'label.suggest.select.level')}" />
+						<f:security.ifHasRole role="Administrator">
+							<f:link.action action="new" controller="Level"> <i class="icon-plus"></i></f:link.action>
+						</f:security.ifHasRole>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="control-label">
 						<label for="category">
 							<f:translate id="label.field.topic.category" /> * 
 						</label>

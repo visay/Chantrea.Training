@@ -101,6 +101,38 @@
 		</f:else>
 	</f:if>
 	<f:link.action action="new" controller="Type" class="btn"><f:translate id="label.suggest.new.type" /></f:link.action>
+	<h4><f:translate id="label.level.list" /></h4>
+	<f:if condition="{levels}">
+		<f:then>
+			<table class="table table-condensed">
+				<tr>
+					<th><f:translate id="label.field.level.name" /></th>
+					<th><f:translate id="label.field.level.description" /></th>
+					<th><f:translate id="label.edit" /></th>
+					<th><f:translate id="label.delete" /></th>
+				</tr>
+				<f:for each="{levels}" as="level">
+					<tr>
+						<td>{level.name}</td>
+						<td>{level.description}</td>
+						<td><f:link.action action="edit" arguments="{level: level}" controller="Level"><i class="icon-pencil"></i></f:link.action></td>
+						<f:if condition="{level.topics ->f:count()} > 0">
+							<f:then>
+								<td></td>
+							</f:then>
+							<f:else>
+								<td><f:link.action action="delete" arguments="{level: level}" controller="Level"><i class="icon-trash" onclick="return confirm('{f:translate(id: 'label.confirm.delete')}');"></i></f:link.action></td>
+							</f:else>
+						</f:if>
+					</tr>
+				</f:for>
+			</table>
+		</f:then>
+		<f:else>
+			<p><f:translate id="label.no.level" /></p>
+		</f:else>
+	</f:if>
+	<f:link.action action="new" controller="Level" class="btn"><f:translate id="label.suggest.new.level" /></f:link.action>
 	<h4><f:translate id="label.user.account" /></h4>
 	<f:link.action action="index" controller="User" class="btn"><f:translate id="label.user.management" /></f:link.action>
 </f:section>

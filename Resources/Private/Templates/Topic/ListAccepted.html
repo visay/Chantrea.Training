@@ -13,6 +13,7 @@
 				<tr>
 					<th><f:translate id="label.field.topic.creationDate" /></th>
 					<th><f:translate id="label.field.topic.title" /></th>
+					<th><f:translate id="label.field.topic.level" /></th>
 					<th><f:translate id="label.field.topic.category" /></th>
 					<th><f:translate id="label.field.topic.type" /></th>
 					<f:security.ifHasRole role="Administrator"><th><f:translate id="label.listAccepted.schedule" /></th></f:security.ifHasRole>
@@ -21,6 +22,7 @@
 					<tr class="success">
 						<td><f:format.date>{acceptedTopic.creationDate}</f:format.date></td>
 						<td><f:link.action action="show" controller="Topic" arguments="{topic: acceptedTopic}">{acceptedTopic.title}</f:link.action></td>
+						<td>{acceptedTopic.level.name}</td>
 						<td>{acceptedTopic.category.name}</td>
 						<td>{acceptedTopic.type.name}</td>
 						<f:security.ifHasRole role="Administrator">

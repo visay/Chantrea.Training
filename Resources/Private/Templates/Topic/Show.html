@@ -10,6 +10,7 @@
 				<th><f:translate id="label.field.topic.creationDate" /></th>
 				<th><f:translate id="label.field.topic.title" /></th>
 				<th><f:translate id="label.field.topic.shortdescription" /></th>
+				<th><f:translate id="label.field.topic.level" /></th>
 				<th><f:translate id="label.field.topic.category" /></th>
 				<th><f:translate id="label.field.topic.type" /></th>
 				<th><f:translate id="label.field.topic.account" /></th>
@@ -18,6 +19,7 @@
 				<td><f:format.date>{suggestedOrAccepted.creationDate}</f:format.date></td>
 				<td>{suggestedOrAccepted.title}</td>
 				<td>{suggestedOrAccepted.shortDescription}</td>
+				<td>{suggestedOrAccepted.level.name}</td>
 				<td>{suggestedOrAccepted.category.name}</td>
 				<td>{suggestedOrAccepted.type.name}</td>
 				<td>{suggestedOrAccepted.owner.name}</td>
@@ -30,6 +32,7 @@
 				<th><f:translate id="label.field.topic.trainingDateFrom" /> - <f:translate id="label.field.topic.trainingDateTo" /></th>
 				<th><f:translate id="label.field.topic" /></th>
 				<th><f:translate id="label.field.topic.shortdescription" /></th>
+				<th><f:translate id="label.field.topic.level" /></th>
 				<th><f:translate id="label.field.topic.category" /></th>
 				<th><f:translate id="label.field.topic.trainer" /></th>
 				<th><f:translate id="label.field.topic.location" /></th>
@@ -42,6 +45,7 @@
 				</td>
 				<td>{scheduledTopic.title}</td>
 				<td>{scheduledTopic.shortDescription}</td>
+				<td>{scheduledTopic.level.name}</td>
 				<td>{scheduledTopic.category.name}</td>
 				<td>
 					<f:for each="{scheduledTopic.trainers}" as="trainer">
