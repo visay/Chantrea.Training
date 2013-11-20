@@ -106,7 +106,12 @@
 
 			<!-- suggest form start -->
 			<trans-unit id="label.welcome.message">
-				<source>Welcome to Web Essentials' Internal Training Homepage Trainings available</source>
+				<source>
+					<![CDATA[
+						Welcome to Web Essentials' Internal Training Homepage <br />
+						This week training
+					]]>
+				</source>
 			</trans-unit>
 			<trans-unit id="label.field.topic.category">
 				<source>Category</source>
