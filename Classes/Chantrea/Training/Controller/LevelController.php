@@ -30,11 +30,6 @@ class LevelController extends ActionController {
 	 */
 	protected $persistenceManager;
 
-	/**
-	 * @Flow\Inject
-	 * @var \TYPO3\Flow\Security\Context
-	 */
-	protected $securityContext;
 
 	/**
 	 * Shows a single level object

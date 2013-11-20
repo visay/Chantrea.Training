@@ -402,6 +402,9 @@
 			<trans-unit id="label.resetPassword">
 				<source>Reset Password</source>
 			</trans-unit>
+			<trans-unit id="label.suggestion.header">
+				<source>Suggest your topic</source>
+			</trans-unit>
 
 			<!-- header block end -->
 
