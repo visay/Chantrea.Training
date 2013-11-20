@@ -128,6 +128,12 @@
 			<trans-unit id="label.suggest.vote">
 				<source>Vote</source>
 			</trans-unit>
+			<trans-unit id="label.vote">
+				<source>Vote</source>
+			</trans-unit>
+			<trans-unit id="label.votes">
+				<source>Votes</source>
+			</trans-unit>
 			<trans-unit id="label.suggest.save">
 				<source>Submit</source>
 			</trans-unit>
@@ -291,6 +297,9 @@
 			<trans-unit id="label.field.topic.topic.title">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="label.field.topic.topic.shortDescription">
+				<source>Description</source>
+			</trans-unit>
 			<trans-unit id="label.field.topic.topic.category">
 				<source>Category</source>
 			</trans-unit>
@@ -436,7 +445,7 @@
 				<source>Already on Chantrea Training?</source>
 			</trans-unit>
 			<trans-unit id="label.suggested.header">
-				<source>Suggested Topics</source>
+				<source>Latest Suggested Topics</source>
 			</trans-unit>
 			<!-- sign in and sign up end -->
 
