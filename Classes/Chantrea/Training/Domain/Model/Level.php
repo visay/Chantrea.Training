@@ -35,7 +35,7 @@ class Level {
 	 * The topics contained in this type
 	 *
 	 * @var \Doctrine\Common\Collections\Collection<\Chantrea\Training\Domain\Model\Topic>
-	 * @ORM\OneToMany(targetEntity="Chantrea\Training\Domain\Model\Topic", mappedBy="type")
+	 * @ORM\OneToMany(targetEntity="Chantrea\Training\Domain\Model\Topic", mappedBy="level")
 	 */
 	protected $topics;
 

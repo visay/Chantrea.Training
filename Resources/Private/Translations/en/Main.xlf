@@ -671,6 +671,12 @@
 				<source>Accepted Topics</source>
 			</trans-unit>
 			<!-- navigation end -->
+
+			<!-- home start -->
+			<trans-unit id="label.home.search.archive.training">
+				<source>Search Archived Training</source>
+			</trans-unit>
+			<!-- home end -->
 		</body>
 	</file>
 </xliff>
