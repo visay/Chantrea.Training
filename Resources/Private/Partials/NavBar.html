@@ -6,7 +6,7 @@
 					<a data-target=".nav-collapse" data-toggle="collapse"
 						class="btn btn-navbar"> <span class="icon-bar"></span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span>
-					</a> <a href="/" class="brand">Chantrea Training</a>
+					</a> <a href="/" class="brand"><f:translate id="label.nav.home" /></a>
 					<div class="nav-collapse collapse">
 						<p class="navbar-text pull-right">
 							Logged in as <strong><f:link.action action="show" controller="User" arguments="{user: sessionUser}" class="navbar-link">{sessionUser.name}</f:link.action></strong> |
@@ -16,50 +16,50 @@
 							<f:security.ifHasRole role="Administrator">
 								<f:if condition="{0: currentPage} == {0: 'admin'}">
 									<f:then>
-										<li class="navigation-item active"><f:link.action action="administrator" controller="Topic">Administration</f:link.action></li>
+										<li class="navigation-item active"><f:link.action action="administrator" controller="Topic"><f:translate id="label.nav.administration" /></f:link.action></li>
 									</f:then>
 									<f:else>
-										<li class="navigation-item"><f:link.action action="administrator" controller="Topic">Administration</f:link.action></li>
+										<li class="navigation-item"><f:link.action action="administrator" controller="Topic"><f:translate id="label.nav.administration" /></f:link.action></li>
 									</f:else>
 								</f:if>
 							</f:security.ifHasRole>
 							<f:if condition="{0: currentPage} == {0: 'index'}">
 								<f:then>
-									<li class="navigation-item active"><a href="#">Dashboard</a></li>
+									<li class="navigation-item active"><f:link.action action="index" controller="Topic"><f:translate id="label.nav.dashboard" /></f:link.action></li>
 								</f:then>
 								<f:else>
-									<li class="navigation-item"><a href="#">Dashboard</a></li>
+									<li class="navigation-item"><f:link.action action="index" controller="Topic"><f:translate id="label.nav.dashboard" /></f:link.action></li>
 								</f:else>
 							</f:if>
 							<f:if condition="{0: currentPage} == {0: 'suggested'}">
 								<f:then>
-									<li class="navigation-item active"><f:link.action action="suggest" controller="Topic">Suggested Topics</f:link.action></li>
+									<li class="navigation-item active"><f:link.action action="suggest" controller="Topic"><f:translate id="label.nav.suggest" /></f:link.action></li>
 								</f:then>
 								<f:else>
-									<li class="navigation-item"><f:link.action action="suggest" controller="Topic">Suggested Topics</f:link.action></li>
+									<li class="navigation-item"><f:link.action action="suggest" controller="Topic"><f:translate id="label.nav.suggest" /></f:link.action></li>
 								</f:else>
 							</f:if>
 							<f:if condition="{0: currentPage} == {0: 'listAccepted'}">
 								<f:then>
 									<li class="navigation-item active">
-										<f:link.action action="listAccepted" controller="Topic">Suggest a Trainer</f:link.action>
+										<f:link.action action="listAccepted" controller="Topic"><f:translate id="label.nav.trainer" /></f:link.action>
 									</li>
 								</f:then>
 								<f:else>
 									<li class="navigation-item">
-										<f:link.action action="listAccepted" controller="Topic">Suggest a Trainer</f:link.action>
+										<f:link.action action="listAccepted" controller="Topic"><f:translate id="label.nav.trainer" /></f:link.action>
 									</li>
 								</f:else>
 							</f:if>
 							<f:if condition="{0: currentPage} == {0: 'listTraining'}">
 								<f:then>
 									<li class="navigation-item active">
-										<f:link.action action="listTraining" controller="Topic">Training Topics</f:link.action>
+										<f:link.action action="listTraining" controller="Topic"><f:translate id="label.nav.accept" /></f:link.action>
 									</li>
 								</f:then>
 								<f:else>
 									<li class="navigation-item">
-										<f:link.action action="listTraining" controller="Topic">Training Topics</f:link.action>
+										<f:link.action action="listTraining" controller="Topic"><f:translate id="label.nav.accept" /></f:link.action>
 									</li>
 								</f:else>
 							</f:if>

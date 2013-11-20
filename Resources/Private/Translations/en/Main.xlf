@@ -199,7 +199,7 @@
 
 			<!-- list accepted topic start -->
 			<trans-unit id="label.accepted.looking.for.trainer">
-				<source>Looking for a trainer</source>
+				<source>Wanna be a trainer?</source>
 			</trans-unit>
 			<trans-unit id="label.message.acceptedtopic">
 				<source>
@@ -645,6 +645,27 @@
 				<source>Just fill out the following form to create a new level:</source>
 			</trans-unit>
 			<!-- view level end -->
+
+			<!-- navigation start -->
+			<trans-unit id="label.nav.home">
+				<source>Chantrea Training</source>
+			</trans-unit>
+			<trans-unit id="label.nav.administration">
+				<source>Administration</source>
+			</trans-unit>
+			<trans-unit id="label.nav.dashboard">
+				<source>Dashboard</source>
+			</trans-unit>
+			<trans-unit id="label.nav.suggest">
+				<source>Suggest a Topic</source>
+			</trans-unit>
+			<trans-unit id="label.nav.trainer">
+				<source>Suggest a Trainer</source>
+			</trans-unit>
+			<trans-unit id="label.nav.accept">
+				<source>Accepted Topics</source>
+			</trans-unit>
+			<!-- navigation end -->
 		</body>
 	</file>
 </xliff>
