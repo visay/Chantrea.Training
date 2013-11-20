@@ -60,9 +60,12 @@
 									</f:link.action>
 								</td>
 								<td>
-									<f:for each="{suggestedTopic.voteUsers}" as="vote">
-										<i class="icon-star"></i>
-									</f:for>
+									<f:if condition="{suggestedTopic.voteUsers -> f:count()} > 0">
+										<f:if condition="{suggestedTopic.voteUsers -> f:count()} > 1">
+											<f:then>{suggestedTopic.voteUsers -> f:count()} <f:translate id="label.votes" /></f:then>
+											<f:else>{suggestedTopic.voteUsers -> f:count()} <f:translate id="label.vote" /></f:else>
+										</f:if>
+									</f:if>
 								</td>
 								<td></td>
 						</f:then>
@@ -70,9 +73,12 @@
 							<td></td>
 							<td></td>
 							<td>
-								<f:for each="{suggestedTopic.voteUsers}" as="vote">
-									<i class="icon-star"></i>
-								</f:for>
+								<f:if condition="{suggestedTopic.voteUsers -> f:count()} > 0">
+									<f:if condition="{suggestedTopic.voteUsers -> f:count()} > 1">
+										<f:then>{suggestedTopic.voteUsers -> f:count()} <f:translate id="label.votes" /></f:then>
+										<f:else>{suggestedTopic.voteUsers -> f:count()} <f:translate id="label.vote" /></f:else>
+									</f:if>
+								</f:if>
 							</td>
 							<td>
 								<f:if condition="{suggestedTopic.notYetVotedByCurrentUser}">
