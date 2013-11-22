@@ -25,6 +25,12 @@ class LocationController extends ActionController {
 	protected $categoryRepository;
 
 	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Security\Context
+	 */
+	protected $securityContext;
+
+	/**
 	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
 	 * @Flow\Inject
 	 */
@@ -35,6 +41,17 @@ class LocationController extends ActionController {
 	 * @var \Chantrea\Training\Domain\Repository\LocationRepository
 	 */
 	protected $locationRepository;
+
+	/**
+	 * Initializes the view before invoking an action method.
+	 *
+	 * @param \TYPO3\Flow\Mvc\View\ViewInterface $view The view to be initialized
+	 *
+	 * @return void
+	 */
+	protected function initializeView(\TYPO3\Flow\Mvc\View\ViewInterface $view) {
+		$view->assign('sessionUser', $this->securityContext->getAccount()->getParty());
+	}
 
 	/**
 	 * Shows a single location object

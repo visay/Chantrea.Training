@@ -601,6 +601,51 @@
 			</trans-unit>
 			<!-- user block end -->
 
+			<!-- goal block end -->
+			<trans-unit id="label.goal.list">
+				<source>Goal for Years</source>
+			</trans-unit>
+			<trans-unit id="label.goal.new">
+				<source>New Goal</source>
+			</trans-unit>
+			<trans-unit id="label.field.goal.year">
+				<source>Year</source>
+			</trans-unit>
+			<trans-unit id="label.field.goal.objective">
+				<source>List at least 3 objectives you want to achieve</source>
+			</trans-unit>
+			<trans-unit id="label.field.goal.performanceFactor">
+				<source>Identify 3 performance factors</source>
+			</trans-unit>
+			<trans-unit id="label.field.goal.performanceDevelopment">
+				<source>Identify 2 learning points that are closely related to your job performance and job knowledge</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.newGoal.year">
+				<source>Year</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.newGoal.objective">
+				<source>Objective</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.newGoal.performanceFactor">
+				<source>Performance Factor</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.newGoal.performanceDevelopment">
+				<source>Performance Development</source>
+			</trans-unit>
+			<trans-unit id="label.header.goal.objective">
+				<source>Objectives</source>
+			</trans-unit>
+			<trans-unit id="label.header.goal.performanceFactor">
+				<source>Performance factors</source>
+			</trans-unit>
+			<trans-unit id="label.header.goal.performanceDevelopment">
+				<source>Performance Development</source>
+			</trans-unit>
+			<trans-unit id="label.no.goal">
+				<source>You didn't set your goal yet</source>
+			</trans-unit>
+			<!-- goal block end -->
+
 			<trans-unit id="label.footer">
 				<source>
 					<![CDATA[

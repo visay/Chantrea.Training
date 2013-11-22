@@ -68,6 +68,12 @@ class TopicController extends ActionController {
 	 */
 	protected $levelRepository;
 
+	/**
+	 * @Flow\Inject
+	 * @var \Chantrea\Training\Domain\Repository\GoalRepository
+	 */
+	protected $goalRepository;
+
 
 	/**
 	 * Initializes the view before invoking an action method.
@@ -86,12 +92,15 @@ class TopicController extends ActionController {
 	 * @return void
 	 */
 	public function indexAction() {
+		$loginUser = $this->securityContext->getAccount()->getParty();
 		$currentDate = date("Y-m-d H:i:s");
 		$this->view->assign('topics', $this->topicRepository->findMostPopular($this->settings['statusOptions']['rejected']));
 		$this->view->assign('voteNumber', $this->settings['voteNumber']);
 		$this->view->assign('acceptedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['accepted'], $this->settings['limit']));
 		$this->view->assign('availableTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['scheduled'], $this->settings['limit'], $currentDate));
 		$this->view->assign('suggestedTopics', $this->topicRepository->findByStatus($this->settings['statusOptions']['new'], $this->settings['limit']));
+		$this->view->assign('goals', $this->goalRepository->findByUser($loginUser));
+		$this->view->assign('loginUser', $loginUser);
 		$this->view->assign('currentPage', 'index');
 	}
 

@@ -102,4 +102,37 @@
 			</f:if>
 		</div>
 	</div>
+	<h4><f:translate id="label.goal.list" /></h4>
+	<f:if condition="{goals}">
+		<f:then>
+			<table class="table table-condensed">
+				<tr>
+					<th><f:translate id="label.field.goal.year" /></th>
+					<th><f:translate id="label.header.goal.objective" /></th>
+					<th><f:translate id="label.header.goal.performanceFactor" /></th>
+					<th><f:translate id="label.header.goal.performanceDevelopment" /></th>
+					<th><f:translate id="label.edit" /></th>
+					<th><f:translate id="label.delete" /></th>
+				</tr>
+				<f:for each="{goals}" as="goal">
+					<tr>
+						<td>{goal.year}</td>
+						<td>{goal.objective}</td>
+						<td>{goal.performanceFactor}</td>
+						<td>{goal.performanceDevelopment}</td>
+						<td>
+							<i class="icon-pencil"></i>
+						</td>
+						<td>
+							<i class="icon-trash" onclick="return confirm('Are you sure want to delete?')"></i>
+						</td>
+					</tr>
+				</f:for>
+			</table>
+		</f:then>
+		<f:else>
+			<p><f:translate id="label.no.goal" /></p>
+		</f:else>
+	</f:if>
+	<f:link.action action="new" controller="Goal" class="btn"><f:translate id="label.goal.new" /></f:link.action>
 </f:section>

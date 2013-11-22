@@ -25,11 +25,27 @@ class LevelController extends ActionController {
 	protected $levelRepository;
 
 	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Security\Context
+	 */
+	protected $securityContext;
+
+	/**
 	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
 	 * @Flow\Inject
 	 */
 	protected $persistenceManager;
 
+	/**
+	 * Initializes the view before invoking an action method.
+	 *
+	 * @param \TYPO3\Flow\Mvc\View\ViewInterface $view The view to be initialized
+	 *
+	 * @return void
+	 */
+	protected function initializeView(\TYPO3\Flow\Mvc\View\ViewInterface $view) {
+		$view->assign('sessionUser', $this->securityContext->getAccount()->getParty());
+	}
 
 	/**
 	 * Shows a single level object

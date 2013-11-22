@@ -37,6 +37,17 @@ class TypeController extends ActionController {
 	protected $securityContext;
 
 	/**
+	 * Initializes the view before invoking an action method.
+	 *
+	 * @param \TYPO3\Flow\Mvc\View\ViewInterface $view The view to be initialized
+	 *
+	 * @return void
+	 */
+	protected function initializeView(\TYPO3\Flow\Mvc\View\ViewInterface $view) {
+		$view->assign('sessionUser', $this->securityContext->getAccount()->getParty());
+	}
+
+	/**
 	 * Shows a single type object
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Type $type The type to show
