@@ -1,0 +1,37 @@
+{namespace ct=Chantrea\Training\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="Title"><f:translate id="label.edit.goal" />"{goal.year}"</f:section>
+<f:section name="Header"><f:translate id="label.edit.goal" /> "{goal.year}"</f:section>
+
+<f:section name="Content">
+	<div style="display: none"><ct:flashMessages /></div>
+	<f:render partial="FormErrors" arguments="{objectName: objectName}" />
+	<f:form action="update" object="{goal}" name="goal">
+		<div class="control-group">
+			<div class="control-label" for="objective">
+				<f:translate id="label.field.goal.objective" /> *
+			</div>
+			<div class="controls">
+				<f:form.textarea property="objective" id="objective" rows="3" cols="50" />
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="control-label" for="performanceFactor">
+				<f:translate id="label.field.goal.performanceFactor" /> *
+			</div>
+			<div class="controls">
+				<f:form.textarea property="performanceFactor" id="performanceFactor" rows="3" cols="50" />
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="control-label" for="performanceDevelopment">
+				<f:translate id="label.field.goal.performanceDevelopment" /> *
+			</div>
+			<div class="controls">
+				<f:form.textarea property="performanceDevelopment" id="performanceDevelopment" rows="3" cols="50" />
+			</div>
+		</div>
+		<f:form.button class="btn"><f:translate id="label.update" /></f:form.button>
+	</f:form>
+</f:section>
