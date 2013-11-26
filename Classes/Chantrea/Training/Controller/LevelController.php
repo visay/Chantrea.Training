@@ -71,6 +71,7 @@ class LevelController extends ActionController {
 	 * Adds the given new level object to the level repository
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Level $newLevel A new level to add
+	 * @Flow\Validate(argumentName="$newLevel", type="UniqueEntity", options={"identityProperties"={"name"}})
 	 *
 	 * @return void
 	 */
@@ -95,6 +96,7 @@ class LevelController extends ActionController {
 	 * Updates the given level object
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Level $level The level to update
+	 * @Flow\Validate(argumentName="$level", type="UniqueEntity", options={"identityProperties"={"name"}})
 	 *
 	 * @return void
 	 */

@@ -34,6 +34,7 @@ class Topic {
 	 * @Flow\Validate(type="Text")
 	 * @ORM\Column(type="text")
 	 * @Flow\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="StringLength", options={ "minimum"=5, "maximum"=100 })
 	 */
 	protected $shortDescription;
 

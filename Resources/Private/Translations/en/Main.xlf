@@ -318,6 +318,9 @@
 			<trans-unit id="label.field.topic.planTopic.trainers">
 				<source>Trainer</source>
 			</trans-unit>
+			<trans-unit id="label.field.topic.newLevel">
+				<source>Level</source>
+			</trans-unit>
 
 			<!-- list of all scheduled topics start -->
 			<trans-unit id="label.all.scheduled">
