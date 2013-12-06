@@ -321,6 +321,9 @@
 			<trans-unit id="label.field.topic.newLevel">
 				<source>Level</source>
 			</trans-unit>
+			<trans-unit id="label.field.topic.newCategory">
+				<source>Category</source>
+			</trans-unit>
 
 			<!-- list of all scheduled topics start -->
 			<trans-unit id="label.all.scheduled">

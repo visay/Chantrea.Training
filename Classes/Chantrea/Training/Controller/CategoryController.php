@@ -70,6 +70,7 @@ class CategoryController extends ActionController {
 	 * Adds the given new category object to the category repository
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Category $newCategory A new category to add
+	 * @Flow\Validate(argumentName="$newCategory", type="UniqueEntity", options={"identityProperties"={"name"}})
 	 * @return void
 	 */
 	public function createAction(Category $newCategory) {
@@ -92,6 +93,7 @@ class CategoryController extends ActionController {
 	 * Updates the given category object
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Category $category The category to update
+	 * @Flow\Validate(argumentName="$category", type="UniqueEntity", options={"identityProperties"={"name"}})
 	 * @return void
 	 */
 	public function updateAction(Category $category) {
