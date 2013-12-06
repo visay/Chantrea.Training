@@ -324,6 +324,12 @@
 			<trans-unit id="label.field.topic.newCategory">
 				<source>Category</source>
 			</trans-unit>
+			<trans-unit id="label.field.topic.newType">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="label.field.topic.newLocation">
+				<source>Location</source>
+			</trans-unit>
 
 			<!-- list of all scheduled topics start -->
 			<trans-unit id="label.all.scheduled">

@@ -71,6 +71,7 @@ class TypeController extends ActionController {
 	 * Adds the given new type object to the type repository
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Type $newType A new type to add
+	 * @Flow\Validate(argumentName="$newType", type="UniqueEntity", options={"identityProperties"={"name"}})
 	 *
 	 * @return void
 	 */
@@ -95,6 +96,7 @@ class TypeController extends ActionController {
 	 * Updates the given type object
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Type $type The type to update
+	 * @Flow\Validate(argumentName="$type", type="UniqueEntity", options={"identityProperties"={"name"}})
 	 *
 	 * @return void
 	 */

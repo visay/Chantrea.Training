@@ -75,6 +75,7 @@ class LocationController extends ActionController {
 	 * Adds the given new location object to the location repository
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Location $newLocation A new location to add
+	 * @Flow\Validate(argumentName="$newLocation", type="UniqueEntity", options={"identityProperties"={"room"}})
 	 * @return void
 	 */
 	public function createAction(Location $newLocation) {
@@ -97,6 +98,7 @@ class LocationController extends ActionController {
 	 * Updates the given location object
 	 *
 	 * @param \Chantrea\Training\Domain\Model\Location $location The location to update
+	 * @Flow\Validate(argumentName="$location", type="UniqueEntity", options={"identityProperties"={"room"}})
 	 * @return void
 	 */
 	public function updateAction(Location $location) {
