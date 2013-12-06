@@ -81,6 +81,9 @@
 			<trans-unit id="label.showcontact">
 				<source>Contact</source>
 			</trans-unit>
+			<trans-unit id="label.all.training">
+				<source>Training</source>
+			</trans-unit>
 			<!-- general end -->
 
 			<!-- plan form start -->
@@ -431,7 +434,12 @@
 			<trans-unit id="label.suggestion.header">
 				<source>Suggest your topic</source>
 			</trans-unit>
-
+			<trans-unit id="label.header.administration.setting">
+				<source>Settings</source>
+			</trans-unit>
+			<trans-unit id="label.dashboard.header">
+				<source>WE Training</source>
+			</trans-unit>
 			<!-- header block end -->
 
 			<!-- sign in and sign up block end -->

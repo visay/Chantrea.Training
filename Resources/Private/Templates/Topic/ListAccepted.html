@@ -2,13 +2,12 @@
 <f:layout name="Default" />
 
 <f:section name="Title"><f:translate id="label.accpetedTopic" /></f:section>
-<f:section name="Header"></f:section>
+<f:section name="Header"><f:translate id="label.accepted.looking.for.trainer" /></f:section>
 
 <f:section name="Content">
 	<ct:flashMessages />
 	<f:if condition="{acceptedTopics}">
 		<f:then>
-			<h3><f:translate id="label.accepted.looking.for.trainer" /></h3>
 			<table class="table table-condensed">
 				<tr>
 					<th><f:translate id="label.field.topic.creationDate" /></th>
